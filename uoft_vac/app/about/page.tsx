@@ -12,7 +12,7 @@ export default function Home() {
           height={38}
           priority
         />
-        <p>This is the home page.</p>
+        <p>This is the about us page.</p>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
