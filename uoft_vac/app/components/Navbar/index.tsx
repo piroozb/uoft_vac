@@ -14,7 +14,7 @@ export default function Navbar() {
     const navbarItems = links.map(link =>
         <li key={link.id}>
             <Link href={link.href}>
-            <div className="px-6 py-4 rounded-md bg-gray-700 text-white hover:bg-gray-600 transition-colors">
+            <div className="px-6 py-4 rounded-md bg-yellow-100 text-blue-500 hover:bg-green-50 transition-colors">
                 {link.title}
             </div>
             </Link>
@@ -22,7 +22,7 @@ export default function Navbar() {
     )
 
     return (
-    <nav className="bg-gray-800 p-4 text-white flex justify-center">
+    <nav className="bg-green-300 p-4 text-white flex justify-center">
       <ul className="flex gap-4">
         <li>
             <div className="relative w-[4em] h-[4em]">
