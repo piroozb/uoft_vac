@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
     const pathname = usePathname();
 
+    // Main pages: Home, About Us, Our Team, Join Us, FAQ.
+    // Home button will have the VAC logo instead of text.
     const links = [
         { title: "Home", href: "/", id: 1, isLogo: true },
         { title: "About Us", href: "/about", id: 2 },
@@ -15,6 +17,8 @@ export default function Navbar() {
         { title: "FAQ", href: "/faq", id: 5 }
     ];
 
+    // Map the buttons in a sequence in the bar.
+    // The button corresponding to the page the user is currently viewing will be a darker yellow.
     const navbarItems = links.map((link) => {
         const isActive = pathname === link.href;
         const baseColor = isActive ? "rgb(255,253,111)" : "rgb(255,254,176)";
@@ -45,10 +49,19 @@ export default function Navbar() {
         );
     });
 
+    // Navbar background is green with a gradient of darker green coming inward from the sides.
     return (
         <nav
             className="p-4 text-white flex justify-center"
-            style={{ backgroundColor: "rgb(17,194,42)" }}
+            style={{
+                background: `linear-gradient(
+            to right,
+            rgb(0,178,25) 0%,
+            rgb(53,228,78) 33.3%,
+            rgb(53,228,78) 66.6%,
+            rgb(0,178,25) 100%
+        )`,
+            }}
         >
             <ul className="flex gap-4 items-center">{navbarItems}</ul>
         </nav>
