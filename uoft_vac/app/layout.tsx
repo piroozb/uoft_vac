@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Visual Arts Club",
-  description: "Official UofT Visual Arts Club website",
+  title: "Visual Art Club",
+  description: "Official UofT Visual Art Club website",
 };
 
 export default function RootLayout({
