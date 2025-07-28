@@ -1,41 +1,56 @@
-import Link from 'next/link';
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+    const pathname = usePathname();
+
     const links = [
-        {title:'Home', href:'/', id:1},
-        {title:'About', href:'/about', id:2},
-        {title:'Join Us', href:'/join', id:3},
-        {title:'Our Team', href:'/team', id:4},
-        {title:'FAQ', href:'/faq', id:5},
-        {title:'Contact Us', href:'/contact', id:6}
+        { title: "Home", href: "/", id: 1, isLogo: true },
+        { title: "About Us", href: "/about", id: 2 },
+        { title: "Our Team", href: "/team", id: 3 },
+        { title: "Join Us", href: "/join", id: 4 },
+        { title: "FAQ", href: "/faq", id: 5 }
     ];
 
-    const navbarItems = links.map(link =>
-        <li key={link.id}>
-            <Link href={link.href}>
-            <div className="px-6 py-4 rounded-md bg-yellow-100 text-blue-500 hover:bg-green-50 transition-colors">
-                {link.title}
-            </div>
-            </Link>
-        </li>
-    )
+    const navbarItems = links.map((link) => {
+        const isActive = pathname === link.href;
+        const baseColor = isActive ? "rgb(255,253,111)" : "rgb(255,254,176)";
+
+        return (
+            <li key={link.id}>
+                <Link href={link.href}>
+                    <div
+                        style={{ backgroundColor: baseColor }}
+                        className="h-14 px-6 rounded-md text-blue-500 flex items-center justify-center"
+                    >
+                        {link.isLogo ? (
+                            <div className="h-full w-auto aspect-square relative">
+                                <Image
+                                    src="/assets/vac-logo.avif"
+                                    alt="VAC"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
+                        ) : (
+                            <span className="text-center text-base">{link.title}</span>
+                        )}
+                    </div>
+                </Link>
+            </li>
+        );
+    });
 
     return (
-    <nav className="bg-green-300 p-4 text-white flex justify-center">
-      <ul className="flex gap-4">
-        <li>
-            <div className="relative w-[4em] h-[4em]">
-                <Image           
-                    className="object-contain gap-4"
-                    src='/assets/vac-logo.avif'
-                    alt="VAC"
-                    fill
-                    priority/>
-            </div>
-        </li>
-        {navbarItems}
-      </ul>
-    </nav>
+        <nav
+            className="p-4 text-white flex justify-center"
+            style={{ backgroundColor: "rgb(17,194,42)" }}
+        >
+            <ul className="flex gap-4 items-center">{navbarItems}</ul>
+        </nav>
     );
 }
