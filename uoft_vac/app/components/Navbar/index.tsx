@@ -55,12 +55,14 @@ export default function Navbar() {
             className="p-4 text-white flex justify-center"
             style={{
                 background: `linear-gradient(
-            to right,
-            rgb(0,178,25) 0%,
-            rgb(53,228,78) 33.3%,
-            rgb(53,228,78) 66.6%,
-            rgb(0,178,25) 100%
-        )`,
+                to right,
+                rgb(0,178,25) 0%,
+                rgb(53,228,78) 33.3%,
+                rgb(53,228,78) 66.6%,
+                rgb(0,178,25) 100%
+                )`,
+                zIndex: 100,
+                position: "relative",
             }}
         >
             <ul className="flex gap-4 items-center">{navbarItems}</ul>

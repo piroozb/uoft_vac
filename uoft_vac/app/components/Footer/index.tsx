@@ -13,6 +13,8 @@ export default function Footer() {
           rgb(53,228,78) 66.6%,
           rgb(0,178,25) 100%
         )`,
+        zIndex: 100,
+        position: "relative",
       }}
     >
       {/* Club's email with link to default mailing . */}
