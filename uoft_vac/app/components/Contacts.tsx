@@ -39,7 +39,7 @@ export function EmailLink() {
 export function DiscordIcon() {
     return (
         <a
-            href="https://discord.gg/YOUR_INVITE"
+            href="https://discord.gg/ThMhbPpMyU"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Discord"
@@ -53,7 +53,7 @@ export function DiscordIcon() {
 export function InstagramIcon() {
     return (
         <a
-            href="https://instagram.com/YOUR_HANDLE"
+            href="https://instagram.com/uoft_vac/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
