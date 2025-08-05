@@ -1,4 +1,4 @@
-import { Email, Discord, Instagram } from "../Contacts";
+import { EmailLink, DiscordIcon, InstagramIcon } from "../Contacts";
 
 export default function Footer() {
   return (
@@ -16,11 +16,11 @@ export default function Footer() {
         position: "relative",
       }}
     >
-      <Email />
+      <EmailLink />
 
       <div className="flex justify-center gap-6 mt-4">
-        <Discord />
-        <Instagram />
+        <DiscordIcon />
+        <InstagramIcon />
       </div>
     </footer>
   );

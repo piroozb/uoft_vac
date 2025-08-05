@@ -24,7 +24,7 @@ export function CircleIcon({ icon, bgColor, size = 20 }: CircleIconProps) {
 }
 
 // Club's email with link.
-export function Email() {
+export function EmailLink() {
     return (
         <a
             href="mailto:utvisualartclub@gmail.com"
@@ -36,7 +36,7 @@ export function Email() {
 }
 
 // Discord icon with invite link.
-export function Discord() {
+export function DiscordIcon() {
     return (
         <a
             href="https://discord.gg/YOUR_INVITE"
@@ -50,7 +50,7 @@ export function Discord() {
 }
 
 // Instagram icon with account link.
-export function Instagram() {
+export function InstagramIcon() {
     return (
         <a
             href="https://instagram.com/YOUR_HANDLE"
