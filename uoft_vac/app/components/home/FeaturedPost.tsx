@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -10,43 +10,54 @@ export default function FeaturedPost() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
     const [expanded, setExpanded] = useState(false);
-    const [captionHeight, setCaptionHeight] = useState(0);
+    const [fullHeight, setFullHeight] = useState(0);
+    const [needsExpand, setNeedsExpand] = useState(false);
 
-    const hiddenRef = useRef<HTMLDivElement>(null);
+    const captionRef = useRef<HTMLDivElement>(null);
 
-    const visibleLines = 3;
+    const captionText = "clean my bellay ".repeat(100).trim();
+    const collapsedHeight = 288; // 18rem
 
-    useEffect(() => {
-        if (hiddenRef.current) {
-            setCaptionHeight(hiddenRef.current.scrollHeight);
-        }
-    }, [hiddenRef.current]);
-
-    const toggleExpanded = () => {
-        setExpanded((prev) => !prev);
-    };
+    const toggleExpanded = () => setExpanded(prev => !prev);
 
     const hasMultiple = images.length > 1;
 
-    const captionText = "example caption ".repeat(50).trim();
+    const slideTransition = {
+        duration: 0.4,
+        ease: [0.25, 1, 0.5, 1],
+    };
+
+    // Measure full caption height and check overflow
+    useLayoutEffect(() => {
+        if (captionRef.current) {
+            const scrollH = captionRef.current.scrollHeight;
+            setFullHeight(scrollH);
+            setNeedsExpand(scrollH > collapsedHeight);
+        }
+    }, [captionText]);
 
     return (
         <section className="w-full px-8 py-16">
             <h2 className="text-8xl font-bold mb-12 text-center">Featured Post!</h2>
 
-            <div className="flex flex-col md:flex-row items-start justify-center gap-16">
+            <div className="grid grid-cols-[auto_1fr] max-w-screen-lg mx-auto gap-16 items-start">
                 {/* Image Carousel */}
-                <div className="relative w-80 h-80 flex items-center justify-center rounded-md overflow-visible">
-                    <div className="relative w-72 h-72 overflow-hidden rounded-md shadow-lg">
+                <div className="relative w-80 h-80 flex items-center justify-center overflow-visible row-span-1">
+                    <div className="relative w-72 h-72 overflow-hidden shadow-lg rounded-md">
                         <AnimatePresence initial={false} custom={direction}>
                             <motion.div
                                 key={currentIndex}
-                                className={`absolute w-full h-full ${images[currentIndex]} rounded-md`}
+                                className={`absolute top-0 left-0 w-full h-full ${images[currentIndex]}`}
                                 custom={direction}
-                                initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-                                transition={{ duration: 0.5 }}
+                                variants={{
+                                    enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
+                                    center: { x: "0%" },
+                                    exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%" }),
+                                }}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={slideTransition}
                             />
                         </AnimatePresence>
                     </div>
@@ -56,7 +67,7 @@ export default function FeaturedPost() {
                             <button
                                 onClick={() => {
                                     setDirection(-1);
-                                    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+                                    setCurrentIndex(prev => prev === 0 ? images.length - 1 : prev - 1);
                                 }}
                                 className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white shadow"
                             >
@@ -66,7 +77,7 @@ export default function FeaturedPost() {
                             <button
                                 onClick={() => {
                                     setDirection(1);
-                                    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+                                    setCurrentIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
                                 }}
                                 className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white shadow"
                             >
@@ -77,8 +88,7 @@ export default function FeaturedPost() {
                                 {images.map((_, idx) => (
                                     <div
                                         key={idx}
-                                        className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${currentIndex === idx ? "bg-gray-700" : "bg-gray-300"
-                                            }`}
+                                        className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${currentIndex === idx ? "bg-gray-700" : "bg-gray-300"}`}
                                     />
                                 ))}
                             </div>
@@ -86,41 +96,35 @@ export default function FeaturedPost() {
                     )}
                 </div>
 
-                {/* Caption */}
-                <div className="max-w-xl text-left text-lg space-y-4 relative">
-                    {/* Always-visible portion (same height whether expanded or not) */}
-                    <div
-                        className="overflow-hidden"
+                {/* Caption with smooth expand/collapse */}
+                <div className="text-left text-lg relative col-start-2 row-span-2">
+                    <motion.div
+                        ref={captionRef}
+                        initial={false}
+                        animate={{
+                            maxHeight: expanded ? fullHeight : collapsedHeight,
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            ease: [.25, 1, .5, 1] // both expand & collapse fast→slow
+                        }}
                         style={{
-                            display: "-webkit-box",
-                            WebkitLineClamp: visibleLines,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
+                            overflow: "hidden"
                         }}
                     >
                         {captionText}
-                    </div>
-
-                    {/* Expandable portion */}
-                    <motion.div
-                        initial={false}
-                        animate={{ height: expanded ? captionHeight : 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="overflow-hidden"
-                    >
-                        <div ref={hiddenRef} className="mt-2">
-                            {captionText}
-                        </div>
                     </motion.div>
 
-                    <button
-                        onClick={toggleExpanded}
-                        className="text-blue-600 underline hover:opacity-80"
-                    >
-                        {expanded ? "Show less" : "... more"}
-                    </button>
+                    {needsExpand && (
+                        <button
+                            onClick={toggleExpanded}
+                            className="mt-2 text-blue-600 underline hover:opacity-80"
+                        >
+                            {expanded ? "Show less" : "... more"}
+                        </button>
+                    )}
 
-                    <p className="text-sm text-gray-500">1 day ago</p>
+                    <p className="text-sm text-gray-500 mt-2">1 day ago</p>
                 </div>
             </div>
 
