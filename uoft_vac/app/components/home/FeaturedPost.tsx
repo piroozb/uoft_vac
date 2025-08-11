@@ -4,6 +4,9 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Title from "../Title";
+import TextLink from "../TextLink";
+
 const images = ["bg-red-500", "bg-blue-500", "bg-yellow-500"];
 
 export default function FeaturedPost() {
@@ -16,7 +19,7 @@ export default function FeaturedPost() {
     const captionRef = useRef<HTMLDivElement>(null);
 
     const captionText = "clean my bellay ".repeat(100).trim();
-    const collapsedHeight = 288; // 18rem
+    const collapsedHeight = 288;
 
     const toggleExpanded = () => setExpanded(prev => !prev);
 
@@ -24,10 +27,10 @@ export default function FeaturedPost() {
 
     const slideTransition = {
         duration: 0.4,
-        ease: [0.25, 1, 0.5, 1],
+        ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
     };
 
-    // Measure full caption height and check overflow
+    // Measure full caption height and check overflow.
     useLayoutEffect(() => {
         if (captionRef.current) {
             const scrollH = captionRef.current.scrollHeight;
@@ -38,7 +41,8 @@ export default function FeaturedPost() {
 
     return (
         <section className="w-full px-8 py-16">
-            <h2 className="text-8xl font-bold mb-12 text-center">Featured Post!</h2>
+            {/* Title */}
+            <Title>Featured Post!</Title>
 
             <div className="grid grid-cols-[auto_1fr] max-w-screen-lg mx-auto gap-16 items-start">
                 {/* Image Carousel */}
@@ -96,7 +100,7 @@ export default function FeaturedPost() {
                     )}
                 </div>
 
-                {/* Caption with smooth expand/collapse */}
+                {/* Caption with expand/collapse. */}
                 <div className="text-left text-lg relative col-start-2 row-span-2">
                     <motion.div
                         ref={captionRef}
@@ -106,7 +110,7 @@ export default function FeaturedPost() {
                         }}
                         transition={{
                             duration: 0.5,
-                            ease: [.25, 1, .5, 1] // both expand & collapse fast→slow
+                            ease: [.25, 1, .5, 1] // Fast to slow transition.
                         }}
                         style={{
                             overflow: "hidden"
@@ -132,15 +136,12 @@ export default function FeaturedPost() {
             <div className="mt-16 text-center text-xl">
                 <p>
                     Wanna see more? Visit our{" "}
-                    <a
+                    <TextLink
+                        text="Instagram"
                         href="https://www.instagram.com/uoft_vac"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 underline hover:opacity-80"
-                    >
-                        Instagram
-                    </a>{" "}
-                    page!
+                        className="text-blue-600"
+                    />
+                    {" "}page!
                 </p>
             </div>
         </section>
