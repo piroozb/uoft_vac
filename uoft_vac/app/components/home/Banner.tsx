@@ -1,5 +1,7 @@
 import { EmailLink, DiscordIcon, InstagramIcon } from "../Contacts";
 
+const circleSize = 30;
+
 export default function Banner() {
     return (
         <section
@@ -7,9 +9,9 @@ export default function Banner() {
             style={{ height: "calc(100vh - 87px)" }}
         >
             <div className="flex flex-row items-center space-x-4">
-                <EmailLink />
-                <DiscordIcon />
-                <InstagramIcon />
+                <EmailLink size={circleSize}/>
+                <DiscordIcon size={circleSize}/>
+                <InstagramIcon size={circleSize}/>
             </div>
         </section>
     );

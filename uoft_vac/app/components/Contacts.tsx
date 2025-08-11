@@ -1,21 +1,40 @@
 import { FaDiscord, FaInstagram } from "react-icons/fa";
 import { ReactElement } from "react";
 
+import TextLink from "./TextLink";
+
+// Club's email with link.
+interface EmailLinkProps {
+    size: number;
+}
+export function EmailLink({ size }: EmailLinkProps) {
+    return (
+        <TextLink
+            text="utvisualartclub@gmail.com"
+            href="mailto:utvisualartclub@gmail.com"
+            className="text-black"
+        />
+    );
+}
+
 // Circle icon component (for Discord & Instagram icons).
 interface CircleIconProps {
     icon: ReactElement;
     bgColor: string;
-    size?: number; // Optional icon size
+    size: number;
 }
-export function CircleIcon({ icon, bgColor, size = 20 }: CircleIconProps) {
+export function CircleIcon({ icon, bgColor, size }: CircleIconProps) {
     return (
         <div
-            className={`w-10 h-10 rounded-full flex items-center justify-center`}
-            style={{ backgroundColor: bgColor }}
+            className="rounded-full flex items-center justify-center"
+            style={{
+                backgroundColor: bgColor,
+                width: size,
+                height: size,
+            }}
         >
-            {/* Clone the icon and override its size and color */}
             {icon && (
-                <span className="text-white" style={{ fontSize: size }}>
+                <span className="text-white" style={{ fontSize: size*.7 }}>
                     {icon}
                 </span>
             )}
@@ -23,20 +42,11 @@ export function CircleIcon({ icon, bgColor, size = 20 }: CircleIconProps) {
     );
 }
 
-// Club's email with link.
-export function EmailLink() {
-    return (
-        <a
-            href="mailto:utvisualartclub@gmail.com"
-            className="text-black hover:underline"
-        >
-            utvisualartclub@gmail.com
-        </a>
-    );
-}
-
 // Discord icon with invite link.
-export function DiscordIcon() {
+interface DiscordIconProps {
+    size: number;
+}
+export function DiscordIcon({ size }: DiscordIconProps) {
     return (
         <a
             href="https://discord.gg/ThMhbPpMyU"
@@ -44,13 +54,16 @@ export function DiscordIcon() {
             rel="noopener noreferrer"
             aria-label="Discord"
         >
-            <CircleIcon icon={<FaDiscord />} bgColor="#3b82f6" size={22} /> {/* Blue */}
+            <CircleIcon icon={<FaDiscord />} bgColor="#3b82f6" size={size} /> {/* Blue */}
         </a>
     );
 }
 
 // Instagram icon with account link.
-export function InstagramIcon() {
+interface InstagramIconProps {
+    size: number;
+}
+export function InstagramIcon({ size }: InstagramIconProps) {
     return (
         <a
             href="https://instagram.com/uoft_vac/"
@@ -58,7 +71,7 @@ export function InstagramIcon() {
             rel="noopener noreferrer"
             aria-label="Instagram"
         >
-            <CircleIcon icon={<FaInstagram />} bgColor="#ec4899" size={22} /> {/* Pink */}
+            <CircleIcon icon={<FaInstagram />} bgColor="#ec4899" size={size} /> {/* Pink */}
         </a>
     );
 }
