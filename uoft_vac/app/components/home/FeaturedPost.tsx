@@ -4,7 +4,7 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Title from "../Title";
+import SectionTitle from "../SectionTitle";
 import TextLink from "../TextLink";
 
 const images = ["bg-red-500", "bg-blue-500", "bg-yellow-500"];
@@ -42,7 +42,7 @@ export default function FeaturedPost() {
     return (
         <section className="w-full px-8 py-16">
             {/* Title */}
-            <Title>Featured Post!</Title>
+            <SectionTitle>Featured Post!</SectionTitle>
 
             <div className="grid grid-cols-[auto_1fr] max-w-screen-lg mx-auto gap-16 items-start">
                 {/* Image Carousel */}
@@ -100,7 +100,7 @@ export default function FeaturedPost() {
                     )}
                 </div>
 
-                {/* Caption with expand/collapse. */}
+                {/* Caption with expand/collapse */}
                 <div className="text-left text-lg relative col-start-2 row-span-2">
                     <motion.div
                         ref={captionRef}
