@@ -1,6 +1,6 @@
 import { EmailLink, DiscordIcon, InstagramIcon } from "../Contacts";
 
-const circleSize = 50;
+const contactsSize = 50;
 
 export default function Footer() {
   return (
@@ -18,11 +18,11 @@ export default function Footer() {
         position: "relative",
       }}
     >
-      <EmailLink size={circleSize}/>
+      <EmailLink size={contactsSize}/>
 
       <div className="flex justify-center gap-6 mt-4">
-        <DiscordIcon size={circleSize}/>
-        <InstagramIcon size={circleSize}/>
+        <DiscordIcon size={contactsSize}/>
+        <InstagramIcon size={contactsSize}/>
       </div>
     </footer>
   );
