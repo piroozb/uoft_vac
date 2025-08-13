@@ -7,12 +7,14 @@ import TextLink from "./TextLink";
 interface EmailLinkProps {
     size: number;
 }
+
 export function EmailLink({ size }: EmailLinkProps) {
     return (
         <TextLink
             text="utvisualartclub@gmail.com"
             href="mailto:utvisualartclub@gmail.com"
             className="text-black"
+            style={{ fontSize: size * .5}}
         />
     );
 }
@@ -23,6 +25,7 @@ interface CircleIconProps {
     bgColor: string;
     size: number;
 }
+
 export function CircleIcon({ icon, bgColor, size }: CircleIconProps) {
     return (
         <div
@@ -34,7 +37,7 @@ export function CircleIcon({ icon, bgColor, size }: CircleIconProps) {
             }}
         >
             {icon && (
-                <span className="text-white" style={{ fontSize: size*.7 }}>
+                <span className="text-white" style={{ fontSize: size * .7 }}>
                     {icon}
                 </span>
             )}
@@ -46,6 +49,7 @@ export function CircleIcon({ icon, bgColor, size }: CircleIconProps) {
 interface DiscordIconProps {
     size: number;
 }
+
 export function DiscordIcon({ size }: DiscordIconProps) {
     return (
         <a
@@ -63,6 +67,7 @@ export function DiscordIcon({ size }: DiscordIconProps) {
 interface InstagramIconProps {
     size: number;
 }
+
 export function InstagramIcon({ size }: InstagramIconProps) {
     return (
         <a
