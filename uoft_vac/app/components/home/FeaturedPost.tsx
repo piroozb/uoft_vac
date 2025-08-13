@@ -19,7 +19,7 @@ export default function FeaturedPost() {
     const captionRef = useRef<HTMLDivElement>(null);
 
     const captionText = "clean my bellay ".repeat(100).trim();
-    const collapsedHeight = 288;
+    const collapsedHeight = 400;
 
     const toggleExpanded = () => setExpanded(prev => !prev);
 
@@ -45,9 +45,11 @@ export default function FeaturedPost() {
             <SectionTitle>Featured Post!</SectionTitle>
 
             <div className="grid grid-cols-[auto_1fr] max-w-screen-lg mx-auto gap-16 items-start">
-                {/* Image Carousel */}
-                <div className="relative w-80 h-80 flex items-center justify-center overflow-visible row-span-1">
-                    <div className="relative w-72 h-72 overflow-hidden shadow-lg rounded-md">
+                {/* Picture carousel container */}
+                <div className="relative w-100 h-100 flex items-center justify-center overflow-visible row-span-1">
+                    {/* Pictures */}
+                    <div className="relative w-90 h-90 overflow-hidden shadow-lg rounded-md">
+                        {/* Slide transition */}
                         <AnimatePresence initial={false} custom={direction}>
                             <motion.div
                                 key={currentIndex}
@@ -66,8 +68,10 @@ export default function FeaturedPost() {
                         </AnimatePresence>
                     </div>
 
+                    {/* If there are multiple pictures, show the arrows & dots. */}
                     {hasMultiple && (
                         <>
+                            {/* Left button */}
                             <button
                                 onClick={() => {
                                     setDirection(-1);
@@ -78,6 +82,7 @@ export default function FeaturedPost() {
                                 <FaChevronLeft size={16} />
                             </button>
 
+                            {/* Right button */}
                             <button
                                 onClick={() => {
                                     setDirection(1);
@@ -88,6 +93,7 @@ export default function FeaturedPost() {
                                 <FaChevronRight size={16} />
                             </button>
 
+                            {/* Dots */}
                             <div className="absolute -bottom-3 flex gap-2 justify-center w-full">
                                 {images.map((_, idx) => (
                                     <div
@@ -100,8 +106,9 @@ export default function FeaturedPost() {
                     )}
                 </div>
 
-                {/* Caption with expand/collapse */}
+                {/* Caption */}
                 <div className="text-left text-lg relative col-start-2 row-span-2">
+                    {/* Expand/collapse transition */}
                     <motion.div
                         ref={captionRef}
                         initial={false}
@@ -110,7 +117,7 @@ export default function FeaturedPost() {
                         }}
                         transition={{
                             duration: 0.5,
-                            ease: [.25, 1, .5, 1] // Fast to slow transition.
+                            ease: [.25, 1, .5, 1] // Fast to slow ease.
                         }}
                         style={{
                             overflow: "hidden"
@@ -119,6 +126,7 @@ export default function FeaturedPost() {
                         {captionText}
                     </motion.div>
 
+                    {/* Expand/collapse prompt (if more caption to show) */}
                     {needsExpand && (
                         <button
                             onClick={toggleExpanded}
@@ -128,6 +136,7 @@ export default function FeaturedPost() {
                         </button>
                     )}
 
+                    {/* Time */}
                     <p className="text-sm text-gray-500 mt-2">1 day ago</p>
                 </div>
             </div>
