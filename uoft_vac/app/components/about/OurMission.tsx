@@ -1,18 +1,18 @@
 import SectionTitle from "../SectionTitle";
 
 const valueClass =
-    "w-75 h-75 rounded-full flex items-center justify-center text-white text-lg font-bold";
+    "w-60 h-60 rounded-full flex items-center justify-center text-white text-lg font-bold";
 
 export default function OurMission() {
     return (
-        <section className="flex flex-col items-center py-12 bg-[#b4f4b4]">
+        <section className="flex flex-col items-center py-10">
             {/* Title */}
             <SectionTitle>Our Mission!</SectionTitle>
 
             {/* Paint splash */}
             <div className="w-11/12 max-w-3xl bg-[rgb(53,228,78)] p-8 rounded-lg">
                 {/* Mission statement */}
-                <p className="text-[1.5rem] text-black leading-relaxed text-center">
+                <p className="text-[1.6rem] text-black leading-relaxed text-center">
                     The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
                     <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
                     interested in art to develop and express their passion through

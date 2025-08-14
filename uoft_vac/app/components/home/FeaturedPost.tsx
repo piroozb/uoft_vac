@@ -40,10 +40,11 @@ export default function FeaturedPost() {
     }, [captionText]);
 
     return (
-        <section className="w-full px-8 py-16">
+        <section className="w-full px-8 py-10">
             {/* Title */}
             <SectionTitle>Featured Post!</SectionTitle>
 
+            {/* Picture & caption container */}
             <div className="grid grid-cols-[auto_1fr] max-w-screen-lg mx-auto gap-16 items-start">
                 {/* Picture carousel container */}
                 <div className="relative w-100 h-100 flex items-center justify-center overflow-visible row-span-1">
@@ -142,7 +143,7 @@ export default function FeaturedPost() {
             </div>
 
             {/* Instagram Link */}
-            <div className="mt-16 text-center text-xl">
+            <div className="mt-10 text-center text-xl">
                 <p>
                     Wanna see more? Visit our{" "}
                     <TextLink

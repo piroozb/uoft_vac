@@ -1,11 +1,11 @@
 import SectionTitle from "../SectionTitle";
 
 const factClass =
-    "bg-white rounded-lg shadow-md flex items-center justify-center text-center text-black text-[1.4rem] leading-relaxed font-normal aspect-square w-64";
+    "bg-white rounded-lg shadow-md flex items-center justify-center text-center text-black text-[1.5rem] leading-relaxed font-normal aspect-square w-64";
 
 export default function FunFacts() {
     return (
-        <section className="flex flex-col items-center py-12 bg-[#b4f4b4]">
+        <section className="flex flex-col items-center py-10">
             {/* Title */}
             <SectionTitle>Fun Facts!</SectionTitle>
 
