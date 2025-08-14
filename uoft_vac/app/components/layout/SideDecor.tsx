@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const BAR_WIDTH = 100;
+const BAR_WIDTH = 150;
 const BAR_HEIGHT = 1000;
 const SCROLL_VEL = .1;
 
