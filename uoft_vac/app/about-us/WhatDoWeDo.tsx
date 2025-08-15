@@ -3,14 +3,14 @@
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
-export function Events() {
+function Events() {
     return (
         <div
             className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-6"
             style={{ backgroundColor: "rgb(255,206,0)" }}
         >
-            <SectionTitle size="text-6xl" padding="mb-5">Events</SectionTitle>
-            <p className="text-[1.25rem] text-center mb-5">
+            <SectionTitle size="text-5xl" padding="mb-5">Events</SectionTitle>
+            <p className="text-[1.35rem] text-center mb-5">
                 We host a variety of events every <strong>Friday 3–6pm</strong>.
                 <br />
                 All members can come at any point to relax and hang out.
@@ -87,14 +87,14 @@ export function Events() {
     )
 }
 
-export function OfficeHours() {
+function OfficeHours() {
     return (
         <div
             className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-6"
             style={{ backgroundColor: "rgb(0,214,255)" }}
         >
-            <SectionTitle size="text-6xl" padding="mb-5">Office Hours</SectionTitle>
-            <p className="text-[1.25rem] text-center mb-5">
+            <SectionTitle size="text-5xl" padding="mb-5">Office Hours</SectionTitle>
+            <p className="text-[1.35rem] text-center mb-5">
                 We host office hours every <strong>Thursday 3–6pm</strong>.
                 <br />
                 Be sure to check our <strong>Discord announcements</strong> for additional office hours!
@@ -103,12 +103,12 @@ export function OfficeHours() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
                 {/* Video container */}
                 <div className="flex flex-col items-center">
-                    <p className="text-[1.4rem] mb-4 text-center">
+                    <p className="text-[1.35rem] mb-4 text-center">
                         Can't find our office? Watch this video!
                     </p>
                     <div
                         className="overflow-hidden rounded-md w-full"
-                        style={{ height: "425px" }}
+                        style={{ height: "450px" }}
                     >
                         <video
                             src="/office-video.mp4"
@@ -147,7 +147,7 @@ export function OfficeHours() {
 
 export default function WhatDoWeDo() {
     return (
-        <section className="w-full px-8 py-10">
+        <section className="w-full px-8 my-10">
             {/* Title */}
             <SectionTitle>What do we do?</SectionTitle>
 
