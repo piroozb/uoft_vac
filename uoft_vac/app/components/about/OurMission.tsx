@@ -1,7 +1,7 @@
 import SectionTitle from "../SectionTitle";
 
 const valueClass =
-    "w-60 h-60 rounded-full flex items-center justify-center text-white text-lg font-bold";
+    "w-65 h-65 rounded-full flex items-center justify-center text-white text-lg font-bold";
 
 export default function OurMission() {
     return (
@@ -10,7 +10,7 @@ export default function OurMission() {
             <SectionTitle>Our Mission!</SectionTitle>
 
             {/* Paint splash */}
-            <div className="w-11/12 max-w-3xl bg-[rgb(53,228,78)] p-8 rounded-lg">
+            <div className="w-11/12 max-w-4xl bg-[rgb(53,228,78)] p-8 rounded-lg">
                 {/* Mission statement */}
                 <p className="text-[1.6rem] text-black leading-relaxed text-center">
                     The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
