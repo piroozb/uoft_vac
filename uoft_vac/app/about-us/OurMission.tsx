@@ -5,7 +5,7 @@ const valueClass =
 
 export default function OurMission() {
     return (
-        <section className="flex flex-col items-center py-10">
+        <section className="flex flex-col items-center my-10">
             {/* Title */}
             <SectionTitle>Our Mission!</SectionTitle>
 

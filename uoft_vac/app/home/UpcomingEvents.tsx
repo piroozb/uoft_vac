@@ -4,7 +4,7 @@ import SectionTitle from "../common/SectionTitle";
 
 export default function UpcomingEvents() {
     return (
-        <section className="w-full px-8 py-10">
+        <section className="w-full px-8 my-10">
             {/* Title */}
             <SectionTitle>Upcoming Events!</SectionTitle>
 
