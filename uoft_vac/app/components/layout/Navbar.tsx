@@ -28,7 +28,7 @@ export default function Navbar() {
                 <Link href={link.href}>
                     <div
                         style={{ backgroundColor: baseColor }}
-                        className="h-14 px-6 rounded-md text-blue-500 flex items-center justify-center"
+                        className="h-20 px-10 rounded-md text-blue-500 flex items-center justify-center"
                     >
                         {link.isLogo ? (
                             <div className="h-full w-auto aspect-square relative">
