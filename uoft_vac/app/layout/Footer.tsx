@@ -1,4 +1,4 @@
-import { EmailLink, DiscordIcon, InstagramIcon } from "../Contacts";
+import { EmailLink, DiscordIcon, InstagramIcon } from "../common/Contacts";
 
 const contactsSize = 50;
 

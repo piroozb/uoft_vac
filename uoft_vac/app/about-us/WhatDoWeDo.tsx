@@ -1,6 +1,6 @@
 "use client";
 
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../common/SectionTitle";
 
 export default function WhatDoWeDo() {
     return (

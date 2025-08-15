@@ -1,4 +1,4 @@
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../common/SectionTitle";
 
 const valueClass =
     "w-65 h-65 rounded-full flex items-center justify-center text-white text-lg font-bold";

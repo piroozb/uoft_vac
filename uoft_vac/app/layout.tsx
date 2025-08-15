@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Fredoka } from "next/font/google";
 
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import SideDecor from "./components/layout/SideDecor";
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
+import SideDecor from "./layout/SideDecor";
 
 export const metadata: Metadata = {
   title: "Visual Art Club",

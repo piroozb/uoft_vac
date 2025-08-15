@@ -1,4 +1,4 @@
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../common/SectionTitle";
 
 const factClass =
     "bg-white rounded-lg shadow-md flex items-center justify-center text-center text-black text-[1.5rem] leading-relaxed font-normal aspect-square w-64";

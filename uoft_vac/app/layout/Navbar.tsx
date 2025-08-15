@@ -11,9 +11,9 @@ export default function Navbar() {
     // Home button will have the VAC logo instead of text.
     const links = [
         { title: "Home", href: "/", id: 1, isLogo: true },
-        { title: "About Us", href: "/about", id: 2 },
-        { title: "Our Team", href: "/team", id: 3 },
-        { title: "Join Us", href: "/join", id: 4 },
+        { title: "About Us", href: "/about-us", id: 2 },
+        { title: "Our Team", href: "/our-team", id: 3 },
+        { title: "Join Us", href: "/join-us", id: 4 },
         { title: "FAQ", href: "/faq", id: 5 }
     ];
 

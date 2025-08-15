@@ -4,8 +4,8 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-import SectionTitle from "../SectionTitle";
-import TextLink from "../TextLink";
+import SectionTitle from "../common/SectionTitle";
+import TextLink from "../common/TextLink";
 
 const images = ["bg-red-500", "bg-blue-500", "bg-yellow-500"];
 

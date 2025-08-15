@@ -1,6 +1,6 @@
-import Banner from "./components/home/Banner";
-import FeaturedPost from "./components/home/FeaturedPost";
-import UpcomingEvents from "./components/home/UpcomingEvents";
+import Banner from "./home/Banner";
+import FeaturedPost from "./home/FeaturedPost";
+import UpcomingEvents from "./home/UpcomingEvents";
 
 export default function Home() {
   return (
