@@ -3,13 +3,16 @@
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
+const subsectionSize = "text-5xl";
+const subsectionMargin = "mb-5";
+
 function Events() {
     return (
         <div
             className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-6"
             style={{ backgroundColor: "rgb(255,206,0)" }}
         >
-            <SectionTitle size="text-5xl" padding="mb-5">Events</SectionTitle>
+            <SectionTitle size={subsectionSize} margin={subsectionMargin}>Events</SectionTitle>
             <p className="text-[1.35rem] text-center mb-5">
                 We host a variety of events every <strong>Friday 3–6pm</strong>.
                 <br />
@@ -93,7 +96,7 @@ function OfficeHours() {
             className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-6"
             style={{ backgroundColor: "rgb(0,214,255)" }}
         >
-            <SectionTitle size="text-5xl" padding="mb-5">Office Hours</SectionTitle>
+            <SectionTitle size={subsectionSize} margin={subsectionMargin}>Office Hours</SectionTitle>
             <p className="text-[1.35rem] text-center mb-5">
                 We host office hours every <strong>Thursday 3–6pm</strong>.
                 <br />
