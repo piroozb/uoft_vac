@@ -3,15 +3,15 @@
 import { execData, ExecDataTypes } from "./ExecData";
 
 interface ExecEntryListProps {
-    key: string;
+    personKey: string;
     right?: boolean;
 }
 
-export default function ExecEntryList({ key, right = false }: ExecEntryListProps) {
-    const data: ExecDataTypes = execData[key];
+export default function ExecEntryList({ personKey, right = false }: ExecEntryListProps) {
+    const data: ExecDataTypes = execData[personKey];
 
     const {
-        name = key,
+        name = personKey,
         position,
         colour = "#000000",
         study,
@@ -26,7 +26,7 @@ export default function ExecEntryList({ key, right = false }: ExecEntryListProps
             {/* Artwork */}
             <div className="flex-1 max-w-sm aspect-square bg-white rounded-md flex items-center justify-center">
                 <img
-                    src={`/exec-artworks/${key}.jpg`}
+                    src={`/exec-artworks/${personKey}.jpg`}
                     alt={`${name}'s artwork`}
                     className="w-full h-full object-cover rounded-md"
                     onError={(e) => {
