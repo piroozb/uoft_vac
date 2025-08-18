@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Fredoka } from "next/font/google";
 
+import { bgLightGreen } from "./common/Constants";
+
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import SideDecor from "./layout/SideDecor";
@@ -27,7 +29,7 @@ export default function RootLayout({
     <html lang="en" className={fredoka.variable}>
       {/* Light green bg. */}
       <body
-        className={`antialiased bg-[rgb(198,255,206)]`}
+        className={`antialiased bg-[${bgLightGreen}]`}
       >
         <Navbar />
         {children}
