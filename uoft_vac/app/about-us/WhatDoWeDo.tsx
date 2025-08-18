@@ -1,10 +1,8 @@
 "use client";
 
+import { subsectionSize, subsectionMargin } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
-
-const subsectionSize = "text-5xl";
-const subsectionMargin = "mb-5";
 
 function Events() {
     return (
@@ -123,24 +121,30 @@ function OfficeHours() {
                 </div>
 
                 {/* Bubble graphics container */}
-                <div className="flex flex-col justify-center gap-4">
+                <div className="flex flex-col justify-center gap-">
                     {/* Make Art */}
                     <div className="flex justify-center">
-                        <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-md text-lg font-semibold translate-x-15">
-                            Make art
-                        </div>
+                        <img
+                            src="/office-hours-make-art.png"
+                            alt="Make art"
+                            className="w-40 h-40 object-contain translate-x-12.5"
+                        />
                     </div>
                     {/* Study */}
                     <div className="flex justify-center">
-                        <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-md text-lg font-semibold -translate-x-20 -translate-y-3">
-                            Study
-                        </div>
+                        <img
+                            src="/office-hours-study.png"
+                            alt="Study"
+                            className="w-40 h-40 object-contain -translate-x-17.5 -translate-y-3"
+                        />
                     </div>
                     {/* Socialise */}
                     <div className="flex justify-center">
-                        <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-md text-lg font-semibold translate-x-5">
-                            Socialise
-                        </div>
+                        <img
+                            src="/office-hours-socialise.png"
+                            alt="Socialise"
+                            className="w-40 h-40 object-contain translate-x-5"
+                        />
                     </div>
                 </div>
             </div>
