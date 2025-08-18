@@ -40,6 +40,22 @@ export default function ExecEntryList({ entryKey, right = false }: ExecEntryList
                     />
                 </div>
 
+                {/* Expanded artwork */}
+                {expanded && (
+                    <div
+                        // Gray background.
+                        className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-101 cursor-pointer"
+                        onClick={() => setExpanded(false)}
+                    >
+                        {/* Expanded image has its original dimensions. */}
+                        <img
+                            src={`/exec-artworks/${entryKey}.jpg`}
+                            alt={`${name}'s artwork enlarged`}
+                            className="max-w-[75%] max-h-[75%] object-contain rounded-md shadow-lg"
+                        />
+                    </div>
+                )}
+
                 {/* Info */}
                 <div className={`flex-[2] ${right ? "text-right" : "text-left"} self-start`}>
                     <h3 className="text-5xl font-normal">{position}</h3>
@@ -60,20 +76,6 @@ export default function ExecEntryList({ entryKey, right = false }: ExecEntryList
                     <p className="text-[1.5rem] mt-4">{fact}</p>
                 </div>
             </div>
-
-            {/* Lightbox Overlay */}
-            {expanded && (
-                <div
-                    className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-101 cursor-pointer"
-                    onClick={() => setExpanded(false)}
-                >
-                    <img
-                        src={`/exec-artworks/${entryKey}.jpg`}
-                        alt={`${name}'s artwork enlarged`}
-                        className="max-w-[90%] max-h-[90%] object-contain rounded-md shadow-lg"
-                    />
-                </div>
-            )}
         </>
     );
 }
