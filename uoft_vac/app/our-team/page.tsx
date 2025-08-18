@@ -14,42 +14,42 @@ export default function OurTeam() {
             <div className="space-y-6">
                 {/* Admin */}
                 <SectionTitle size={categorySize} margin={categoryMargin}>Admin</SectionTitle>
-                <ExecEntryList personKey='Sy' />
-                <ExecEntryList personKey='Allison' right />
-                <ExecEntryList personKey='Jackie' />
-                <ExecEntryList personKey='Emily' right />
-                <ExecEntryList personKey='Jaiz' />
+                <ExecEntryList entryKey='Sy' />
+                <ExecEntryList entryKey='Allison' right />
+                <ExecEntryList entryKey='Jackie' />
+                <ExecEntryList entryKey='Emily' right />
+                <ExecEntryList entryKey='Jaiz' />
 
                 {/* Events */}
                 <SectionTitle size={categorySize} margin={categoryMargin}>Events</SectionTitle>
-                <ExecEntryList personKey='Thomas' />
-                <ExecEntryList personKey='Pelin' right />
-                <ExecEntryList personKey='Joyce' />
-                <ExecEntryList personKey='Valentine' right />
+                <ExecEntryList entryKey='Thomas' />
+                <ExecEntryList entryKey='Pelin' right />
+                <ExecEntryList entryKey='Joyce' />
+                <ExecEntryList entryKey='Valentine' right />
 
                 {/* Graphics */}
                 <SectionTitle size={categorySize} margin={categoryMargin}>Graphics</SectionTitle>
-                <ExecEntryList personKey='BiewBiew' />
-                <ExecEntryList personKey='Angelia' right />
-                <ExecEntryList personKey='Christina' />
-                <ExecEntryList personKey='Rachel' right />
+                <ExecEntryList entryKey='BiewBiew' />
+                <ExecEntryList entryKey='Angelia' right />
+                <ExecEntryList entryKey='Christina' />
+                <ExecEntryList entryKey='Rachel' right />
 
                 {/* Marketing */}
                 <SectionTitle size={categorySize} margin={categoryMargin}>Marketing</SectionTitle>
-                <ExecEntryList personKey='Jae' />
-                <ExecEntryList personKey='Nabneel' right />
-                <ExecEntryList personKey='Emilio' />
-                <ExecEntryList personKey='Kelvin' right />
+                <ExecEntryList entryKey='Jae' />
+                <ExecEntryList entryKey='Nabneel' right />
+                <ExecEntryList entryKey='Emilio' />
+                <ExecEntryList entryKey='Kelvin' right />
 
                 {/* Webmaster */}
                 <SectionTitle size={categorySize} margin={categoryMargin}>Webmaster</SectionTitle>
-                <ExecEntryList personKey='Pirooz' />
-                <ExecEntryList personKey='Sunny' right />
+                <ExecEntryList entryKey='Pirooz' />
+                <ExecEntryList entryKey='Sunny' right />
 
                 {/* Office Manager */}
                 <SectionTitle size={categorySize} margin={categoryMargin}>Office Manager</SectionTitle>
-                <ExecEntryList personKey='Lydia' />
-                <ExecEntryList personKey='Alex' right />
+                <ExecEntryList entryKey='Lydia' />
+                <ExecEntryList entryKey='Alex' right />
 
             </div>
         </div>
