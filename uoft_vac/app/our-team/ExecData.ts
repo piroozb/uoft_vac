@@ -151,7 +151,6 @@ export const execData: Record<string, ExecDataTypes> = {
 
     // Developer team.
     Pirooz: {
-        position: "Webmaster",
         colour: "#6510e6",
         study: "4th year, Computer Science",
         medium: "painting",
@@ -159,7 +158,6 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Sunny: {
-        position: "Webmaster",
         colour: "#FF8400",
         study: "2nd year, Mathematics",
         medium: "clay",
@@ -168,7 +166,6 @@ export const execData: Record<string, ExecDataTypes> = {
 
     // Office team.
     Lydia: {
-        position: "Office Manager",
         colour: "#CFABC3",
         study: "3rd year, Mathematics/Philosophy",
         medium: "digital",
@@ -176,10 +173,9 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Alex: { // Missing data.
-        position: "Office Manager",
-        colour: undefined,
-        study: undefined,
-        medium: undefined,
-        fact: undefined,
+        colour: "#A3D5FF",
+        study: "2nd year, Visual Studies and Sociology Major",
+        medium: "oil paint, digital, pencil, crafting with random stuff I pick up on the floor or in the garbage bin",
+        fact: "I like wholesome yaoi",
     },
 };
