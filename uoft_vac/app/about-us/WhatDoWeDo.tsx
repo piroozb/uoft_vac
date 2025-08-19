@@ -1,6 +1,13 @@
 "use client";
 
-import { subsectionSize, subsectionMargin } from "../common/Constants";
+import {
+    bgLightGreen,
+    barsCentreGreen,
+    instagramLinkPink,
+    instagramLinkHoverPink,
+    subsectionSize,
+    subsectionMargin,
+} from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
@@ -60,13 +67,14 @@ function Events() {
                 {/* Instagram */}
                 <div
                     className="rounded-2xl px-6 py-3 text-white text-[1.2rem] shadow-md"
-                    style={{ backgroundColor: "rgb(189,130,255)", minHeight: "80px" }}
+                    style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
                 >
                     Check out our past events on our{" "}
                     <TextLink
                         text="Instagram"
                         href="https://instagram.com/uoft_vac/"
-                        className="text-blue-600"
+                        style={{ color: instagramLinkPink}}
+                        hoverStyle={{ color: instagramLinkHoverPink }}
                     />
                     {" "}page!
                 </div>
@@ -74,13 +82,14 @@ function Events() {
                 {/* Join us */}
                 <div
                     className="rounded-2xl px-6 py-3 text-white text-[1.2rem] shadow-md"
-                    style={{ backgroundColor: "rgb(189,130,255)", minHeight: "80px" }}
+                    style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
                 >
                     Feeling inspired?<br />
                     <TextLink
                         text="Become a member today!"
                         href="/join-us"
-                        style={{ color: "rgb(53,228,78)" }}
+                        style={{ color: barsCentreGreen }}
+                        hoverStyle={{ color: bgLightGreen }}
                     />
                 </div>
             </div>
