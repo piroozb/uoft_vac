@@ -4,6 +4,7 @@ import { useState, useRef, useLayoutEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { instagramLink } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
@@ -153,8 +154,9 @@ export default function FeaturedPost() {
                     Wanna see more? Visit our{" "}
                     <TextLink
                         text="Instagram"
-                        href="https://www.instagram.com/uoft_vac"
-                        className="text-blue-600"
+                        href={instagramLink}
+                        style={{ color: "blue" }}
+                        hoverStyle={{ color: "blue" }}
                     />
                     {" "}page!
                 </p>

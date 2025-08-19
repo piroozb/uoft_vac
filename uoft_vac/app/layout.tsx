@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={fredoka.variable}>
-      {/* Light green bg. */}
+      {/* Light green bg */}
       <body
         className={`antialiased bg-[${bgLightGreen}]`}
       >

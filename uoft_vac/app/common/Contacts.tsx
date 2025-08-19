@@ -14,7 +14,6 @@ export function EmailLink({ size }: EmailLinkProps) {
         <TextLink
             text="utvisualartclub@gmail.com"
             href={emailLink}
-            className="text-black"
             style={{ fontSize: size * .5}}
         />
     );
