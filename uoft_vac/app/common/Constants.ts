@@ -10,7 +10,10 @@ export const barsEdgesDarkGreen = "rgb(0,178,25)";
 export const barsCentreGreen = "rgb(53,228,78)";
 export const pageButtonsLightYellow = "rgb(255,254,176)";
 export const pageButtonsActiveYellow = "rgb(255,253,111)";
-export const textLinkPurple = "rgb(132, 0, 255)";
+export const instagramLinkPink = "rgb(255,179,96)";
+export const instagramLinkHoverPink = "rgb(255,219,182)";
+export const JoinLinkDarkPurple = "rgb(77, 0, 155)";
+export const JoinLinkHoverPurple = "rgb(132, 0, 255)";
 
 // Style:
 export const subsectionSize = "text-5xl";
