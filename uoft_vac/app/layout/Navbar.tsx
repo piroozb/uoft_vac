@@ -14,14 +14,15 @@ import {
 export default function Navbar() {
     const pathname = usePathname();
 
-    // Main pages: Home, About Us, Our Team, Join Us, FAQ.
+    // Main pages: Home, About Us, Our Team, Join Us, Contact Us, FAQ.
     // Home button will have the VAC logo instead of text.
     const links = [
         { title: "Home", href: "/", id: 1, isLogo: true },
         { title: "About Us", href: "/about-us", id: 2 },
         { title: "Our Team", href: "/our-team", id: 3 },
         { title: "Join Us", href: "/join-us", id: 4 },
-        { title: "FAQ", href: "/faq", id: 5 }
+        { title: "Contact Us", href: "/contact-us", id: 5 },
+        { title: "FAQ", href: "/faq", id: 6 },
     ];
 
     // Map the buttons in a sequence in the bar.
