@@ -5,16 +5,17 @@ interface LinkProps {
     href: string;
     style?: React.CSSProperties;
     hoverStyle?: React.CSSProperties;
+    stay?: boolean;
 }
 
-export default function TextLink({ text, href, style, hoverStyle }: LinkProps) {
+export default function TextLink({ text, href, style, hoverStyle, stay = false }: LinkProps) {
     return (
         <a
             href={href}
-            target="_blank"
+            target={stay ? "_self" : "_blank"}
             rel="noopener noreferrer"
-            style={style}
             className="hover:underline relative"
+            style={style}
             onMouseEnter={(e) => {
                 if (hoverStyle) Object.assign(e.currentTarget.style, hoverStyle);
             }}
