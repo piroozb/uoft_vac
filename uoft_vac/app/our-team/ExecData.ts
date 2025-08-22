@@ -53,7 +53,7 @@ export const execData: Record<string, ExecDataTypes> = {
     Thomas: {
         position: "Events Director",
         colour: "#d42069d",
-        study: "2",
+        study: "2nd year, Cognitive Science/Psychology/Visual Studies",
         medium: "Art",
         fact: "I am fun",
     },
@@ -74,12 +74,13 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I'm writing a novel that totals over 115k words!",
     },
 
-    Valentine: { // Missing data.
+    Valentine: {
+        name: "Val",
         position: "Events Assistant",
-        colour: undefined,
-        study: undefined,
-        medium: undefined,
-        fact: undefined,
+        colour: "#AB0803",
+        study: "3rd year, Political Science/Diaspora/Transnational Studies",
+        medium: "digital, watercolours, oil paints",
+        fact: "i've studied over 4 languages",
     },
 
     // Graphics team.
