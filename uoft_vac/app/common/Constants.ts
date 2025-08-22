@@ -10,10 +10,12 @@ export const barsEdgesDarkGreen = "rgb(0,178,25)";
 export const barsCentreGreen = "rgb(53,228,78)";
 export const pageButtonsLightYellow = "rgb(255,254,176)";
 export const pageButtonsActiveYellow = "rgb(255,253,111)";
-export const instagramLinkPink = "rgb(255,179,96)";
-export const instagramLinkHoverPink = "rgb(255,219,182)";
-export const JoinLinkDarkPurple = "rgb(77, 0, 155)";
-export const JoinLinkHoverPurple = "rgb(132, 0, 255)";
+export const textLinkDarkPurple = "rgb(77,0,155)";
+export const textLinkHoverPurple = "rgb(132,0,255)";
+export const textLinkDarkOrange = "rgb(165,32,0)";
+export const textLinkHoverOrange = "rgb(255,51,0)";
+export const faqLinkDarkBlue = "rgb(0,0,179)";
+export const faqLinkHoverblue = "rgb(0,0,255)";
 
 // Style:
 export const subsectionSize = "text-5xl";
