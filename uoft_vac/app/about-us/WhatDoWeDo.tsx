@@ -1,20 +1,16 @@
 "use client";
 
 import {
-    bgLightGreen,
-    barsCentreGreen,
-    instagramLinkPink,
-    instagramLinkHoverPink,
+    instagramLink,
     subsectionSize,
     subsectionMargin,
 } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
-import TextLink from "../common/TextLink";
 
 function Events() {
     return (
         <div
-            className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-6"
+            className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-5"
             style={{ backgroundColor: "rgb(255,206,0)" }}
         >
             <SectionTitle size={subsectionSize} margin={subsectionMargin}>Events</SectionTitle>
@@ -62,36 +58,29 @@ function Events() {
                 </p>
             </div>
 
-            {/* Call-to-action boxes container */}
+            {/* Purple buttons */}
             <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* Instagram */}
-                <div
-                    className="rounded-2xl px-6 py-3 text-white text-[1.2rem] shadow-md"
+                <a
+                    href={instagramLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md transition-all transform hover:scale-95 hover:text-white"
                     style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
                 >
-                    Check out our past events on our{" "}
-                    <TextLink
-                        text="Instagram"
-                        href="https://instagram.com/uoft_vac/"
-                        style={{ color: instagramLinkPink}}
-                        hoverStyle={{ color: instagramLinkHoverPink }}
-                    />
-                    {" "}page!
-                </div>
+                    Check out our past events on our Instagram page!
+                </a>
 
                 {/* Join us */}
-                <div
-                    className="rounded-2xl px-6 py-3 text-white text-[1.2rem] shadow-md"
+                <a
+                    href="/join-us"
+                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md transition-all transform hover:scale-95 hover:text-white"
                     style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
                 >
-                    Feeling inspired?<br />
-                    <TextLink
-                        text="Become a member today!"
-                        href="/join-us"
-                        style={{ color: barsCentreGreen }}
-                        hoverStyle={{ color: bgLightGreen }}
-                    />
-                </div>
+                    Feeling inspired?
+                    <br />
+                    Become a member today!
+                </a>
             </div>
         </div>
     )
@@ -100,7 +89,7 @@ function Events() {
 function OfficeHours() {
     return (
         <div
-            className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-6"
+            className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-5"
             style={{ backgroundColor: "rgb(0,214,255)" }}
         >
             <SectionTitle size={subsectionSize} margin={subsectionMargin}>Office Hours</SectionTitle>
