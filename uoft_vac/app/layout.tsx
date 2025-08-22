@@ -29,7 +29,8 @@ export default function RootLayout({
     <html lang="en" className={fredoka.variable}>
       {/* Light green bg */}
       <body
-        className={`antialiased bg-[${bgLightGreen}]`}
+        className="antialiased"
+        style={{ backgroundColor: bgLightGreen }}
       >
         <Navbar />
         {children}
