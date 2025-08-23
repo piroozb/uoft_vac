@@ -7,7 +7,7 @@ export default function Banner() {
         <section
             className="relative z-10 w-full flex flex-col justify-end px-8 pb-6 bg-cover bg-center"
             style={{
-                height: "calc(100vh - 87px)",
+                height: "calc(98vh - 87px)",
                 backgroundImage: "url('/banner-draft.jpg')"
             }}
         >
