@@ -65,7 +65,9 @@ function Events() {
                     href={instagramLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md transition-all transform hover:scale-95 hover:text-white"
+                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md 
+                   transform transition-all duration-300
+                   hover:scale-95 hover:text-[rgb(255,254,176)]"
                     style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
                 >
                     Check out our past events on our Instagram page!
@@ -74,7 +76,9 @@ function Events() {
                 {/* Join us */}
                 <a
                     href="/join-us"
-                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md transition-all transform hover:scale-95 hover:text-white"
+                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md 
+                   transform transition-all duration-300
+                   hover:scale-95 hover:text-[rgb(198,255,206)]"
                     style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
                 >
                     Feeling inspired?
