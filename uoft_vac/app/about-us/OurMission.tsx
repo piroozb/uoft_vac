@@ -12,7 +12,10 @@ export default function OurMission() {
             <SectionTitle>Our Mission!</SectionTitle>
 
             {/* Paint splash */}
-            <div className={`w-11/12 max-w-4xl bg-[${barsCentreGreen}] p-8 rounded-lg`}>
+            <div
+                className="w-11/12 max-w-4xl p-8 rounded-lg"
+                style={{ backgroundColor: barsCentreGreen }}
+            >
                 {/* Mission statement */}
                 <p className="text-[1.6rem] text-black leading-relaxed text-center">
                     The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
