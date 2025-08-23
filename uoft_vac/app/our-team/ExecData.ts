@@ -93,12 +93,12 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "My favorite drink flavors are either matcha or ube!",
     },
 
-    Angelia: { // Missing data.
+    Angelia: {
         position: "Graphics Assistant",
-        colour: "#87fee9",
+        colour: "#80DDE0",
         study: "5th year, Political Science",
-        medium: undefined,
-        fact: "I have a tier list of oatmilks that I like -3-",
+        medium: "digital",
+        fact: "I think that oat milk is the best tasting milk >:D",
     },
 
     Christina: {
