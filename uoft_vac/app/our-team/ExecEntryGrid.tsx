@@ -24,13 +24,13 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
 
             {/* Name with outline */}
             <h2
-                className="text-6xl font-bold mb-5"
+                className="text-6xl font-bold mb-5 whitespace-nowrap text-ellipsis leading-[1.1] pb-2"
                 style={{
                     color: colour,
                     textShadow: `-1px -1px 0 #000,
-                                 1px -1px 0 #000,
-                                -1px  1px 0 #000,
-                                 1px  1px 0 #000`,
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000`,
                 }}
             >
                 {name}
@@ -39,11 +39,13 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
             {/* Artwork */}
             <ExecArtwork name={entryKey} size={250} />
 
-            {/* Position, study, medium, fact */}
-            <h3 className="text-2xl font-normal mt-4">{position}</h3>
-            <p className="text-[1.3rem] mt-4">{study}</p>
-            <p className="text-[1.3rem] mt-4">Favourite medium: {medium}</p>
-            <p className="text-[1.5rem] mt-4">{fact}</p>
+            {/* Info container */}
+            <div className="max-w-[250px] w-full">
+                <h3 className="text-2xl font-normal mt-4">{position}</h3>
+                <p className="text-[1.3rem] mt-4">{study}</p>
+                <p className="text-[1.3rem] mt-4">Favourite medium:<br />{medium}</p>
+                <p className="text-[1.5rem] mt-4">{fact}</p>
+            </div>
         </div>
     );
 }
