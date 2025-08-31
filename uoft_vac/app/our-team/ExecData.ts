@@ -25,12 +25,12 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I like cats.",
     },
 
-    Jackie: { // Missing data.
+    Jackie: {
         position: "Co-Vice President",
-        colour: "#21fef7",
-        study: "6th year, Computer Science/Visual Art",
-        medium: undefined,
-        fact: "i shoot lightning from my fingers",
+        colour: "#51F5CC",
+        study: "6th year, Computer Science",
+        medium: "digital",
+        fact: "I am addicted to Pokémon Go right now",
     },
 
     Emily: { // Missing data.
@@ -84,13 +84,13 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     // Graphics team.
-    BiewBiew: { // Missing data.
+    BiewBiew: {
         name: "Biew Biew",
         position: "Graphics Director",
-        colour: "#a5a3fc",
+        colour: "#A6A3FC",
         study: "4th year, History",
-        medium: undefined,
-        fact: "My favorite drink flavors are either matcha or ube!",
+        medium: "watercolour, digital",
+        fact: "I can recite the overwatch short ”dragons” from memory.",
     },
 
     Angelia: {
@@ -122,7 +122,7 @@ export const execData: Record<string, ExecDataTypes> = {
         position: "Marketing Director",
         colour: "#2E5699",
         study: "3rd year, Human Biology/Art History",
-        medium: "acrylic and digital",
+        medium: "acrylic, digital",
         fact: "I have double jointed fingers",
     },
 
@@ -161,7 +161,7 @@ export const execData: Record<string, ExecDataTypes> = {
     Sunny: {
         colour: "#FF8400",
         study: "2nd year, Mathematics",
-        medium: "clay",
+        medium: "clay, video editing",
         fact: "I love pibble! Clean my bellay!",
     },
 
@@ -173,7 +173,7 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I used to have ducks as pets.",
     },
 
-    Alex: { // Missing data.
+    Alex: {
         colour: "#A3D5FF",
         study: "2nd year, Visual Studies/Sociology",
         medium: "oil paint, digital, pencil, crafting with random stuff I pick up on the floor or in the garbage bin",
