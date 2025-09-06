@@ -9,12 +9,12 @@ export interface ExecDataTypes {
 
 export const execData: Record<string, ExecDataTypes> = {
     // Admin team.
-   Sy: { // Missing data.
+   Sy: {
         position: "President",
-        colour: "#ffd400",
-        study: "2nd year, Health & Disease/Cell Molecular Bio",
-        medium: undefined,
-        fact: "I LOVE POKEMON AND SPACE!",
+        colour: "#FFDC30",
+        study: "3nd year, Health & Disease",
+        medium: "coloured pencils",
+        fact: "I am a scooter master",
     },
 
     Allison: {
@@ -109,12 +109,12 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I can't stop buying that one black cover Dollarama sketchbook",
     },
 
-    Rachel: { // Missing data.
+    Rachel: {
         position: "Graphics Assistant",
-        colour: undefined,
-        study: undefined,
-        medium: undefined,
-        fact: undefined,
+        colour: "#BBEEFF",
+        study: "2nd year, Computer Science",
+        medium: "digital",
+        fact: "I did kickboxing for 2 years and will be picking it up again soon.",
     },
 
     // Marketing team.
