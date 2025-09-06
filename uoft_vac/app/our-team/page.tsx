@@ -54,7 +54,7 @@ const gridCols: Record<number, string> = {
     1: "grid-cols-1",
     2: "grid-cols-2",
     3: "grid-cols-3",
-    4: "grid-cols-4",
+    4: "grid-cols-4 gap-75",
     5: "grid-cols-5",
     6: "grid-cols-6",
 };
@@ -79,14 +79,14 @@ export default function OurTeam() {
                             <>
 
                                 {/* First row */}
-                                <div className="grid grid-cols-3 gap-8 mb-8">
+                                <div className="grid grid-cols-3 gap-50 mb-8">
                                     <ExecEntryGrid entryKey="Allison" />
                                     <ExecEntryGrid entryKey="Sy" />
                                     <ExecEntryGrid entryKey="Jackie" />
                                 </div>
 
                                 {/* Second row */}
-                                <div className="grid grid-cols-2 gap-8 mb-10">
+                                <div className="grid grid-cols-2 mb-10">
                                     <ExecEntryGrid entryKey="Emily" />
                                     <ExecEntryGrid entryKey="Jaiz" />
                                 </div>
@@ -94,7 +94,7 @@ export default function OurTeam() {
                         ) : (
 
                             // All other categories have entries in a single row.
-                            <div className={`grid ${gridCols[members.length] || "grid-cols-4"} gap-8 mb-10`}>
+                            <div className={`grid ${gridCols[members.length] || "grid-cols-4"} mb-10`}>
                                 {members.map((name) => (
                                     <ExecEntryGrid key={name} entryKey={name} />
                                 ))}
