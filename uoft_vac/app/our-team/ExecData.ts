@@ -10,6 +10,7 @@ export interface ExecDataTypes {
 export const execData: Record<string, ExecDataTypes> = {
     // Admin team.
    Sy: {
+        name: "Sulaeem Sy Ali",
         position: "President",
         colour: "#FFDC30",
         study: "3nd year, Health & Disease",
@@ -26,6 +27,7 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Jackie: {
+        name: "Jackie Zhu",
         position: "Co-Vice President",
         colour: "#51F5CC",
         study: "6th year, Computer Science",
@@ -127,6 +129,7 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Nabneel: {
+        name: "Nabneel Sarma",
         position: "Marketing Assistant",
         colour: "#2B752B",
         study: "2nd year, Neuroscience/Psychology/Creativity and Society",
