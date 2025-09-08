@@ -42,7 +42,10 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
             <ExecArtwork name={entryKey} size={artWidth} />
 
             {/* Info container */}
-            <div className={`w-[${artWidth + 50}px]`}>
+            <div
+                style={{ width: `${artWidth + 50}px` }}
+                className="w-full"
+            >
                 <h3 className="text-2xl font-normal mt-4">{position}</h3>
                 <p className="text-[1.3rem] mt-1">{study}</p>
                 <p className="text-[1.3rem] mt-1">
