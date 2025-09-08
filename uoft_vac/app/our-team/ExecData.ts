@@ -54,18 +54,18 @@ export const execData: Record<string, ExecDataTypes> = {
     // Events team.
     Thomas: {
         position: "Events Director",
-        colour: "#d42069d",
+        colour: "#B0195A",
         study: "2nd year, Cognitive Science/Psychology/Visual Studies",
         medium: "Art",
         fact: "I am fun",
     },
 
-    Pelin: { // Missing data.
+    Pelin: {
         position: "Events Assistant",
-        colour: undefined,
-        study: undefined,
-        medium: undefined,
-        fact: undefined,
+        colour: "#F6CCFF",
+        study: "2nd year, Computer Science",
+        medium: "pencil, watercolour",
+        fact: "I learned Turkish only by watching tv shows.",
     },
 
     Joyce: {
@@ -147,10 +147,10 @@ export const execData: Record<string, ExecDataTypes> = {
 
     "Kelvin": { // Missing data.
         position: "Marketing Assistant",
-        colour: undefined,
-        study: undefined,
-        medium: undefined,
-        fact: undefined,
+        colour: "#F1BAFF",
+        study: "3rd year, Psychology",
+        medium: "3D Blender",
+        fact: "I fumble",
     },
 
     // Developer team.
