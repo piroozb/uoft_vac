@@ -51,11 +51,12 @@ export default function FunFacts() {
             {/* Mascot */}
             <div className="flex items-center w-11/12 max-w-5xl relative">
                 {/* Frodo */}
-                <div className="w-30 h-30 bg-green-500 rounded-lg z-10"></div>
+                <div className="w-30 h-30 bg-green-500 rounded-lg z-10">
+                </div>
 
                 {/* Text */}
                 <div className="bg-[rgb(0,214,255)] rounded-r-full text-black text-xl font-semibold py-4 px-8 ml-[-50px] pl-16 z-0 flex items-center">
-                    Hi I&apos;m Frodo, the club mascot!
+                    Hi I'm Frodo, the club mascot!
                 </div>
             </div>
         </section>

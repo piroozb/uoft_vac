@@ -28,7 +28,7 @@ export default function FAQSection() {
     return (
         // Green container
         <div
-            className="max-w-7xl mx-auto rounded-2xl shadow-md p-10 my-10"
+            className="max-w-7xl rounded-2xl shadow-md p-10 my-10 mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-40"
             style={{ backgroundColor: barsCentreGreen }}
         >
             {/* Title */}

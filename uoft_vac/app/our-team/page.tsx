@@ -7,7 +7,7 @@ const categoryMargin = "mb-15";
 
 // Order
 const team = {
-    Admin: ["Sy", "Allison", "Jackie", "Emily", "Jaiz"],
+    Admin: ["Sy", "Allison", "Jackie", "Emily"],
     Events: ["Thomas", "Pelin", "Joyce", "Valentine"],
     Graphics: ["BiewBiew", "Angelia", "Christina", "Rachel"],
     Marketing: ["Jae", "Nabneel", "Emilio", "Kelvin"],
@@ -73,33 +73,12 @@ export default function OurTeam() {
                         <SectionTitle size={categorySize} margin={categoryMargin}>
                             {category}
                         </SectionTitle>
-
-                        {/* If it's Admin, entries are in two rows */}
-                        {category === "Admin" ? (
-                            <>
-
-                                {/* First row */}
-                                <div className="grid grid-cols-3 gap-50 mb-8">
-                                    <ExecEntryGrid entryKey="Allison" />
-                                    <ExecEntryGrid entryKey="Sy" />
-                                    <ExecEntryGrid entryKey="Jackie" />
-                                </div>
-
-                                {/* Second row */}
-                                <div className="grid grid-cols-2 mb-10">
-                                    <ExecEntryGrid entryKey="Emily" />
-                                    <ExecEntryGrid entryKey="Jaiz" />
-                                </div>
-                            </>
-                        ) : (
-
-                            // All other categories have entries in a single row.
                             <div className={`grid ${gridCols[members.length] || "grid-cols-4"} mb-10`}>
                                 {members.map((name) => (
                                     <ExecEntryGrid key={name} entryKey={name} />
                                 ))}
                             </div>
-                        )}
+                        
                     </div>
                 ))}
             </div>

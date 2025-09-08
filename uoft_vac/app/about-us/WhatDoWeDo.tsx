@@ -10,7 +10,7 @@ import SectionTitle from "../common/SectionTitle";
 function Events() {
     return (
         <div
-            className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-5"
+            className="w-full rounded-md shadow-lg flex flex-col items-center justify-start p-5"
             style={{ backgroundColor: "rgb(255,206,0)" }}
         >
             <SectionTitle size={subsectionSize} margin={subsectionMargin}>Events</SectionTitle>
@@ -93,7 +93,7 @@ function Events() {
 function OfficeHours() {
     return (
         <div
-            className="w-full h-[750px] rounded-md shadow-lg flex flex-col items-center justify-start p-5"
+            className="w-full rounded-md shadow-lg flex flex-col items-center justify-start p-5"
             style={{ backgroundColor: "rgb(0,214,255)" }}
         >
             <SectionTitle size={subsectionSize} margin={subsectionMargin}>Office Hours</SectionTitle>
