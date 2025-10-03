@@ -21,6 +21,7 @@ export default function Navbar() {
         { title: "About Us", href: "/about-us", id: 2 },
         { title: "Our Team", href: "/our-team", id: 3 },
         { title: "Join Us", href: "/join-us", id: 4 },
+        {title: "Contact Us", href: "/contact-us", id: 5},
         { title: "FAQ", href: "/faq", id: 6 },
     ];
 

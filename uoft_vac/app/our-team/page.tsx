@@ -5,7 +5,7 @@ import ExecEntryGrid from "./ExecEntryGrid";
 const categorySize = "text-7xl";
 const categoryMargin = "mb-15";
 
-// Order
+// Order:
 const team = {
     Admin: ["Sy", "Allison", "Jackie", "Emily"],
     Events: ["Thomas", "Pelin", "Joyce", "Valentine"],

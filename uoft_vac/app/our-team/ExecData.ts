@@ -10,7 +10,6 @@ export interface ExecDataTypes {
 export const execData: Record<string, ExecDataTypes> = {
     // Admin team.
    Sy: {
-        name: "Sulaeem Sy Ali",
         position: "President",
         colour: "#FFDC30",
         study: "3nd year, Health & Disease",
@@ -27,7 +26,6 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Jackie: {
-        name: "Jackie Zhu",
         position: "Co-Vice President",
         colour: "#51F5CC",
         study: "6th year, Computer Science",
@@ -61,7 +59,7 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Pelin: {
-        position: "Events Assistant",
+        position: "Events Director",
         colour: "#F6CCFF",
         study: "2nd year, Computer Science",
         medium: "pencil, watercolour",
@@ -69,7 +67,7 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Joyce: {
-        position: "Events Assistant",
+        position: "Events Director",
         colour: "#00ebff",
         study: "5th year, Economics/Statistics/East Asian Studies",
         medium: "digital",
@@ -78,7 +76,7 @@ export const execData: Record<string, ExecDataTypes> = {
 
     Valentine: {
         name: "Val",
-        position: "Events Assistant",
+        position: "Events Director",
         colour: "#AB0803",
         study: "3rd year, Political Science/Diaspora/Transnational Studies",
         medium: "digital, watercolours, oil paints",
@@ -129,7 +127,6 @@ export const execData: Record<string, ExecDataTypes> = {
     },
 
     Nabneel: {
-        name: "Nabneel Sarma",
         position: "Marketing Assistant",
         colour: "#2B752B",
         study: "2nd year, Neuroscience/Psychology/Creativity and Society",
@@ -145,7 +142,7 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I can do multiple character impressions",
     },
 
-    "Kelvin": { // Missing data.
+    "Kelvin": {
         position: "Marketing Assistant",
         colour: "#F1BAFF",
         study: "3rd year, Psychology",

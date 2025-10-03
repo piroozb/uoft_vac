@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const BAR_WIDTH = 150;
+import { sideDecorWidth } from "../common/Constants";
+
 const BAR_HEIGHT = 1000;
 const SCROLL_VEL = .1;
 
@@ -69,7 +70,7 @@ export default function SideDecor() {
             <div
                 ref={leftRef}
                 className="fixed left-0 top-0 z-0"
-                style={{ width: BAR_WIDTH, height: "100%", overflow: "hidden" }}
+                style={{ width: sideDecorWidth, height: "100%", overflow: "hidden" }}
             >
                 {leftStripes.map((stripe, index) => (
                     <div
@@ -77,7 +78,7 @@ export default function SideDecor() {
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: BAR_WIDTH,
+                            width: sideDecorWidth,
                             height: BAR_HEIGHT,
                             background: getGradient(stripe.color),
                         }}
@@ -89,7 +90,7 @@ export default function SideDecor() {
             <div
                 ref={rightRef}
                 className="fixed right-0 top-0 z-0"
-                style={{ width: BAR_WIDTH, height: "100%", overflow: "hidden" }}
+                style={{ width: sideDecorWidth, height: "100%", overflow: "hidden" }}
             >
                 {rightStripes.map((stripe, index) => (
                     <div
@@ -97,7 +98,7 @@ export default function SideDecor() {
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: BAR_WIDTH,
+                            width: sideDecorWidth,
                             height: BAR_HEIGHT,
                             background: getGradient(stripe.color),
                         }}

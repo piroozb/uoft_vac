@@ -20,3 +20,4 @@ export const faqLinkHoverblue = "rgb(0,0,255)";
 // Style:
 export const subsectionSize = "text-5xl";
 export const subsectionMargin = "mb-5";
+export const sideDecorWidth = 150;
