@@ -54,7 +54,13 @@ function Events() {
                         top: "12.5rem",
                     }}
                 >
-                    And<br />more!
+                    <div className="flex justify-center">
+                        <img
+                            src="/and-more.png"
+                            alt="AND MORE!"
+                            className="w-25 object-contain translate-x-7.5 -translate-y-2.5"
+                        />
+                    </div>
                 </p>
             </div>
 

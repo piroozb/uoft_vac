@@ -1,5 +1,7 @@
+"use client";
+
 import { FaDiscord, FaInstagram } from "react-icons/fa";
-import { ReactElement } from "react";
+import { useState, ReactElement } from "react";
 
 import { emailLink, discordLink, instagramLink } from "./Constants";
 import TextLink from "./TextLink";
@@ -10,12 +12,42 @@ interface EmailLinkProps {
 }
 
 export function EmailLink({ size }: EmailLinkProps) {
+    const [hovered, setHovered] = useState(false);
+    const [imgError, setImgError] = useState(false);
+
+    const imageSrc = hovered ? "/email-hovered.png" : "/email.png";
+
+    // If images don't load, use TextLink instead.
+    if (imgError) {
+        return (
+            <TextLink
+                text="utvisualartclub@gmail.com"
+                href={emailLink}
+                style={{ fontSize: size * 0.5 }}
+            />
+        );
+    }
+
     return (
-        <TextLink
-            text="utvisualartclub@gmail.com"
+        <a
             href={emailLink}
-            style={{ fontSize: size * .5}}
-        />
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+                display: "inline-flex",
+                alignItems: "center",
+                textDecoration: "none",
+            }}
+        >
+            <img
+                src={imageSrc}
+                alt="utvisualartclub@gmail.com"
+                onError={() => setImgError(true)}
+                style={{ width: size * 7.5 }}
+            />
+        </a>
     );
 }
 
