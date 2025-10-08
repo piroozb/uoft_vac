@@ -1,60 +1,64 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
 import { sideDecorWidth } from "../common/Constants";
 
-const BAR_HEIGHT = 1000;
+const SCALE = 1;
 const SCROLL_VEL = .1;
 
 type Stripe = {
     y: number;
-    color: "greenblue" | "purplered";
 };
 
 export default function SideDecor() {
-    const [leftStripes, setLeftStripes] = useState<Stripe[]>([
-        { y: 0, color: "greenblue" },
-    ]);
-    const [rightStripes, setRightStripes] = useState<Stripe[]>([
-        { y: 0, color: "purplered" },
-    ]);
+    const [leftStripes, setLeftStripes] = useState<Stripe[]>([{ y: 0 }]);
+    const [rightStripes, setRightStripes] = useState<Stripe[]>([{ y: 0 }]);
+    const [barHeight, setBarHeight] = useState<number | null>(null);
 
     const leftRef = useRef<HTMLDivElement>(null);
     const rightRef = useRef<HTMLDivElement>(null);
-
     const animationRef = useRef<number>(0);
 
+    // Preload one image to calculate scaled height
     useEffect(() => {
+        const img = new window.Image();
+        img.src = "/side-decor-l.png"; // assume left and right have same size
+        img.onload = () => {
+            const scaledHeight =
+                img.naturalHeight * ((sideDecorWidth * SCALE) / img.naturalWidth);
+            setBarHeight(scaledHeight);
+        };
+    }, []);
+
+    // Animation loop
+    useEffect(() => {
+        if (!barHeight) return;
+
         const animate = () => {
-            setLeftStripes(prev => {
-                const updated = prev.map(s => ({ ...s, y: s.y + SCROLL_VEL }));
+            setLeftStripes((prev) => {
+                const updated = prev.map((s) => ({ ...s, y: s.y + SCROLL_VEL }));
                 const last = updated[updated.length - 1];
 
                 if (last.y >= 0) {
-                    const nextColor: Stripe["color"] = last.color === "greenblue" ? "purplered" : "greenblue";
                     updated.push({
-                        y: last.y - BAR_HEIGHT,
-                        color: nextColor,
+                        y: last.y - barHeight,
                     });
                 }
 
-                return updated.filter(s => s.y < BAR_HEIGHT);
+                return updated.filter((s) => s.y < barHeight);
             });
 
-            setRightStripes(prev => {
-                const updated = prev.map(s => ({ ...s, y: s.y + SCROLL_VEL }));
+            setRightStripes((prev) => {
+                const updated = prev.map((s) => ({ ...s, y: s.y + SCROLL_VEL }));
                 const last = updated[updated.length - 1];
 
                 if (last.y >= 0) {
-                    const nextColor: Stripe["color"] = last.color === "purplered" ? "greenblue" : "purplered";
                     updated.push({
-                        y: last.y - BAR_HEIGHT,
-                        color: nextColor,
+                        y: last.y - barHeight,
                     });
                 }
 
-                return updated.filter(s => s.y < BAR_HEIGHT);
+                return updated.filter((s) => s.y < barHeight);
             });
 
             animationRef.current = requestAnimationFrame(animate);
@@ -62,7 +66,7 @@ export default function SideDecor() {
 
         animationRef.current = requestAnimationFrame(animate);
         return () => cancelAnimationFrame(animationRef.current!);
-    }, []);
+    }, [barHeight]);
 
     return (
         <>
@@ -70,17 +74,22 @@ export default function SideDecor() {
             <div
                 ref={leftRef}
                 className="fixed left-0 top-0 z-0"
-                style={{ width: sideDecorWidth, height: "100%", overflow: "hidden" }}
+                style={{
+                    width: sideDecorWidth * SCALE,
+                    height: "100%",
+                    overflow: "hidden",
+                }}
             >
                 {leftStripes.map((stripe, index) => (
-                    <div
+                    <img
                         key={index}
+                        src="/side-decor-l.png"
+                        alt="Side Decor Left"
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: sideDecorWidth,
-                            height: BAR_HEIGHT,
-                            background: getGradient(stripe.color),
+                            width: sideDecorWidth * SCALE,
+                            height: "auto",
                         }}
                     />
                 ))}
@@ -90,28 +99,26 @@ export default function SideDecor() {
             <div
                 ref={rightRef}
                 className="fixed right-0 top-0 z-0"
-                style={{ width: sideDecorWidth, height: "100%", overflow: "hidden" }}
+                style={{
+                    width: sideDecorWidth * SCALE,
+                    height: "100%",
+                    overflow: "hidden",
+                }}
             >
                 {rightStripes.map((stripe, index) => (
-                    <div
+                    <img
                         key={index}
+                        src="/side-decor-r.png"
+                        alt="Side Decor Right"
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: sideDecorWidth,
-                            height: BAR_HEIGHT,
-                            background: getGradient(stripe.color),
+                            width: sideDecorWidth * SCALE,
+                            height: "auto",
                         }}
                     />
                 ))}
             </div>
         </>
     );
-}
-
-// Gradient function (temporary).
-function getGradient(color: Stripe["color"]) {
-    return color === "greenblue"
-        ? "linear-gradient(to bottom, green, blue)"
-        : "linear-gradient(to bottom, purple, red)";
 }
