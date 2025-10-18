@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useLayoutEffect } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { instagramLink } from "../common/Constants";
@@ -22,7 +21,6 @@ function PictureCarousel({ images }: { images: string[] }) {
         <div className="relative w-100 h-100 flex items-center justify-center overflow-visible row-span-1">
             {/* Picture */}
             <div className="relative w-90 h-90 overflow-hidden shadow-lg rounded-md">
-                {/* Transition */}
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div
                         key={currentIndex}
@@ -41,37 +39,74 @@ function PictureCarousel({ images }: { images: string[] }) {
                 </AnimatePresence>
             </div>
 
-            {/* If there are multiple pictures, add the arrow buttons & dots. */}
             {hasMultiple && (
                 <>
-                    {/* Left button */}
+                    {/* Left Button */}
                     <button
                         onClick={() => {
                             setDirection(-1);
-                            setCurrentIndex(prev => prev === 0 ? images.length - 1 : prev - 1);
+                            setCurrentIndex((prev) =>
+                                prev === 0 ? images.length - 1 : prev - 1
+                            );
                         }}
-                        className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white shadow"
+                        className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 p-2"
+                        style={{
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                        }}
                     >
-                        <FaChevronLeft size={16} />
+                        <img
+                            src="/carousel-arrow-l.png"
+                            alt="Previous image"
+                            className="opacity-70 hover:opacity-100 transition-opacity duration-200"
+                            style={{ width: "2rem", height: "auto" }}
+                        />
                     </button>
 
-                    {/* Right button */}
+                    {/* Right Button */}
                     <button
                         onClick={() => {
                             setDirection(1);
-                            setCurrentIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
+                            setCurrentIndex((prev) =>
+                                prev === images.length - 1 ? 0 : prev + 1
+                            );
                         }}
-                        className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white shadow"
+                        className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 p-2"
+                        style={{
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                        }}
                     >
-                        <FaChevronRight size={16} />
+                        <img
+                            src="/carousel-arrow-r.png"
+                            alt="Next image"
+                            className="opacity-70 hover:opacity-100 transition-opacity duration-200"
+                            style={{ width: "2rem", height: "auto" }}
+                        />
                     </button>
 
                     {/* Dots */}
                     <div className="absolute -bottom-3 flex gap-2 justify-center w-full">
                         {images.map((_, idx) => (
-                            <div
+                            <img
                                 key={idx}
-                                className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${currentIndex === idx ? "bg-gray-700" : "bg-gray-300"}`}
+                                src="/carousel-dot.png"
+                                alt={`Go to image ${idx + 1}`}
+                                className={`transition-opacity duration-200 ${currentIndex === idx
+                                        ? "opacity-100"
+                                        : "opacity-50 hover:opacity-100"
+                                    }`}
+                                style={{
+                                    width: "0.75rem",
+                                    height: "auto",
+                                    cursor: "pointer",
+                                }}
+                                onClick={() => {
+                                    setDirection(idx > currentIndex ? 1 : -1);
+                                    setCurrentIndex(idx);
+                                }}
                             />
                         ))}
                     </div>
