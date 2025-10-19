@@ -18,6 +18,8 @@ export const faqLinkDarkBlue = "rgb(0,0,179)";
 export const faqLinkHoverblue = "rgb(0,0,255)";
 
 // Style:
+export const smallTitleSize = "text-7xl";
+export const smallTitleMargin = "mb-7.5";
 export const subsectionSize = "text-5xl";
 export const subsectionMargin = "mb-5";
 export const sideDecorWidth = 150;

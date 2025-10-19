@@ -7,24 +7,26 @@ import {
   instagramLink,
   textLinkDarkPurple,
   textLinkHoverPurple,
+  smallTitleSize,
+  smallTitleMargin,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
 export default function JoinUsPage() {
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-start mt-10 overflow-hidden">
+    <div className="w-full h-screen flex flex-col items-center justify-start mt-10 px-[150px] overflow-hidden">
       {/* Title */}
-      <SectionTitle>Join Us Today For Free!</SectionTitle>
+      <SectionTitle size={smallTitleSize} margin={smallTitleMargin}>Join Us Today For Free!</SectionTitle>
 
       {/* Two halves */}
-      <div className="flex flex-1 w-[100%]">
+      <div className="flex flex-1 w-full">
 
         {/* Left: instructions */}
         <div className="flex-1 relative">
           {/* Step 1 */}
           <div
             className="absolute flex items-center"
-            style={{ top: "10%", left: "25%", transform: "rotate(-3deg)" }}
+            style={{ top: "10%", left: "10%", transform: "rotate(-3deg)" }}
           >
             <p className="text-[2rem] font-semibold">
               1. Fill out the{" "}
@@ -42,7 +44,7 @@ export default function JoinUsPage() {
           {/* Step 2 */}
           <div
             className="absolute flex items-center"
-            style={{ top: "30%", left: "30%", transform: "rotate(2deg)" }}
+            style={{ top: "30%", left: "20%", transform: "rotate(2deg)" }}
           >
             <div className="w-10 h-10 bg-green-600 mr-5" />
             <p className="text-[2rem] font-semibold">
@@ -60,7 +62,7 @@ export default function JoinUsPage() {
           {/* Step 3 */}
           <div
             className="absolute flex items-center"
-            style={{ top: "60%", left: "25%", transform: "rotate(-4deg)" }}
+            style={{ top: "60%", left: "10%", transform: "rotate(-4deg)" }}
           >
             <p className="text-[2rem] font-semibold">
               3. Follow us on{" "}
@@ -80,7 +82,7 @@ export default function JoinUsPage() {
         <div className="flex-1 relative flex">
 
           {/* Graphic */}
-          <div className="w-170 h-160 bg-green-500 relative rounded-md flex items-end justify-center">
+          <div className="w-[90%] h-[80%] bg-green-500 relative rounded-md flex items-end justify-center">
 
             {/* Text */}
             <div className="absolute bottom-5 w-[90%] bg-green-700 rounded text-white text-[1.5rem] text-center leading-relaxed">

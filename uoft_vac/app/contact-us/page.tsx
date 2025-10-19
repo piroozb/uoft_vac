@@ -7,6 +7,8 @@ import {
     instagramLink,
     textLinkDarkOrange,
     textLinkHoverOrange,
+    smallTitleSize,
+    smallTitleMargin,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
@@ -14,7 +16,7 @@ export default function ContactUsPage() {
     return (
         <div className="w-full h-screen flex flex-col items-center justify-start mt-10 px-[150px] overflow-hidden">
             {/* Title */}
-            <SectionTitle>Contact Us!</SectionTitle>
+            <SectionTitle size={smallTitleSize} margin={smallTitleMargin}>Contact Us!</SectionTitle>
 
             {/* Two halves */}
             <div className="flex flex-1 w-full">

@@ -1,9 +1,10 @@
 import SectionTitle from "../common/SectionTitle";
-import ExecEntryList from "./ExecEntryList";
+// import ExecEntryList from "./ExecEntryList";
 import ExecEntryGrid from "./ExecEntryGrid";
-
-const categorySize = "text-7xl";
-const categoryMargin = "mb-15";
+import {
+    smallTitleSize,
+    smallTitleMargin,
+} from "../common/Constants";
 
 // Order:
 const team = {
@@ -70,10 +71,10 @@ export default function OurTeam() {
             <div>
                 {Object.entries(team).map(([category, members]) => (
                     <div key={category}>
-                        <SectionTitle size={categorySize} margin={categoryMargin}>
+                        <SectionTitle size={smallTitleSize} margin={smallTitleMargin}>
                             {category}
                         </SectionTitle>
-                            <div className={`grid ${gridCols[members.length] || "grid-cols-4"} mb-10`}>
+                            <div className={`grid ${gridCols[members.length] || "grid-cols-4"} ${smallTitleMargin}`}>
                                 {members.map((name) => (
                                     <ExecEntryGrid key={name} entryKey={name} />
                                 ))}
