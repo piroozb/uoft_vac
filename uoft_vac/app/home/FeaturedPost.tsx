@@ -3,7 +3,7 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { instagramLink } from "../common/Constants";
+import { INSTAGRAM_LINK } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
@@ -189,7 +189,7 @@ export default function FeaturedPost() {
                     Wanna see more? Visit our{" "}
                     <TextLink
                         text="Instagram"
-                        href={instagramLink}
+                        href={INSTAGRAM_LINK}
                         style={{ color: "blue" }}
                         hoverStyle={{ color: "blue" }}
                     />

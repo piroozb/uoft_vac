@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
 import {
-    membershipFormLink,
-    discordLink,
-    instagramLink,
-    faqLinkDarkBlue,
-    faqLinkHoverblue,
+    MEMBERSHIP_FORM_LINK,
+    DISCORD_LINK,
+    INSTAGRAM_LINK,
+    FAQ_LINK_DARK_BLUE,
+    FAQ_LINK_HOVER_BLUE,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
@@ -22,8 +22,8 @@ export const faqs: FAQProps[] = [
         <TextLink
             text="here"
             href="/join-us"
-            style={{ color: faqLinkDarkBlue}}
-            hoverStyle={{ color: faqLinkHoverblue}}
+            style={{ color: FAQ_LINK_DARK_BLUE}}
+            hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
             stay
         />
         !
@@ -37,16 +37,16 @@ export const faqs: FAQProps[] = [
         our announcements on{" "}
         <TextLink
             text="Discord"
-            href={discordLink}
-            style={{ color: faqLinkDarkBlue}}
-            hoverStyle={{ color: faqLinkHoverblue}}
+            href={DISCORD_LINK}
+            style={{ color: FAQ_LINK_DARK_BLUE}}
+            hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
         />
         {" "}and{" "}
         <TextLink
             text="Instagram"
-            href={instagramLink}
-            style={{ color: faqLinkDarkBlue}}
-            hoverStyle={{ color: faqLinkHoverblue}}
+            href={INSTAGRAM_LINK}
+            style={{ color: FAQ_LINK_DARK_BLUE}}
+            hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
         />
         {" "}for any updates.
         </>,
@@ -101,8 +101,8 @@ export const faqs: FAQProps[] = [
         <TextLink
             text="contact us"
             href="/contact-us"
-            style={{ color: faqLinkDarkBlue}}
-            hoverStyle={{ color: faqLinkHoverblue}}
+            style={{ color: FAQ_LINK_DARK_BLUE}}
+            hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
             stay
         />
         .
@@ -115,9 +115,9 @@ export const faqs: FAQProps[] = [
         You need to fill out our{" "}
         <TextLink
             text="membership verification form"
-            href={membershipFormLink}
-            style={{ color: faqLinkDarkBlue}}
-            hoverStyle={{ color: faqLinkHoverblue}}
+            href={MEMBERSHIP_FORM_LINK}
+            style={{ color: FAQ_LINK_DARK_BLUE}}
+            hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
         />
         {" "}before being granted access to our Discord server. Since we manually verify our members,{" "}
         please then wait for a few days. In the meantime, you can go through our server rules.

@@ -10,7 +10,7 @@ import {
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 
-import { barsEdgesDarkGreen } from "../common/Constants";
+import { BARS_EDGES_DARK_GREEN } from "../common/Constants";
 
 interface QuestionProps {
     q: string;
@@ -35,7 +35,7 @@ export default function Question({ q, a, isOpen, onClick, index }: QuestionProps
             className="p-5 cursor-pointer"
             onClick={onClick}
             style={{
-                borderTop: index === 0 ? "none" : `1px solid ${barsEdgesDarkGreen}`,
+                borderTop: index === 0 ? "none" : `1px solid ${BARS_EDGES_DARK_GREEN}`,
             }}
         >
             {/* Question container */}
@@ -45,10 +45,10 @@ export default function Question({ q, a, isOpen, onClick, index }: QuestionProps
                 <span className="text-[1.5rem] font-semibold">{q}</span>
 
                 {isOpen ? ( // Right arrow if collapsed.
-                    <FaChevronRight className="w-5 h-5" style={{ color: barsEdgesDarkGreen }} />
+                    <FaChevronRight className="w-5 h-5" style={{ color: BARS_EDGES_DARK_GREEN }} />
                     
                 ) : ( // Down arrow if expanded.
-                    <FaChevronDown className="w-5 h-5" style={{ color: barsEdgesDarkGreen }} />
+                    <FaChevronDown className="w-5 h-5" style={{ color: BARS_EDGES_DARK_GREEN }} />
                 )}
             </div>
 

@@ -2,13 +2,13 @@
 
 import SectionTitle from "../common/SectionTitle";
 import {
-  membershipFormLink,
-  discordLink,
-  instagramLink,
-  textLinkDarkPurple,
-  textLinkHoverPurple,
-  smallTitleSize,
-  smallTitleMargin,
+  MEMBERSHIP_FORM_LINK,
+  DISCORD_LINK,
+  INSTAGRAM_LINK,
+  TEXT_LINK_DARK_PURPLE,
+  TEXT_LINK_HOVER_PURPLE,
+  SMALL_TITLE_SIZE,
+  SMALL_TITLE_MARGIN,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
@@ -16,7 +16,7 @@ export default function JoinUsPage() {
   return (
     <div className="w-full h-screen flex flex-col items-center justify-start mt-10 px-[150px] overflow-hidden">
       {/* Title */}
-      <SectionTitle size={smallTitleSize} margin={smallTitleMargin}>Join Us Today For Free!</SectionTitle>
+      <SectionTitle size={SMALL_TITLE_SIZE} margin={SMALL_TITLE_MARGIN}>Join Us Today For Free!</SectionTitle>
 
       {/* Two halves */}
       <div className="flex flex-1 w-full">
@@ -32,9 +32,9 @@ export default function JoinUsPage() {
               1. Fill out the{" "}
               <TextLink
                 text="verification form"
-                href={membershipFormLink}
-                style={{ color: textLinkDarkPurple }}
-                hoverStyle={{ color: textLinkHoverPurple }}
+                href={MEMBERSHIP_FORM_LINK}
+                style={{ color: TEXT_LINK_DARK_PURPLE }}
+                hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
               />
               !
             </p>
@@ -51,9 +51,9 @@ export default function JoinUsPage() {
               2. Join our{" "}
               <TextLink
                 text="Discord"
-                href={discordLink}
-                style={{ color: textLinkDarkPurple }}
-                hoverStyle={{ color: textLinkHoverPurple }}
+                href={DISCORD_LINK}
+                style={{ color: TEXT_LINK_DARK_PURPLE }}
+                hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
               />{" "}
               and wait for verification!
             </p>
@@ -68,9 +68,9 @@ export default function JoinUsPage() {
               3. Follow us on{" "}
               <TextLink
                 text="Instagram"
-                href={instagramLink}
-                style={{ color: textLinkDarkPurple }}
-                hoverStyle={{ color: textLinkHoverPurple }}
+                href={INSTAGRAM_LINK}
+                style={{ color: TEXT_LINK_DARK_PURPLE }}
+                hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
               />{" "}
               for updates!
             </p>

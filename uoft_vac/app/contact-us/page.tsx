@@ -2,13 +2,13 @@
 
 import SectionTitle from "../common/SectionTitle";
 import {
-    emailLink,
-    discordLink,
-    instagramLink,
-    textLinkDarkOrange,
-    textLinkHoverOrange,
-    smallTitleSize,
-    smallTitleMargin,
+    EMAIL_LINK,
+    DISCORD_LINK,
+    INSTAGRAM_LINK,
+    TEXT_LINK_DARK_ORANGE,
+    TEXT_LINK_HOVER_ORANGE,
+    SMALL_TITLE_SIZE,
+    SMALL_TITLE_MARGIN,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
@@ -16,7 +16,7 @@ export default function ContactUsPage() {
     return (
         <div className="w-full h-screen flex flex-col items-center justify-start mt-10 px-[150px] overflow-hidden">
             {/* Title */}
-            <SectionTitle size={smallTitleSize} margin={smallTitleMargin}>Contact Us!</SectionTitle>
+            <SectionTitle size={SMALL_TITLE_SIZE} margin={SMALL_TITLE_MARGIN}>Contact Us!</SectionTitle>
 
             {/* Two halves */}
             <div className="flex flex-1 w-full">
@@ -49,9 +49,9 @@ export default function ContactUsPage() {
                             • Writing us an{" "}
                             <TextLink
                                 text="email"
-                                href={emailLink}
-                                style={{ color: textLinkDarkOrange }}
-                                hoverStyle={{ color: textLinkHoverOrange }}
+                                href={EMAIL_LINK}
+                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
                         </p>
@@ -66,9 +66,9 @@ export default function ContactUsPage() {
                             • Sending us a message on{" "}
                             <TextLink
                                 text="Instagram"
-                                href={instagramLink}
-                                style={{ color: textLinkDarkOrange }}
-                                hoverStyle={{ color: textLinkHoverOrange }}
+                                href={INSTAGRAM_LINK}
+                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
                         </p>
@@ -83,9 +83,9 @@ export default function ContactUsPage() {
                             • Ping the <strong>@President</strong> or <strong>@Vice-President</strong> role on{" "}
                             <TextLink
                                 text="Discord"
-                                href={discordLink}
-                                style={{ color: textLinkDarkOrange }}
-                                hoverStyle={{ color: textLinkHoverOrange }}
+                                href={DISCORD_LINK}
+                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
                         </p>

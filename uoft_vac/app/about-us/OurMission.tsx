@@ -1,6 +1,6 @@
 import SectionTitle from "../common/SectionTitle";
 
-import { barsCentreGreen } from "../common/Constants";
+import { BARS_CENTRE_GREEN } from "../common/Constants";
 
 const valueClass =
     "w-65 h-65 rounded-full flex items-center justify-center text-white text-lg font-bold";
@@ -14,7 +14,7 @@ export default function OurMission() {
             {/* Paint splash */}
             <div
                 className="w-11/12 max-w-4xl p-8 rounded-lg"
-                style={{ backgroundColor: barsCentreGreen }}
+                style={{ backgroundColor: BARS_CENTRE_GREEN }}
             >
                 {/* Mission statement */}
                 <p className="text-[1.6rem] text-black leading-relaxed text-center">

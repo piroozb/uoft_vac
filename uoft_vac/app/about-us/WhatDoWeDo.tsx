@@ -1,9 +1,9 @@
 "use client";
 
 import {
-    instagramLink,
-    subsectionSize,
-    subsectionMargin,
+    INSTAGRAM_LINK,
+    SUBSECTION_SIZE,
+    SUBSECTION_MARGIN,
 } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 
@@ -13,7 +13,7 @@ function Events() {
             className="w-full rounded-md shadow-lg flex flex-col items-center justify-start p-5"
             style={{ backgroundColor: "rgb(255,206,0)" }}
         >
-            <SectionTitle size={subsectionSize} margin={subsectionMargin}>Events</SectionTitle>
+            <SectionTitle size={SUBSECTION_SIZE} margin={SUBSECTION_MARGIN}>Events</SectionTitle>
             <p className="text-[1.35rem] text-center mb-5">
                 We host a variety of events every <strong>Friday 3–6pm</strong>.
                 <br />
@@ -68,7 +68,7 @@ function Events() {
             <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* Instagram */}
                 <a
-                    href={instagramLink}
+                    href={INSTAGRAM_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md 
@@ -102,7 +102,7 @@ function OfficeHours() {
             className="w-full rounded-md shadow-lg flex flex-col items-center justify-start p-5"
             style={{ backgroundColor: "rgb(0,214,255)" }}
         >
-            <SectionTitle size={subsectionSize} margin={subsectionMargin}>Office Hours</SectionTitle>
+            <SectionTitle size={SUBSECTION_SIZE} margin={SUBSECTION_MARGIN}>Office Hours</SectionTitle>
             <p className="text-[1.35rem] text-center mb-5">
                 We host office hours every <strong>Thursday 3–6pm</strong>.
                 <br />

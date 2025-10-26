@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Fredoka } from "next/font/google";
 
-import { bgLightGreen } from "./common/Constants";
+import { BG_LIGHT_GREEN } from "./common/Constants";
 
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
@@ -33,7 +33,7 @@ export default function RootLayout({
       {/* Light green bg */}
       <body
         className="antialiased"
-        style={{ backgroundColor: bgLightGreen }}
+        style={{ backgroundColor: BG_LIGHT_GREEN }}
       >
         <Navbar />
         {children}

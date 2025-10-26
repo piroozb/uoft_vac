@@ -1,8 +1,8 @@
 import { EmailLink, DiscordIcon, InstagramIcon } from "../common/Contacts";
 
 import {
-  barsEdgesDarkGreen,
-  barsCentreGreen,
+  BARS_EDGES_DARK_GREEN,
+  BARS_CENTRE_GREEN,
 } from "../common/Constants";
 
 const contactsSize = 50;
@@ -14,10 +14,10 @@ export default function Footer() {
       style={{
         background: `linear-gradient(
           to right,
-          ${barsEdgesDarkGreen} 0%,
-          ${barsCentreGreen} 33.3%,
-          ${barsCentreGreen} 66.6%,
-          ${barsEdgesDarkGreen} 100%
+          ${BARS_EDGES_DARK_GREEN} 0%,
+          ${BARS_CENTRE_GREEN} 33.3%,
+          ${BARS_CENTRE_GREEN} 66.6%,
+          ${BARS_EDGES_DARK_GREEN} 100%
           )`,
           zIndex: 100,
           position: "relative",

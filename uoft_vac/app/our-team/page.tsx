@@ -2,8 +2,8 @@ import SectionTitle from "../common/SectionTitle";
 // import ExecEntryList from "./ExecEntryList";
 import ExecEntryGrid from "./ExecEntryGrid";
 import {
-    smallTitleSize,
-    smallTitleMargin,
+    SMALL_TITLE_SIZE,
+    SMALL_TITLE_MARGIN,
 } from "../common/Constants";
 
 // Order:
@@ -71,10 +71,10 @@ export default function OurTeam() {
             <div>
                 {Object.entries(team).map(([category, members]) => (
                     <div key={category}>
-                        <SectionTitle size={smallTitleSize} margin={smallTitleMargin}>
+                        <SectionTitle size={SMALL_TITLE_SIZE} margin={SMALL_TITLE_MARGIN}>
                             {category}
                         </SectionTitle>
-                            <div className={`grid ${gridCols[members.length] || "grid-cols-4"} ${smallTitleMargin}`}>
+                            <div className={`grid ${gridCols[members.length] || "grid-cols-4"} ${SMALL_TITLE_MARGIN}`}>
                                 {members.map((name) => (
                                     <ExecEntryGrid key={name} entryKey={name} />
                                 ))}

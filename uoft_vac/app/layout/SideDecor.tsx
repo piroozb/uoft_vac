@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
     SIDE_DECOR_MIN,
     SIDE_DECOR_MAX,
-    sideDecorWidth,
+    SIDE_DECOR_WIDTH,
 } from "../common/Constants";
 
 const SCALE = 1;
@@ -30,7 +30,7 @@ export default function SideDecor() {
         img.src = "/side-decor-l.png"; // assume left and right have same size
         img.onload = () => {
             const scaledHeight =
-                img.naturalHeight * ((sideDecorWidth * SCALE) / img.naturalWidth);
+                img.naturalHeight * ((SIDE_DECOR_WIDTH * SCALE) / img.naturalWidth);
             setBarHeight(scaledHeight);
         };
     }, []);
@@ -87,7 +87,7 @@ export default function SideDecor() {
     }, [barHeight]);
 
     // Compute pixel offset
-    const translateX = offset * sideDecorWidth * SCALE; // how far offscreen it moves
+    const translateX = offset * SIDE_DECOR_WIDTH * SCALE; // how far offscreen it moves
 
     return (
         <>
@@ -97,7 +97,7 @@ export default function SideDecor() {
                 className="fixed left-0 top-0 z-0 transition-transform duration-300 ease-linear"
                 style={{
                     transform: `translateX(-${translateX}px)`,
-                    width: sideDecorWidth * SCALE,
+                    width: SIDE_DECOR_WIDTH * SCALE,
                     height: "100%",
                     overflow: "hidden",
                 }}
@@ -110,7 +110,7 @@ export default function SideDecor() {
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: sideDecorWidth * SCALE,
+                            width: SIDE_DECOR_WIDTH * SCALE,
                             height: "auto",
                         }}
                     />
@@ -123,7 +123,7 @@ export default function SideDecor() {
                 className="fixed right-0 top-0 z-0 transition-transform duration-300 ease-linear"
                 style={{
                     transform: `translateX(${translateX}px)`,
-                    width: sideDecorWidth * SCALE,
+                    width: SIDE_DECOR_WIDTH * SCALE,
                     height: "100%",
                     overflow: "hidden",
                 }}
@@ -136,7 +136,7 @@ export default function SideDecor() {
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: sideDecorWidth * SCALE,
+                            width: SIDE_DECOR_WIDTH * SCALE,
                             height: "auto",
                         }}
                     />

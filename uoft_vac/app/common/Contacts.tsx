@@ -3,7 +3,7 @@
 import { FaDiscord, FaInstagram } from "react-icons/fa";
 import { useState, ReactElement } from "react";
 
-import { emailLink, discordLink, instagramLink } from "./Constants";
+import { EMAIL_LINK, DISCORD_LINK, INSTAGRAM_LINK } from "./Constants";
 import TextLink from "./TextLink";
 
 // Club's email with link.
@@ -22,7 +22,7 @@ export function EmailLink({ size }: EmailLinkProps) {
         return (
             <TextLink
                 text="utvisualartclub@gmail.com"
-                href={emailLink}
+                href={EMAIL_LINK}
                 style={{ fontSize: size * 0.5 }}
             />
         );
@@ -30,7 +30,7 @@ export function EmailLink({ size }: EmailLinkProps) {
 
     return (
         <a
-            href={emailLink}
+            href={EMAIL_LINK}
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => setHovered(true)}
@@ -85,7 +85,7 @@ interface DiscordIconProps {
 export function DiscordIcon({ size }: DiscordIconProps) {
     return (
         <a
-            href={discordLink}
+            href={DISCORD_LINK}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Discord"
@@ -103,7 +103,7 @@ interface InstagramIconProps {
 export function InstagramIcon({ size }: InstagramIconProps) {
     return (
         <a
-            href={instagramLink}
+            href={INSTAGRAM_LINK}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"

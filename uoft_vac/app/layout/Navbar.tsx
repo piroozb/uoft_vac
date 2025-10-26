@@ -5,10 +5,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import {
-    barsEdgesDarkGreen,
-    barsCentreGreen,
-    pageButtonsLightYellow,
-    pageButtonsActiveYellow,
+    BARS_EDGES_DARK_GREEN,
+    BARS_CENTRE_GREEN,
+    PAGE_BUTTONS_LIGHT_YELLOW,
+    PAGE_BUTTONS_ACTIVE_YELLOW,
 } from "../common/Constants";
 
 export default function Navbar() {
@@ -29,7 +29,7 @@ export default function Navbar() {
     // The button corresponding to the page the user is currently viewing will be a darker yellow.
     const navbarItems = links.map((link) => {
         const isActive = pathname === link.href;
-        const baseColor = isActive ? `${pageButtonsActiveYellow}` : `${pageButtonsLightYellow}`;
+        const baseColor = isActive ? `${PAGE_BUTTONS_ACTIVE_YELLOW}` : `${PAGE_BUTTONS_LIGHT_YELLOW}`;
 
         return (
             <li key={link.id}>
@@ -64,10 +64,10 @@ export default function Navbar() {
             style={{
                 background: `linear-gradient(
                 to right,
-                ${barsEdgesDarkGreen} 0%,
-                ${barsCentreGreen} 33.3%,
-                ${barsCentreGreen} 66.6%,
-                ${barsEdgesDarkGreen} 100%
+                ${BARS_EDGES_DARK_GREEN} 0%,
+                ${BARS_CENTRE_GREEN} 33.3%,
+                ${BARS_CENTRE_GREEN} 66.6%,
+                ${BARS_EDGES_DARK_GREEN} 100%
                 )`,
                 zIndex: 100,
                 position: "relative",
