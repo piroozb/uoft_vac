@@ -16,7 +16,7 @@ export default function ContactUsPage() {
     return (
         <div className="w-full h-screen flex flex-col items-center justify-start mt-10 px-[150px] overflow-hidden">
             {/* Title */}
-            <SectionTitle size={SMALL_TITLE_SIZE} margin={SMALL_TITLE_MARGIN}>Contact Us!</SectionTitle>
+            <SectionTitle graphic="/title-contact-us.png" size="123px" margin={SMALL_TITLE_MARGIN}>Contact Us!</SectionTitle>
 
             {/* Two halves */}
             <div className="flex flex-1 w-full">

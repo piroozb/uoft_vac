@@ -27,8 +27,8 @@ export const SIDE_DECOR_MIN = 1000;
 export const SIDE_DECOR_MAX = 1500;
 export const SIDE_DECOR_WIDTH = 150;
 
-export const SMALL_TITLE_SIZE = "text-7xl";
+export const SMALL_TITLE_SIZE = "70px";
 export const SMALL_TITLE_MARGIN = "mb-7.5";
 
-export const SUBSECTION_SIZE = "text-5xl";
+export const SUBSECTION_SIZE = "50px";
 export const SUBSECTION_MARGIN = "mb-5";
