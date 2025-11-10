@@ -10,6 +10,7 @@
     "deploy": "npm run build && gh-pages -d out"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.14.5",
     "framer-motion": "^12.23.12",
     "netlify": "^23.10.0",
     "next": "15.3.3",
