@@ -20,7 +20,7 @@ export default function ExecArtwork({ name, size }: ExecArtworkProps) {
                 onClick={() => setExpanded(true)}
             >
                 <img
-                    src={`./exec-artworks/${name}.jpg`}
+                    src={`/exec-artworks/${name}.jpg`}
                     alt={`${name}'s artwork`}
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -44,7 +44,7 @@ export default function ExecArtwork({ name, size }: ExecArtworkProps) {
                     >
                         {/* Full artwork */}
                         <motion.img
-                            src={`./exec-artworks/${name}.jpg`}
+                            src={`/exec-artworks/${name}.jpg`}
                             alt={`${name}'s artwork`}
                             className="max-w-[75%] max-h-[75%] object-contain rounded-md shadow-lg"
                             initial={{ scale: 0, opacity: 0 }}

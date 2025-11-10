@@ -47,7 +47,7 @@ function Events() {
                 {/* And more! */}
                     <div className="flex justify-center">
                         <img
-                            src="./and-more.png"
+                            src="/and-more.png"
                             alt="AND MORE!"
                             className="w-25 object-contain"
                         />
@@ -113,7 +113,7 @@ function OfficeHours() {
                         style={{ height: "450px" }}
                     >
                         <video
-                            src="./office-video.mp4"
+                            src="/office-video.mp4"
                             controls
                             className="max-w-full max-h-full rounded-md shadow-md object-contain"
                             style={{ display: "block", margin: "0 auto" }}
@@ -126,7 +126,7 @@ function OfficeHours() {
                     {/* Make Art */}
                     <div className="flex justify-center">
                         <img
-                            src="./office-hours-make-art.png"
+                            src="/office-hours-make-art.png"
                             alt="Make art"
                             className="w-40 h-40 object-contain translate-x-5"
                         />
@@ -134,7 +134,7 @@ function OfficeHours() {
                     {/* Study */}
                     <div className="flex justify-center">
                         <img
-                            src="./office-hours-study.png"
+                            src="/office-hours-study.png"
                             alt="Study"
                             className="w-40 h-40 object-contain -translate-x-12.5"
                         />
@@ -142,7 +142,7 @@ function OfficeHours() {
                     {/* Socialise */}
                     <div className="flex justify-center">
                         <img
-                            src="./office-hours-socialise.png"
+                            src="/office-hours-socialise.png"
                             alt="Socialise"
                             className="w-40 h-40 object-contain translate-x-5"
                         />

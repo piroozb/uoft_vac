@@ -15,7 +15,7 @@ export function EmailLink({ size }: EmailLinkProps) {
     const [hovered, setHovered] = useState(false);
     const [imgError, setImgError] = useState(false);
 
-    const imageSrc = hovered ? "./email-hovered.png" : "./email.png";
+    const imageSrc = hovered ? "/email-hovered.png" : "/email.png";
 
     // If images don't load, use TextLink instead.
     if (imgError) {
