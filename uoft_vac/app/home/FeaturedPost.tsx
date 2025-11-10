@@ -57,7 +57,7 @@ function PictureCarousel({ images }: { images: string[] }) {
                         }}
                     >
                         <img
-                            src="/carousel-arrow-l.png"
+                            src="./carousel-arrow-l.png"
                             alt="Previous image"
                             className="opacity-70 hover:opacity-100 transition-opacity duration-200"
                             style={{ width: "2rem", height: "auto" }}
@@ -80,7 +80,7 @@ function PictureCarousel({ images }: { images: string[] }) {
                         }}
                     >
                         <img
-                            src="/carousel-arrow-r.png"
+                            src="./carousel-arrow-r.png"
                             alt="Next image"
                             className="opacity-70 hover:opacity-100 transition-opacity duration-200"
                             style={{ width: "2rem", height: "auto" }}
@@ -92,7 +92,7 @@ function PictureCarousel({ images }: { images: string[] }) {
                         {images.map((_, idx) => (
                             <img
                                 key={idx}
-                                src="/carousel-dot.png"
+                                src="./carousel-dot.png"
                                 alt={`Go to image ${idx + 1}`}
                                 className={`transition-opacity duration-200 ${currentIndex === idx
                                         ? "opacity-100"

@@ -105,7 +105,7 @@ export default function SideDecor() {
                 {leftStripes.map((stripe, index) => (
                     <img
                         key={index}
-                        src="/side-decor-l.png"
+                        src="./side-decor-l.png"
                         alt="Side Decor Left"
                         style={{
                             position: "absolute",
@@ -131,7 +131,7 @@ export default function SideDecor() {
                 {rightStripes.map((stripe, index) => (
                     <img
                         key={index}
-                        src="/side-decor-r.png"
+                        src="./side-decor-r.png"
                         alt="Side Decor Right"
                         style={{
                             position: "absolute",
