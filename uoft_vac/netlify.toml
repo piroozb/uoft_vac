@@ -1,4 +1,5 @@
 [build]
+  base = "uoft_vac/uoft_vac"
   command = "npm run build"
   publish = ".next"
 
