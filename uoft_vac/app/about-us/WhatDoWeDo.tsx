@@ -37,31 +37,24 @@ function Events() {
                 </div>
 
                 {/* Row 2 */}
-                <div className="grid grid-cols-2 gap-12 mb-5">
+                <div className="grid grid-cols-3 gap-10 mb-5">
                     {["Workshops", "Virtual Events"].map((label, idx) => (
                         <div key={idx} className="flex flex-col items-center">
                             <div className="w-30 h-30 bg-white shadow-md rounded-lg"></div>
                             <p className="mt-2 text-lg font-medium text-center">{label}</p>
                         </div>
                     ))}
-                </div>
-
                 {/* And more! */}
-                <p
-                    className="text-3xl font-extrabold whitespace-nowrap absolute"
-                    style={{
-                        right: "-1rem",
-                        top: "12.5rem",
-                    }}
-                >
                     <div className="flex justify-center">
                         <img
                             src="/and-more.png"
                             alt="AND MORE!"
-                            className="w-25 object-contain translate-x-7.5 -translate-y-2.5"
+                            className="w-25 object-contain"
                         />
                     </div>
-                </p>
+                </div>
+
+
             </div>
 
             {/* Purple buttons */}
@@ -104,7 +97,7 @@ function OfficeHours() {
         >
             <SectionTitle size={SUBSECTION_SIZE} margin={SUBSECTION_MARGIN}>Office Hours</SectionTitle>
             <p className="text-[1.35rem] text-center mb-5">
-                We host office hours every <strong>Thursday 3–6pm</strong>.
+                We host office hours every <strong>Tuesday and Thursday from 3–6pm</strong>.
                 <br />
                 Be sure to check our <strong>Discord announcements</strong> for additional office hours!
             </p>
@@ -129,13 +122,13 @@ function OfficeHours() {
                 </div>
 
                 {/* Bubble graphics container */}
-                <div className="flex flex-col justify-center gap-">
+                <div className="flex flex-col justify-center gap">
                     {/* Make Art */}
                     <div className="flex justify-center">
                         <img
                             src="/office-hours-make-art.png"
                             alt="Make art"
-                            className="w-40 h-40 object-contain translate-x-12.5"
+                            className="w-40 h-40 object-contain translate-x-5"
                         />
                     </div>
                     {/* Study */}
@@ -143,7 +136,7 @@ function OfficeHours() {
                         <img
                             src="/office-hours-study.png"
                             alt="Study"
-                            className="w-40 h-40 object-contain -translate-x-17.5 -translate-y-3"
+                            className="w-40 h-40 object-contain -translate-x-12.5"
                         />
                     </div>
                     {/* Socialise */}

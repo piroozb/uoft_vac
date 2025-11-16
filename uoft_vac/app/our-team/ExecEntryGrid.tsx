@@ -22,7 +22,7 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
     } = data;
 
     return (
-        <div className="flex flex-col items-center text-center w-full">
+        <div className="flex flex-col items-center text-center w-full mb-10">
 
             {/* Name with outline */}
             <h2
@@ -51,7 +51,7 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
                 <p className="text-[1.3rem] mt-1">
                     Favourite medium:<br />{medium}
                 </p>
-                <p className="text-[1.5rem] mt-1">{fact}</p>
+                <p className="text-[1.5rem] mt-1 font-bold">{fact}</p>
             </div>
         </div>
     );

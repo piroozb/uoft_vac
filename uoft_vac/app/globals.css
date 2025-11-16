@@ -23,3 +23,14 @@ body {
   color: #171717;
   font-family: var(--font-fredoka), sans-serif;
 }
+
+html, body {
+  overscroll-behavior: contain;
+}
+
+.main-content {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(black, black);
+  -webkit-mask-image: linear-gradient(black, black);
+}

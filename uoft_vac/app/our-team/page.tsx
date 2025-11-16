@@ -74,7 +74,7 @@ export default function OurTeam() {
                         <SectionTitle size={SMALL_TITLE_SIZE} margin={SMALL_TITLE_MARGIN}>
                             {category}
                         </SectionTitle>
-                            <div className={`grid ${gridCols[members.length] || "grid-cols-4"} ${SMALL_TITLE_MARGIN}`}>
+                            <div className={`grid grid-cols-2 ${SMALL_TITLE_MARGIN}`}>
                                 {members.map((name) => (
                                     <ExecEntryGrid key={name} entryKey={name} />
                                 ))}

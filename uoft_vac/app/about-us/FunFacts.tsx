@@ -30,7 +30,7 @@ export default function FunFacts() {
                 </div>
 
                 {/* Fact 3 */}
-                <div className="flex items-start -mt-10">
+                <div className="flex items-start mt-0">
                     <div className={factClass}>
                         <span>
                             VAC only held virtual events in <strong>2020 and 2021</strong>
@@ -39,7 +39,7 @@ export default function FunFacts() {
                 </div>
 
                 {/* Fact 4 */}
-                <div className="flex items-start mt-20">
+                <div className="flex items-start mt-5">
                     <div className={factClass}>
                         <span>
                             2022 was the first year we held <strong>in-person events</strong> again
