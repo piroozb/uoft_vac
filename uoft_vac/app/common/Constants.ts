@@ -22,7 +22,7 @@ export const TEXT_LINK_HOVER_ORANGE = "rgb(255,51,0)";
 export const FAQ_LINK_DARK_BLUE = "rgb(0,0,179)";
 export const FAQ_LINK_HOVER_BLUE = "rgb(0,0,255)";
 
-// Style:
+// Styles:
 export const SIDE_DECOR_MIN = 1000;
 export const SIDE_DECOR_MAX = 1500;
 export const SIDE_DECOR_WIDTH = 150;
