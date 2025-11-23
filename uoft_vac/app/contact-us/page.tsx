@@ -7,7 +7,6 @@ import {
     INSTAGRAM_LINK,
     TEXT_LINK_DARK_ORANGE,
     TEXT_LINK_HOVER_ORANGE,
-    SMALL_TITLE_SIZE,
     SMALL_TITLE_MARGIN,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
