@@ -8,8 +8,8 @@ import {
 
 // Order:
 const team = {
-    Admin: ["Sy", "Allison", "Jackie", "Emily"],
-    Events: ["Thomas", "Pelin", "Joyce", "Valentine"],
+    Admin: ["Sy", "Allison", "Jackie"],
+    Events: ["Thomas", "Joyce", "Valentine"],
     Graphics: ["BiewBiew", "Angelia", "Christina", "Rachel"],
     Marketing: ["Jae", "Nabneel", "Emilio", "Kelvin"],
     Webmaster: ["Pirooz", "Sunny"],

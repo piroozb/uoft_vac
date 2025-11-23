@@ -8,7 +8,7 @@ export interface ExecDataTypes {
 }
 
 export const execData: Record<string, ExecDataTypes> = {
-    // Admin team.
+    // Admin:
    Sy: {
         position: "President",
         colour: "#FFDC30",
@@ -33,37 +33,13 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I am addicted to Pokémon Go right now",
     },
 
-    Emily: { // Missing data.
-        position: "Secretary",
-        colour: "#ffd400",
-        study: "3rd year, Mathematics/Psychology",
-        medium: undefined,
-        fact: "I have a food journal where I record all the restaurants I have been to.",
-    },
-
-    Jaiz: { // Missing data.
-        position: "Treasurer",
-        colour: "#87c6d4",
-        study: "4th year, Computer Science",
-        medium: undefined,
-        fact: "I enjoy sports (even if I'm not particularly good at any).",
-    },
-
-    // Events team.
+    // Events:
     Thomas: {
         position: "Events Director",
         colour: "#B0195A",
         study: "2nd year, Cognitive Science/Psychology/Visual Studies",
         medium: "Art",
         fact: "I am fun",
-    },
-
-    Pelin: {
-        position: "Events Director",
-        colour: "#F6CCFF",
-        study: "2nd year, Computer Science",
-        medium: "pencil, watercolour",
-        fact: "I learned Turkish only by watching tv shows.",
     },
 
     Joyce: {
@@ -83,7 +59,7 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "i've studied over 4 languages",
     },
 
-    // Graphics team.
+    // Graphics:
     BiewBiew: {
         name: "Biew Biew",
         position: "Graphics Director",
@@ -117,7 +93,7 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I did kickboxing for 2 years and will be picking it up again soon.",
     },
 
-    // Marketing team.
+    // Marketing:
     Jae: {
         position: "Marketing Director",
         colour: "#2E5699",
@@ -150,7 +126,7 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I fumble",
     },
 
-    // Developer team.
+    // Webmaster
     Pirooz: {
         colour: "#6510e6",
         study: "4th year, Computer Science",
@@ -165,7 +141,7 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I love pibble! Clean my bellay!",
     },
 
-    // Office team.
+    // Office:
     Lydia: {
         colour: "#CFABC3",
         study: "3rd year, Mathematics/Philosophy",
