@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useState } from "react"
 
 import {
     BARS_EDGES_DARK_GREEN,
@@ -13,6 +14,7 @@ import {
 
 export default function Navbar() {
     const pathname = usePathname();
+    const [open, setOpen] = useState(false);
 
     // Main pages: Home, About Us, Our Team, Join Us, Contact Us, FAQ.
     // Home button will have the VAC logo instead of text.
@@ -32,11 +34,11 @@ export default function Navbar() {
         const baseColor = isActive ? `${PAGE_BUTTONS_ACTIVE_YELLOW}` : `${PAGE_BUTTONS_LIGHT_YELLOW}`;
 
         return (
-            <li key={link.id}>
-                <Link href={link.href}>
+            <li key={link.id} className="w-full lg:w-auto">
+                <Link href={link.href} onClick={() => setOpen(false)}>
                     <div
                         style={{ backgroundColor: baseColor }}
-                        className="h-20 px-10 rounded-md text-blue-500 flex items-center justify-center"
+                        className="h-16 lg:h-20 px-8 lg:px-10 rounded-md text-blue-500 flex items-center justify-center"
                     >
                         {link.isLogo ? (
                             <div className="h-full w-auto aspect-square relative">
@@ -60,7 +62,7 @@ export default function Navbar() {
     // Navbar background is green with a gradient of darker green coming inward from the sides.
     return (
         <nav
-            className="p-4 text-white flex justify-center"
+            className="p-4 text-white flex justify-between items-center lg:justify-center relative"
             style={{
                 background: `linear-gradient(
                 to right,
@@ -73,7 +75,27 @@ export default function Navbar() {
                 position: "relative",
             }}
         >
-            <ul className="flex gap-4 items-center">{navbarItems}</ul>
+            {/* Hamburger for mobile */}
+            <button className="lg:hidden text-3xl" onClick={() =>setOpen(!open)}>☰</button>
+            
+            {/* Desktop menu */}
+            <ul className="hidden lg:flex gap-4 items-center">{navbarItems}</ul>
+
+            {/* Mobile dropdown */}
+            <ul
+            className={`
+                absolute top-full left-0 right-0 flex flex-col gap-4 p-4 
+                bg-[#0b3311cc] backdrop-blur-md lg:hidden
+                transition-all duration-300 origin-top
+                ${open 
+                ? "opacity-100 scale-y-100 pointer-events-auto"
+                : "opacity-0 scale-y-0 pointer-events-none"
+                }
+            `}
+            style={{ zIndex: 200 }}
+            >
+            {navbarItems}
+            </ul>
         </nav>
     );
 }
