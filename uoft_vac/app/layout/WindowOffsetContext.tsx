@@ -27,7 +27,7 @@ export function WindowOffsetProvider({ children }: { children: ReactNode }) {
 export function useWindowOffset() {
     const ctx = useContext(WindowOffsetContext);
     if (!ctx) {
-        throw new Error("useWindowOffset must be used inside WindowOffsetProvider");
+        throw new Error("useWindowOffset must be used inside WindowOffsetProvider.");
     }
     return ctx;
 }

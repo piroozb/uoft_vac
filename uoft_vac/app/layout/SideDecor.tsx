@@ -15,7 +15,7 @@ export default function SideDecor({ offset }: { offset: number }) {
 
     const animationRef = useRef<number>(0);
 
-    // Load image to compute scroll repetition height
+    // Load image to compute scroll repetition height.
     useEffect(() => {
         const img = new window.Image();
         img.src = "/side-decor-l.png";
@@ -26,7 +26,7 @@ export default function SideDecor({ offset }: { offset: number }) {
         };
     }, []);
 
-    // Infinite scroll
+    // Scroll animation
     useEffect(() => {
         if (!barHeight) return;
 
@@ -56,7 +56,7 @@ export default function SideDecor({ offset }: { offset: number }) {
 
     return (
         <>
-            {/* LEFT panel */}
+            {/* Left panel */}
             <div
                 className="fixed left-0 top-0 z-0 transition-transform duration-300 ease-linear"
                 style={{
@@ -81,7 +81,7 @@ export default function SideDecor({ offset }: { offset: number }) {
                 ))}
             </div>
 
-            {/* RIGHT panel */}
+            {/* Right panel */}
             <div
                 className="fixed right-0 top-0 z-0 transition-transform duration-300 ease-linear"
                 style={{
