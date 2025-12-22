@@ -41,7 +41,7 @@ export default function Navbar() {
                         className="h-16 lg:h-20 px-8 lg:px-10 rounded-md text-blue-500 flex items-center justify-center"
                     >
                         {link.isLogo ? (
-                            <div className="h-full w-auto aspect-square relative">
+                            <div className="h-full w-auto aspect-square">
                                 <Image
                                     src="/vac-logo.avif"
                                     alt="VAC"
