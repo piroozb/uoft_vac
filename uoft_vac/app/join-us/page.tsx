@@ -14,9 +14,15 @@ import TextLink from "../common/TextLink";
 
 export default function JoinUsPage() {
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-start mt-10 px-[150px] overflow-hidden">
+    <div className="w-full h-screen flex flex-col items-center justify-start mt-5 overflow-hidden">
       {/* Title */}
-      <SectionTitle size={SMALL_TITLE_SIZE} margin={SMALL_TITLE_MARGIN}>Join Us Today For Free!</SectionTitle>
+      <SectionTitle
+        graphic="/title-join-us.png"
+        size="125px"
+        margin="mb-5"
+      >
+        Join Us Today For Free!
+      </SectionTitle>
 
       {/* Two halves */}
       <div className="flex flex-1 w-full">

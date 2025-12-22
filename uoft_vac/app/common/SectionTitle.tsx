@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 interface SectionTitleProps {
     children: React.ReactNode;
     graphic?: string;
-    size?: string; // pixel height (e.g. "95px")
+    size?: string; // Pixel height
     margin?: string;
 }
 
