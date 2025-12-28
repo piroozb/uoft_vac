@@ -18,7 +18,7 @@ export default function ContactUsPage() {
             <SectionTitle
                 graphic="/title-contact-us.png"
                 size="125px"
-                margin="mb-5"
+                margin=""
             >
                 Contact Us!
             </SectionTitle>
@@ -26,29 +26,21 @@ export default function ContactUsPage() {
             {/* Two halves */}
             <div className="flex flex-1 w-full">
                 {/* Left: graphic */}
-                <div className="flex-1 relative flex justify-end">
-                    <div className="w-[90%] h-[80%] relative rounded-md overflow-hidden">
+                <div className="flex-1 relative flex justify-end border">
+                    <div className="w-full h-full">
                         {/* Graphic */}
                         <Image
                             src="/contact-us-graphic.png"
                             alt="Contact Us Graphic"
                             fill
-                            className="object-contain"
+                            className="my-5 object-top object-contain"
                             priority
                         />
-
-                        {/* Text */}
-                        <p className="relative z-10 text-[1.5rem] text-center m-5">
-                            Do you have any <strong>questions</strong> for us? Or are you
-                            looking to{" "}
-                            <strong>collaborate on an event</strong> with us? If so, we
-                            would love to hear from you!
-                        </p>
                     </div>
                 </div>
 
                 {/* Right: contact info */}
-                <div className="flex-1 relative flex flex-col items-center">
+                <div className="flex-1 relative flex flex-col items-center border">
                     <p className="text-[3rem] font-semibold">
                         You can reach us by:
                     </p>
@@ -56,7 +48,7 @@ export default function ContactUsPage() {
                     {/* Bullet 1 */}
                     <div
                         className="absolute flex items-center"
-                        style={{ top: "10%", left: "25%", transform: "rotate(-2deg)" }}
+                        style={{ top: "15%", transform: "rotate(-2deg)" }}
                     >
                         <p className="text-[2rem]">
                             • Writing us an{" "}
@@ -73,7 +65,7 @@ export default function ContactUsPage() {
                     {/* Bullet 2 */}
                     <div
                         className="absolute flex items-center"
-                        style={{ top: "30%", left: "30%", transform: "rotate(1.5deg)" }}
+                        style={{ top: "35%", transform: "rotate(1.5deg)" }}
                     >
                         <p className="text-[2rem]">
                             • Sending us a message on{" "}
@@ -90,11 +82,12 @@ export default function ContactUsPage() {
                     {/* Bullet 3 */}
                     <div
                         className="absolute flex items-center"
-                        style={{ top: "60%", left: "25%", transform: "rotate(-3deg)" }}
+                        style={{ top: "60%", transform: "rotate(-3deg)" }}
                     >
                         <p className="text-[2rem]">
-                            • Ping the <strong>@President</strong> or{" "}
-                            <strong>@Vice-President</strong> role on{" "}
+                            • Ping the <strong>@President</strong> or <strong>@Vice-President</strong>
+                            <br/>
+                            role on{" "}
                             <TextLink
                                 text="Discord"
                                 href={DISCORD_LINK}

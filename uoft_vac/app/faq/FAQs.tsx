@@ -10,14 +10,14 @@ import {
 import TextLink from "../common/TextLink";
 
 export interface FAQProps {
-    q: string;
-    a: ReactNode;
+    question: string;
+    answer: ReactNode;
 }
 
 export const faqs: FAQProps[] = [
     {
-        q: "How do I join VAC?",
-        a: <>
+        question: "How do I join VAC?",
+        answer: <>
         Simply follow the instructions{" "}
         <TextLink
             text="here"
@@ -31,8 +31,8 @@ export const faqs: FAQProps[] = [
     },
 
     {
-        q: "Is this club active?",
-        a: <>
+        question: "Is this club active?",
+        answer: <>
         Yes! VAC is active for both Fall and Winter semesters of the new school year. Please check{" "}
         our announcements on{" "}
         <TextLink
@@ -53,8 +53,8 @@ export const faqs: FAQProps[] = [
     },
 
     {
-        q: "Are there any fees to pay as a club member?",
-        a: <>
+        question: "Are there any fees to pay as a club member?",
+        answer: <>
         Joining VAC is totally free! Most of our events are also free, with the exception of some{" "}
         special events, where snacks and/or more expensive supplies are provided. The fee will be{" "}
         specified when such events are announced.
@@ -62,30 +62,30 @@ export const faqs: FAQProps[] = [
     },
 
     {
-        q: "What is the required skill level to join VAC?",
-        a: <>
+        question: "What is the required skill level to join VAC?",
+        answer: <>
         We welcome artists of all skill levels here! Our events are also planned with this in mind : )
         </>,
     },
 
     {
-        q: "Which art media and/or art styles are promoted at VAC?",
-        a: <>
+        question: "Which art media and/or art styles are promoted at VAC?",
+        answer: <>
         VAC welcomes all artists, regardless of their preferred art medium and art style. Our{" "}
         events also incorporate and embrace various art media and art styles.
         </>
     },
 
     {
-        q: "Do I have to bring my own art supplies to VAC events?",
-        a: <>
+        question: "Do I have to bring my own art supplies to VAC events?",
+        answer: <>
         We always provide art supplies to our events, but you are free to also bring your own.
         </>,
     },
 
     {
-        q: "Can UTM and UTSC students join VAC?",
-        a: <>
+        question: "Can UTM and UTSC students join VAC?",
+        answer: <>
         Yes! You are free to join VAC even if you are not from UTSG. Please note that our weekly{" "}
         events are however usually held at UTSG. If you are from UTSC, you might be interested{" "}
         in checking out UTSC VAC instead.
@@ -93,8 +93,8 @@ export const faqs: FAQProps[] = [
     },
 
     {
-        q: "Can alumni students join VAC?",
-        a: <>
+        question: "Can alumni students join VAC?",
+        answer: <>
         Yes! While our in-person events are usually made for current students, you are free to{" "}
         join our Discord to hang out with everyone online. If you want to attend our in-person{" "}
         events, please make sure you come with a friend who is a current UofT student, or{" "}
@@ -110,8 +110,8 @@ export const faqs: FAQProps[] = [
     },
     
     {
-        q: "I can’t access the Discord server. Why is this happening?",
-        a: <>
+        question: "I can’t access the Discord server. Why is this happening?",
+        answer: <>
         You need to fill out our{" "}
         <TextLink
             text="membership verification form"
