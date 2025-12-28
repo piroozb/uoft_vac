@@ -4,16 +4,15 @@ import SectionTitle from "../common/SectionTitle";
 import { InstagramEmbed } from 'react-social-media-embed';
 export default function UpcomingEvents() {
     return (
-        <section className="w-full px-8 my-10">
+        <section className="w-full px-4 md:px-8 my-10">
             {/* Title */}
             <SectionTitle>Upcoming Events!</SectionTitle>
 
             {/* Graphic */}
-            <div
-                className="mx-auto py-15"
-                style={{ maxWidth: "600px" }}
-            >
-                <div className="w-full aspect-square bg-white shadow-lg rounded-md"> <InstagramEmbed url="https://www.instagram.com/uoft_vac/"/></div>
+            <div className="mx-auto mt-8 flex justify-center">
+                <div className="w-full max-w-xs md:max-w-xl">
+                        <InstagramEmbed url="https://www.instagram.com/uoft_vac/" />
+                </div>
             </div>
         </section>
     );
