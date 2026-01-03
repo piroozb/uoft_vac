@@ -3,7 +3,7 @@
 import { execData, ExecDataTypes } from "./ExecData";
 import ExecArtwork from "./ExecArtwork";
 
-const artWidth = 250;
+const artWidth = 15;
 
 interface ExecEntryGridProps {
     entryKey: string;
@@ -22,11 +22,11 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
     } = data;
 
     return (
-        <div className="flex flex-col items-center text-center w-full mb-10">
+        <div className="flex flex-col items-center text-center">
 
-            {/* Name with outline */}
+            {/* Name */}
             <h2
-                className="text-6xl font-bold mb-5 whitespace-nowrap text-ellipsis leading-[1.1] pb-2"
+                className="mb-[1cqw] text-[3cqw] font-bold"
                 style={{
                     color: colour,
                     textShadow: `-1px -1px 0 #000,
@@ -43,15 +43,15 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
 
             {/* Info container */}
             <div
-                style={{ width: `${artWidth + 50}px` }}
-                className="w-full"
+                style={{ width: `${artWidth + 5}cqw` }}
+                className=""
             >
-                <h3 className="text-2xl font-normal mt-4">{position}</h3>
-                <p className="text-[1.3rem] mt-1">{study}</p>
-                <p className="text-[1.3rem] mt-1">
+                <h3 className="mt-[1cqw] text-[1.5cqw] font-bold">{position}</h3>
+                <p className="mt-[.25cqw] text-[1.1cqw]">{study}</p>
+                <p className="mt-[.5cqw] text-[1.1cqw]">
                     Favourite medium:<br />{medium}
                 </p>
-                <p className="text-[1.5rem] mt-1 font-bold">{fact}</p>
+                <p className="mt-[.25cqw] text-[1.5cqw] font-bold">{fact}</p>
             </div>
         </div>
     );
