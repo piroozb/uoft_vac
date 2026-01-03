@@ -8,11 +8,11 @@ import {
 
 // Order:
 const team = {
-    Admin: ["Sy", "Allison", "Jackie"],
-    Events: ["Thomas", "Joyce", "Valentine"],
-    Graphics: ["BiewBiew", "Angelia", "Christina", "Rachel"],
-    Marketing: ["Jae", "Nabneel", "Emilio", "Kelvin"],
-    Webmaster: ["Pirooz", "Sunny"],
+    "Admin": ["Allison", "Sy", "Jackie"],
+    "Events": ["Thomas", "Joyce", "Valentine"],
+    "Graphics": ["BiewBiew", "Angelia", "Christina", "Rachel"],
+    "Marketing": ["Jae", "Nabneel", "Emilio", "Kelvin"],
+    "Webmaster": ["Pirooz", "Sunny"],
     "Office Manager": ["Lydia", "Alex"],
 };
 
@@ -50,38 +50,36 @@ const team = {
 //     );
 // }
 
-// Explicit mapping for number of entries in a row from the array length to the tailwind version.
-const gridCols: Record<number, string> = {
-    1: "grid-cols-1",
-    2: "grid-cols-2",
-    3: "grid-cols-3",
-    4: "grid-cols-4 gap-75",
-    5: "grid-cols-5",
-    6: "grid-cols-6",
-};
-
 export default function OurTeam() {
     return (
-        <div className="max-w-6xl mx-auto mt-10">
-
+        <div className="my-[1cqw] mx-auto">
             {/* Title */}
             <SectionTitle>Meet the Team!</SectionTitle>
 
-            {/* Exec categories */}
             <div>
-                {Object.entries(team).map(([category, members]) => (
-                    <div key={category}>
-                        <SectionTitle size={SMALL_TITLE_SIZE} margin={SMALL_TITLE_MARGIN}>
-                            {category}
-                        </SectionTitle>
-                            <div className={`grid grid-cols-2 ${SMALL_TITLE_MARGIN}`}>
+                {Object.entries(team).map(([category, members]) => {
+
+                    // Number of columns (max 4)
+                    const cols = Math.min(members.length, 4);
+
+                    return (
+                        <div key={category}>
+                            <SectionTitle
+                                size={SMALL_TITLE_SIZE}
+                                margin={SMALL_TITLE_MARGIN}
+                            >
+                                {category}
+                            </SectionTitle>
+
+                            {/* Entries */}
+                            <div className={`grid grid-cols-${cols}`}>
                                 {members.map((name) => (
                                     <ExecEntryGrid key={name} entryKey={name} />
                                 ))}
                             </div>
-                        
-                    </div>
-                ))}
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

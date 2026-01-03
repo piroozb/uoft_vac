@@ -11,54 +11,49 @@ import {
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
+const BULLETS_CLASSNAME = "absolute flex items-center";
+
 export default function ContactUsPage() {
     return (
-        <div className="w-full h-screen flex flex-col items-center justify-start mt-5 overflow-hidden">
+        <div className="w-full my-[1cqw] flex flex-col items-center">
             {/* Title */}
             <SectionTitle
                 graphic="/title-contact-us.png"
-                size="125px"
-                margin="mb-5"
+                size="6.5cqw"
+                margin=""
             >
                 Contact Us!
             </SectionTitle>
 
             {/* Two halves */}
-            <div className="flex flex-1 w-full">
-                {/* Left: graphic */}
-                <div className="flex-1 relative flex justify-end">
-                    <div className="w-[90%] h-[80%] relative rounded-md overflow-hidden">
-                        {/* Graphic */}
-                        <Image
-                            src="/contact-us-graphic.png"
-                            alt="Contact Us Graphic"
-                            fill
-                            className="object-contain"
-                            priority
-                        />
+            <div className="w-full aspect-[2/1] flex">
 
-                        {/* Text */}
-                        <p className="relative z-10 text-[1.5rem] text-center m-5">
-                            Do you have any <strong>questions</strong> for us? Or are you
-                            looking to{" "}
-                            <strong>collaborate on an event</strong> with us? If so, we
-                            would love to hear from you!
-                        </p>
-                    </div>
+                {/* Left: graphic */}
+                <div className="w-1/2 relative">
+                    <Image
+                        src="/contact-us-graphic.png"
+                        alt="Contact Us Graphic"
+                        fill
+                        className="mt-[1cqw] object-top object-contain"
+                        priority
+                    />
                 </div>
 
                 {/* Right: contact info */}
-                <div className="flex-1 relative flex flex-col items-center">
-                    <p className="text-[3rem] font-semibold">
+                <div
+                    className="w-1/2 relative flex flex-col items-center"
+                    style={{ containerType: "inline-size" }}
+                >
+                    <p className="mt-[5cqw] font-semibold" style={{ fontSize: "5cqw" }}>
                         You can reach us by:
                     </p>
 
                     {/* Bullet 1 */}
                     <div
-                        className="absolute flex items-center"
-                        style={{ top: "10%", left: "25%", transform: "rotate(-2deg)" }}
+                        className={BULLETS_CLASSNAME}
+                        style={{ top: "20%", transform: "rotate(-1deg)" }}
                     >
-                        <p className="text-[2rem]">
+                        <p style={{ fontSize: "4cqw" }}>
                             • Writing us an{" "}
                             <TextLink
                                 text="email"
@@ -72,10 +67,10 @@ export default function ContactUsPage() {
 
                     {/* Bullet 2 */}
                     <div
-                        className="absolute flex items-center"
-                        style={{ top: "30%", left: "30%", transform: "rotate(1.5deg)" }}
+                        className={BULLETS_CLASSNAME}
+                        style={{ top: "40%", transform: "rotate(1deg)" }}
                     >
-                        <p className="text-[2rem]">
+                        <p style={{ fontSize: "4cqw" }}>
                             • Sending us a message on{" "}
                             <TextLink
                                 text="Instagram"
@@ -89,12 +84,14 @@ export default function ContactUsPage() {
 
                     {/* Bullet 3 */}
                     <div
-                        className="absolute flex items-center"
-                        style={{ top: "60%", left: "25%", transform: "rotate(-3deg)" }}
+                        className={BULLETS_CLASSNAME}
+                        style={{ top: "65%", transform: "rotate(-1deg)" }}
                     >
-                        <p className="text-[2rem]">
+                        <p style={{ fontSize: "4cqw" }}>
                             • Ping the <strong>@President</strong> or{" "}
-                            <strong>@Vice-President</strong> role on{" "}
+                            <strong>@Vice-President</strong>
+                            <br />
+                            role on{" "}
                             <TextLink
                                 text="Discord"
                                 href={DISCORD_LINK}
