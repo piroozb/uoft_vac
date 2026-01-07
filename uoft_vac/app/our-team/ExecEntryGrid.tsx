@@ -3,13 +3,16 @@
 import { execData, ExecDataTypes } from "./ExecData";
 import ExecArtwork from "./ExecArtwork";
 
-const artWidth = 15;
+const SCALE = 1;
+const ART_WIDTH = 225;
 
 interface ExecEntryGridProps {
     entryKey: string;
 }
 
-export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
+export default function ExecEntryGrid({
+    entryKey,
+}: ExecEntryGridProps) {
     const data: ExecDataTypes = execData[entryKey];
 
     const {
@@ -22,36 +25,54 @@ export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
     } = data;
 
     return (
-        <div className="flex flex-col items-center text-center">
-
+        <div
+            className="flex flex-col items-center text-center"
+            style={{
+                ["--SCALE" as any]: SCALE,
+            }}
+        >
             {/* Name */}
             <h2
-                className="mb-[1cqw] text-[3cqw] font-bold"
+                className="
+                    mb-[calc(5px*var(--SCALE))]
+                    text-[calc(50px*var(--SCALE))]
+                    font-bold
+                "
                 style={{
                     color: colour,
                     textShadow: `-1px -1px 0 #000,
-                     1px -1px 0 #000,
-                    -1px  1px 0 #000,
-                     1px  1px 0 #000`,
+                                 1px -1px 0 #000,
+                                -1px  1px 0 #000,
+                                 1px  1px 0 #000`,
                 }}
             >
                 {name}
             </h2>
 
             {/* Artwork */}
-            <ExecArtwork name={entryKey} size={artWidth} />
+            <ExecArtwork
+                name={entryKey}
+                size={ART_WIDTH * SCALE}
+            />
 
             {/* Info container */}
-            <div
-                style={{ width: `${artWidth + 5}cqw` }}
-                className=""
-            >
-                <h3 className="mt-[1cqw] text-[1.5cqw] font-bold">{position}</h3>
-                <p className="mt-[.25cqw] text-[1.1cqw]">{study}</p>
-                <p className="mt-[.5cqw] text-[1.1cqw]">
-                    Favourite medium:<br />{medium}
+            <div>
+                <h3 className="mt-[calc(5px*var(--SCALE))] text-[calc(25px*var(--SCALE))] font-bold">
+                    {position}
+                </h3>
+
+                <p className="text-[calc(20px*var(--SCALE))]">
+                    {study}
                 </p>
-                <p className="mt-[.25cqw] text-[1.5cqw] font-bold">{fact}</p>
+
+                <p className="mt-[calc(5px*var(--SCALE))] text-[calc(20px*var(--SCALE))]">
+                    Favourite medium:<br />
+                    {medium}
+                </p>
+
+                <p className="text-[calc(25px*var(--SCALE))] font-bold">
+                    {fact}
+                </p>
             </div>
         </div>
     );

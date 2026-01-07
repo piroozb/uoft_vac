@@ -13,7 +13,7 @@ interface SectionTitleProps {
 export default function SectionTitle({
     children,
     graphic = "",
-    size = "5cqw",
+    size = "75px",
     margin = "",
 }: SectionTitleProps) {
     const hasGraphic = graphic !== "";

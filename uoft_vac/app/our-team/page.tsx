@@ -50,31 +50,44 @@ const team = {
 //     );
 // }
 
+// Explicit mapping from the number of entries in a category to the tailwind equivalent.
+const COLS_MAP: Record<number, string> = {
+    1: "grid-cols-1",
+    2: "grid-cols-2",
+    3: "grid-cols-3",
+    4: "grid-cols-4",
+};
+
 export default function OurTeam() {
     return (
-        <div className="my-[1cqw] mx-auto">
+        <div className="my-5 mx-auto">
             {/* Title */}
             <SectionTitle>Meet the Team!</SectionTitle>
 
             <div>
                 {Object.entries(team).map(([category, members]) => {
-
-                    // Number of columns (max 4)
                     const cols = Math.min(members.length, 4);
 
                     return (
                         <div key={category}>
-                            <SectionTitle
-                                size={SMALL_TITLE_SIZE}
-                                margin={SMALL_TITLE_MARGIN}
-                            >
+                            <SectionTitle size="60px">
                                 {category}
                             </SectionTitle>
 
                             {/* Entries */}
-                            <div className={`grid grid-cols-${cols}`}>
+                            <div
+                                className={
+                                    `mx-3 gap-5 grid ${cols === 4
+                                        ? "grid-cols-2 min-[1600px]:grid-cols-4"
+                                        : COLS_MAP[cols]
+                                    }`
+                                }
+                            >
                                 {members.map((name) => (
-                                    <ExecEntryGrid key={name} entryKey={name} />
+                                    <ExecEntryGrid
+                                        key={name}
+                                        entryKey={name}
+                                    />
                                 ))}
                             </div>
                         </div>
