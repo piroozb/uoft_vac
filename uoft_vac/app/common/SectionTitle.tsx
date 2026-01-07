@@ -13,8 +13,8 @@ interface SectionTitleProps {
 export default function SectionTitle({
     children,
     graphic = "",
-    size = "95px",
-    margin = "mb-10",
+    size = "75px",
+    margin = "",
 }: SectionTitleProps) {
     const hasGraphic = graphic !== "";
     const [aspectRatio, setAspectRatio] = useState<number | null>(null);

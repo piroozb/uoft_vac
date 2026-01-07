@@ -16,7 +16,7 @@ export default function ExecArtwork({ name, size }: ExecArtworkProps) {
             {/* Collapsed artwork */}
             <div
                 className="relative flex items-center justify-center bg-white rounded-md overflow-hidden cursor-pointer"
-                style={{ width: size, height: size }}
+                style={{ width: `${size}px`, height: `${size}px` }}
                 onClick={() => setExpanded(true)}
             >
                 <img
