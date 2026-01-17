@@ -89,11 +89,11 @@ export default function OurTeam() {
                             {/* Entries */}
                             <div
                                 className={
-                                    `mx-3 gap-5 grid
-                                    grid-cols-1
-                                    ${cols >= 2 ? 'sm:grid-cols-2' : ''}
-                                    ${cols >= 3 ? 'lg:grid-cols-3' : ''}
-                                    ${cols >= 4 ? 'xl:grid-cols-4' : ''}`}
+                                    `mx-3 gap-10 grid ${cols === 4
+                                        ? "grid-cols-2 min-[1600px]:grid-cols-4"
+                                        : COLS_MAP[cols]
+                                    }`
+                                }
                             >
                                 {members.map((name) => (
                                     <ExecEntryGrid

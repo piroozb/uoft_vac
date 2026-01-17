@@ -6,15 +6,15 @@ import { useState, useEffect } from "react";
 interface SectionTitleProps {
     children: React.ReactNode;
     graphic?: string;
-    size?: string; // Pixel height
+    size?: string;
     margin?: string;
 }
 
 export default function SectionTitle({
     children,
     graphic = "",
-    size = "95px",
-    margin = "mb-10",
+    size = "75px",
+    margin = "",
 }: SectionTitleProps) {
     const hasGraphic = graphic !== "";
     const [aspectRatio, setAspectRatio] = useState<number | null>(null);
