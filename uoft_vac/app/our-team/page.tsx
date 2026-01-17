@@ -11,13 +11,6 @@ const team = {
     "Office Manager": ["Lydia", "Alex"],
 };
 
-const COLS_MAP: Record<number, string> = {
-    1: "grid-cols-1",
-    2: "grid-cols-2",
-    3: "grid-cols-3",
-    4: "grid-cols-4",
-};
-
 export default function OurTeam() {
     return (
         <div className="my-5 mx-auto">
@@ -39,9 +32,9 @@ export default function OurTeam() {
                                 className={
                                     `mx-3 gap-5 grid
                                     grid-cols-1
-                                    sm:grid-cols-2
-                                    lg:${COLS_MAP[Math.min(cols, 3)]}
-                                    xl:${COLS_MAP[cols]}`}
+                                    ${cols >= 2 ? 'sm:grid-cols-2' : ''}
+                                    ${cols >= 3 ? 'lg:grid-cols-3' : ''}
+                                    ${cols >= 4 ? 'xl:grid-cols-4' : ''}`}
                             >
                                 {members.map((name) => (
                                     <ExecEntryGrid
