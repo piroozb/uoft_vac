@@ -47,7 +47,7 @@ export const execData: Record<string, ExecDataTypes> = {
         colour: "#00ebff",
         study: "5th year, Economics/Statistics/East Asian Studies",
         medium: "digital",
-        fact: "I'm writing a novel that totals over 115k words!",
+        fact: "I finished a novel totaling 160k words!",
     },
 
     Valentine: {
