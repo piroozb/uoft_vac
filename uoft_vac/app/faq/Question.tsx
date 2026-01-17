@@ -5,7 +5,8 @@ import {
     MouseEvent,
     useRef,
     useState,
-    useLayoutEffect
+    useLayoutEffect,
+    useEffect,
 } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
@@ -13,22 +14,36 @@ import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 import { BARS_EDGES_DARK_GREEN } from "../common/Constants";
 
 interface QuestionProps {
-    q: string;
-    a: ReactNode;
+    question: string;
+    answer: ReactNode;
     isOpen: boolean;
     onClick: (e: MouseEvent<HTMLDivElement>) => void;
     index: number;
 }
 
-export default function Question({ q, a, isOpen, onClick, index }: QuestionProps) {
+export default function Question({ question, answer, isOpen, onClick, index }: QuestionProps) {
     const ref = useRef<HTMLDivElement | null>(null);
     const [height, setHeight] = useState(0);
 
-    useLayoutEffect(() => {
+    // Additional calculated height for expanded answers.
+    const measureHeight = () => {
         if (ref.current) {
             setHeight(ref.current.scrollHeight);
         }
-    }, [a]);
+    };
+
+    // Measure on expand / collapse.
+    useLayoutEffect(() => {
+        measureHeight();
+    }, [answer]);
+
+    // Measure on window resize.
+    useEffect(() => {
+        if (!isOpen) return;
+
+        window.addEventListener("resize", measureHeight);
+        return () => window.removeEventListener("resize", measureHeight);
+    }, [isOpen]);
 
     return (
         <div
@@ -38,21 +53,18 @@ export default function Question({ q, a, isOpen, onClick, index }: QuestionProps
                 borderTop: index === 0 ? "none" : `1px solid ${BARS_EDGES_DARK_GREEN}`,
             }}
         >
-            {/* Question container */}
-            <div className="flex justify-between items-center">
+            {/* Question */}
+            <div className="mb-5 flex justify-between items-center">
+                <span className="text-[1.5rem] font-semibold">{question}</span>
 
-                {/* Question */}
-                <span className="text-[1.5rem] font-semibold">{q}</span>
-
-                {isOpen ? ( // Right arrow if collapsed.
+                {isOpen ? (
                     <FaChevronRight className="w-5 h-5" style={{ color: BARS_EDGES_DARK_GREEN }} />
-                    
-                ) : ( // Down arrow if expanded.
+                ) : (
                     <FaChevronDown className="w-5 h-5" style={{ color: BARS_EDGES_DARK_GREEN }} />
                 )}
             </div>
 
-            {/* Expand/collapse transition */}
+            {/* Expand / collapse */}
             <motion.div
                 ref={ref}
                 initial={false}
@@ -61,12 +73,10 @@ export default function Question({ q, a, isOpen, onClick, index }: QuestionProps
                     opacity: isOpen ? 1 : 0,
                 }}
                 transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                style={{ overflow: "hidden" }}
-                className="mt-5"
+                className="overflow-hidden"
             >
-
                 {/* Answer */}
-                <div className="text-[1.25rem] text-sm">{a}</div>
+                <div className="text-[1.25rem]">{answer}</div>
             </motion.div>
         </div>
     );

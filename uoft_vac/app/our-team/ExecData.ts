@@ -47,7 +47,7 @@ export const execData: Record<string, ExecDataTypes> = {
         colour: "#00ebff",
         study: "5th year, Economics/Statistics/East Asian Studies",
         medium: "digital",
-        fact: "I'm writing a novel that totals over 115k words!",
+        fact: "I finished a novel totaling 160k words!",
     },
 
     Valentine: {
@@ -118,7 +118,7 @@ export const execData: Record<string, ExecDataTypes> = {
         fact: "I can do multiple character impressions",
     },
 
-    "Kelvin": {
+    Kelvin: {
         position: "Marketing Assistant",
         colour: "#F1BAFF",
         study: "3rd year, Psychology",
@@ -137,7 +137,7 @@ export const execData: Record<string, ExecDataTypes> = {
     Sunny: {
         colour: "#FF8400",
         study: "2nd year, Mathematics",
-        medium: "clay, video editing",
+        medium: "clay, videography",
         fact: "I love pibble! Clean my bellay!",
     },
 
