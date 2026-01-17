@@ -17,8 +17,18 @@ function PictureCarousel({ images }: { images: string[] }) {
         ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
     };
 
+    const handlePrev = () => {
+        setDirection(-1);
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
+
+    const handleNext = () => {
+        setDirection(1);
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+
     return (
-        <div className="relative w-100 h-100 flex items-center justify-center overflow-visible row-span-1">
+        <div className="relative w-full max-w-md lg:max-w-lg mx-auto px-6 flex items-center justify-center row-span-1">
             {/* Picture */}
             <div className="relative w-90 h-90 overflow-hidden shadow-lg rounded-md">
                 <AnimatePresence initial={false} custom={direction}>
@@ -39,56 +49,27 @@ function PictureCarousel({ images }: { images: string[] }) {
                 </AnimatePresence>
             </div>
 
+            {/* Navigation Buttons */}
             {hasMultiple && (
                 <>
                     {/* Left Button */}
                     <button
-                        onClick={() => {
-                            setDirection(-1);
-                            setCurrentIndex((prev) =>
-                                prev === 0 ? images.length - 1 : prev - 1
-                            );
-                        }}
-                        className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 p-2"
-                        style={{
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                        }}
+                        onClick={handlePrev}
+                        className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 p-2 bg-transparent border-none cursor-pointer"
                     >
-                        <img
-                            src="/carousel-arrow-l.png"
-                            alt="Previous image"
-                            className="opacity-70 hover:opacity-100 transition-opacity duration-200"
-                            style={{ width: "2rem", height: "auto" }}
-                        />
+                        <img src="/carousel-arrow-l.png" alt="Previous" className="w-8 opacity-70 hover:opacity-100" />
                     </button>
 
                     {/* Right Button */}
                     <button
-                        onClick={() => {
-                            setDirection(1);
-                            setCurrentIndex((prev) =>
-                                prev === images.length - 1 ? 0 : prev + 1
-                            );
-                        }}
-                        className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 p-2"
-                        style={{
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                        }}
+                        onClick={handleNext}
+                        className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 p-2 bg-transparent border-none cursor-pointer"
                     >
-                        <img
-                            src="/carousel-arrow-r.png"
-                            alt="Next image"
-                            className="opacity-70 hover:opacity-100 transition-opacity duration-200"
-                            style={{ width: "2rem", height: "auto" }}
-                        />
+                        <img src="/carousel-arrow-r.png" alt="Next" className="w-8 opacity-70 hover:opacity-100" />
                     </button>
 
                     {/* Dots */}
-                    <div className="absolute -bottom-3 flex gap-2 justify-center w-full">
+                    <div className="absolute -bottom-6 flex gap-2 justify-center w-full">
                         {images.map((_, idx) => (
                             <img
                                 key={idx}
@@ -131,22 +112,13 @@ function Caption({ captionText, collapsedHeight }: { captionText: string, collap
     }, [captionText, collapsedHeight]);
 
     return (
-        // Text
-        <div className="text-left text-lg relative col-start-2 row-span-2">
-            {/* Expand/collapse transition */}
+        <div className="w-full text-left text-base md:text-lg">
             <motion.div
                 ref={captionRef}
                 initial={false}
-                animate={{
-                    maxHeight: expanded ? fullHeight : collapsedHeight,
-                }}
-                transition={{
-                    duration: 0.5,
-                    ease: [.25, 1, .5, 1]
-                }}
-                style={{
-                    overflow: "hidden"
-                }}
+                animate={{ maxHeight: expanded ? fullHeight : collapsedHeight }}
+                transition={{ duration: 0.5, ease: [.25, 1, .5, 1] }}
+                style={{ overflow: "hidden" }}
             >
                 {captionText}
             </motion.div>
@@ -173,15 +145,15 @@ export default function FeaturedPost() {
     const collapsedHeight = 400;
 
     return (
-        <section className="w-full px-8 my-10">
+        <section className="w-full px-8 md:px-16 lg:px-32 my-10">
             {/* Title */}
             <SectionTitle>Featured Post!</SectionTitle>
 
-            {/* Picture & caption */}
-            <div className="grid grid-cols-[auto_1fr] max-w-screen-lg mx-auto gap-20 items-start">
-                <PictureCarousel images={images} />
-                <Caption captionText={captionText} collapsedHeight={collapsedHeight} />
-            </div>
+        {/* Picture & caption */}
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] max-w-screen-xl mx-auto gap-12 items-start">
+            <PictureCarousel images={images} />
+            <Caption captionText={captionText} collapsedHeight={collapsedHeight} />
+        </div>
 
             {/* Wanna see more? */}
             <div className="mt-10 text-center text-xl">

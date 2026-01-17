@@ -10,7 +10,9 @@ interface ExecEntryGridProps {
     entryKey: string;
 }
 
-export default function ExecEntryGrid({ entryKey }: ExecEntryGridProps) {
+export default function ExecEntryGrid({
+    entryKey,
+}: ExecEntryGridProps) {
     const data: ExecDataTypes = execData[entryKey];
 
     const {
