@@ -10,11 +10,14 @@ import SectionTitle from "../common/SectionTitle";
 function Events() {
     return (
         <div
-            className="w-full rounded-md shadow-lg flex flex-col items-center justify-start p-5"
+            className="rounded-md shadow-lg"
             style={{ backgroundColor: "rgb(255,206,0)" }}
         >
-            <SectionTitle size={SUBSECTION_SIZE} margin={SUBSECTION_MARGIN}>Events</SectionTitle>
-            <p className="text-[1.35rem] text-center mb-5">
+            {/* Subsection title */}
+            <SectionTitle size={SUBSECTION_SIZE}>Events</SectionTitle>
+
+            {/* Overview */}
+            <p className="mx-5 text-[1.35rem] text-center">
                 We host a variety of events every <strong>Friday 3–6pm</strong>.
                 <br />
                 All members can come at any point to relax and hang out.
@@ -25,7 +28,8 @@ function Events() {
             </p>
 
             {/* Example events graphics container */}
-            <div className="flex flex-col items-center relative">
+            <div className="mt-5 mx-5 justify-around">
+
                 {/* Row 1 */}
                 <div className="grid grid-cols-3">
                     {["Themed Events", "Craft Days", "Gallery Visits"].map((label, idx) => (
@@ -35,7 +39,6 @@ function Events() {
                         </div>
                     ))}
                 </div>
-
                 {/* Row 2 */}
                 <div className="mt-5 grid grid-cols-3">
                     {["Workshops", "Virtual Events"].map((label, idx) => (
@@ -44,8 +47,8 @@ function Events() {
                             <p className="mt-2 text-lg font-medium text-center">{label}</p>
                         </div>
                     ))}
-                    
-                {/* And more! */}
+
+                    {/* And more! */}
                     <div className="flex justify-center">
                         <img
                             src="/and-more.png"
@@ -54,13 +57,11 @@ function Events() {
                         />
                     </div>
                 </div>
-
-
             </div>
 
             {/* Purple buttons */}
             <div className="my-5 mx-5 gap-5 grid grid-cols-2">
-                
+
                 {/* Instagram */}
                 <a
                     href={INSTAGRAM_LINK}
@@ -73,7 +74,6 @@ function Events() {
                 >
                     Check out our past events on our Instagram page!
                 </a>
-
                 {/* Join us */}
                 <a
                     href="/join-us"
@@ -126,7 +126,6 @@ function OfficeHours() {
                         />
                     </div>
                 </div>
-
                 {/* Bubble graphics container */}
                 <div className="flex flex-col items-center justify-around">
 
