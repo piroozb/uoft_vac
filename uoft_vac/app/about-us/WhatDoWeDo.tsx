@@ -27,7 +27,7 @@ function Events() {
             {/* Example events graphics container */}
             <div className="flex flex-col items-center relative">
                 {/* Row 1 */}
-                <div className="grid grid-cols-3 gap-10 mb-5">
+                <div className="grid grid-cols-3">
                     {["Themed Events", "Craft Days", "Gallery Visits"].map((label, idx) => (
                         <div key={idx} className="flex flex-col items-center">
                             <div className="w-30 h-30 bg-white shadow-md rounded-lg"></div>
@@ -37,13 +37,14 @@ function Events() {
                 </div>
 
                 {/* Row 2 */}
-                <div className="grid grid-cols-3 gap-10 mb-5">
+                <div className="mt-5 grid grid-cols-3">
                     {["Workshops", "Virtual Events"].map((label, idx) => (
                         <div key={idx} className="flex flex-col items-center">
                             <div className="w-30 h-30 bg-white shadow-md rounded-lg"></div>
                             <p className="mt-2 text-lg font-medium text-center">{label}</p>
                         </div>
                     ))}
+                    
                 {/* And more! */}
                     <div className="flex justify-center">
                         <img
@@ -58,16 +59,17 @@ function Events() {
             </div>
 
             {/* Purple buttons */}
-            <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="my-5 mx-5 gap-5 grid grid-cols-2">
+                
                 {/* Instagram */}
                 <a
                     href={INSTAGRAM_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md 
+                    className="rounded-2xl px-5 py-3 text-[1.2rem] text-white shadow-lg
                    transform transition-all duration-300
                    hover:scale-95 hover:text-[rgb(255,254,176)]"
-                    style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
+                    style={{ backgroundColor: "rgb(80,43,113)" }}
                 >
                     Check out our past events on our Instagram page!
                 </a>
@@ -75,10 +77,10 @@ function Events() {
                 {/* Join us */}
                 <a
                     href="/join-us"
-                    className="rounded-2xl px-6 py-3 text-[1.2rem] text-white shadow-md 
+                    className="rounded-2xl px-5 py-3 text-[1.2rem] text-white shadow-lg
                    transform transition-all duration-300
                    hover:scale-95 hover:text-[rgb(198,255,206)]"
-                    style={{ backgroundColor: "rgb(80,43,113)", minHeight: "80px" }}
+                    style={{ backgroundColor: "rgb(80,43,113)" }}
                 >
                     Feeling inspired?
                     <br />
@@ -92,59 +94,66 @@ function Events() {
 function OfficeHours() {
     return (
         <div
-            className="w-full rounded-md shadow-lg flex flex-col items-center justify-start p-5"
+            className="w-full rounded-md shadow-lg flex-col"
             style={{ backgroundColor: "rgb(0,214,255)" }}
         >
-            <SectionTitle size={SUBSECTION_SIZE} margin={SUBSECTION_MARGIN}>Office Hours</SectionTitle>
-            <p className="text-[1.35rem] text-center mb-5">
+            {/* Subsection title */}
+            <SectionTitle size={SUBSECTION_SIZE}>Office Hours</SectionTitle>
+
+            {/* Overview */}
+            <p className="mx-5 text-[1.35rem] text-center">
                 We host office hours every <strong>Tuesday and Thursday from 3–6pm</strong>.
                 <br />
                 Be sure to check our <strong>Discord announcements</strong> for additional office hours!
             </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+            <div className="mb-5 grid grid-cols-[auto_1fr]">
+
                 {/* Video container */}
-                <div className="flex flex-col items-center">
-                    <p className="text-[1.35rem] mb-4 text-center">
-                        Can't find our office? Watch this video!
+                <div className="ml-5 flex flex-col">
+
+                    <p className="mt-5 text-[1.35rem] text-center">
+                        Can't find our office?<br />
+                        Watch this video!
                     </p>
-                    <div
-                        className="overflow-hidden rounded-md w-full"
-                        style={{ height: "450px" }}
-                    >
+
+                    {/* Video */}
+                    <div className="mt-1 rounded-md">
                         <video
                             src="/office-video.mp4"
                             controls
-                            className="max-w-full max-h-full rounded-md shadow-md object-contain"
-                            style={{ display: "block", margin: "0 auto" }}
-                        ></video>
+                            className="h-[450px] rounded-md shadow-lg"
+                        />
                     </div>
                 </div>
 
                 {/* Bubble graphics container */}
-                <div className="flex flex-col justify-center gap">
+                <div className="flex flex-col items-center justify-around">
+
                     {/* Make Art */}
-                    <div className="flex justify-center">
+                    <div style={{ transform: "translateX(calc(4cqw))" }}>
                         <img
                             src="/office-hours-make-art.png"
                             alt="Make art"
-                            className="w-40 h-40 object-contain translate-x-5"
+                            className="w-[10cqw] h-[10cqw]"
                         />
                     </div>
+
                     {/* Study */}
-                    <div className="flex justify-center">
+                    <div style={{ transform: "translateX(calc(-5cqw))" }}>
                         <img
                             src="/office-hours-study.png"
                             alt="Study"
-                            className="w-40 h-40 object-contain -translate-x-12.5"
+                            className="w-[10cqw] h-[10cqw]"
                         />
                     </div>
+
                     {/* Socialise */}
-                    <div className="flex justify-center">
+                    <div style={{ transform: "translateX(calc(2cqw))" }}>
                         <img
                             src="/office-hours-socialise.png"
                             alt="Socialise"
-                            className="w-40 h-40 object-contain translate-x-5"
+                            className="w-[10cqw] h-[10cqw]"
                         />
                     </div>
                 </div>
@@ -155,12 +164,12 @@ function OfficeHours() {
 
 export default function WhatDoWeDo() {
     return (
-        <section className="w-full px-8 my-10">
-            {/* Title */}
+        <section>
+            {/* Section title */}
             <SectionTitle>What do we do?</SectionTitle>
 
             {/* Subsections */}
-            <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="mx-5 grid grid-cols-2 gap-10">
                 <Events />
                 <OfficeHours />
             </div>
