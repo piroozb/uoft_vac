@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { SIDE_DECOR_MIN, SIDE_DECOR_MAX } from "../common/Constants";
+
+import {
+    SIDE_DECOR_MIN,
+    SIDE_DECOR_MAX,
+} from "../common/Constants";
 import SideDecor from "./SideDecor";
 import { useWindowOffset } from "./WindowOffsetContext";
 
