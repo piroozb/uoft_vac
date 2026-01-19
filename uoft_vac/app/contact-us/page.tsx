@@ -6,7 +6,7 @@ import {
     EMAIL_LINK,
     DISCORD_LINK,
     INSTAGRAM_LINK,
-    TEXT_LINK_DARK_ORANGE,
+    TEXT_LINK_PASSIVE_ORANGE,
     TEXT_LINK_HOVER_ORANGE,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
@@ -58,7 +58,7 @@ export default function ContactUsPage() {
                             <TextLink
                                 text="email"
                                 href={EMAIL_LINK}
-                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
                                 hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
@@ -75,7 +75,7 @@ export default function ContactUsPage() {
                             <TextLink
                                 text="Instagram"
                                 href={INSTAGRAM_LINK}
-                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
                                 hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
@@ -95,7 +95,7 @@ export default function ContactUsPage() {
                             <TextLink
                                 text="Discord"
                                 href={DISCORD_LINK}
-                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
                                 hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !

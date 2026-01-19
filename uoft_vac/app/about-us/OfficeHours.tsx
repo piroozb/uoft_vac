@@ -1,6 +1,7 @@
 "use client";
 
 import {
+    SUBSECTION_BLUE,
     SUBSECTION_SIZE,
 } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
@@ -13,7 +14,7 @@ export default function OfficeHours() {
         <div
             className="w-full rounded-md shadow-lg flex-col"
             style={{
-                backgroundColor: "rgb(0,214,255)",
+                backgroundColor: SUBSECTION_BLUE,
                 containerType: "inline-size",
             }}
         >

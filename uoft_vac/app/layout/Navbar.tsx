@@ -8,7 +8,7 @@ import { useState } from "react"
 import {
     BARS_EDGES_DARK_GREEN,
     BARS_CENTRE_GREEN,
-    PAGE_BUTTONS_LIGHT_YELLOW,
+    PAGE_BUTTONS_PASSIVE_YELLOW,
     PAGE_BUTTONS_ACTIVE_YELLOW,
 } from "../common/Constants";
 
@@ -31,7 +31,7 @@ export default function Navbar() {
     // The button corresponding to the page the user is currently viewing will be a darker yellow.
     const navbarItems = links.map((link) => {
         const isActive = pathname === link.href;
-        const baseColor = isActive ? `${PAGE_BUTTONS_ACTIVE_YELLOW}` : `${PAGE_BUTTONS_LIGHT_YELLOW}`;
+        const baseColor = isActive ? `${PAGE_BUTTONS_ACTIVE_YELLOW}` : `${PAGE_BUTTONS_PASSIVE_YELLOW}`;
 
         return (
             <li key={link.id} className="w-full lg:w-auto">

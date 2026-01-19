@@ -2,21 +2,24 @@
 
 import {
     INSTAGRAM_LINK,
+    SUBSECTION_YELLOW,
+    PURP_BUTTONS_PURPLE,
+    PURP_BUTTON_HOVER_YELLOW,
+    PURP_BUTTON_HOVER_GREEN,
     SUBSECTION_SIZE,
 } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 
 const TEXT_CLASSNAME = "text-[3.25cqw] text-center";
-const PURP_BUTTONS_CLASSNAME =
+const PURP_BUTTON_CLASSNAME =
     "rounded-2xl px-[2cqw] py-[2cqw] text-[3cqw] text-white shadow-lg transform transition-all duration-300 hover:scale-95";
-const PURP_BUTTONS_PURPLE = "rgb(80,43,113)";
 
 export default function Events() {
     return (
         <div
             className="rounded-md shadow-lg"
             style={{
-                backgroundColor: "rgb(255,206,0)",
+                backgroundColor: SUBSECTION_YELLOW,
                 containerType: "inline-size",
             }}
         >
@@ -75,7 +78,7 @@ export default function Events() {
                     href={INSTAGRAM_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${PURP_BUTTONS_CLASSNAME} hover:text-[rgb(255,254,176)]`}
+                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_YELLOW}]`}
                     style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                 >
                     Check out our past events on our Instagram page!
@@ -83,7 +86,7 @@ export default function Events() {
                 {/* Join us */}
                 <a
                     href="/join-us"
-                    className={`${PURP_BUTTONS_CLASSNAME} hover:text-[rgb(198,255,206)]`}
+                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_GREEN}]`}
                     style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                 >
                     Feeling inspired?

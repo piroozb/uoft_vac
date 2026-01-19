@@ -4,7 +4,7 @@ import { useState, MouseEvent } from "react";
 
 import {
     BARS_CENTRE_GREEN,
-    PAGE_BUTTONS_LIGHT_YELLOW,
+    PAGE_BUTTONS_PASSIVE_YELLOW,
     SUBSECTION_SIZE,
     SUBSECTION_MARGIN,
 } from "../common/Constants";
@@ -39,7 +39,7 @@ export default function FAQSection() {
             {/* Yellow container */}
             <div
                 className="rounded-3xl mt-10 px-5"
-                style={{ backgroundColor: PAGE_BUTTONS_LIGHT_YELLOW }}
+                style={{ backgroundColor: PAGE_BUTTONS_PASSIVE_YELLOW }}
             >
                 {/* Map the data in FAQs.tsx using the Question.tsx component. */}
                 {faqs.map((faq, i) => (

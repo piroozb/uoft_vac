@@ -5,7 +5,7 @@ import {
   MEMBERSHIP_FORM_LINK,
   DISCORD_LINK,
   INSTAGRAM_LINK,
-  TEXT_LINK_DARK_PURPLE,
+  TEXT_LINK_PASSIVE_PURPLE,
   TEXT_LINK_HOVER_PURPLE,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
@@ -45,7 +45,7 @@ export default function JoinUsPage() {
               <TextLink
                 text="verification form"
                 href={MEMBERSHIP_FORM_LINK}
-                style={{ color: TEXT_LINK_DARK_PURPLE }}
+                style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
                 hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
               />
               !
@@ -65,7 +65,7 @@ export default function JoinUsPage() {
               <TextLink
                 text="Discord"
                 href={DISCORD_LINK}
-                style={{ color: TEXT_LINK_DARK_PURPLE }}
+                style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
                 hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
               />{" "}
               and wait for verification!
@@ -85,7 +85,7 @@ export default function JoinUsPage() {
               <TextLink
                 text="Instagram"
                 href={INSTAGRAM_LINK}
-                style={{ color: TEXT_LINK_DARK_PURPLE }}
+                style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
                 hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
               />{" "}
               for updates!
