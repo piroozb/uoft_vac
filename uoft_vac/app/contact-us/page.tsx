@@ -16,8 +16,12 @@ const BULLETS_CLASSNAME = "absolute flex items-center";
 
 export default function ContactUsPage() {
     return (
-        <div className="w-full my-[1cqw] flex flex-col items-center">
-            {/* Title */}
+        <div
+            className="w-full my-[1cqw] flex flex-col items-center"
+            style={{ containerType: "inline-size" }}
+        >
+
+            {/* Page title */}
             <SectionTitle
                 graphic="/title-contact-us.png"
                 size={SMALL_PAGES_TITLE_SIZE}
@@ -44,7 +48,10 @@ export default function ContactUsPage() {
                     className="w-1/2 relative flex flex-col items-center"
                     style={{ containerType: "inline-size" }}
                 >
-                    <p className="mt-[5cqw] font-semibold" style={{ fontSize: "5cqw" }}>
+                    <p
+                        className="mt-[5cqw] font-semibold"
+                        style={{ fontSize: "5cqw" }}
+                    >
                         You can reach us by:
                     </p>
 

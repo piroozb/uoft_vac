@@ -13,9 +13,12 @@ import TextLink from "../common/TextLink";
 
 export default function JoinUsPage() {
   return (
-    <div className="my-5">
+    <div
+      className="my-5"
+      style={{ containerType: "inline-size" }}
+    >
       
-      {/* Title */}
+      {/* Page title */}
       <SectionTitle
         graphic="/title-join-us.png"
         size={SMALL_PAGES_TITLE_SIZE}

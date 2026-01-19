@@ -14,7 +14,6 @@ export default function ContentPanel({ children }: { children: React.ReactNode }
             style={{
                 paddingLeft: padding,
                 paddingRight: padding,
-                containerType: "inline-size"
             }}
         >
             {children}

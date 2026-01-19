@@ -14,7 +14,7 @@ export default function OurMission() {
 
             {/* Paint splash */}
             <div
-                className="max-w-4xl rounded-lg"
+                className="mt-5 max-w-4xl rounded-lg"
                 style={{ backgroundColor: BARS_CENTRE_GREEN }}
             >
                 {/* Mission statement */}
