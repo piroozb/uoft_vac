@@ -11,17 +11,20 @@ interface ExecArtworkProps {
 export default function ExecArtwork({ name, size }: ExecArtworkProps) {
     const [expanded, setExpanded] = useState(false);
 
+    const SRC = `/exec-artworks/${name}.jpg`;
+    const ALT = `${name}'s artwork`;
+
     return (
         <>
             {/* Collapsed artwork */}
             <div
-                className="relative flex items-center justify-center bg-white rounded-md overflow-hidden cursor-pointer"
+                className="rounded-md overflow-hidden cursor-pointer"
                 style={{ width: `${size}px`, height: `${size}px` }}
                 onClick={() => setExpanded(true)}
             >
                 <img
-                    src={`/exec-artworks/${name}.jpg`}
-                    alt={`${name}'s artwork`}
+                    src={SRC}
+                    alt={ALT}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                         (e.currentTarget as HTMLImageElement).style.display = "none";
@@ -42,11 +45,12 @@ export default function ExecArtwork({ name, size }: ExecArtworkProps) {
                         transition={{ duration: 0.1 }}
                         onClick={() => setExpanded(false)}
                     >
-                        {/* Full artwork */}
+
+                        {/* Full artwork with animation */}
                         <motion.img
-                            src={`/exec-artworks/${name}.jpg`}
-                            alt={`${name}'s artwork`}
-                            className="max-w-[75%] max-h-[75%] object-contain rounded-md shadow-lg"
+                            src={SRC}
+                            alt={ALT}
+                            className="max-w-[75%] max-h-[75%] rounded-md shadow-lg"
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ opacity: 0 }}

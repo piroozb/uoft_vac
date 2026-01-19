@@ -9,10 +9,10 @@ export interface ExecDataTypes {
 
 export const execData: Record<string, ExecDataTypes> = {
     // Admin:
-   Sy: {
+    Sy: {
         position: "President",
         colour: "#FFDC30",
-        study: "3nd year, Health & Disease",
+        study: "3rd year, Health & Disease",
         medium: "coloured pencils",
         fact: "I am a scooter master",
     },
@@ -56,7 +56,7 @@ export const execData: Record<string, ExecDataTypes> = {
         colour: "#AB0803",
         study: "3rd year, Political Science/Diaspora/Transnational Studies",
         medium: "digital, watercolours, oil paints",
-        fact: "i've studied over 4 languages",
+        fact: "I've studied over 4 languages",
     },
 
     // Graphics:
@@ -66,7 +66,7 @@ export const execData: Record<string, ExecDataTypes> = {
         colour: "#A6A3FC",
         study: "4th year, History",
         medium: "watercolour, digital",
-        fact: "I can recite the overwatch short ”dragons” from memory.",
+        fact: "I can recite the Overwatch short ”Dragons” from memory.",
     },
 
     Angelia: {
@@ -133,12 +133,12 @@ export const execData: Record<string, ExecDataTypes> = {
         medium: "painting",
         fact: "I have 4 cats",
     },
-
+    
     Sunny: {
         colour: "#FF8400",
         study: "2nd year, Mathematics",
         medium: "clay, videography",
-        fact: "I love pibble! Clean my bellay!",
+        fact: "Wait… Did somebody just say mango?",
     },
 
     // Office:

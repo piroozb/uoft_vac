@@ -12,7 +12,8 @@ import TextLink from "../common/TextLink";
 
 export default function JoinUsPage() {
   return (
-    <div className="w-full my-5 flex flex-col items-center justify-start">
+    <div className="my-5">
+      
       {/* Title */}
       <SectionTitle
         graphic="/title-join-us.png"
@@ -23,16 +24,17 @@ export default function JoinUsPage() {
       </SectionTitle>
 
       {/* Two halves */}
-      <div className="flex w-full aspect-[2/1]">
+      <div className="flex aspect-[2/1]">
 
         {/* Left: instructions */}
         <div
           className="w-1/2 relative flex flex-col items-center"
           style={{ containerType: "inline-size" }}
         >
+
           {/* Step 1 */}
           <div
-            className="absolute flex items-center"
+            className="absolute"
             style={{ top: "10%", transform: "rotate(-1deg)" }}
           >
             <p
@@ -52,7 +54,7 @@ export default function JoinUsPage() {
 
           {/* Step 2 */}
           <div
-            className="absolute flex items-center"
+            className="absolute"
             style={{ top: "35%", transform: "rotate(1deg)" }}
           >
             <p
@@ -72,7 +74,7 @@ export default function JoinUsPage() {
 
           {/* Step 3 */}
           <div
-            className="absolute flex items-center"
+            className="absolute"
             style={{ top: "60%", transform: "rotate(-1deg)" }}
           >
             <p
@@ -92,7 +94,7 @@ export default function JoinUsPage() {
         </div>
 
         {/* Right: graphic */}
-        <div className="flex-1 relative flex">
+        <div className="flex-1">
 
           {/* Graphic */}
           <div className="w-[100%] h-[100%] bg-green-500 relative rounded-md flex items-end justify-center">

@@ -27,9 +27,7 @@ export default function ExecEntryGrid({
     return (
         <div
             className="flex flex-col items-center text-center"
-            style={{
-                ["--SCALE" as any]: SCALE,
-            }}
+            style={{ ["--SCALE" as any]: SCALE }}
         >
             {/* Name */}
             <h2
@@ -50,18 +48,17 @@ export default function ExecEntryGrid({
             </h2>
 
             {/* Artwork */}
-            <ExecArtwork
-                name={entryKey}
-                size={ART_WIDTH * SCALE}
-            />
+            <ExecArtwork name={entryKey} size={ART_WIDTH * SCALE} />
 
             {/* Info container */}
             <div>
-                <h3 className="mt-[calc(5px*var(--SCALE))] text-[calc(25px*var(--SCALE))] font-bold">
-                    {position}
-                </h3>
+                {position && (
+                    <h3 className="mt-[calc(5px*var(--SCALE))] text-[calc(25px*var(--SCALE))] font-bold">
+                        {position}
+                    </h3>
+                )}
 
-                <p className="text-[calc(20px*var(--SCALE))]">
+                <p className={`mt-[calc(${position ? "" : "10"}px*var(--SCALE))] text-[calc(20px*var(--SCALE))]`}>
                     {study}
                 </p>
 

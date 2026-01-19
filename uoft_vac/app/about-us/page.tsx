@@ -5,11 +5,11 @@ import FunFacts from "./FunFacts";
 export default function About() {
   return (
     <>
-    <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-40">
-      <OurMission />
-      <WhatDoWeDo />
-      <FunFacts />
-    </div>
+      <div className="my-5">
+        <OurMission />
+        <WhatDoWeDo />
+        <FunFacts />
+      </div>
     </>
   )
 }
