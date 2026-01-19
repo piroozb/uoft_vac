@@ -7,6 +7,7 @@ import {
   INSTAGRAM_LINK,
   TEXT_LINK_PASSIVE_PURPLE,
   TEXT_LINK_HOVER_PURPLE,
+  SMALL_PAGES_TITLE_SIZE,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
@@ -17,8 +18,7 @@ export default function JoinUsPage() {
       {/* Title */}
       <SectionTitle
         graphic="/title-join-us.png"
-        size="6.5cqw"
-        margin=""
+        size={SMALL_PAGES_TITLE_SIZE}
       >
         Join Us Today For Free!
       </SectionTitle>

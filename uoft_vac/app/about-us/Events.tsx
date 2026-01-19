@@ -6,7 +6,7 @@ import {
     PURP_BUTTONS_PURPLE,
     PURP_BUTTON_HOVER_YELLOW,
     PURP_BUTTON_HOVER_GREEN,
-    SUBSECTION_SIZE,
+    SUBSECTION_TITLE_SIZE,
 } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 
@@ -24,7 +24,7 @@ export default function Events() {
             }}
         >
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTION_SIZE}>Events</SectionTitle>
+            <SectionTitle size={SUBSECTION_TITLE_SIZE}>Events</SectionTitle>
 
             {/* Overview */}
             <p className={TEXT_CLASSNAME}>
@@ -38,7 +38,7 @@ export default function Events() {
             </p>
 
             {/* Example events graphics container */}
-            <div className="mt-[2cqw] justify-around">
+            <div className="mt-[2cqw]">
 
                 {/* Row 1 */}
                 <div className="grid grid-cols-3">

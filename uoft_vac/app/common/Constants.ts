@@ -34,8 +34,6 @@ export const SIDE_DECOR_MIN = 1000;
 export const SIDE_DECOR_MAX = 1500;
 export const SIDE_DECOR_WIDTH = 150;
 
-export const SMALL_TITLE_SIZE = "3.5cqw";
-export const SMALL_TITLE_MARGIN = "";
+export const SMALL_PAGES_TITLE_SIZE = "8cqw";
 
-export const SUBSECTION_SIZE = "50px";
-export const SUBSECTION_MARGIN = "mb-5";
+export const SUBSECTION_TITLE_SIZE = "7.5cqw";

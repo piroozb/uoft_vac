@@ -8,6 +8,7 @@ import {
     INSTAGRAM_LINK,
     TEXT_LINK_PASSIVE_ORANGE,
     TEXT_LINK_HOVER_ORANGE,
+    SMALL_PAGES_TITLE_SIZE,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
@@ -19,8 +20,7 @@ export default function ContactUsPage() {
             {/* Title */}
             <SectionTitle
                 graphic="/title-contact-us.png"
-                size="6.5cqw"
-                margin=""
+                size={SMALL_PAGES_TITLE_SIZE}
             >
                 Contact Us!
             </SectionTitle>

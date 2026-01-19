@@ -2,7 +2,7 @@
 
 import {
     SUBSECTION_BLUE,
-    SUBSECTION_SIZE,
+    SUBSECTION_TITLE_SIZE,
 } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 
@@ -19,7 +19,7 @@ export default function OfficeHours() {
             }}
         >
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTION_SIZE}>Office Hours</SectionTitle>
+            <SectionTitle size={SUBSECTION_TITLE_SIZE}>Office Hours</SectionTitle>
 
             {/* Overview */}
             <p className={TEXT_CLASSNAME}>
@@ -51,7 +51,7 @@ export default function OfficeHours() {
                 {/* Bubble graphics container */}
                 <div className="flex flex-col items-center">
 
-                    {/* Make Art (top) */}
+                    {/* Make Art */}
                     <div style={{ transform: "translateX(calc(10cqw))" }}>
                         <img
                             src="/office-hours-make-art.png"
@@ -60,7 +60,7 @@ export default function OfficeHours() {
                         />
                     </div>
 
-                    {/* Study (middle, centered) */}
+                    {/* Study */}
                     <div style={{ transform: "translateX(calc(-10cqw)) translateY(calc(-2cqw))" }}>
                         <img
                             src="/office-hours-study.png"
@@ -69,7 +69,7 @@ export default function OfficeHours() {
                         />
                     </div>
 
-                    {/* Socialise (bottom) */}
+                    {/* Socialise */}
                     <div style={{ transform: "translateX(calc(5cqw))" }}>
                         <img
                             src="/office-hours-socialise.png"
