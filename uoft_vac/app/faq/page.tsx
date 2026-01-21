@@ -4,9 +4,7 @@ import { useState, MouseEvent } from "react";
 
 import {
     BARS_CENTRE_GREEN,
-    PAGE_BUTTONS_LIGHT_YELLOW,
-    SUBSECTION_SIZE,
-    SUBSECTION_MARGIN,
+    PAGE_BUTTONS_PASSIVE_YELLOW,
 } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import { faqs } from "./FAQs";
@@ -26,21 +24,27 @@ export default function FAQSection() {
     };
 
     return (
+
         // Green container
         <div
-            className="mx-[10%] my-10 p-10 rounded-4xl shadow-md"
-            style={{ backgroundColor: BARS_CENTRE_GREEN }}
+            className="mx-[5cqw] my-10 p-10 rounded-4xl shadow-lg"
+            style={{
+                backgroundColor: BARS_CENTRE_GREEN,
+                containerType: "inline-size",
+            }}
         >
+
             {/* Title */}
-            <SectionTitle size={SUBSECTION_SIZE} margin={SUBSECTION_MARGIN}>
+            <SectionTitle size="5cqw">
                 Frequently Asked Questions
             </SectionTitle>
 
             {/* Yellow container */}
             <div
-                className="rounded-3xl mt-10 px-5"
-                style={{ backgroundColor: PAGE_BUTTONS_LIGHT_YELLOW }}
+                className="mt-10 px-5 rounded-3xl shadow-lg"
+                style={{ backgroundColor: PAGE_BUTTONS_PASSIVE_YELLOW }}
             >
+
                 {/* Map the data in FAQs.tsx using the Question.tsx component. */}
                 {faqs.map((faq, i) => (
                     <Question

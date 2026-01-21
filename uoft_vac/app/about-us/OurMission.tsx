@@ -2,8 +2,8 @@ import SectionTitle from "../common/SectionTitle";
 
 import { BARS_CENTRE_GREEN } from "../common/Constants";
 
-const valueClass =
-    "w-65 h-65 rounded-full flex items-center justify-center text-white text-lg font-bold";
+const VALUES_CLASSNAME =
+    "w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-60 lg:h-60 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full flex items-center justify-center text-white font-bold";
 
 export default function OurMission() {
     return (
@@ -14,7 +14,7 @@ export default function OurMission() {
 
             {/* Paint splash */}
             <div
-                className="max-w-4xl rounded-lg"
+                className="mt-5 max-w-4xl rounded-lg"
                 style={{ backgroundColor: BARS_CENTRE_GREEN }}
             >
                 {/* Mission statement */}
@@ -29,10 +29,10 @@ export default function OurMission() {
             </div>
 
             {/* Values */}
-            <div className="flex gap-[5cqw] mt-10">
-                <div className={`${valueClass} bg-red-500`}>Create</div>
-                <div className={`${valueClass} bg-yellow-400`}>Share</div>
-                <div className={`${valueClass} bg-blue-500`}>Connect</div>
+            <div className="flex gap-[3cqw] mt-10">
+                <div className={`${VALUES_CLASSNAME} bg-red-500`}>Create</div>
+                <div className={`${VALUES_CLASSNAME} bg-yellow-400`}>Share</div>
+                <div className={`${VALUES_CLASSNAME} bg-blue-500`}>Connect</div>
             </div>
         </section>
     );

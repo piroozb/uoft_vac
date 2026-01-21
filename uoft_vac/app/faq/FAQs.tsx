@@ -4,7 +4,7 @@ import {
     MEMBERSHIP_FORM_LINK,
     DISCORD_LINK,
     INSTAGRAM_LINK,
-    FAQ_LINK_DARK_BLUE,
+    FAQ_LINK_PASSIVE_BLUE,
     FAQ_LINK_HOVER_BLUE,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
@@ -22,7 +22,7 @@ export const faqs: FAQProps[] = [
         <TextLink
             text="here"
             href="/join-us"
-            style={{ color: FAQ_LINK_DARK_BLUE}}
+            style={{ color: FAQ_LINK_PASSIVE_BLUE}}
             hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
             stay
         />
@@ -38,14 +38,14 @@ export const faqs: FAQProps[] = [
         <TextLink
             text="Discord"
             href={DISCORD_LINK}
-            style={{ color: FAQ_LINK_DARK_BLUE}}
+            style={{ color: FAQ_LINK_PASSIVE_BLUE}}
             hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
         />
         {" "}and{" "}
         <TextLink
             text="Instagram"
             href={INSTAGRAM_LINK}
-            style={{ color: FAQ_LINK_DARK_BLUE}}
+            style={{ color: FAQ_LINK_PASSIVE_BLUE}}
             hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
         />
         {" "}for any updates.
@@ -101,7 +101,7 @@ export const faqs: FAQProps[] = [
         <TextLink
             text="contact us"
             href="/contact-us"
-            style={{ color: FAQ_LINK_DARK_BLUE}}
+            style={{ color: FAQ_LINK_PASSIVE_BLUE}}
             hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
             stay
         />
@@ -116,7 +116,7 @@ export const faqs: FAQProps[] = [
         <TextLink
             text="membership verification form"
             href={MEMBERSHIP_FORM_LINK}
-            style={{ color: FAQ_LINK_DARK_BLUE}}
+            style={{ color: FAQ_LINK_PASSIVE_BLUE}}
             hoverStyle={{ color: FAQ_LINK_HOVER_BLUE}}
         />
         {" "}before being granted access to our Discord server. Since we manually verify our members,{" "}

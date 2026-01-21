@@ -6,8 +6,9 @@ import {
     EMAIL_LINK,
     DISCORD_LINK,
     INSTAGRAM_LINK,
-    TEXT_LINK_DARK_ORANGE,
+    TEXT_LINK_PASSIVE_ORANGE,
     TEXT_LINK_HOVER_ORANGE,
+    SMALL_PAGES_TITLE_SIZE,
 } from "../common/Constants";
 import TextLink from "../common/TextLink";
 
@@ -15,12 +16,15 @@ const BULLETS_CLASSNAME = "absolute flex items-center";
 
 export default function ContactUsPage() {
     return (
-        <div className="w-full my-[1cqw] flex flex-col items-center">
-            {/* Title */}
+        <div
+            className="w-full my-[1cqw] flex flex-col items-center"
+            style={{ containerType: "inline-size" }}
+        >
+
+            {/* Page title */}
             <SectionTitle
                 graphic="/title-contact-us.png"
-                size="6.5cqw"
-                margin=""
+                size={SMALL_PAGES_TITLE_SIZE}
             >
                 Contact Us!
             </SectionTitle>
@@ -44,7 +48,10 @@ export default function ContactUsPage() {
                     className="w-1/2 relative flex flex-col items-center"
                     style={{ containerType: "inline-size" }}
                 >
-                    <p className="mt-[5cqw] font-semibold" style={{ fontSize: "5cqw" }}>
+                    <p
+                        className="mt-[5cqw] font-semibold"
+                        style={{ fontSize: "5cqw" }}
+                    >
                         You can reach us by:
                     </p>
 
@@ -58,7 +65,7 @@ export default function ContactUsPage() {
                             <TextLink
                                 text="email"
                                 href={EMAIL_LINK}
-                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
                                 hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
@@ -75,7 +82,7 @@ export default function ContactUsPage() {
                             <TextLink
                                 text="Instagram"
                                 href={INSTAGRAM_LINK}
-                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
                                 hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
@@ -95,7 +102,7 @@ export default function ContactUsPage() {
                             <TextLink
                                 text="Discord"
                                 href={DISCORD_LINK}
-                                style={{ color: TEXT_LINK_DARK_ORANGE }}
+                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
                                 hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                             />
                             !
