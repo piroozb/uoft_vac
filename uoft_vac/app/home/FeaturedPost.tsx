@@ -1,11 +1,15 @@
 "use client";
 
-import { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { INSTAGRAM_LINK } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
+import { useExpandableHeight } from "../common/ExpandableText";
+
+const NAV_BUTTONS_CLASSNAME = "top-1/2 absolute cursor-pointer";
+const NAV_BUTTONS_IMG_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
 function PictureCarousel({ images }: { images: string[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,24 +61,24 @@ function PictureCarousel({ images }: { images: string[] }) {
                     {/* Left */}
                     <button
                         onClick={handlePrev}
-                        className="left-[-40] top-1/2 absolute cursor-pointer"
+                        className={`left-[-40] ${NAV_BUTTONS_CLASSNAME}`}
                     >
                         <img
                             src="/carousel-arrow-l.png"
                             alt="Previous"
-                            className="w-7.5 opacity-70 hover:opacity-100"
+                            className={NAV_BUTTONS_IMG_CLASSNAME}
                         />
                     </button>
 
                     {/* Right */}
                     <button
                         onClick={handleNext}
-                        className="right-[-40] top-1/2 absolute cursor-pointer"
+                        className={`right-[-40] ${NAV_BUTTONS_CLASSNAME}`}
                     >
                         <img
                             src="/carousel-arrow-r.png"
                             alt="Next"
-                            className="w-7.5 opacity-70 hover:opacity-100"
+                            className={NAV_BUTTONS_IMG_CLASSNAME}
                             />
                     </button>
 
@@ -102,46 +106,30 @@ function PictureCarousel({ images }: { images: string[] }) {
     );
 }
 
-function Caption({ captionText, collapsedHeight }: { captionText: string, collapsedHeight: number }) {
+function Caption({
+    captionText,
+    collapsedHeight,
+}: {
+    captionText: string;
+    collapsedHeight: number;
+}) {
     const [expanded, setExpanded] = useState(false);
-    const [fullHeight, setFullHeight] = useState(0);
-    const [needsExpand, setNeedsExpand] = useState(false);
-    const captionRef = useRef<HTMLDivElement>(null);
 
-    const measureHeight = () => {
-        if (captionRef.current) {
-            setFullHeight(captionRef.current.scrollHeight);
-        }
-    };
-
-    useLayoutEffect(() => {
-        if (captionRef.current) {
-            const scrollH = captionRef.current.scrollHeight;
-            setNeedsExpand(scrollH > collapsedHeight);
-            setFullHeight(scrollH);
-        }
-    }, [captionText, collapsedHeight]);
-
-    useLayoutEffect(() => {
-        if (expanded) {
-            measureHeight();
-        }
-    }, [expanded]);
-
-    // Re-measure when window resizes while expanded (same logic as FAQ)
-    useEffect(() => {
-        if (!expanded) return;
-
-        window.addEventListener("resize", measureHeight);
-        return () => window.removeEventListener("resize", measureHeight);
-    }, [expanded]);
+    const { ref, fullHeight, needsExpand } =
+        useExpandableHeight<HTMLDivElement>(
+            expanded,
+            collapsedHeight,
+            [captionText, collapsedHeight]
+        );
 
     return (
         <div className="text-left text-[1.25rem]">
             <motion.div
-                ref={captionRef}
+                ref={ref}
                 initial={false}
-                animate={{ maxHeight: expanded ? fullHeight : collapsedHeight }}
+                animate={{
+                    maxHeight: expanded ? fullHeight : collapsedHeight,
+                }}
                 transition={{ duration: 0.5, ease: [.25, 1, .5, 1] }}
                 style={{ overflow: "hidden" }}
             >
@@ -171,7 +159,7 @@ export default function FeaturedPost() {
 
     return (
         <section
-            className="mt-5"
+            className="mt-10"
             style={{ containerType: "inline-size" }}
         >
             {/* Title */}

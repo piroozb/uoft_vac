@@ -12,7 +12,7 @@ const BUBBLE_GRAPHICS_CLASSNAME = "w-[25cqw] h-[25cqw]";
 export default function OfficeHours() {
     return (
         <div
-            className="w-full rounded-md shadow-lg flex-col"
+            className="rounded-lg shadow-lg"
             style={{
                 backgroundColor: SUBSECTION_BLUE,
                 containerType: "inline-size",
@@ -39,11 +39,11 @@ export default function OfficeHours() {
                     </p>
 
                     {/* Video */}
-                    <div className="mt-[1cqw] rounded-md">
+                    <div className="mt-[1cqw] rounded-lg">
                         <video
                             src="/office-video.mp4"
                             controls
-                            className="h-[69cqw] rounded-md shadow-lg"
+                            className="h-[69cqw] rounded-lg shadow-lg"
                         />
                     </div>
                 </div>

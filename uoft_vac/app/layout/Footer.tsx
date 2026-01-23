@@ -10,7 +10,7 @@ const contactsSize = 50;
 export default function Footer() {
   return (
     <footer
-      className="p-5 text-black text-center"
+      className="p-5 flex flex-col items-center"
       style={{
         background: `linear-gradient(
           to right,
@@ -25,7 +25,7 @@ export default function Footer() {
     >
       <EmailLink size={contactsSize}/>
 
-      <div className="flex justify-center gap-5 mt-5">
+      <div className="mt-5 gap-5 flex justify-center">
         <DiscordIcon size={contactsSize}/>
         <InstagramIcon size={contactsSize}/>
       </div>

@@ -17,7 +17,7 @@ const PURP_BUTTON_CLASSNAME =
 export default function Events() {
     return (
         <div
-            className="rounded-md shadow-lg"
+            className="rounded-lg shadow-lg"
             style={{
                 backgroundColor: SUBSECTION_YELLOW,
                 containerType: "inline-size",
@@ -60,7 +60,7 @@ export default function Events() {
                     ))}
 
                     {/* And more! */}
-                    <div className="flex justify-center items-center">
+                    <div className="m-auto">
                         <img
                             src="/and-more.png"
                             alt="AND MORE!"
@@ -71,7 +71,7 @@ export default function Events() {
             </div>
 
             {/* Purple buttons */}
-            <div className="m-[2cqw] gap-[2cqw] grid grid-cols-2 items-center">
+            <div className="m-[2cqw] gap-[2cqw] grid grid-cols-2">
 
                 {/* Instagram */}
                 <a

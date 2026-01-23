@@ -14,11 +14,11 @@ export default function OurMission() {
 
             {/* Paint splash */}
             <div
-                className="mt-5 max-w-4xl rounded-lg"
+                className="mt-5 p-5 max-w-4xl rounded-lg shadow-lg"
                 style={{ backgroundColor: BARS_CENTRE_GREEN }}
             >
                 {/* Mission statement */}
-                <p className="m-5 text-[1.6rem] text-center">
+                <p className="text-[1.6rem] text-center">
                     The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
                     <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
                     interested in art to develop and express their passion through

@@ -11,7 +11,7 @@ export default function WhatDoWeDo() {
             <SectionTitle>What do we do?</SectionTitle>
 
             {/* Subsections */}
-            <div className="mx-[1cqw] mt-5 gap-[1cqw] grid grid-cols-2">
+            <div className="mt-5 mx-[1cqw] gap-[1cqw] grid grid-cols-2">
                 <Events />
                 <OfficeHours />
             </div>
