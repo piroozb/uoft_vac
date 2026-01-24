@@ -33,7 +33,3 @@ export const FAQ_LINK_HOVER_BLUE = "rgb(0,0,255)";
 export const SIDE_DECOR_MIN = 1000;
 export const SIDE_DECOR_MAX = 1500;
 export const SIDE_DECOR_WIDTH = 150;
-
-export const SMALL_PAGES_TITLE_SIZE = "8cqw";
-
-export const SUBSECTION_TITLE_SIZE = "7.5cqw";

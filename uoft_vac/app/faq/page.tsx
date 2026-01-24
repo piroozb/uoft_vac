@@ -27,21 +27,21 @@ export default function FAQSection() {
 
         // Green container
         <div
-            className="mx-[5cqw] my-10 p-10 rounded-4xl shadow-lg"
+            className="my-10 mx-[5cqw] pt-5 px-10 pb-10 rounded-4xl shadow-lg"
             style={{
                 backgroundColor: BARS_CENTRE_GREEN,
                 containerType: "inline-size",
             }}
         >
 
-            {/* Title */}
-            <SectionTitle size="5cqw">
+            {/* Section title */}
+            <SectionTitle size="min(4rem, 7.5cqw)">
                 Frequently Asked Questions
             </SectionTitle>
 
             {/* Yellow container */}
             <div
-                className="mt-10 px-5 rounded-3xl shadow-lg"
+                className="mt-5 px-5 rounded-3xl shadow-lg"
                 style={{ backgroundColor: PAGE_BUTTONS_PASSIVE_YELLOW }}
             >
 

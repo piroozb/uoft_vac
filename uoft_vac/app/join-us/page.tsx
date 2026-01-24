@@ -7,43 +7,48 @@ import {
   INSTAGRAM_LINK,
   TEXT_LINK_PASSIVE_PURPLE,
   TEXT_LINK_HOVER_PURPLE,
-  SMALL_PAGES_TITLE_SIZE,
 } from "../common/Constants";
+import {
+    SP_PAGE_TITLE_SIZE,
+    SP_TWO_HALVES_CLASSNAME,
+    SP_TEXT_CONTAINER_CLASSNAME,
+    SP_TEXT_CLASSNAME,
+    SP_TEXT_T_CLASSNAME,
+} from "../common/SmallPagesCommon";
 import TextLink from "../common/TextLink";
+
+const INSTRUCTIONS_T_CLASSNAME = `${SP_TEXT_T_CLASSNAME} font-semibold`;
 
 export default function JoinUsPage() {
   return (
     <div
-      className="my-5"
+      className="my-[1cqw]"
       style={{ containerType: "inline-size" }}
     >
       
       {/* Page title */}
       <SectionTitle
         graphic="/title-join-us.png"
-        size={SMALL_PAGES_TITLE_SIZE}
+        size={SP_PAGE_TITLE_SIZE}
       >
         Join Us Today For Free!
       </SectionTitle>
 
       {/* Two halves */}
-      <div className="flex aspect-[2/1]">
+      <div className={SP_TWO_HALVES_CLASSNAME}>
 
         {/* Left: instructions */}
         <div
-          className="w-1/2 relative flex flex-col items-center"
+          className={SP_TEXT_CONTAINER_CLASSNAME}
           style={{ containerType: "inline-size" }}
         >
 
           {/* Step 1 */}
           <div
-            className="absolute"
+            className={SP_TEXT_CLASSNAME}
             style={{ top: "10%", transform: "rotate(-1deg)" }}
           >
-            <p
-              className="font-semibold"
-              style={{ fontSize: "4cqw" }}
-            >
+            <p className={INSTRUCTIONS_T_CLASSNAME}>
               1. Fill out the{" "}
               <TextLink
                 text="verification form"
@@ -57,13 +62,10 @@ export default function JoinUsPage() {
 
           {/* Step 2 */}
           <div
-            className="absolute"
+            className={SP_TEXT_CLASSNAME}
             style={{ top: "35%", transform: "rotate(1deg)" }}
           >
-            <p
-              className="font-semibold"
-              style={{ fontSize: "4cqw" }}
-            >
+            <p className={INSTRUCTIONS_T_CLASSNAME}>
               2. Join our{" "}
               <TextLink
                 text="Discord"
@@ -77,13 +79,10 @@ export default function JoinUsPage() {
 
           {/* Step 3 */}
           <div
-            className="absolute"
+            className={SP_TEXT_CLASSNAME}
             style={{ top: "60%", transform: "rotate(-1deg)" }}
           >
-            <p
-              className="font-semibold"
-              style={{ fontSize: "4cqw" }}
-            >
+            <p className={INSTRUCTIONS_T_CLASSNAME}>
               3. Follow us on{" "}
               <TextLink
                 text="Instagram"

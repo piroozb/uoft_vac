@@ -6,11 +6,13 @@ import {
     PURP_BUTTONS_PURPLE,
     PURP_BUTTON_HOVER_YELLOW,
     PURP_BUTTON_HOVER_GREEN,
-    SUBSECTION_TITLE_SIZE,
 } from "../common/Constants";
+import {
+    SUBSECTIONS_TITLE_SIZE,
+    SUBSECTIONS_TEXT_CLASSNAME 
+ } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
-const TEXT_CLASSNAME = "text-[3.25cqw] text-center";
 const PURP_BUTTON_CLASSNAME =
     "rounded-2xl px-[2cqw] py-[2cqw] text-[3cqw] text-white shadow-lg transform transition-all duration-300 hover:scale-95";
 
@@ -24,10 +26,10 @@ export default function Events() {
             }}
         >
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTION_TITLE_SIZE}>Events</SectionTitle>
+            <SectionTitle size={SUBSECTIONS_TITLE_SIZE}>Events</SectionTitle>
 
             {/* Overview */}
-            <p className={TEXT_CLASSNAME}>
+            <p className={SUBSECTIONS_TEXT_CLASSNAME}>
                 We host a variety of events every <strong>Friday 3–6pm</strong>.
                 <br />
                 All members can come at any point to relax and hang out.

@@ -4,6 +4,9 @@ import Events from "./Events";
 import OfficeHours from "./OfficeHours";
 import SectionTitle from "../common/SectionTitle";
 
+export const SUBSECTIONS_TITLE_SIZE = "7.5cqw";
+export const SUBSECTIONS_TEXT_CLASSNAME = "text-[3.25cqw] text-center";
+
 export default function WhatDoWeDo() {
     return (
         <section className="mt-5">

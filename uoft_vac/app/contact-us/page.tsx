@@ -8,29 +8,33 @@ import {
     INSTAGRAM_LINK,
     TEXT_LINK_PASSIVE_ORANGE,
     TEXT_LINK_HOVER_ORANGE,
-    SMALL_PAGES_TITLE_SIZE,
 } from "../common/Constants";
+import {
+    SP_PAGE_TITLE_SIZE,
+    SP_TWO_HALVES_CLASSNAME,
+    SP_TEXT_CONTAINER_CLASSNAME,
+    SP_TEXT_CLASSNAME,
+    SP_TEXT_T_CLASSNAME
+} from "../common/SmallPagesCommon";
 import TextLink from "../common/TextLink";
-
-const BULLETS_CLASSNAME = "absolute flex items-center";
 
 export default function ContactUsPage() {
     return (
         <div
-            className="w-full my-[1cqw] flex flex-col items-center"
+            className="my-[1cqw]"
             style={{ containerType: "inline-size" }}
         >
 
             {/* Page title */}
             <SectionTitle
                 graphic="/title-contact-us.png"
-                size={SMALL_PAGES_TITLE_SIZE}
+                size={SP_PAGE_TITLE_SIZE}
             >
                 Contact Us!
             </SectionTitle>
 
             {/* Two halves */}
-            <div className="w-full aspect-[2/1] flex">
+            <div className={SP_TWO_HALVES_CLASSNAME}>
 
                 {/* Left: graphic */}
                 <div className="w-1/2 relative">
@@ -38,29 +42,28 @@ export default function ContactUsPage() {
                         src="/contact-us-graphic.png"
                         alt="Contact Us Graphic"
                         fill
-                        className="mt-[1cqw] object-top object-contain"
+                        className="p-[1cqw] object-top object-contain"
                         priority
                     />
                 </div>
 
                 {/* Right: contact info */}
                 <div
-                    className="w-1/2 relative flex flex-col items-center"
+                    className={SP_TEXT_CONTAINER_CLASSNAME}
                     style={{ containerType: "inline-size" }}
                 >
                     <p
-                        className="mt-[5cqw] font-semibold"
-                        style={{ fontSize: "5cqw" }}
+                        className="mt-[5cqw] text-[5cqw] font-semibold"
                     >
                         You can reach us by:
                     </p>
 
                     {/* Bullet 1 */}
                     <div
-                        className={BULLETS_CLASSNAME}
+                        className={SP_TEXT_CLASSNAME}
                         style={{ top: "20%", transform: "rotate(-1deg)" }}
                     >
-                        <p style={{ fontSize: "4cqw" }}>
+                        <p className={SP_TEXT_T_CLASSNAME}>
                             • Writing us an{" "}
                             <TextLink
                                 text="email"
@@ -74,10 +77,10 @@ export default function ContactUsPage() {
 
                     {/* Bullet 2 */}
                     <div
-                        className={BULLETS_CLASSNAME}
+                        className={SP_TEXT_CLASSNAME}
                         style={{ top: "40%", transform: "rotate(1deg)" }}
                     >
-                        <p style={{ fontSize: "4cqw" }}>
+                        <p className={SP_TEXT_T_CLASSNAME}>
                             • Sending us a message on{" "}
                             <TextLink
                                 text="Instagram"
@@ -91,10 +94,10 @@ export default function ContactUsPage() {
 
                     {/* Bullet 3 */}
                     <div
-                        className={BULLETS_CLASSNAME}
+                        className={SP_TEXT_CLASSNAME}
                         style={{ top: "65%", transform: "rotate(-1deg)" }}
                     >
-                        <p style={{ fontSize: "4cqw" }}>
+                        <p className={SP_TEXT_T_CLASSNAME}>
                             • Ping the <strong>@President</strong> or{" "}
                             <strong>@Vice-President</strong>
                             <br />
