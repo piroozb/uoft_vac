@@ -12,6 +12,7 @@ import {
     SUBSECTIONS_TEXT_CLASSNAME 
  } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
+import { hoverShrink } from "../common/HoverShrink";
 
 const PURP_BUTTON_CLASSNAME =
     "rounded-2xl px-[2cqw] py-[2cqw] text-[3cqw] text-white shadow-lg transform transition-all duration-300 hover:scale-95";
