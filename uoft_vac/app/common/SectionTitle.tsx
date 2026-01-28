@@ -14,7 +14,6 @@ export default function SectionTitle({
     children,
     graphic = "",
     size = "4rem",
-    margin = "",
 }: SectionTitleProps) {
     const hasGraphic = graphic !== "";
     const [aspectRatio, setAspectRatio] = useState<number | null>(null);
@@ -30,7 +29,7 @@ export default function SectionTitle({
     }, [graphic, hasGraphic]);
 
     return (
-        <div className={`flex flex-col items-center ${margin}`}>
+        <div className={`flex flex-col items-center`}>
             {hasGraphic ? (
                 <div
                     className="relative"

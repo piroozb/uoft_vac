@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { INSTAGRAM_LINK } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
-import { useExpandableHeight } from "../common/ExpandableText";
+import { ExpandableText } from "../common/ExpandableText";
 
 const NAV_BUTTONS_CLASSNAME = "top-1/2 absolute cursor-pointer";
 const NAV_BUTTONS_IMG_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
@@ -116,7 +116,7 @@ function Caption({
     const [expanded, setExpanded] = useState(false);
 
     const { ref, fullHeight, needsExpand } =
-        useExpandableHeight<HTMLDivElement>(
+        ExpandableText<HTMLDivElement>(
             expanded,
             collapsedHeight,
             [captionText, collapsedHeight]

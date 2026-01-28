@@ -2,7 +2,7 @@
 
 import { useRef, useState, useLayoutEffect, useEffect } from "react";
 
-export function useExpandableHeight<T extends HTMLElement>(
+export function ExpandableText<T extends HTMLElement>(
     isExpanded: boolean,
     collapsedHeight: number = 0,
     deps: any[] = []
@@ -21,17 +21,16 @@ export function useExpandableHeight<T extends HTMLElement>(
     // Measure when content or dependencies change.
     useLayoutEffect(() => {
         measure();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps);
 
-    // Re-measure when expanded.
+    // Measure when expanded.
     useLayoutEffect(() => {
         if (isExpanded) {
             measure();
         }
     }, [isExpanded]);
 
-    // Re-measure on window resize while expanded.
+    // Measure on window resize while expanded.
     useEffect(() => {
         if (!isExpanded) return;
 

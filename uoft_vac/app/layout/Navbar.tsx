@@ -9,6 +9,7 @@ import {
     BARS_EDGES_DARK_GREEN,
     BARS_CENTRE_GREEN,
 } from "../common/Constants";
+import HoverShrink from "../common/HoverShrink";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -30,14 +31,16 @@ export default function Navbar() {
 
         return (
             <li key={link.id}>
-                <Link href={link.href} onClick={() => setOpen(false)}>
-                    <Image
-                        src={link.img} alt={link.title}
-                        className={`h-25 w-auto object-contain transition-opacity
-                            ${isActive ? "opacity-100" : "opacity-80 hover:opacity-100"}`}
-                        height={0} width={100}
-                    />
-                </Link>
+                <HoverShrink>
+                    <Link href={link.href} onClick={() => setOpen(false)}>
+                        <Image
+                            src={link.img} alt={link.title}
+                            className={`h-25 w-auto object-contain transition-opacity
+                                ${isActive ? "opacity-100" : "opacity-80 hover:opacity-100"}`}
+                            height={0} width={100}
+                        />
+                    </Link>
+                </HoverShrink>
             </li>
         );
     });

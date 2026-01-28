@@ -12,10 +12,10 @@ import {
     SUBSECTIONS_TEXT_CLASSNAME 
  } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
-import { hoverShrink } from "../common/HoverShrink";
+import HoverShrink from "../common/HoverShrink";
 
 const PURP_BUTTON_CLASSNAME =
-    "rounded-2xl px-[2cqw] py-[2cqw] text-[3cqw] text-white shadow-lg transform transition-all duration-300 hover:scale-95";
+    "px-[2cqw] py-[2cqw] text-[3cqw] block rounded-2xl shadow-lg text-white";
 
 export default function Events() {
     return (
@@ -63,11 +63,12 @@ export default function Events() {
                     ))}
 
                     {/* And more! */}
-                    <div className="m-auto">
+                    <div className="flex justify-center items-center">
                         <img
                             src="/and-more.png"
                             alt="AND MORE!"
-                            className="w-[15cqw] h-[15cqw]"
+                            className="w-[15cqw] object-contain"
+                            style={{ transform: "translateY(calc(-2cqw))" }}
                         />
                     </div>
                 </div>
@@ -77,25 +78,30 @@ export default function Events() {
             <div className="m-[2cqw] gap-[2cqw] grid grid-cols-2">
 
                 {/* Instagram */}
-                <a
-                    href={INSTAGRAM_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_YELLOW}]`}
-                    style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
-                >
-                    Check out our past events on our Instagram page!
-                </a>
+                <HoverShrink>
+                    <a
+                        href={INSTAGRAM_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_YELLOW}]`}
+                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                    >
+                        Check out our past events on our Instagram page!
+                    </a>
+                </HoverShrink>
+
                 {/* Join us */}
-                <a
-                    href="/join-us"
-                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_GREEN}]`}
-                    style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
-                >
-                    Feeling inspired?
-                    <br />
-                    Become a member today!
-                </a>
+                <HoverShrink>
+                    <a
+                        href="/join-us"
+                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_GREEN}]`}
+                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                    >
+                        Feeling inspired?
+                        <br />
+                        Become a member today!
+                    </a>
+                </HoverShrink>
             </div>
         </div>
     )

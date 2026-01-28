@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 
 import { BARS_EDGES_DARK_GREEN } from "../common/Constants";
-import { useExpandableHeight } from "../common/ExpandableText";
+import { ExpandableText } from "../common/ExpandableText";
 
 interface QuestionProps {
     question: string;
@@ -21,7 +21,7 @@ export default function Question({
     index,
 }: QuestionProps) {
     const { ref, fullHeight } =
-        useExpandableHeight<HTMLDivElement>(
+        ExpandableText<HTMLDivElement>(
             isOpen,
             0,
             [answer]
