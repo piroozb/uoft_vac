@@ -1,11 +1,15 @@
 "use client";
 
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { INSTAGRAM_LINK } from "../common/Constants";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
+import { ExpandableText } from "../common/ExpandableText";
+
+const NAV_BUTTONS_CLASSNAME = "top-1/2 absolute cursor-pointer";
+const NAV_BUTTONS_IMG_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
 function PictureCarousel({ images }: { images: string[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,13 +32,14 @@ function PictureCarousel({ images }: { images: string[] }) {
     };
 
     return (
-        <div className="relative w-full max-w-md lg:max-w-lg mx-auto px-6 flex items-center justify-center row-span-1">
+        <div className="flex justify-center relative">
+
             {/* Picture */}
-            <div className="relative w-90 h-90 overflow-hidden shadow-lg rounded-md">
+            <div className="w-100 h-100 overflow-hidden rounded-md shadow-lg relative">
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div
                         key={currentIndex}
-                        className={`absolute top-0 left-0 w-full h-full ${images[currentIndex]}`}
+                        className={`absolute w-full h-full ${images[currentIndex]}`}
                         custom={direction}
                         variants={{
                             enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
@@ -49,41 +54,45 @@ function PictureCarousel({ images }: { images: string[] }) {
                 </AnimatePresence>
             </div>
 
-            {/* Navigation Buttons */}
+            {/* Navigation buttons */}
             {hasMultiple && (
                 <>
-                    {/* Left Button */}
+
+                    {/* Left */}
                     <button
                         onClick={handlePrev}
-                        className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 p-2 bg-transparent border-none cursor-pointer"
+                        className={`left-[-40] ${NAV_BUTTONS_CLASSNAME}`}
                     >
-                        <img src="/carousel-arrow-l.png" alt="Previous" className="w-8 opacity-70 hover:opacity-100" />
+                        <img
+                            src="/carousel-arrow-l.png"
+                            alt="Previous"
+                            className={NAV_BUTTONS_IMG_CLASSNAME}
+                        />
                     </button>
 
-                    {/* Right Button */}
+                    {/* Right */}
                     <button
                         onClick={handleNext}
-                        className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 p-2 bg-transparent border-none cursor-pointer"
+                        className={`right-[-40] ${NAV_BUTTONS_CLASSNAME}`}
                     >
-                        <img src="/carousel-arrow-r.png" alt="Next" className="w-8 opacity-70 hover:opacity-100" />
+                        <img
+                            src="/carousel-arrow-r.png"
+                            alt="Next"
+                            className={NAV_BUTTONS_IMG_CLASSNAME}
+                            />
                     </button>
 
                     {/* Dots */}
-                    <div className="absolute -bottom-6 flex gap-2 justify-center w-full">
+                    <div className="-bottom-7.5 gap-2.5 flex justify-center absolute cursor-pointer">
                         {images.map((_, idx) => (
                             <img
                                 key={idx}
                                 src="/carousel-dot.png"
                                 alt={`Go to image ${idx + 1}`}
-                                className={`transition-opacity duration-200 ${currentIndex === idx
+                                className={`w-2.5 transition-opacity duration-200 ${currentIndex === idx
                                         ? "opacity-100"
                                         : "opacity-50 hover:opacity-100"
                                     }`}
-                                style={{
-                                    width: "0.75rem",
-                                    height: "auto",
-                                    cursor: "pointer",
-                                }}
                                 onClick={() => {
                                     setDirection(idx > currentIndex ? 1 : -1);
                                     setCurrentIndex(idx);
@@ -97,26 +106,30 @@ function PictureCarousel({ images }: { images: string[] }) {
     );
 }
 
-function Caption({ captionText, collapsedHeight }: { captionText: string, collapsedHeight: number }) {
+function Caption({
+    captionText,
+    collapsedHeight,
+}: {
+    captionText: string;
+    collapsedHeight: number;
+}) {
     const [expanded, setExpanded] = useState(false);
-    const [fullHeight, setFullHeight] = useState(0);
-    const [needsExpand, setNeedsExpand] = useState(false);
-    const captionRef = useRef<HTMLDivElement>(null);
 
-    useLayoutEffect(() => {
-        if (captionRef.current) {
-            const scrollH = captionRef.current.scrollHeight;
-            setFullHeight(scrollH);
-            setNeedsExpand(scrollH > collapsedHeight);
-        }
-    }, [captionText, collapsedHeight]);
+    const { ref, fullHeight, needsExpand } =
+        ExpandableText<HTMLDivElement>(
+            expanded,
+            collapsedHeight,
+            [captionText, collapsedHeight]
+        );
 
     return (
-        <div className="w-full text-left text-base md:text-lg">
+        <div className="text-left text-[1.25rem]">
             <motion.div
-                ref={captionRef}
+                ref={ref}
                 initial={false}
-                animate={{ maxHeight: expanded ? fullHeight : collapsedHeight }}
+                animate={{
+                    maxHeight: expanded ? fullHeight : collapsedHeight,
+                }}
                 transition={{ duration: 0.5, ease: [.25, 1, .5, 1] }}
                 style={{ overflow: "hidden" }}
             >
@@ -127,14 +140,14 @@ function Caption({ captionText, collapsedHeight }: { captionText: string, collap
             {needsExpand && (
                 <button
                     onClick={() => setExpanded(prev => !prev)}
-                    className="mt-2 text-blue-600 underline hover:opacity-80"
+                    className="mt-2.5 text-blue-600 underline hover:opacity-80"
                 >
                     {expanded ? "Show less" : "... more"}
                 </button>
             )}
 
             {/* Time */}
-            <p className="text-sm text-gray-500 mt-2">1 day ago</p>
+            <p className="text-[1rem] text-gray-500 mt-2.5">1 day ago</p>
         </div>
     );
 }
@@ -145,18 +158,21 @@ export default function FeaturedPost() {
     const collapsedHeight = 400;
 
     return (
-        <section className="w-full px-8 md:px-16 lg:px-32 my-10">
+        <section
+            className="mt-10"
+            style={{ containerType: "inline-size" }}
+        >
             {/* Title */}
             <SectionTitle>Featured Post!</SectionTitle>
 
         {/* Picture & caption */}
-        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] max-w-screen-xl mx-auto gap-12 items-start">
+        <div className="mt-5 mx-[5cqw] gap-20 grid md:grid-cols-[auto_1fr] items-start">
             <PictureCarousel images={images} />
             <Caption captionText={captionText} collapsedHeight={collapsedHeight} />
         </div>
 
             {/* Wanna see more? */}
-            <div className="mt-10 text-center text-xl">
+            <div className="mt-10 text-[1.5rem] text-center">
                 <p>
                     Wanna see more? Visit our{" "}
                     <TextLink

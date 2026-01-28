@@ -2,27 +2,29 @@
 
 import {
     SUBSECTION_BLUE,
-    SUBSECTION_TITLE_SIZE,
 } from "../common/Constants";
+import {
+    SUBSECTIONS_TITLE_SIZE,
+    SUBSECTIONS_TEXT_CLASSNAME 
+ } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
-const TEXT_CLASSNAME = "text-[3.25cqw] text-center";
 const BUBBLE_GRAPHICS_CLASSNAME = "w-[25cqw] h-[25cqw]";
 
 export default function OfficeHours() {
     return (
         <div
-            className="w-full rounded-md shadow-lg flex-col"
+            className="rounded-lg shadow-lg"
             style={{
                 backgroundColor: SUBSECTION_BLUE,
                 containerType: "inline-size",
             }}
         >
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTION_TITLE_SIZE}>Office Hours</SectionTitle>
+            <SectionTitle size={SUBSECTIONS_TITLE_SIZE}>Office Hours</SectionTitle>
 
             {/* Overview */}
-            <p className={TEXT_CLASSNAME}>
+            <p className={SUBSECTIONS_TEXT_CLASSNAME}>
                 We host office hours every <strong>Monday and Wednesday from 3–6pm</strong>.
                 <br />
                 Be sure to check our <strong>Discord announcements</strong> for additional office hours!
@@ -33,17 +35,17 @@ export default function OfficeHours() {
                 {/* Video container */}
                 <div className="ml-[2cqw] flex flex-col">
 
-                    <p className={TEXT_CLASSNAME}>
+                    <p className={SUBSECTIONS_TEXT_CLASSNAME}>
                         Can't find our office?<br />
                         Watch this video!
                     </p>
 
                     {/* Video */}
-                    <div className="mt-[1cqw] rounded-md">
+                    <div className="mt-[1cqw] rounded-lg">
                         <video
                             src="/office-video.mp4"
                             controls
-                            className="h-[69cqw] rounded-md shadow-lg"
+                            className="h-[69cqw] rounded-lg shadow-lg"
                         />
                     </div>
                 </div>

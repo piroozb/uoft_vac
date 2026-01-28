@@ -1,10 +1,10 @@
 "use client";
 
-import { FaDiscord, FaInstagram } from "react-icons/fa";
-import { useState, ReactElement } from "react";
+import { useState } from "react";
 
 import { EMAIL_LINK, DISCORD_LINK, INSTAGRAM_LINK } from "./Constants";
 import TextLink from "./TextLink";
+import HoverShrink from "./HoverShrink";
 
 // Club's email with link.
 interface EmailLinkProps {
@@ -51,32 +51,6 @@ export function EmailLink({ size }: EmailLinkProps) {
     );
 }
 
-// Circle icon component (for Discord & Instagram icons).
-interface CircleIconProps {
-    icon: ReactElement;
-    bgColor: string;
-    size: number;
-}
-
-export function CircleIcon({ icon, bgColor, size }: CircleIconProps) {
-    return (
-        <div
-            className="rounded-full flex items-center justify-center"
-            style={{
-                backgroundColor: bgColor,
-                width: size,
-                height: size,
-            }}
-        >
-            {icon && (
-                <span className="text-white" style={{ fontSize: size * .7 }}>
-                    {icon}
-                </span>
-            )}
-        </div>
-    );
-}
-
 // Discord icon with invite link.
 interface DiscordIconProps {
     size: number;
@@ -90,7 +64,15 @@ export function DiscordIcon({ size }: DiscordIconProps) {
             rel="noopener noreferrer"
             aria-label="Discord"
         >
-            <CircleIcon icon={<FaDiscord />} bgColor="#3b82f6" size={size} /> {/* Blue */}
+            <HoverShrink>
+                <img
+                    src="/discord-logo.png"
+                    alt="Discord"
+                    width={size}
+                    height={size}
+                    className="object-contain"
+                />
+            </HoverShrink>
         </a>
     );
 }
@@ -108,7 +90,15 @@ export function InstagramIcon({ size }: InstagramIconProps) {
             rel="noopener noreferrer"
             aria-label="Instagram"
         >
-            <CircleIcon icon={<FaInstagram />} bgColor="#ec4899" size={size} /> {/* Pink */}
+            <HoverShrink>
+                <img
+                    src="/instagram-logo.png"
+                    alt="Instagram"
+                    width={size}
+                    height={size}
+                    className="object-contain"
+                />
+            </HoverShrink>
         </a>
     );
 }

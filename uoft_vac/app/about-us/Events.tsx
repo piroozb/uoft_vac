@@ -6,28 +6,31 @@ import {
     PURP_BUTTONS_PURPLE,
     PURP_BUTTON_HOVER_YELLOW,
     PURP_BUTTON_HOVER_GREEN,
-    SUBSECTION_TITLE_SIZE,
 } from "../common/Constants";
+import {
+    SUBSECTIONS_TITLE_SIZE,
+    SUBSECTIONS_TEXT_CLASSNAME 
+ } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
+import HoverShrink from "../common/HoverShrink";
 
-const TEXT_CLASSNAME = "text-[3.25cqw] text-center";
 const PURP_BUTTON_CLASSNAME =
-    "rounded-2xl px-[2cqw] py-[2cqw] text-[3cqw] text-white shadow-lg transform transition-all duration-300 hover:scale-95";
+    "px-[2cqw] py-[2cqw] text-[3cqw] block rounded-2xl shadow-lg text-white";
 
 export default function Events() {
     return (
         <div
-            className="rounded-md shadow-lg"
+            className="rounded-lg shadow-lg"
             style={{
                 backgroundColor: SUBSECTION_YELLOW,
                 containerType: "inline-size",
             }}
         >
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTION_TITLE_SIZE}>Events</SectionTitle>
+            <SectionTitle size={SUBSECTIONS_TITLE_SIZE}>Events</SectionTitle>
 
             {/* Overview */}
-            <p className={TEXT_CLASSNAME}>
+            <p className={SUBSECTIONS_TEXT_CLASSNAME}>
                 We host a variety of events every <strong>Friday 3–6pm</strong>.
                 <br />
                 All members can come at any point to relax and hang out.
@@ -64,35 +67,41 @@ export default function Events() {
                         <img
                             src="/and-more.png"
                             alt="AND MORE!"
-                            className="w-[15cqw] h-[15cqw]"
+                            className="w-[15cqw] object-contain"
+                            style={{ transform: "translateY(calc(-2cqw))" }}
                         />
                     </div>
                 </div>
             </div>
 
             {/* Purple buttons */}
-            <div className="m-[2cqw] gap-[2cqw] grid grid-cols-2 items-center">
+            <div className="m-[2cqw] gap-[2cqw] grid grid-cols-2">
 
                 {/* Instagram */}
-                <a
-                    href={INSTAGRAM_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_YELLOW}]`}
-                    style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
-                >
-                    Check out our past events on our Instagram page!
-                </a>
+                <HoverShrink>
+                    <a
+                        href={INSTAGRAM_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_YELLOW}]`}
+                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                    >
+                        Check out our past events on our Instagram page!
+                    </a>
+                </HoverShrink>
+
                 {/* Join us */}
-                <a
-                    href="/join-us"
-                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_GREEN}]`}
-                    style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
-                >
-                    Feeling inspired?
-                    <br />
-                    Become a member today!
-                </a>
+                <HoverShrink>
+                    <a
+                        href="/join-us"
+                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_GREEN}]`}
+                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                    >
+                        Feeling inspired?
+                        <br />
+                        Become a member today!
+                    </a>
+                </HoverShrink>
             </div>
         </div>
     )
