@@ -1,6 +1,6 @@
 import SectionTitle from "../common/SectionTitle";
 
-import { BARS_CENTRE_GREEN } from "../common/Constants";
+import Image from "next/image";
 
 const VALUES_CLASSNAME =
     "w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-60 lg:h-60 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full flex items-center justify-center text-white font-bold";
@@ -12,13 +12,20 @@ export default function OurMission() {
             {/* Section title */}
             <SectionTitle>Our Mission!</SectionTitle>
 
-            {/* Paint splash */}
-            <div
-                className="mt-5 max-w-4xl rounded-lg"
-                style={{ backgroundColor: BARS_CENTRE_GREEN }}
-            >
+            {/* Mission container */}
+            <div className="flex items-center justify-center relative px-30 w-[60rem] aspect-[3/1.5]">
+
+                {/* Paint */}
+                <Image
+                    src="/mission-paint.png"
+                    alt="Our mission"
+                    fill
+                    className="object-contain"
+                    priority
+                />
+
                 {/* Mission statement */}
-                <p className="m-5 text-[1.6rem] text-center">
+                <p className="text-[1.6rem] z-1 text-center">
                     The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
                     <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
                     interested in art to develop and express their passion through
@@ -29,7 +36,7 @@ export default function OurMission() {
             </div>
 
             {/* Values */}
-            <div className="flex gap-[3cqw] mt-10">
+            <div className="flex gap-[3cqw]">
                 <div className={`${VALUES_CLASSNAME} bg-red-500`}>Create</div>
                 <div className={`${VALUES_CLASSNAME} bg-yellow-400`}>Share</div>
                 <div className={`${VALUES_CLASSNAME} bg-blue-500`}>Connect</div>

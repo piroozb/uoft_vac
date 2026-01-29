@@ -35,8 +35,8 @@ export default function Navbar() {
                     <Link href={link.href} onClick={() => setOpen(false)}>
                         <Image
                             src={link.img} alt={link.title}
-                            className={`h-25 w-auto object-contain transition-opacity
-                                ${isActive ? "opacity-100" : "opacity-80 hover:opacity-100"}`}
+                            className={`h-25 w-auto object-contain
+                                ${isActive ? "saturate-150" : ""}`}
                             height={0} width={100}
                         />
                     </Link>
