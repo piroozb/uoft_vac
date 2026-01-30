@@ -45,22 +45,18 @@ export default function Navbar() {
         );
     });
 
-    // Navbar
+    // Bar
     return (
         <nav
-            className="p-1 flex justify-center"
-            style={{
-                background: `linear-gradient(
-                    to right,
-                    ${BARS_EDGES_DARK_GREEN} 0%,
-                    ${BARS_CENTRE_GREEN} 33.3%,
-                    ${BARS_CENTRE_GREEN} 66.6%,
-                    ${BARS_EDGES_DARK_GREEN} 100%
-                )`,
-                zIndex: 100,
-                position: "relative",
-            }}
+            className="p-1 flex justify-center relative z-100"
+            style={{ background: `linear-gradient(to right,
+            ${BARS_EDGES_DARK_GREEN} 0%,
+            ${BARS_CENTRE_GREEN} 33.3%,
+            ${BARS_CENTRE_GREEN} 66.6%,
+            ${BARS_EDGES_DARK_GREEN} 100%
+            )` }}
         >
+
             {/* Desktop view */}
             <ul className="hidden lg:flex">
                 {navbarItems}
