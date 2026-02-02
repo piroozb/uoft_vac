@@ -1,5 +1,5 @@
 import {
-  BARS_EDGES_DARK_GREEN,
+  BARS_EDGES_GREEN,
   BARS_CENTRE_GREEN,
 } from "../common/Constants";
 import {
@@ -25,10 +25,10 @@ export default function Footer() {
       <div
         className="w-full p-5 grid justify-center relative z-100"
         style={{ background: `linear-gradient(to right,
-            ${BARS_EDGES_DARK_GREEN} 0%,
+            ${BARS_EDGES_GREEN} 0%,
             ${BARS_CENTRE_GREEN} 33.3%,
             ${BARS_CENTRE_GREEN} 66.6%,
-            ${BARS_EDGES_DARK_GREEN} 100%
+            ${BARS_EDGES_GREEN} 100%
             )` }}
       >
 

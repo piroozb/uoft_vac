@@ -7,9 +7,9 @@ export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6";
 // Colours:
 
 // Layout
-export const BG_LIGHT_GREEN = "rgb(198,255,206)";
+export const BG_GREEN = "rgb(198,255,206)";
 // Navbar & Footer
-export const BARS_EDGES_DARK_GREEN = "rgb(0,178,25)";
+export const BARS_EDGES_GREEN = "rgb(0,178,25)";
 export const BARS_CENTRE_GREEN = "rgb(53,228,78)";
 export const PAGE_BUTTONS_PASSIVE_YELLOW = "rgb(255,254,176)";
 export const PAGE_BUTTONS_ACTIVE_YELLOW = "rgb(255,253,111)";

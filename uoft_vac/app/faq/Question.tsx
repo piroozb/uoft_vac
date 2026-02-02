@@ -2,7 +2,7 @@ import { ReactNode, MouseEvent } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 
-import { BARS_EDGES_DARK_GREEN } from "../common/Constants";
+import { BARS_EDGES_GREEN } from "../common/Constants";
 import { ExpandableText } from "../common/ExpandableText";
 
 interface QuestionProps {
@@ -34,7 +34,7 @@ export default function Question({
             style={{
                 borderTop: index === 0
                     ? "none"
-                    : `1px solid ${BARS_EDGES_DARK_GREEN}`,
+                    : `1px solid ${BARS_EDGES_GREEN}`,
             }}
         >
             {/* Question */}
@@ -46,12 +46,12 @@ export default function Question({
                 {isOpen ? (
                     <FaChevronRight
                         className="w-5 h-5"
-                        style={{ color: BARS_EDGES_DARK_GREEN }}
+                        style={{ color: BARS_EDGES_GREEN }}
                     />
                 ) : (
                     <FaChevronDown
                         className="w-5 h-5"
-                        style={{ color: BARS_EDGES_DARK_GREEN }}
+                        style={{ color: BARS_EDGES_GREEN }}
                     />
                 )}
             </div>

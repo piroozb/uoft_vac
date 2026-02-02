@@ -3,8 +3,8 @@ import "./globals.css";
 import { Fredoka } from "next/font/google";
 
 import {
-  BG_LIGHT_GREEN,
-  BARS_EDGES_DARK_GREEN,
+  BG_GREEN,
+  BARS_EDGES_GREEN,
   BARS_CENTRE_GREEN
 } from "./common/Constants";
 
@@ -40,10 +40,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           style={{
             background: `linear-gradient(
               to right,
-              ${BARS_EDGES_DARK_GREEN} 0%,
+              ${BARS_EDGES_GREEN} 0%,
               ${BARS_CENTRE_GREEN} 33.3%,
               ${BARS_CENTRE_GREEN} 66.6%,
-              ${BARS_EDGES_DARK_GREEN} 100%
+              ${BARS_EDGES_GREEN} 100%
             )`,
           }}
         />
@@ -54,10 +54,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           style={{
             background: `linear-gradient(
               to right,
-              ${BARS_EDGES_DARK_GREEN} 0%,
+              ${BARS_EDGES_GREEN} 0%,
               ${BARS_CENTRE_GREEN} 33.3%,
               ${BARS_CENTRE_GREEN} 66.6%,
-              ${BARS_EDGES_DARK_GREEN} 100%
+              ${BARS_EDGES_GREEN} 100%
             )`,
           }}
         />
@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Light green main background */}
           <div
             className="antialiased main-content"
-            style={{ backgroundColor: BG_LIGHT_GREEN }}
+            style={{ backgroundColor: BG_GREEN }}
           >
             <Navbar />
 

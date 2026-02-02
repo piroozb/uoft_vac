@@ -5,13 +5,16 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react"
 
+import { isMobile } from "./IsMobile";
 import {
-    BARS_EDGES_DARK_GREEN,
+    BARS_EDGES_GREEN,
     BARS_CENTRE_GREEN,
 } from "../common/Constants";
 import HoverShrink from "../common/HoverShrink";
 
 export default function Navbar() {
+    const mobile = isMobile();
+
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
 
@@ -25,7 +28,7 @@ export default function Navbar() {
         { id: 6, title: "FAQ", href: "/faq", img: "/navbar-faq.png" }, // FAQ
     ];
 
-    // Buttons
+    // Buttons mapping
     const navbarItems = links.map((link) => {
         const isActive = pathname === link.href;
 
@@ -45,41 +48,50 @@ export default function Navbar() {
         );
     });
 
-    // Bar
+    /* ——————
+        DESKTOP VIEW
+        —————— */
+    if (!mobile) {
+        return (
+            <nav
+                className="p-1 flex justify-center relative z-50"
+                style={{ background: `linear-gradient(to right,
+                        ${BARS_EDGES_GREEN} 0%,
+                        ${BARS_CENTRE_GREEN} 33.3%,
+                        ${BARS_CENTRE_GREEN} 66.6%,
+                        ${BARS_EDGES_GREEN} 100%
+                    )` }}
+            >
+                <ul className="flex">
+                    {navbarItems}
+                </ul>
+            </nav>
+        );
+    }
+
+    /* ——————
+       MOBILE VIEW
+       —————— */
     return (
-        <nav
-            className="p-1 flex justify-center relative z-100"
-            style={{ background: `linear-gradient(to right,
-            ${BARS_EDGES_DARK_GREEN} 0%,
-            ${BARS_CENTRE_GREEN} 33.3%,
-            ${BARS_CENTRE_GREEN} 66.6%,
-            ${BARS_EDGES_DARK_GREEN} 100%
-            )` }}
-        >
+        <div className="flex flex-col items-start fixed z-100">
 
-            {/* Desktop view */}
-            <ul className="hidden lg:flex">
-                {navbarItems}
-            </ul>
+            {/* Icon */}
+            <HoverShrink>
+                <button
+                    className="m-5 text-4xl"
+                    onClick={() => setOpen(!open)}
+                >
+                    ☰
+                </button>
+            </HoverShrink>
 
-            {/* Mobile view */}
-            <button className="lg:hidden text-3xl" onClick={() => setOpen(!open)}>☰</button>
-
-            {/* Mobile dropdown */}
+            {/* Dropdown */}
             <ul
-                className={`
-                    absolute top-full left-0 right-0 flex flex-col gap-4 p-4 
-                    bg-[#0b3311cc] backdrop-blur-md lg:hidden
-                    transition-all duration-300 origin-top
-                    ${open 
-                        ? "opacity-100 scale-y-100 pointer-events-auto"
-                        : "opacity-0 scale-y-0 pointer-events-none"
-                    }
-                `}
-                style={{ zIndex: 100 }}
+                className={`pl-5 gap-5 flex flex-col duration-300 origin-top
+                    ${open ? "translate-x-0" : "-translate-x-full"}`}
             >
                 {navbarItems}
             </ul>
-        </nav>
+        </div>
     );
 }
