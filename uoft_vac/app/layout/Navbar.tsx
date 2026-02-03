@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react"
 
@@ -11,6 +11,8 @@ import {
     BARS_CENTRE_GREEN,
 } from "../common/Constants";
 import HoverShrink from "../common/HoverShrink";
+
+const MOBILE_TRANSF_DURATION = "duration-400";
 
 export default function Navbar() {
     const mobile = isMobile();
@@ -29,18 +31,32 @@ export default function Navbar() {
     ];
 
     // Buttons mapping
-    const navbarItems = links.map((link) => {
+    const navbarItems = links.map((link, index) => {
         const isActive = pathname === link.href;
+        const delay = `delay-[${index * 70}ms]`;
 
         return (
-            <li key={link.id}>
+            <li key={link.id} className="relative">
+
+                {/* Mobile green shroud background */}
+                {mobile && (
+                    <div
+                        className={`absolute inset-0 rounded-4xl blur-2xl
+                            ${open ? "opacity-100" : "opacity-0"} ${MOBILE_TRANSF_DURATION}`}
+                        style={{ backgroundColor: BARS_EDGES_GREEN }}
+                    />
+                )}
+
+                {/* Buttons */}
                 <HoverShrink>
                     <Link href={link.href} onClick={() => setOpen(false)}>
                         <Image
-                            src={link.img} alt={link.title}
+                            src={link.img}
+                            alt={link.title}
                             className={`h-25 w-auto object-contain
                                 ${isActive ? "saturate-150" : ""}`}
-                            height={0} width={100}
+                            height={0}
+                            width={100}
                         />
                     </Link>
                 </HoverShrink>
@@ -53,8 +69,10 @@ export default function Navbar() {
         —————— */
     if (!mobile) {
         return (
+
+            // Bar
             <nav
-                className="p-1 flex justify-center relative z-50"
+                className="p-1 flex justify-center relative z-100"
                 style={{ background: `linear-gradient(to right,
                         ${BARS_EDGES_GREEN} 0%,
                         ${BARS_CENTRE_GREEN} 33.3%,
@@ -62,6 +80,8 @@ export default function Navbar() {
                         ${BARS_EDGES_GREEN} 100%
                     )` }}
             >
+
+                {/* Buttons row */}
                 <ul className="flex">
                     {navbarItems}
                 </ul>
@@ -73,25 +93,36 @@ export default function Navbar() {
        MOBILE VIEW
        —————— */
     return (
-        <div className="flex flex-col items-start fixed z-100">
+        <>
 
-            {/* Icon */}
-            <HoverShrink>
-                <button
-                    className="m-5 text-4xl"
-                    onClick={() => setOpen(!open)}
+            {/* Clickable zone (whole screen) to hide dropdown */}
+            {open && (
+                <div
+                    className="fixed inset-0 pointer-events-auto z-90"
+                    onClick={() => setOpen(false)}
+                />
+            )}
+
+            <div className="flex flex-col items-start fixed z-100">
+
+                {/* Icon */}
+                <HoverShrink>
+                    <button
+                        className="m-5 text-4xl"
+                        onClick={() => setOpen(!open)}
+                    >
+                        ☰
+                    </button>
+                </HoverShrink>
+
+                {/* Dropdown */}
+                <ul
+                    className={`pl-5 gap-5 flex flex-col
+                        ${open ? "translate-x-0" : "-translate-x-full"} ${MOBILE_TRANSF_DURATION}`}
                 >
-                    ☰
-                </button>
-            </HoverShrink>
-
-            {/* Dropdown */}
-            <ul
-                className={`pl-5 gap-5 flex flex-col duration-300 origin-top
-                    ${open ? "translate-x-0" : "-translate-x-full"}`}
-            >
-                {navbarItems}
-            </ul>
-        </div>
+                    {navbarItems}
+                </ul>
+            </div>
+        </>
     );
 }

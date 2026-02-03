@@ -2,6 +2,7 @@
 
 import SectionTitle from "../common/SectionTitle";
 import { InstagramEmbed } from 'react-social-media-embed';
+
 export default function UpcomingEvents() {
     return (
         <section className="mt-5">
