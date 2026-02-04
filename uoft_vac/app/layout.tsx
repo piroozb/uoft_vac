@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body className="antialiased relative overflow-x-hidden">
 
-        {/* Top Navbar overscroll gradient */}
+        {/* Navbar overscroll gradient */}
         <div
           className="fixed top-0 left-0 w-full h-[40vh] -z-10"
           style={{
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* Bottom Footer overscroll gradient */}
+        {/* Footer overscroll gradient */}
         <div
           className="fixed bottom-0 left-0 w-full h-[40vh] -z-10"
           style={{
@@ -63,21 +63,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         <WindowOffsetProvider>
-          {/* Light green main background */}
+
+          {/* Background */}
           <div
             className="antialiased main-content"
             style={{ backgroundColor: BG_GREEN }}
           >
             <Navbar />
 
-            {/* Content automatically expands or shrinks with side decor */}
+            {/* Page content */}
             <ContentPanel>
               {children}
             </ContentPanel>
 
             <Footer />
 
-            {/* Side decor now reads the same offset as ContentPanel */}
+            {/* Side decor */}
             <ClientSideDecor />
           </div>
         </WindowOffsetProvider>

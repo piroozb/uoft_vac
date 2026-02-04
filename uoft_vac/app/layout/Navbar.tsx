@@ -31,14 +31,13 @@ export default function Navbar() {
     ];
 
     // Buttons mapping
-    const navbarItems = links.map((link, index) => {
+    const navbarItems = links.map((link) => {
         const isActive = pathname === link.href;
-        const delay = `delay-[${index * 70}ms]`;
 
         return (
             <li key={link.id} className="relative">
 
-                {/* Mobile green shroud background */}
+                {/* (Mobile) green shroud background */}
                 {mobile && (
                     <div
                         className={`absolute inset-0 rounded-4xl blur-2xl

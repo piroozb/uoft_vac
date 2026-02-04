@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { SIDE_DECOR_WIDTH } from "../common/Constants";
 
-const SCALE = 1;
 const SCROLL_VEL = 0.1;
 
 type Stripe = { y: number };
@@ -21,7 +20,7 @@ export default function SideDecor({ offset }: { offset: number }) {
         img.src = "/side-decor-l.png";
         img.onload = () => {
             const scaledHeight =
-                img.naturalHeight * ((SIDE_DECOR_WIDTH * SCALE) / img.naturalWidth);
+                img.naturalHeight * (SIDE_DECOR_WIDTH / img.naturalWidth);
             setBarHeight(scaledHeight);
         };
     }, []);
@@ -52,7 +51,7 @@ export default function SideDecor({ offset }: { offset: number }) {
         return () => cancelAnimationFrame(animationRef.current!);
     }, [barHeight]);
 
-    const translateX = offset * SIDE_DECOR_WIDTH * SCALE;
+    const translateX = offset * SIDE_DECOR_WIDTH;
 
     return (
         <>
@@ -61,7 +60,7 @@ export default function SideDecor({ offset }: { offset: number }) {
                 className="fixed left-0 top-0 z-0 transition-transform duration-300 ease-linear"
                 style={{
                     transform: `translateX(-${translateX}px)`,
-                    width: SIDE_DECOR_WIDTH * SCALE,
+                    width: SIDE_DECOR_WIDTH,
                     height: "100%",
                     overflow: "hidden",
                 }}
@@ -73,7 +72,7 @@ export default function SideDecor({ offset }: { offset: number }) {
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: SIDE_DECOR_WIDTH * SCALE,
+                            width: SIDE_DECOR_WIDTH,
                             height: "auto",
                         }}
                         alt=""
@@ -86,7 +85,7 @@ export default function SideDecor({ offset }: { offset: number }) {
                 className="fixed right-0 top-0 z-0 transition-transform duration-300 ease-linear"
                 style={{
                     transform: `translateX(${translateX}px)`,
-                    width: SIDE_DECOR_WIDTH * SCALE,
+                    width: SIDE_DECOR_WIDTH,
                     height: "100%",
                     overflow: "hidden",
                 }}
@@ -98,7 +97,7 @@ export default function SideDecor({ offset }: { offset: number }) {
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: SIDE_DECOR_WIDTH * SCALE,
+                            width: SIDE_DECOR_WIDTH,
                             height: "auto",
                         }}
                         alt=""
