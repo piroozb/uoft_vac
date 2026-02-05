@@ -1,9 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import {
+    useEffect,
+    useRef,
+    useState,
+} from "react";
+
 import { SIDE_DECOR_WIDTH } from "../common/Constants";
 
-const SCROLL_VEL = 0.1;
+const SCROLL_VEL = .1;
 
 type Stripe = { y: number };
 
@@ -55,52 +61,46 @@ export default function SideDecor({ offset }: { offset: number }) {
 
     return (
         <>
-            {/* Left panel */}
+            {/* Left stripe */}
             <div
-                className="fixed left-0 top-0 z-0 transition-transform duration-300 ease-linear"
+                className="fixed top-0"
                 style={{
                     transform: `translateX(-${translateX}px)`,
                     width: SIDE_DECOR_WIDTH,
                     height: "100%",
-                    overflow: "hidden",
                 }}
             >
-                {leftStripes.map((stripe, i) => (
-                    <img
-                        key={i}
+                {leftStripes.map((stripe) => (
+                    <Image
                         src="/side-decor-l.png"
+                        alt="Side decor"
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: SIDE_DECOR_WIDTH,
-                            height: "auto",
                         }}
-                        alt=""
+                        width={SIDE_DECOR_WIDTH} height={0}
                     />
                 ))}
             </div>
 
-            {/* Right panel */}
+            {/* Right stripe */}
             <div
-                className="fixed right-0 top-0 z-0 transition-transform duration-300 ease-linear"
+                className="fixed right-0 top-0"
                 style={{
                     transform: `translateX(${translateX}px)`,
                     width: SIDE_DECOR_WIDTH,
                     height: "100%",
-                    overflow: "hidden",
                 }}
             >
-                {rightStripes.map((stripe, i) => (
-                    <img
-                        key={i}
+                {rightStripes.map((stripe) => (
+                    <Image
                         src="/side-decor-r.png"
+                        alt="Side decor"
                         style={{
                             position: "absolute",
                             top: stripe.y,
-                            width: SIDE_DECOR_WIDTH,
-                            height: "auto",
                         }}
-                        alt=""
+                        width={SIDE_DECOR_WIDTH} height={0}
                     />
                 ))}
             </div>

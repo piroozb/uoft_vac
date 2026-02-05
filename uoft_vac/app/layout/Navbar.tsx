@@ -5,11 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react"
 
-import { isMobile } from "./IsMobile";
 import {
     BARS_EDGES_GREEN,
     BARS_CENTRE_GREEN,
 } from "../common/Constants";
+import { isMobile } from "./IsMobile";
 import HoverShrink from "../common/HoverShrink";
 
 const MOBILE_TRANSF_DURATION = "duration-400";

@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { INSTAGRAM_LINK } from "../common/Constants";
+import { isMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 import { ExpandableText } from "../common/ExpandableText";
 
-const NAV_BUTTONS_CLASSNAME = "top-1/2 absolute cursor-pointer";
 const NAV_BUTTONS_IMG_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
 function PictureCarousel({ images }: { images: string[] }) {
@@ -32,76 +33,75 @@ function PictureCarousel({ images }: { images: string[] }) {
     };
 
     return (
-        <div className="flex justify-center relative">
+        <div className="flex flex-col items-center gap-5">
 
-            {/* Picture */}
-            <div className="w-100 h-100 overflow-hidden rounded-md shadow-lg relative">
-                <AnimatePresence initial={false} custom={direction}>
-                    <motion.div
-                        key={currentIndex}
-                        className={`absolute w-full h-full ${images[currentIndex]}`}
-                        custom={direction}
-                        variants={{
-                            enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
-                            center: { x: "0%" },
-                            exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%" }),
-                        }}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={slideTransition}
+            {/* Row: nav buttons & picture */}
+            <div className="flex gap-5">
+
+                {/* Previous */}
+                <button
+                    onClick={handlePrev}
+                    className="cursor-pointer"
+                >
+                    <Image
+                        src="/carousel-arrow-l.png"
+                        alt="Previous"
+                        className={NAV_BUTTONS_IMG_CLASSNAME}
+                        width={100} height={0}
                     />
-                </AnimatePresence>
+                </button>
+
+                {/* Picture */}
+                <div className="w-[clamp(0rem,25rem,70cqw)] aspect-square rounded-md shadow-lg overflow-hidden relative">
+                    <AnimatePresence initial={false} custom={direction}>
+                        <motion.div
+                            key={currentIndex}
+                            className={`absolute w-full h-full ${images[currentIndex]}`}
+                            custom={direction}
+                            variants={{
+                                enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
+                                center: { x: "0%" },
+                                exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%" }),
+                            }}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            transition={slideTransition}
+                        />
+                    </AnimatePresence>
+                </div>
+
+                {/* Next */}
+                <button
+                    onClick={handleNext}
+                    className="cursor-pointer"
+                >
+                    <Image
+                        src="/carousel-arrow-r.png"
+                        alt="Next"
+                        className={NAV_BUTTONS_IMG_CLASSNAME}
+                        width={100} height={0}
+                    />
+                </button>
             </div>
 
-            {/* Navigation buttons */}
-            {hasMultiple && (
-                <>
-
-                    {/* Left */}
-                    <button
-                        onClick={handlePrev}
-                        className={`left-[-40] ${NAV_BUTTONS_CLASSNAME}`}
-                    >
-                        <img
-                            src="/carousel-arrow-l.png"
-                            alt="Previous"
-                            className={NAV_BUTTONS_IMG_CLASSNAME}
-                        />
-                    </button>
-
-                    {/* Right */}
-                    <button
-                        onClick={handleNext}
-                        className={`right-[-40] ${NAV_BUTTONS_CLASSNAME}`}
-                    >
-                        <img
-                            src="/carousel-arrow-r.png"
-                            alt="Next"
-                            className={NAV_BUTTONS_IMG_CLASSNAME}
-                            />
-                    </button>
-
-                    {/* Dots */}
-                    <div className="-bottom-7.5 gap-2.5 flex justify-center absolute cursor-pointer">
-                        {images.map((_, idx) => (
-                            <img
-                                key={idx}
-                                src="/carousel-dot.png"
-                                alt={`Go to image ${idx + 1}`}
-                                className={`w-2.5 transition-opacity duration-200 ${currentIndex === idx
-                                        ? "opacity-100"
-                                        : "opacity-50 hover:opacity-100"
-                                    }`}
-                                onClick={() => {
-                                    setDirection(idx > currentIndex ? 1 : -1);
-                                    setCurrentIndex(idx);
-                                }}
-                            />
-                        ))}
-                    </div>
-                </>
-            )}
+            {/* Dots */}
+            <div className="flex gap-2.5 cursor-pointer">
+                {images.map((_, idx) => (
+                    <img
+                        key={idx}
+                        src="/carousel-dot.png"
+                        alt={`Go to image ${idx + 1}`}
+                        className={`w-2.5 ${
+                            currentIndex === idx ? "opacity-100" :
+                            "opacity-50 hover:opacity-100"} duration-100`}
+                        onClick={() => {
+                            setDirection(idx > currentIndex ? 1 : -1);
+                            setCurrentIndex(idx);
+                        }}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
@@ -153,6 +153,8 @@ function Caption({
 }
 
 export default function FeaturedPost() {
+    const mobile = isMobile();
+
     const images = ["bg-red-500", "bg-blue-500", "bg-yellow-500"];
     const captionText = "clean my bellay ".repeat(100).trim();
     const collapsedHeight = 400;
@@ -166,7 +168,7 @@ export default function FeaturedPost() {
             <SectionTitle>Featured Post!</SectionTitle>
 
         {/* Picture & caption */}
-        <div className="mt-5 mx-[5cqw] gap-20 grid md:grid-cols-[auto_1fr] items-start">
+        <div className={`mt-5 mx-[5cqw] grid ${mobile ? "gap-10" : "gap-20 grid-cols-[auto_1fr]"} items-start`}>
             <PictureCarousel images={images} />
             <Caption captionText={captionText} collapsedHeight={collapsedHeight} />
         </div>
