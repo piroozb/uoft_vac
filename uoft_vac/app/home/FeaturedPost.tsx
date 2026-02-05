@@ -10,12 +10,11 @@ import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 import { ExpandableText } from "../common/ExpandableText";
 
-const NAV_BUTTONS_IMG_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
+const NAV_BUTTONS_IMAGE_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
 function PictureCarousel({ images }: { images: string[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
-    const hasMultiple = images.length > 1;
 
     const slideTransition = {
         duration: 0.4,
@@ -46,13 +45,13 @@ function PictureCarousel({ images }: { images: string[] }) {
                     <Image
                         src="/carousel-arrow-l.png"
                         alt="Previous"
-                        className={NAV_BUTTONS_IMG_CLASSNAME}
+                        className={NAV_BUTTONS_IMAGE_CLASSNAME}
                         width={100} height={0}
                     />
                 </button>
 
                 {/* Picture */}
-                <div className="w-[clamp(0rem,25rem,70cqw)] aspect-square rounded-md shadow-lg overflow-hidden relative">
+                <div className="w-[clamp(0rem,25rem,70vw)] aspect-square rounded-md shadow-lg overflow-hidden relative">
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
                             key={currentIndex}
@@ -79,7 +78,7 @@ function PictureCarousel({ images }: { images: string[] }) {
                     <Image
                         src="/carousel-arrow-r.png"
                         alt="Next"
-                        className={NAV_BUTTONS_IMG_CLASSNAME}
+                        className={NAV_BUTTONS_IMAGE_CLASSNAME}
                         width={100} height={0}
                     />
                 </button>
@@ -161,20 +160,26 @@ export default function FeaturedPost() {
 
     return (
         <section
-            className="mt-10"
+            className="mt-10 flex flex-col items-center"
             style={{ containerType: "inline-size" }}
         >
             {/* Title */}
             <SectionTitle>Featured Post!</SectionTitle>
 
-        {/* Picture & caption */}
-        <div className={`mt-5 mx-[5cqw] grid ${mobile ? "gap-10" : "gap-20 grid-cols-[auto_1fr]"} items-start`}>
-            <PictureCarousel images={images} />
-            <Caption captionText={captionText} collapsedHeight={collapsedHeight} />
-        </div>
+            {/* Picture & caption */}
+            <div
+                className={`mt-5 grid
+                ${mobile ? "m-10 gap-10" : "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"}`}
+            >
+                <PictureCarousel images={images} />
+                <Caption captionText={captionText} collapsedHeight={collapsedHeight} />
+            </div>
 
             {/* Wanna see more? */}
-            <div className="mt-10 text-[1.5rem] text-center">
+            <div
+                className={`mx-10 text-[1.5rem]
+                ${mobile ? "" : "mt-10"}`}
+            >
                 <p>
                     Wanna see more? Visit our{" "}
                     <TextLink
