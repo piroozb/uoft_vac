@@ -1,19 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { INSTAGRAM_LINK } from "../common/Constants";
-import { isMobile } from "../layout/IsMobile";
+import { useIsMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 import { ExpandableText } from "../common/ExpandableText";
 
 const NAV_BUTTONS_IMAGE_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
-function PictureCarousel({ images }: { images: string[] }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
+function ImageCarousel({ images }: { images: string[] }) {
+    const [index, setIndex] = useState(0);
     const [direction, setDirection] = useState(0);
 
     const slideTransition = {
@@ -23,12 +23,12 @@ function PictureCarousel({ images }: { images: string[] }) {
 
     const handlePrev = () => {
         setDirection(-1);
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+        setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
     };
 
     const handleNext = () => {
         setDirection(1);
-        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+        setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     };
 
     return (
@@ -50,12 +50,12 @@ function PictureCarousel({ images }: { images: string[] }) {
                     />
                 </button>
 
-                {/* Picture */}
+                {/* Images */}
                 <div className="w-[clamp(0rem,25rem,70vw)] aspect-square rounded-md shadow-lg overflow-hidden relative">
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
-                            key={currentIndex}
-                            className={`absolute w-full h-full ${images[currentIndex]}`}
+                            key={index}
+                            className="absolute w-full h-full"
                             custom={direction}
                             variants={{
                                 enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
@@ -66,7 +66,14 @@ function PictureCarousel({ images }: { images: string[] }) {
                             animate="center"
                             exit="exit"
                             transition={slideTransition}
-                        />
+                        >
+                            <Image
+                                src={images[index]}
+                                alt="Instagram post image"
+                                className="object-cover"
+                                fill
+                            />
+                        </motion.div>
                     </AnimatePresence>
                 </div>
 
@@ -92,11 +99,11 @@ function PictureCarousel({ images }: { images: string[] }) {
                         src="/carousel-dot.png"
                         alt={`Go to image ${idx + 1}`}
                         className={`w-2.5 ${
-                            currentIndex === idx ? "opacity-100" :
+                            index === idx ? "opacity-100" :
                             "opacity-50 hover:opacity-100"} duration-100`}
                         onClick={() => {
-                            setDirection(idx > currentIndex ? 1 : -1);
-                            setCurrentIndex(idx);
+                            setDirection(idx > index ? 1 : -1);
+                            setIndex(idx);
                         }}
                     />
                 ))}
@@ -105,20 +112,16 @@ function PictureCarousel({ images }: { images: string[] }) {
     );
 }
 
-function Caption({
-    captionText,
-    collapsedHeight,
-}: {
-    captionText: string;
-    collapsedHeight: number;
-}) {
+const CAPTION_COLLAPSED_HEIGHT = 400;
+
+function Caption({ captionText }: { captionText: string }) {
     const [expanded, setExpanded] = useState(false);
 
     const { ref, fullHeight, needsExpand } =
         ExpandableText<HTMLDivElement>(
             expanded,
-            collapsedHeight,
-            [captionText, collapsedHeight]
+            CAPTION_COLLAPSED_HEIGHT,
+            [captionText, CAPTION_COLLAPSED_HEIGHT]
         );
 
     return (
@@ -127,7 +130,7 @@ function Caption({
                 ref={ref}
                 initial={false}
                 animate={{
-                    maxHeight: expanded ? fullHeight : collapsedHeight,
+                    maxHeight: expanded ? fullHeight : CAPTION_COLLAPSED_HEIGHT,
                 }}
                 transition={{ duration: 0.5, ease: [.25, 1, .5, 1] }}
                 style={{ overflow: "hidden" }}
@@ -152,11 +155,20 @@ function Caption({
 }
 
 export default function FeaturedPost() {
-    const mobile = isMobile();
+    const mobile = useIsMobile();
+    const [images, setImages] = useState<string[] | null>(null);
+    const [captionText, setCaptionText] = useState<string>("");
 
-    const images = ["bg-red-500", "bg-blue-500", "bg-yellow-500"];
-    const captionText = "clean my bellay ".repeat(100).trim();
-    const collapsedHeight = 400;
+    // Fetch data from the latest Instagram post.
+    useEffect(() => {
+    fetch("/api/featured-post")
+        .then(res => res.json())
+        .then(data => {
+        setImages(data.images);
+        setCaptionText(data.caption);
+        })
+        .catch(console.error);
+    }, []);
 
     return (
         <section
@@ -171,8 +183,10 @@ export default function FeaturedPost() {
                 className={`mt-5 grid
                 ${mobile ? "m-10 gap-10" : "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"}`}
             >
-                <PictureCarousel images={images} />
-                <Caption captionText={captionText} collapsedHeight={collapsedHeight} />
+                {images && images.length > 0 && (
+                    <ImageCarousel images={images} />
+                )}
+                <Caption captionText={captionText}/>
             </div>
 
             {/* Wanna see more? */}

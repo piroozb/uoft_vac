@@ -9,13 +9,13 @@ import {
     BARS_EDGES_GREEN,
     BARS_CENTRE_GREEN,
 } from "../common/Constants";
-import { isMobile } from "./IsMobile";
+import { useIsMobile } from "./IsMobile";
 import HoverShrink from "../common/HoverShrink";
 
 const MOBILE_TRANSF_DURATION = "duration-400";
 
 export default function Navbar() {
-    const mobile = isMobile();
+    const mobile = useIsMobile();
 
     const pathname = usePathname();
     const [open, setOpen] = useState(false);

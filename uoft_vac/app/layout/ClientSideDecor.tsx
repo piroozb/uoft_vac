@@ -6,13 +6,13 @@ import {
     SIDE_DECOR_MIN,
     SIDE_DECOR_MAX,
 } from "../common/Constants";
-import { isMobile } from "./IsMobile";
+import { useIsMobile } from "./IsMobile";
 import SideDecor from "./SideDecor";
 import { useWindowOffset } from "./WindowOffsetContext";
 
 export default function ClientSideDecor() {
     const { offset, setOffset } = useWindowOffset();
-    const mobile = isMobile();
+    const mobile = useIsMobile();
 
     useEffect(() => {
         if (mobile) {

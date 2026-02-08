@@ -72,6 +72,7 @@ export default function SideDecor({ offset }: { offset: number }) {
             >
                 {leftStripes.map((stripe) => (
                     <Image
+                        key={stripe.y}
                         src="/side-decor-l.png"
                         alt="Side decor"
                         style={{
@@ -94,6 +95,7 @@ export default function SideDecor({ offset }: { offset: number }) {
             >
                 {rightStripes.map((stripe) => (
                     <Image
+                        key={stripe.y}
                         src="/side-decor-r.png"
                         alt="Side decor"
                         style={{

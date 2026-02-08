@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { SIDE_DECOR_MIN } from "../common/Constants";
 
-export function isMobile(breakpoint = SIDE_DECOR_MIN) {
+export function useIsMobile(breakpoint = SIDE_DECOR_MIN) {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
