@@ -1,10 +1,7 @@
 "use client";
 
 import { execData, ExecDataTypes } from "./ExecData";
-import ExecArtwork from "./ExecArtwork";
-
-const SCALE = 1;
-const ART_WIDTH = 225;
+import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
 interface ExecEntryGridProps {
     entryKey: string;
@@ -27,47 +24,47 @@ export default function ExecEntryGrid({
     return (
         <div
             className="flex flex-col items-center text-center"
-            style={{ ["--SCALE" as any]: SCALE }}
         >
+
             {/* Name */}
             <h2
-                className="
-                    mb-[calc(5px*var(--SCALE))]
-                    text-[calc(50px*var(--SCALE))]
-                    font-bold
-                "
+                className="mb-5 text-[3rem] font-bold"
                 style={{
                     color: colour,
-                    textShadow: `-1px -1px 0 #000,
-                                 1px -1px 0 #000,
-                                -1px  1px 0 #000,
-                                 1px  1px 0 #000`,
+                    textShadow:
+                        `-1px -1px 0 #000,
+                        1px -1px 0 #000,
+                        -1px  1px 0 #000,
+                        1px  1px 0 #000`,
                 }}
             >
                 {name}
             </h2>
 
             {/* Artwork */}
-            <ExecArtwork name={entryKey} size={ART_WIDTH * SCALE} />
+            <ExpandableImageCarousel
+                images={[`/exec-artworks/${entryKey}.jpg`]}
+                alt={`${entryKey}'s Artwork`}
+            />
 
             {/* Info container */}
             <div>
                 {position && (
-                    <h3 className="mt-[calc(5px*var(--SCALE))] text-[calc(25px*var(--SCALE))] font-bold">
+                    <h3 className="mt-2.5 text-[1.5rem] font-bold">
                         {position}
                     </h3>
                 )}
 
-                <p className={`mt-[calc(${position ? "" : "10"}px*var(--SCALE))] text-[calc(20px*var(--SCALE))]`}>
+                <p className={`${position ? "" : "mt-5"} text-[1.25rem]`}>
                     {study}
                 </p>
 
-                <p className="mt-[calc(5px*var(--SCALE))] text-[calc(20px*var(--SCALE))]">
+                <p className="mt-1 text-[1.25rem]">
                     Favourite medium:<br />
                     {medium}
                 </p>
 
-                <p className="text-[calc(25px*var(--SCALE))] font-bold">
+                <p className="mt-2.5 text-[1.5rem] font-bold">
                     {fact}
                 </p>
             </div>
