@@ -45,6 +45,7 @@ export default function ExecEntryGrid({
             <ExpandableImageCarousel
                 images={[`/exec-artworks/${entryKey}.jpg`]}
                 alt={`${entryKey}'s Artwork`}
+                normalSize="w-75"
             />
 
             {/* Info container */}

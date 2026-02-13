@@ -14,7 +14,7 @@ export default function UpcomingEvents() {
             <ExpandableImageCarousel
                 images={["/event-schedule.png"]}
                 alt="Event Schedule"
-                size="w-[clamp(0rem,40rem,85vw)]"
+                normalSize="w-[clamp(0rem,40rem,85vw)]"
             />
         </section>
     );

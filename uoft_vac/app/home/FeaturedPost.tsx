@@ -18,7 +18,7 @@ export default function FeaturedPost() {
     const mobile = useIsMobile();
 
     const [images, setImages] = useState<string[] | null>(null);
-    const [captionText, setCaptionText] = useState<string>("");
+    const [captionText, setCaptionText] = useState<string>("Some words? 🧐");
     const [timestamp, setTimestamp] = useState<string | null>(null);
     const [captionExpanded, setCaptionExpanded] = useState(false);
 
@@ -73,12 +73,12 @@ export default function FeaturedPost() {
                 className={`mt-5 grid
                 ${mobile ? "m-10 gap-10" : "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"}`}
             >
-                {/* Image carousel */}
+                {/* Expandable image carousel */}
                 {images && images.length > 0 && (
                     <ExpandableImageCarousel
                         images={images}
                         alt="Featured Post"
-                        size="w-[clamp(0rem,25rem,70vw)]"
+                        normalSize="w-[clamp(0rem,25rem,70vw)]"
                     />
                 )}
 

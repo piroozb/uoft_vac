@@ -4,48 +4,42 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface ArtworkCarouselProps {
-    images: string[];
-    alt?: string;
-    size?: string;
-}
-
 const NAV_BUTTONS_IMAGE_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
 // Image Carousel
 function ImageCarousel({
     images,
     alt,
-    size,
+    imageSize,
     index,
     direction,
+    isExpanded = false,
     setIndex,
     setDirection,
     onImageClick,
-    isSquare = true,
-    imageFit = "object-cover",
-}: {
+} : {
     images: string[];
     alt: string;
-    size: string;
+    imageSize?: string;
     index: number;
     direction: number;
+    isExpanded?: boolean;
     setIndex: React.Dispatch<React.SetStateAction<number>>;
     setDirection: React.Dispatch<React.SetStateAction<number>>;
     onImageClick?: () => void;
-    isSquare?: boolean;
-    imageFit?: string;
 }) {
     const multipleImages = images.length > 1;
 
-    const handlePrev = () => {
+    const handlePrev = (e: React.MouseEvent) => {
+        e.stopPropagation();
         setDirection(-1);
         setIndex((prev) =>
             prev === 0 ? images.length - 1 : prev - 1
         );
     };
 
-    const handleNext = () => {
+    const handleNext = (e: React.MouseEvent) => {
+        e.stopPropagation();
         setDirection(1);
         setIndex((prev) =>
             prev === images.length - 1 ? 0 : prev + 1
@@ -53,8 +47,8 @@ function ImageCarousel({
     };
 
     return (
-        <div className="flex flex-col items-center gap-5">
-            <div className="flex gap-5 items-center">
+        <div className="gap-5 flex flex-col items-center">
+            <div className="gap-5 flex items-center">
 
                 {/* Previous */}
                 {multipleImages && (
@@ -70,14 +64,14 @@ function ImageCarousel({
 
                 {/* Image */}
                 <div
-                    className={`${size} ${isSquare ? "aspect-square" : ""} rounded-md shadow-lg overflow-hidden relative
+                    className={`${isExpanded ? "" : `${imageSize} aspect-square rounded-lg shadow-xl`} relative overflow-hidden
                         ${onImageClick ? "cursor-pointer" : ""}`}
                     onClick={onImageClick}
                 >
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
                             key={index}
-                            className="absolute w-full h-full"
+                            className={`${isExpanded ? "" : "absolute"} w-full h-full`}
                             custom={direction}
                             variants={{
                                 enter: (dir: number) => ({
@@ -91,17 +85,23 @@ function ImageCarousel({
                             initial="enter"
                             animate="center"
                             exit="exit"
-                            transition={{
-                                duration: 0.25,
-                                ease: [0.25, 1, 0.5, 1],
-                            }}
+                            transition={{ duration: .25, ease: [.25, 1, .5, 1] }}
                         >
-                            <Image
-                                src={images[index]}
-                                alt={alt}
-                                className={imageFit}
-                                fill
-                            />
+                            {isExpanded ? (
+                                <Image
+                                    src={images[index]}
+                                    alt={alt}
+                                    className={`max-w-[90vw] max-h-[90vh] ${multipleImages ? "w-auto h-auto" : ""} object-contain`}
+                                    width={1000} height={0}
+                                />
+                            ) : (
+                                <Image
+                                    src={images[index]}
+                                    alt={alt}
+                                    className="object-cover"
+                                    fill
+                                />
+                            )}
                         </motion.div>
                     </AnimatePresence>
                 </div>
@@ -132,7 +132,8 @@ function ImageCarousel({
                                     ? "opacity-100"
                                     : "opacity-50 hover:opacity-100"
                             } duration-100`}
-                            onClick={() => {
+                            onClick={(e) => {
+                                e.stopPropagation();
                                 setDirection(idx > index ? 1 : -1);
                                 setIndex(idx);
                             }}
@@ -147,19 +148,24 @@ function ImageCarousel({
 export default function ExpandableImageCarousel({
     images,
     alt = "An image… 🧐",
-    size = "w-75",
-}: ArtworkCarouselProps) {
+    normalSize,
+} : {
+    images: string[];
+    alt?: string;
+    normalSize: string;
+}) {
     const [index, setIndex] = useState(0);
     const [direction, setDirection] = useState(0);
     const [expanded, setExpanded] = useState(false);
 
     return (
         <>
+
             {/* Normal view */}
             <ImageCarousel
                 images={images}
                 alt={alt}
-                size={size}
+                imageSize={normalSize}
                 index={index}
                 direction={direction}
                 setIndex={setIndex}
@@ -179,7 +185,6 @@ export default function ExpandableImageCarousel({
                         onClick={() => setExpanded(false)}
                     >
                         <motion.div
-                            onClick={(e) => e.stopPropagation()}
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -192,13 +197,11 @@ export default function ExpandableImageCarousel({
                             <ImageCarousel
                                 images={images}
                                 alt={`${alt} (Full)`}
-                                size="w-100 h-100"
                                 index={index}
                                 direction={direction}
+                                isExpanded
                                 setIndex={setIndex}
                                 setDirection={setDirection}
-                                isSquare ={false}
-                                imageFit="object-contain"
                             />
                         </motion.div>
                     </motion.div>
