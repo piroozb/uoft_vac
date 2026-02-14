@@ -5,7 +5,7 @@ import FunFacts from "./FunFacts";
 export default function About() {
   return (
     <>
-      <div className="my-5">
+      <div className="mb-15">
         <OurMission />
         <WhatDoWeDo />
         <FunFacts />

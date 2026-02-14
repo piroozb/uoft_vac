@@ -64,15 +64,19 @@ export default function FeaturedPost() {
 
     return (
         <section
-            className="mt-10 flex flex-col items-center"
+            className="mt-5 flex flex-col items-center"
             style={{ containerType: "inline-size" }}
         >
+
+            {/* Section title */}
             <SectionTitle>Featured Post!</SectionTitle>
 
             <div
-                className={`mt-5 grid
-                ${mobile ? "m-10 gap-10" : "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"}`}
+                className={`mt-10 grid ${mobile
+                    ? "m-10 gap-10"
+                    : "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"}`}
             >
+
                 {/* Expandable image carousel */}
                 {images && images.length > 0 && (
                     <ExpandableImageCarousel

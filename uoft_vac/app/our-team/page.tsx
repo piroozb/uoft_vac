@@ -2,40 +2,6 @@ import SectionTitle from "../common/SectionTitle";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
 
-// export default function OurTeam() {
-//     return (
-//         <div className="max-w-4xl mx-auto py-10">
-
-//             {/* Title */}
-//             <SectionTitle>Meet the Team!</SectionTitle>
-
-//             {/* Exec categories */}
-//             <div>
-//                 {Object.entries(team).map(([category, members]) => (
-//                     <div key={category}>
-
-//                         {/* Category title */}
-//                         <SectionTitle size={categorySize} margin={categoryMargin}>
-//                             {category}
-//                         </SectionTitle>
-
-//                         {/* Mapped exec entries */}
-//                         {members.map((name, i) => (
-//                             <ExecEntryList
-//                                 key={name}
-//                                 entryKey={name}
-
-//                                 // Admin starts left, subsequent categories start right.
-//                                 right={category === "Admin" ? i % 2 === 1 : i % 2 === 0}
-//                             />
-//                         ))}
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// }
-
 // Grid format entries order (for desktop view)
 const ENTRY_ORDER_GRID = {
     "Admin": ["Allison", "Sy", "Jackie"],
@@ -58,6 +24,15 @@ const ENTRY_ORDER_LIST = {
     "Office Manager": ["Lydia", "Alex"],
 };
 
+const CATEGORY_TITLE_GRAPHICS: Record<string, string> = {
+    "Admin": "",
+    "Events": "",
+    "Graphics": "",
+    "Marketing": "marketing",
+    "Webmaster": "",
+    "Office Manager": "office-manager",
+};
+
 // Explicit mapping from the number of entries in a category to the tailwind equivalent (for grid format)
 const COLS_MAP: Record<number, string> = {
     1: "grid-cols-1",
@@ -68,7 +43,8 @@ const COLS_MAP: Record<number, string> = {
 
 export default function OurTeam() {
     return (
-        <div className="my-5 mx-auto">
+        <div>
+
             {/* Page title */}
             <SectionTitle>Meet the Team!</SectionTitle>
 
@@ -80,20 +56,28 @@ export default function OurTeam() {
                         <div key={category}>
 
                             {/* Category title */}
-                            <div className="my-5">
-                                <SectionTitle size="60px">
+                            <div className="mt-15">
+                                <SectionTitle
+                                    src={
+                                        CATEGORY_TITLE_GRAPHICS[category]
+                                        ? `/title-${CATEGORY_TITLE_GRAPHICS[category]}.png`
+                                        : undefined
+                                    }
+                                    size={
+                                        CATEGORY_TITLE_GRAPHICS[category]
+                                        ? "min(5rem,10cqw)"
+                                        : "4rem"
+                                    }
+                                >
                                     {category}
                                 </SectionTitle>
                             </div>
 
                             {/* Entries */}
                             <div
-                                className={
-                                    `mx-3 gap-10 grid ${cols === 4
+                                className={`mt-5 mx-3 gap-10 grid ${cols === 4
                                         ? "grid-cols-2 min-[1600px]:grid-cols-4"
-                                        : COLS_MAP[cols]
-                                    }`
-                                }
+                                        : COLS_MAP[cols]}`}
                             >
                                 {members.map((name) => (
                                     <ExecEntryGrid

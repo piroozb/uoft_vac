@@ -9,7 +9,7 @@ import {
   TEXT_LINK_HOVER_PURPLE,
 } from "../common/Constants";
 import {
-    SP_PAGE_TITLE_SIZE,
+    SP_TITLE_SIZE,
     SP_TWO_HALVES_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
     SP_TEXT_CLASSNAME,
@@ -28,8 +28,8 @@ export default function JoinUsPage() {
       
       {/* Page title */}
       <SectionTitle
-        graphic="/title-join-us.png"
-        size={SP_PAGE_TITLE_SIZE}
+        src="/title-join-us.png"
+        size={SP_TITLE_SIZE}
       >
         Join Us Today For Free!
       </SectionTitle>

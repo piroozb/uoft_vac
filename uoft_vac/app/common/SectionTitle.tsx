@@ -3,51 +3,53 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-interface SectionTitleProps {
-    children: React.ReactNode;
-    graphic?: string;
-    size?: string;
-    margin?: string;
-}
+export const DEFAULT_TITLE_SIZE = "5rem";
 
 export default function SectionTitle({
     children,
-    graphic = "",
-    size = "4rem",
-}: SectionTitleProps) {
-    const hasGraphic = graphic !== "";
+    src,
+    size = DEFAULT_TITLE_SIZE,
+}: {
+    children: React.ReactNode;
+    src?: string;
+    size?: string;
+}) {
     const [aspectRatio, setAspectRatio] = useState<number | null>(null);
 
     useEffect(() => {
-        if (hasGraphic) {
-            const img = new window.Image();
-            img.src = graphic;
-            img.onload = () => {
-                setAspectRatio(img.width / img.height);
-            };
-        }
-    }, [graphic, hasGraphic]);
+        if (!src) return;
+
+        const img = new window.Image();
+        img.src = src;
+        img.onload = () => {
+            setAspectRatio(img.width / img.height);
+        };
+    }, [src]);
 
     return (
-        <div className={`flex flex-col items-center`}>
-            {hasGraphic ? (
+        <div className="flex flex-col items-center">
+            {src ? (
                 <div
                     className="relative"
                     style={{
                         height: size,
-                        width: aspectRatio ? `calc(${size} * ${aspectRatio})` : "auto",
+                        width: aspectRatio
+                            ? `calc(${size} * ${aspectRatio})`
+                            : "auto",
                     }}
                 >
                     <Image
-                        src={graphic}
-                        alt={`${children}`}
-                        fill
+                        src={src}
+                        alt={typeof children === "string" ? children : "Section title"}
                         className="object-contain"
-                        priority
+                        fill
                     />
                 </div>
             ) : (
-                <h2 className="font-bold text-center" style={{ fontSize: size }}>
+                <h2
+                    className="font-bold text-center"
+                    style={{ fontSize: size }}
+                >
                     {children}
                 </h2>
             )}
