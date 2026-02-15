@@ -4,7 +4,7 @@ import {
     INSTAGRAM_LINK,
     SUBSECTION_YELLOW,
     PURP_BUTTONS_PURPLE,
-    PURP_BUTTON_HOVER_YELLOW,
+    PAGE_BUTTONS_PASSIVE_YELLOW,
     PURP_BUTTON_HOVER_GREEN,
 } from "../common/Constants";
 import {
@@ -83,7 +83,7 @@ export default function Events() {
                         href={INSTAGRAM_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_YELLOW}]`}
+                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PAGE_BUTTONS_PASSIVE_YELLOW}]`}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                     >
                         Check out our past events on our Instagram page!

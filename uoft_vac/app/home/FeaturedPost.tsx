@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import {
     INSTAGRAM_LINK,
+    EASE_OUT,
 } from "../common/Constants";
 import { useIsMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
@@ -93,7 +94,7 @@ export default function FeaturedPost() {
                         <motion.div
                             ref={ref}
                             className="overflow-hidden whitespace-pre-line"
-                            transition={{ duration: 0.5, ease: [.25, 1, .5, 1] }}
+                            transition={{ duration: .5, ease: EASE_OUT }}
                             animate={{
                                 maxHeight: captionExpanded
                                     ? fullHeight

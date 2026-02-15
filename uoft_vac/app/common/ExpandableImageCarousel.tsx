@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { EASE_OUT } from "./Constants";
+
 const NAV_BUTTONS_IMAGE_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
 // Image Carousel
@@ -85,7 +87,7 @@ function ImageCarousel({
                             initial="enter"
                             animate="center"
                             exit="exit"
-                            transition={{ duration: .25, ease: [.25, 1, .5, 1] }}
+                            transition={{ duration: .25, ease: EASE_OUT }}
                         >
                             {isExpanded ? (
                                 <Image

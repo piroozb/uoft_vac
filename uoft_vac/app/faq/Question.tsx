@@ -1,31 +1,32 @@
 import { ReactNode, MouseEvent } from "react";
-import { motion } from "framer-motion";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { BARS_EDGES_GREEN } from "../common/Constants";
+import {
+    BARS_EDGES_GREEN,
+    EASE_OUT,
+} from "../common/Constants";
 import { ExpandableText } from "../common/ExpandableText";
 
-interface QuestionProps {
-    question: string;
-    answer: ReactNode;
-    isOpen: boolean;
-    onClick: (e: MouseEvent<HTMLDivElement>) => void;
-    index: number;
-}
+const ROTATION_MAG = 72;
+const STAR_TRANSITION_CLASSNAME = "absolute inset-0";
+const STAR_TRANSITION = { duration: .3, ease: EASE_OUT };
+const STAR_CLASSNAME = "object-contain";
 
 export default function Question({
     question,
     answer,
-    isOpen,
+    isExpanded,
     onClick,
     index,
-}: QuestionProps) {
-    const { ref, fullHeight } =
-        ExpandableText<HTMLDivElement>(
-            isOpen,
-            0,
-            [answer]
-        );
+} : {
+    question: string;
+    answer: ReactNode;
+    isExpanded: boolean;
+    onClick: (e: MouseEvent<HTMLDivElement>) => void;
+    index: number;
+}) {
+    const { ref, fullHeight } = ExpandableText<HTMLDivElement>(isExpanded, 0, [answer]);
 
     return (
         <div
@@ -37,23 +38,39 @@ export default function Question({
                     : `1px solid ${BARS_EDGES_GREEN}`,
             }}
         >
+
             {/* Question */}
             <div className="mb-5 flex justify-between items-center">
                 <span className="text-[1.5rem] font-semibold">
                     {question}
                 </span>
 
-                {isOpen ? (
-                    <FaChevronRight
-                        className="w-5 h-5"
-                        style={{ color: BARS_EDGES_GREEN }}
-                    />
-                ) : (
-                    <FaChevronDown
-                        className="w-5 h-5"
-                        style={{ color: BARS_EDGES_GREEN }}
-                    />
-                )}
+                {/* Star icon */}
+                <div className="w-7.5 h-7.5 relative overflow-visible">
+                    <AnimatePresence>
+                        <motion.div
+                            key={isExpanded ? "expanded" : "collapsed"}
+                            className={STAR_TRANSITION_CLASSNAME}
+                            initial={{
+                                rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
+                                opacity: 0
+                            }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            exit={{
+                                rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
+                                opacity: 0
+                            }}
+                            transition={STAR_TRANSITION}
+                        >
+                            <Image
+                                src={isExpanded ? "/faq-star-expanded.png" : "/faq-star-collapsed.png"}
+                                alt={isExpanded ? "Expanded" : "Collapsed"}
+                                className={STAR_CLASSNAME}
+                                fill
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
 
             {/* Expand / collapse */}
@@ -61,10 +78,10 @@ export default function Question({
                 ref={ref}
                 initial={false}
                 animate={{
-                    maxHeight: isOpen ? fullHeight : 0,
-                    opacity: isOpen ? 1 : 0,
+                    maxHeight: isExpanded ? fullHeight : 0,
+                    opacity: isExpanded ? 1 : 0,
                 }}
-                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+                transition={{ duration: .5, ease: EASE_OUT }}
                 className="overflow-hidden"
             >
                 <div className="text-[1.25rem]">

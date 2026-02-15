@@ -51,7 +51,7 @@ export default function FAQSection() {
                         key={i}
                         question={faq.question}
                         answer={faq.answer}
-                        isOpen={openIndex === i}
+                        isExpanded={openIndex === i}
                         index={i}
                         onClick={(e) => handleClick(e, i)}
                     />
