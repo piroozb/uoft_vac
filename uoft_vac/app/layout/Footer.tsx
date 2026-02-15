@@ -1,6 +1,5 @@
 import {
-  BARS_EDGES_GREEN,
-  BARS_CENTRE_GREEN,
+  BARS_STYLE_GRADIENT,
 } from "../common/Constants";
 import {
   EmailLink,
@@ -24,12 +23,7 @@ export default function Footer() {
       {/* Bar */}
       <div
         className="w-full p-5 grid justify-center relative z-100"
-        style={{ background: `linear-gradient(to right,
-            ${BARS_EDGES_GREEN} 0%,
-            ${BARS_CENTRE_GREEN} 33.3%,
-            ${BARS_CENTRE_GREEN} 66.6%,
-            ${BARS_EDGES_GREEN} 100%
-            )` }}
+        style={BARS_STYLE_GRADIENT}
       >
 
         {/* Email */}

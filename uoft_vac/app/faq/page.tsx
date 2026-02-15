@@ -27,7 +27,7 @@ export default function FAQSection() {
 
         // Green container
         <div
-            className="my-10 mx-[5cqw] pt-5 px-10 pb-10 rounded-4xl shadow-lg"
+            className="my-15 mx-[5cqw] pt-5 px-10 pb-10 rounded-4xl shadow-lg"
             style={{
                 backgroundColor: BARS_CENTRE_GREEN,
                 containerType: "inline-size",

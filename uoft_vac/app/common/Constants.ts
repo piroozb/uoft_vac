@@ -11,6 +11,12 @@ export const BG_GREEN = "rgb(198,255,206)";
 // Navbar & Footer
 export const BARS_EDGES_GREEN = "rgb(0,178,25)";
 export const BARS_CENTRE_GREEN = "rgb(53,228,78)";
+export const BARS_STYLE_GRADIENT = {background: `linear-gradient(to right,
+    ${BARS_EDGES_GREEN} 0%,
+    ${BARS_CENTRE_GREEN} 33.3%,
+    ${BARS_CENTRE_GREEN} 66.6%,
+    ${BARS_EDGES_GREEN} 100%
+)`} as const;
 export const PAGE_BUTTONS_PASSIVE_YELLOW = "rgb(255,254,176)";
 export const PAGE_BUTTONS_ACTIVE_YELLOW = "rgb(255,253,111)";
 // About Us

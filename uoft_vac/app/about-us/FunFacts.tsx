@@ -9,7 +9,7 @@ const FACT_CLASSNAME =
 export default function FunFacts() {
     return (
         <section
-            className="mt-5 flex flex-col items-center"
+            className="mt-5 mb-15 flex flex-col items-center"
             style={{ containerType: "inline-size" }}
         >
 

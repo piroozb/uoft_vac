@@ -4,7 +4,7 @@ import UpcomingEvents from "./home/UpcomingEvents";
 
 export default function Home() {
   return (
-    <div className="mb-15">
+    <div>
       <Banner />
       <FeaturedPost />
       <UpcomingEvents />

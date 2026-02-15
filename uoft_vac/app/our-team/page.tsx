@@ -43,7 +43,7 @@ const COLS_MAP: Record<number, string> = {
 
 export default function OurTeam() {
     return (
-        <div>
+        <div className="mb-15">
 
             {/* Page title */}
             <SectionTitle>Meet the Team!</SectionTitle>

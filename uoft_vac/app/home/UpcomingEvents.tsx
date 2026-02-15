@@ -6,7 +6,7 @@ import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
 export default function UpcomingEvents() {
     return (
-        <section className="mt-15 flex flex-col items-center">
+        <section className="my-15 flex flex-col items-center">
 
             {/* Section title */}
             <SectionTitle
