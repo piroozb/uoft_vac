@@ -10,8 +10,10 @@ import {
     TEXT_LINK_HOVER_ORANGE,
 } from "../common/Constants";
 import {
-    SP_TITLE_SIZE,
+    SP_TITLE_HEIGHT,
     SP_TWO_HALVES_CLASSNAME,
+    SP_GRAPHIC_CONTAINER_CLASSNAME,
+    SP_GRAPHIC_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
     SP_TEXT_CLASSNAME,
     SP_TEXT_T_CLASSNAME
@@ -28,7 +30,7 @@ export default function ContactUsPage() {
             {/* Page title */}
             <SectionTitle
                 src="/title-contact-us.png"
-                size={SP_TITLE_SIZE}
+                height={SP_TITLE_HEIGHT}
             >
                 Contact Us!
             </SectionTitle>
@@ -37,13 +39,12 @@ export default function ContactUsPage() {
             <div className={SP_TWO_HALVES_CLASSNAME}>
 
                 {/* Left: graphic */}
-                <div className="w-1/2 relative">
+                <div className={SP_GRAPHIC_CONTAINER_CLASSNAME}>
                     <Image
                         src="/contact-us-graphic.png"
-                        alt="Contact Us Graphic"
+                        alt="Contact Us!"
+                        className={SP_GRAPHIC_CLASSNAME}
                         fill
-                        className="p-[1cqw] object-top object-contain"
-                        priority
                     />
                 </div>
 

@@ -4,7 +4,7 @@ import {
     SUBSECTION_BLUE,
 } from "../common/Constants";
 import {
-    SUBSECTIONS_TITLE_SIZE,
+    SUBSECTIONS_TITLE_HEIGHT,
     SUBSECTIONS_TEXT_CLASSNAME 
  } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
@@ -21,7 +21,7 @@ export default function OfficeHours() {
             }}
         >
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTIONS_TITLE_SIZE}>Office Hours</SectionTitle>
+            <SectionTitle height={SUBSECTIONS_TITLE_HEIGHT}>Office Hours</SectionTitle>
 
             {/* Overview */}
             <p className={SUBSECTIONS_TEXT_CLASSNAME}>

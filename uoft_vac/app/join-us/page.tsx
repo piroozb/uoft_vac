@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import SectionTitle from "../common/SectionTitle";
 import {
   MEMBERSHIP_FORM_LINK,
@@ -9,8 +11,10 @@ import {
   TEXT_LINK_HOVER_PURPLE,
 } from "../common/Constants";
 import {
-    SP_TITLE_SIZE,
+    SP_TITLE_HEIGHT,
     SP_TWO_HALVES_CLASSNAME,
+    SP_GRAPHIC_CONTAINER_CLASSNAME,
+    SP_GRAPHIC_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
     SP_TEXT_CLASSNAME,
     SP_TEXT_T_CLASSNAME,
@@ -29,7 +33,7 @@ export default function JoinUsPage() {
       {/* Page title */}
       <SectionTitle
         src="/title-join-us.png"
-        size={SP_TITLE_SIZE}
+        height={SP_TITLE_HEIGHT}
       >
         Join Us Today For Free!
       </SectionTitle>
@@ -96,11 +100,13 @@ export default function JoinUsPage() {
         </div>
 
         {/* Right: graphic */}
-        <div className="flex-1">
-
-          {/* Graphic */}
-          <div className="w-[100%] h-[100%] bg-green-500 relative rounded-md flex items-end justify-center">
-          </div>
+        <div className={SP_GRAPHIC_CONTAINER_CLASSNAME}>
+          <Image
+            src="/join-us-graphic.png"
+            alt="Join Us!"
+            className={SP_GRAPHIC_CLASSNAME}
+            fill
+          />
         </div>
       </div>
     </div>

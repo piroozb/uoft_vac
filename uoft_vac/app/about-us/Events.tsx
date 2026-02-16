@@ -8,7 +8,7 @@ import {
     PURP_BUTTON_HOVER_GREEN,
 } from "../common/Constants";
 import {
-    SUBSECTIONS_TITLE_SIZE,
+    SUBSECTIONS_TITLE_HEIGHT,
     SUBSECTIONS_TEXT_CLASSNAME 
  } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
@@ -26,8 +26,9 @@ export default function Events() {
                 containerType: "inline-size",
             }}
         >
+            
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTIONS_TITLE_SIZE}>Events</SectionTitle>
+            <SectionTitle height={SUBSECTIONS_TITLE_HEIGHT}>Events</SectionTitle>
 
             {/* Overview */}
             <p className={SUBSECTIONS_TEXT_CLASSNAME}>
@@ -83,8 +84,14 @@ export default function Events() {
                         href={INSTAGRAM_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PAGE_BUTTONS_PASSIVE_YELLOW}]`}
+                        className={PURP_BUTTON_CLASSNAME}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = PAGE_BUTTONS_PASSIVE_YELLOW)
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "")
+                        }
                     >
                         Check out our past events on our Instagram page!
                     </a>
@@ -94,8 +101,14 @@ export default function Events() {
                 <HoverShrink>
                     <a
                         href="/join-us"
-                        className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_GREEN}]`}
+                        className={PURP_BUTTON_CLASSNAME}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = PURP_BUTTON_HOVER_GREEN)
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "")
+                        }
                     >
                         Feeling inspired?
                         <br />

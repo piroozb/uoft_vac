@@ -35,7 +35,7 @@ export default function FAQSection() {
         >
 
             {/* Section title */}
-            <SectionTitle size="min(4rem, 7.5cqw)">
+            <SectionTitle height="min(4rem, 7.5cqw)">
                 Frequently Asked Questions
             </SectionTitle>
 

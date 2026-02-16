@@ -1,42 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
-export const DEFAULT_TITLE_SIZE = "5rem";
+const DEFAULT_TITLE_HEIGHT = "5rem";
 
 export default function SectionTitle({
     children,
     src,
-    size = DEFAULT_TITLE_SIZE,
+    height = DEFAULT_TITLE_HEIGHT,
 }: {
     children: React.ReactNode;
     src?: string;
-    size?: string;
+    height?: string;
 }) {
-    const [aspectRatio, setAspectRatio] = useState<number | null>(null);
-
-    useEffect(() => {
-        if (!src) return;
-
-        const img = new window.Image();
-        img.src = src;
-        img.onload = () => {
-            setAspectRatio(img.width / img.height);
-        };
-    }, [src]);
 
     return (
-        <div className="flex flex-col items-center">
+        <div
+            className={`w-full flex flex-col items-center`}
+            style={src ? { height: height } : undefined}
+        >
             {src ? (
                 <div
-                    className="relative"
-                    style={{
-                        height: size,
-                        width: aspectRatio
-                            ? `calc(${size} * ${aspectRatio})`
-                            : "auto",
-                    }}
+                    className="relative w-full h-full"
                 >
                     <Image
                         src={src}
@@ -48,7 +33,7 @@ export default function SectionTitle({
             ) : (
                 <h2
                     className="font-bold text-center"
-                    style={{ fontSize: size }}
+                    style={{ fontSize: height }}
                 >
                     {children}
                 </h2>

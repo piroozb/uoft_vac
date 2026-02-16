@@ -6,7 +6,7 @@ import ExecEntryList from "./ExecEntryList";
 const ENTRY_ORDER_GRID = {
     "Admin": ["Allison", "Sy", "Jackie"],
     "Events": ["Thomas", "Joyce", "Valentine"],
-    "Graphics": ["BiewBiew", "Angelia", "Christina", "Rachel"],
+    "Graphics": ["BiewBiew", "Angelia", "Christina"],
     "Marketing": ["Jae", "Nabneel", "Emilio", "Kelvin"],
     "Webmaster": ["Pirooz", "Sunny"],
     "Office Manager": ["Lydia", "Alex"],
@@ -18,7 +18,7 @@ const ENTRY_ORDER_GRID = {
 const ENTRY_ORDER_LIST = {
     "Admin": ["Sy", "Allison", "Jackie"],
     "Events": ["Thomas", "Joyce", "Valentine"],
-    "Graphics": ["BiewBiew", "Angelia", "Christina", "Rachel"],
+    "Graphics": ["BiewBiew", "Angelia", "Christina"],
     "Marketing": ["Jae", "Nabneel", "Emilio", "Kelvin"],
     "Webmaster": ["Pirooz", "Sunny"],
     "Office Manager": ["Lydia", "Alex"],
@@ -27,9 +27,9 @@ const ENTRY_ORDER_LIST = {
 const CATEGORY_TITLE_GRAPHICS: Record<string, string> = {
     "Admin": "",
     "Events": "",
-    "Graphics": "",
+    "Graphics": "graphics",
     "Marketing": "marketing",
-    "Webmaster": "",
+    "Webmaster": "webmaster",
     "Office Manager": "office-manager",
 };
 
@@ -63,7 +63,7 @@ export default function OurTeam() {
                                         ? `/title-${CATEGORY_TITLE_GRAPHICS[category]}.png`
                                         : undefined
                                     }
-                                    size={
+                                    height={
                                         CATEGORY_TITLE_GRAPHICS[category]
                                         ? "min(5rem,10cqw)"
                                         : "4rem"

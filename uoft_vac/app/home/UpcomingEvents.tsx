@@ -1,7 +1,6 @@
 "use client";
 
 import SectionTitle from "../common/SectionTitle";
-import { DEFAULT_TITLE_SIZE } from "../common/SectionTitle";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
 export default function UpcomingEvents() {
@@ -11,7 +10,7 @@ export default function UpcomingEvents() {
             {/* Section title */}
             <SectionTitle
                 src="/title-upcoming-events.png"
-                size={`min(${DEFAULT_TITLE_SIZE},7cqw)`}
+                height={`min(5rem,7cqw)`}
             >
                 Upcoming Events!
             </SectionTitle>
@@ -20,7 +19,7 @@ export default function UpcomingEvents() {
             <ExpandableImageCarousel
                 images={["/event-schedule.png"]}
                 alt="Event Schedule"
-                normalSize="mt-10 w-[clamp(0rem,40rem,85vw)]"
+                normalSize="mt-10 w-[min(40rem,85vw)]"
             />
         </section>
     );

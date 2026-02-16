@@ -9,12 +9,17 @@ const FACT_CLASSNAME =
 export default function FunFacts() {
     return (
         <section
-            className="mt-5 mb-15 flex flex-col items-center"
+            className="my-15 flex flex-col items-center"
             style={{ containerType: "inline-size" }}
         >
 
             {/* Section title */}
-            <SectionTitle>Fun Facts!</SectionTitle>
+            <SectionTitle
+                src="/title-fun-facts.png"
+                height="min(6rem,17.5cqw)"
+            >
+                Fun Facts!
+            </SectionTitle>
 
             {/* Facts container */}
             <div className="mt-5 gap-[4cqw] grid grid-cols-4">
