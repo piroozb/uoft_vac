@@ -1,14 +1,14 @@
 "use client";
 
 import { execData, ExecDataTypes } from "./ExecData";
-import ExecArtwork from "./ExecArtwork";
+import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
 interface ExecEntryListProps {
     entryKey: string;
-    right?: boolean;
+    isLeft?: boolean;
 }
 
-export default function ExecEntryList({ entryKey, right = false }: ExecEntryListProps) {
+export default function ExecEntryList({ entryKey, isLeft = true }: ExecEntryListProps) {
     const data: ExecDataTypes = execData[entryKey];
 
     const {
@@ -23,37 +23,49 @@ export default function ExecEntryList({ entryKey, right = false }: ExecEntryList
     return (
         <>
             <div
-                className={`relative flex flex-col md:flex-row ${right ? "md:flex-row-reverse" : ""
-                    } items-start md:gap-10 my-10 w-full`}
+                className={`mx-10 gap-5 flex ${isLeft ? "" : "flex-row-reverse"}`}
             >
 
                 {/* Artwork */}
-                <ExecArtwork name={entryKey} size={300} />
+                <ExpandableImageCarousel
+                    images={[`/exec-artworks/${entryKey}.jpg`]}
+                    alt={`${entryKey}'s Artwork`}
+                    normalSize="w-75"
+                />
 
                 {/* Info container */}
-                <div className={`flex-[2] ${right ? "text-right" : "text-left"} self-start`}>
+                <div className={`flex flex-col ${isLeft ? "text-left" : "text-right"}`}>
 
                     {/* Position */}
-                    <h3 className="text-5xl font-normal">{position}</h3>
+                    <p className="text-[2rem] font-bold">{position}</p>
 
-                    {/* Name with outline */}
+                    {/* Name */}
                     <h2
-                        className="text-6xl font-bold"
+                        className="text-[3rem] font-bold"
                         style={{
                             color: colour,
-                            textShadow: `-1px -1px 0 #000,
-                                         1px -1px 0 #000,
-                                        -1px  1px 0 #000,
-                                         1px  1px 0 #000`,
+                            textShadow:
+                                `-1px -1px 0 #000,
+                                1px -1px 0 #000,
+                                -1px  1px 0 #000,
+                                1px  1px 0 #000`,
                         }}
                     >
                         {name}
                     </h2>
 
-                    {/* Study, medium, fun fact */}
-                    <p className="text-[1.3rem] mt-4">{study}</p>
-                    <p className="text-[1.3rem] mt-4">Favourite medium: {medium}</p>
-                    <p className="text-[1.5rem] mt-4">{fact}</p>
+                    {/* Small infos */}
+                    <p className={`mt-2.5 text-[1.25rem]`}>
+                        {study}
+                    </p>
+
+                    <p className="mt-2.5 text-[1.25rem]">
+                        Favourite medium: {medium}
+                    </p>
+
+                    <p className="mt-2.5 text-[1.5rem] font-bold">
+                        {fact}
+                    </p>
                 </div>
             </div>
         </>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useIsMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
@@ -9,7 +12,8 @@ const CATEGORY_TITLE_HEIGHT_COMMON = `min(7rem,${CATEGORY_TITLE_HEIGHT_MAX})`;
 // Exec category specs:
 const EXEC_CATEGORIES_SPECS: Record<string, {
     members: string[];
-    members_mobile?: string[];
+    members_mobile?: string[]; // If none, mobile will use the same order.
+    is_first_right?: boolean; // Default: false
     titleSRC?: string;
     titleHeight?: string;
     containerClassName?: string;
@@ -23,6 +27,7 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
     "Events": {
         members: ["Thomas", "Joyce", "Valentine"],
         containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        is_first_right: true,
     },
 
     "Graphics": {
@@ -37,6 +42,7 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
         titleSRC: "marketing",
         containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
         titleHeight: CATEGORY_TITLE_HEIGHT_COMMON,
+        is_first_right: true,
     },
 
     "Webmaster": {
@@ -44,6 +50,7 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
         titleSRC: "webmaster",
         containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
         titleHeight: `min(6rem,${CATEGORY_TITLE_HEIGHT_MAX})`,
+        is_first_right: true,
     },
 
     "Office Manager": {
@@ -51,6 +58,7 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
         titleSRC: "office-manager",
         containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
         titleHeight: CATEGORY_TITLE_HEIGHT_COMMON,
+        is_first_right: true,
     },
 };
 
@@ -59,21 +67,26 @@ const COLS_MAP: Record<number, string> = {
         1: "grid-cols-1",
         2: "grid-cols-2",
         3: "grid-cols-3",
-        4: "grid-cols-4",
+        4: "grid-cols-2 min-[1600px]:grid-cols-4",
     };
 
 export default function OurTeam() {
+    const isMobile = useIsMobile()
+
     return (
         <div className="mb-15">
             {Object.entries(EXEC_CATEGORIES_SPECS).map( ([
                 category, {
                     members,
+                    members_mobile,
+                    is_first_right,
                     titleSRC,
                     containerClassName,
                     titleHeight,
                 }, ]) => {
 
                     const cols = Math.min(members.length, 4);
+                    const mobileMembers = members_mobile ?? members;
 
                     return (
                         <div className={containerClassName}>
@@ -87,19 +100,26 @@ export default function OurTeam() {
                         </SectionTitle>
             
                         {/* Entries */}
-                        <div
-                            className={`mt-5 mx-3 gap-10 grid ${cols === 4
-                                ? "grid-cols-2 min-[1600px]:grid-cols-4"
-                                : COLS_MAP[cols]
-                            }`}
-                        >
-                            {members.map((name) => (
-                                <ExecEntryGrid
-                                    key={name}
-                                    entryKey={name}
-                                />
-                            ))}
-                        </div>
+                        {isMobile ? (
+                            <div className="mt-10 gap-10 grid">
+                                {mobileMembers.map((name, index) => (
+                                    <ExecEntryList
+                                        key={name}
+                                        entryKey={name}
+                                        isLeft={is_first_right ? ((index % 2 === 1)) : (index % 2 === 0)}
+                                    />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className={`mt-5 mx-3 gap-10 grid ${COLS_MAP[cols]}`}>
+                                {members.map((name) => (
+                                    <ExecEntryGrid
+                                        key={name}
+                                        entryKey={name}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </div>
                 )}
             )}

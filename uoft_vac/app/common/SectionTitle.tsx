@@ -31,12 +31,12 @@ export default function SectionTitle({
                     />
                 </div>
             ) : (
-                <h2
+                <h1
                     className="font-bold text-center"
                     style={{ fontSize: height }}
                 >
                     {children}
-                </h2>
+                </h1>
             )}
         </div>
     );

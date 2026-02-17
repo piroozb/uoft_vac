@@ -28,7 +28,7 @@ export default function ExecEntryGrid({
 
             {/* Name */}
             <h2
-                className="mb-5 text-[3rem] font-bold"
+                className="text-[3rem] font-bold"
                 style={{
                     color: colour,
                     textShadow:
@@ -42,18 +42,20 @@ export default function ExecEntryGrid({
             </h2>
 
             {/* Artwork */}
-            <ExpandableImageCarousel
-                images={[`/exec-artworks/${entryKey}.jpg`]}
-                alt={`${entryKey}'s Artwork`}
-                normalSize="w-75"
-            />
+            <div className="mt-5">
+                <ExpandableImageCarousel
+                    images={[`/exec-artworks/${entryKey}.jpg`]}
+                    alt={`${entryKey}'s Artwork`}
+                    normalSize="w-75"
+                />
+            </div>
 
             {/* Info container */}
             <div>
                 {position && (
-                    <h3 className="mt-2.5 text-[1.5rem] font-bold">
+                    <p className="mt-2.5 text-[1.5rem] font-bold">
                         {position}
-                    </h3>
+                    </p>
                 )}
 
                 <p className={`${position ? "" : "mt-5"} text-[1.25rem]`}>
