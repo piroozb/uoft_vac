@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import {
     INSTAGRAM_LINK,
     SUBSECTION_YELLOW,
@@ -8,19 +10,25 @@ import {
     PURP_BUTTON_HOVER_GREEN,
 } from "../common/Constants";
 import {
+    SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,
-    SUBSECTIONS_TEXT_CLASSNAME 
- } from "./WhatDoWeDo";
+    SUBSECTIONS_TEXT_CLASSNAME,
+} from "./WhatDoWeDo";
+import { useIsMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
 import HoverShrink from "../common/HoverShrink";
 
-const PURP_BUTTON_CLASSNAME =
-    "px-[2cqw] py-[2cqw] text-[3cqw] block rounded-2xl shadow-lg text-white";
+const PURP_BUTTON_CLASSNAME = "px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] block rounded-lg shadow-lg text-white";
+const PURP_BUTTON_CLASSNAME_MOBILE_ADD = "text-center";
 
 export default function Events() {
+    const isMobile = useIsMobile();
+
     return (
+
+        // Subsection container; coloured rectangle
         <div
-            className="rounded-lg shadow-lg"
+            className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
                 backgroundColor: SUBSECTION_YELLOW,
                 containerType: "inline-size",
@@ -48,8 +56,8 @@ export default function Events() {
                 <div className="grid grid-cols-3">
                     {["Themed Events", "Craft Days", "Gallery Visits"].map((label, idx) => (
                         <div key={idx} className="flex flex-col items-center">
-                            <div className="w-[20cqw] h-[20cqw] bg-white shadow-md rounded-lg"></div>
-                            <p className="mt-[1cqw] text-[3cqw] font-medium text-center">{label}</p>
+                            <div className="w-[max(20cqw,7rem)] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            <p className="mt-[1cqw] text-[max(3cqw,1rem)] font-medium text-center">{label}</p>
                         </div>
                     ))}
                 </div>
@@ -58,25 +66,27 @@ export default function Events() {
                 <div className="mt-[2cqw] grid grid-cols-3">
                     {["Workshops", "Virtual Events"].map((label, idx) => (
                         <div key={idx} className="flex flex-col items-center">
-                            <div className="w-[20cqw] h-[20cqw] bg-white shadow-md rounded-lg"></div>
-                            <p className="mt-[1cqw] text-[3cqw] font-medium text-center">{label}</p>
+                            <div className="w-[max(20cqw,7rem)] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            <p className="mt-[1cqw] text-[max(3cqw,1rem)] font-medium text-center">{label}</p>
                         </div>
                     ))}
 
                     {/* And more! */}
                     <div className="flex justify-center items-center">
-                        <img
-                            src="/and-more.png"
-                            alt="AND MORE!"
-                            className="w-[15cqw] object-contain"
-                            style={{ transform: "translateY(calc(-2cqw))" }}
-                        />
+                        <div className="w-[max(15cqw,5rem)] -translate-y-[2cqw] aspect-square relative">
+                            <Image
+                                src="/and-more.png"
+                                alt="AND MORE!"
+                                className="object-contain"
+                                fill
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Purple buttons */}
-            <div className="m-[2cqw] gap-[2cqw] grid grid-cols-2">
+            <div className={`m-[2cqw] gap-[2cqw] ${isMobile ? "flex flex-col" : "grid grid-cols-2"}`}>
 
                 {/* Instagram */}
                 <HoverShrink>
@@ -84,7 +94,8 @@ export default function Events() {
                         href={INSTAGRAM_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={PURP_BUTTON_CLASSNAME}
+                        className={`${PURP_BUTTON_CLASSNAME} ${isMobile
+                            ? PURP_BUTTON_CLASSNAME_MOBILE_ADD : ""}`}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                         onMouseEnter={(e) =>
                             (e.currentTarget.style.color = PAGE_BUTTONS_PASSIVE_YELLOW)
@@ -101,7 +112,8 @@ export default function Events() {
                 <HoverShrink>
                     <a
                         href="/join-us"
-                        className={PURP_BUTTON_CLASSNAME}
+                        className={`${PURP_BUTTON_CLASSNAME} ${isMobile
+                            ? PURP_BUTTON_CLASSNAME_MOBILE_ADD : ""}`}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                         onMouseEnter={(e) =>
                             (e.currentTarget.style.color = PURP_BUTTON_HOVER_GREEN)
@@ -110,8 +122,8 @@ export default function Events() {
                             (e.currentTarget.style.color = "")
                         }
                     >
-                        Feeling inspired?
-                        <br />
+                        Feeling inspired?{" "}
+                        {isMobile ? <></> : <br/>}
                         Become a member today!
                     </a>
                 </HoverShrink>

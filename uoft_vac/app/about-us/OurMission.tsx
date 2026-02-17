@@ -2,7 +2,7 @@ import SectionTitle from "../common/SectionTitle";
 
 import Image from "next/image";
 
-const VALUES_CLASSNAME = "relative w-50 h-50";
+const VALUES_CLASSNAME = "w-50 relative aspect-square";
 
 export default function OurMission() {
     return (
@@ -19,23 +19,25 @@ export default function OurMission() {
                     src="/mission-paint.png"
                     alt="Our mission"
                     fill
-                    className="object-contain"
+                    className="object-contain z-[-1]"
                     priority
                 />
 
                 {/* Mission statement */}
-                <p className="text-[1.6rem] z-1 text-center">
-                    The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
-                    <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
-                    interested in art to develop and express their passion through
-                    <strong> art workshops, exhibits, and socials</strong>. We believe that
-                    <strong> anyone can enjoy art</strong>, and we hope to inspire students who may be hesitant about art
-                    to <strong>discover their creative potentials</strong>.
-                </p>
+                <div className="max-w-[90cqw]">
+                    <p className="text-[1.6rem] z-1 text-center">
+                        The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
+                        <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
+                        interested in art to develop and express their passion through
+                        <strong> art workshops, exhibits, and socials</strong>. We believe that
+                        <strong> anyone can enjoy art</strong>, and we hope to inspire students who may be hesitant about art
+                        to <strong>discover their creative potentials</strong>.
+                    </p>
+                </div>
             </div>
 
             {/* Values */}
-            <div className="flex gap-[10cqw]">
+            <div className="w-[90cqw] gap-[10cqw] flex justify-center">
                 <div className={VALUES_CLASSNAME}>
                     <Image
                         src="/values-create.png"

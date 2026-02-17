@@ -4,9 +4,10 @@ import {
     SUBSECTION_BLUE,
 } from "../common/Constants";
 import {
+    SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,
-    SUBSECTIONS_TEXT_CLASSNAME 
- } from "./WhatDoWeDo";
+    SUBSECTIONS_TEXT_CLASSNAME
+} from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
 const BUBBLE_GRAPHICS_CLASSNAME = "w-[25cqw] h-[25cqw]";
@@ -14,7 +15,7 @@ const BUBBLE_GRAPHICS_CLASSNAME = "w-[25cqw] h-[25cqw]";
 export default function OfficeHours() {
     return (
         <div
-            className="rounded-lg shadow-lg"
+            className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
                 backgroundColor: SUBSECTION_BLUE,
                 containerType: "inline-size",
@@ -30,10 +31,10 @@ export default function OfficeHours() {
                 Be sure to check our <strong>Discord announcements</strong> for additional office hours!
             </p>
 
-            <div className="grid grid-cols-[auto_1fr]">
+            <div className="mt-2.5 grid grid-cols-[auto_1fr]">
 
                 {/* Video container */}
-                <div className="ml-[2cqw] flex flex-col">
+                <div className="ml-[2cqw] mb-[2cqw] flex flex-col">
 
                     <p className={SUBSECTIONS_TEXT_CLASSNAME}>
                         Can't find our office?<br />
@@ -41,11 +42,11 @@ export default function OfficeHours() {
                     </p>
 
                     {/* Video */}
-                    <div className="mt-[1cqw] rounded-lg">
+                    <div className="mt-[1cqw]">
                         <video
                             src="/office-video.mp4"
-                            controls
                             className="h-[69cqw] rounded-lg shadow-lg"
+                            controls
                         />
                     </div>
                 </div>
