@@ -8,7 +8,7 @@ export default function SectionTitle({
     children,
     src,
     height = DEFAULT_TITLE_HEIGHT,
-}: {
+} : {
     children: React.ReactNode;
     src?: string;
     height?: string;
@@ -19,6 +19,8 @@ export default function SectionTitle({
             className={`w-full flex flex-col items-center`}
             style={src ? { height: height } : undefined}
         >
+
+            {/* If src exists, display image. */}
             {src ? (
                 <div
                     className="relative w-full h-full"
@@ -30,6 +32,8 @@ export default function SectionTitle({
                         fill
                     />
                 </div>
+            
+            // Otherwise, display text.
             ) : (
                 <h1
                     className="font-bold text-center"

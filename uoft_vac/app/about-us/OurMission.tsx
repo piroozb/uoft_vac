@@ -1,6 +1,7 @@
-import SectionTitle from "../common/SectionTitle";
 
 import Image from "next/image";
+
+import SectionTitle from "../common/SectionTitle";
 
 const VALUES_CLASSNAME = "w-50 relative aspect-square";
 

@@ -1,3 +1,4 @@
+
 export const SP_TITLE_HEIGHT = "8cqw";
 
 export const SP_TWO_HALVES_CLASSNAME = "aspect-[7/3] flex justify-center";

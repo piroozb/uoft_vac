@@ -94,8 +94,8 @@ export default function Events() {
                         href={INSTAGRAM_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${PURP_BUTTON_CLASSNAME} ${isMobile
-                            ? PURP_BUTTON_CLASSNAME_MOBILE_ADD : ""}`}
+                        className={`${PURP_BUTTON_CLASSNAME}
+                            ${isMobile && PURP_BUTTON_CLASSNAME_MOBILE_ADD}`}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                         onMouseEnter={(e) =>
                             (e.currentTarget.style.color = PAGE_BUTTONS_PASSIVE_YELLOW)
@@ -112,8 +112,8 @@ export default function Events() {
                 <HoverShrink>
                     <a
                         href="/join-us"
-                        className={`${PURP_BUTTON_CLASSNAME} ${isMobile
-                            ? PURP_BUTTON_CLASSNAME_MOBILE_ADD : ""}`}
+                        className={`${PURP_BUTTON_CLASSNAME}
+                            ${isMobile && PURP_BUTTON_CLASSNAME_MOBILE_ADD}`}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                         onMouseEnter={(e) =>
                             (e.currentTarget.style.color = PURP_BUTTON_HOVER_GREEN)

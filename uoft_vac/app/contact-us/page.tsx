@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import SectionTitle from "../common/SectionTitle";
+
 import {
     EMAIL_LINK,
     DISCORD_LINK,
@@ -18,6 +18,7 @@ import {
     SP_TEXT_CLASSNAME,
     SP_TEXT_T_CLASSNAME
 } from "../common/SmallPagesCommon";
+import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
 export default function ContactUsPage() {
@@ -53,9 +54,7 @@ export default function ContactUsPage() {
                     className={SP_TEXT_CONTAINER_CLASSNAME}
                     style={{ containerType: "inline-size" }}
                 >
-                    <p
-                        className="mt-[5cqw] text-[5cqw] font-semibold"
-                    >
+                    <p className="mt-[5cqw] text-[5cqw] font-semibold">
                         You can reach us by:
                     </p>
 

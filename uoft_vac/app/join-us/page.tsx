@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-import SectionTitle from "../common/SectionTitle";
 import {
   MEMBERSHIP_FORM_LINK,
   DISCORD_LINK,
@@ -19,6 +18,7 @@ import {
     SP_TEXT_CLASSNAME,
     SP_TEXT_T_CLASSNAME,
 } from "../common/SmallPagesCommon";
+import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
 const INSTRUCTIONS_T_CLASSNAME = `${SP_TEXT_T_CLASSNAME} font-semibold`;

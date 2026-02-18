@@ -1,3 +1,4 @@
+
 import {
   BARS_STYLE_GRADIENT,
 } from "../common/Constants";

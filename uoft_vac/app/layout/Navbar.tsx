@@ -12,7 +12,7 @@ import {
 import { useIsMobile } from "./IsMobile";
 import HoverShrink from "../common/HoverShrink";
 
-const MOBILE_TRANSF_DURATION = "duration-400";
+const DROPDOWN_TRANSF_DURATION = "duration-400";
 
 export default function Navbar() {
     const mobile = useIsMobile();
@@ -41,7 +41,7 @@ export default function Navbar() {
                 {mobile && (
                     <div
                         className={`absolute inset-0 rounded-4xl blur-2xl
-                            ${open ? "opacity-100" : "opacity-0"} ${MOBILE_TRANSF_DURATION}`}
+                            ${open ? "opacity-100" : "opacity-0"} ${DROPDOWN_TRANSF_DURATION}`}
                         style={{ backgroundColor: BARS_EDGES_GREEN }}
                     />
                 )}
@@ -63,9 +63,7 @@ export default function Navbar() {
         );
     });
 
-    /* ——————
-        DESKTOP VIEW
-        —————— */
+    // DESKTOP VIEW
     if (!mobile) {
         return (
 
@@ -83,9 +81,7 @@ export default function Navbar() {
         );
     }
 
-    /* ——————
-       MOBILE VIEW
-       —————— */
+    // MOBILE VIEW
     return (
         <>
 
@@ -112,7 +108,7 @@ export default function Navbar() {
                 {/* Dropdown */}
                 <ul
                     className={`pl-5 gap-5 flex flex-col
-                        ${open ? "translate-x-0" : "-translate-x-full"} ${MOBILE_TRANSF_DURATION}`}
+                        ${open ? "translate-x-0" : "-translate-x-full"} ${DROPDOWN_TRANSF_DURATION}`}
                 >
                     {navbarItems}
                 </ul>

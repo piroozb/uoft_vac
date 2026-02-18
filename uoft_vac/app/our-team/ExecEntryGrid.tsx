@@ -2,16 +2,14 @@
 
 import { execData, ExecDataTypes } from "./ExecData";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
-
-interface ExecEntryGridProps {
-    entryKey: string;
-}
+import { NAME_OUTLINE_TEXT_SHADOW } from "./page";
 
 export default function ExecEntryGrid({
     entryKey,
-}: ExecEntryGridProps) {
+} : {
+    entryKey: string;
+}) {
     const data: ExecDataTypes = execData[entryKey];
-
     const {
         name = entryKey,
         position,
@@ -31,11 +29,7 @@ export default function ExecEntryGrid({
                 className="text-[3rem] font-bold"
                 style={{
                     color: colour,
-                    textShadow:
-                        `-1px -1px 0 #000,
-                        1px -1px 0 #000,
-                        -1px  1px 0 #000,
-                        1px  1px 0 #000`,
+                    textShadow: NAME_OUTLINE_TEXT_SHADOW,
                 }}
             >
                 {name}

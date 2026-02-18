@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import {
-    useEffect,
-    useRef,
-    useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { SIDE_DECOR_WIDTH } from "../common/Constants";
+import {
+    SIDE_DECOR_WIDTH,
+} from "../common/Constants";
 
 const SCROLL_VEL = .1;
 

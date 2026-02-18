@@ -2,15 +2,16 @@
 
 import { execData, ExecDataTypes } from "./ExecData";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
+import { NAME_OUTLINE_TEXT_SHADOW } from "./page";
 
-interface ExecEntryListProps {
+export default function ExecEntryList({
+    entryKey,
+    isLeft = true
+} : {
     entryKey: string;
     isLeft?: boolean;
-}
-
-export default function ExecEntryList({ entryKey, isLeft = true }: ExecEntryListProps) {
+}) {
     const data: ExecDataTypes = execData[entryKey];
-
     const {
         name = entryKey,
         position,
@@ -44,11 +45,7 @@ export default function ExecEntryList({ entryKey, isLeft = true }: ExecEntryList
                         className="text-[3rem] font-bold"
                         style={{
                             color: colour,
-                            textShadow:
-                                `-1px -1px 0 #000,
-                                1px -1px 0 #000,
-                                -1px  1px 0 #000,
-                                1px  1px 0 #000`,
+                            textShadow: NAME_OUTLINE_TEXT_SHADOW,
                         }}
                     >
                         {name}

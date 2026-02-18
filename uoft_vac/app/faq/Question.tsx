@@ -1,5 +1,6 @@
-import { ReactNode, MouseEvent } from "react";
+
 import Image from "next/image";
+import { ReactNode, MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import {
@@ -9,8 +10,8 @@ import {
 import { ExpandableText } from "../common/ExpandableText";
 
 const ROTATION_MAG = 72;
-const STAR_TRANSITION_CLASSNAME = "absolute inset-0";
-const STAR_TRANSITION = { duration: .3, ease: EASE_OUT };
+const STAR_TRANSF_CLASSNAME = "absolute inset-0";
+const STAR_TRANSF = { duration: .3, ease: EASE_OUT };
 const STAR_CLASSNAME = "object-contain";
 
 export default function Question({
@@ -50,7 +51,7 @@ export default function Question({
                     <AnimatePresence>
                         <motion.div
                             key={isExpanded ? "expanded" : "collapsed"}
-                            className={STAR_TRANSITION_CLASSNAME}
+                            className={STAR_TRANSF_CLASSNAME}
                             initial={{
                                 rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
                                 opacity: 0
@@ -60,7 +61,7 @@ export default function Question({
                                 rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
                                 opacity: 0
                             }}
-                            transition={STAR_TRANSITION}
+                            transition={STAR_TRANSF}
                         >
                             <Image
                                 src={isExpanded ? "/faq-star-expanded.png" : "/faq-star-collapsed.png"}

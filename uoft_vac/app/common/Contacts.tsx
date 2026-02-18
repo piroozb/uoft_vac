@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 import { EMAIL_LINK, DISCORD_LINK, INSTAGRAM_LINK } from "./Constants";
@@ -7,17 +8,13 @@ import TextLink from "./TextLink";
 import HoverShrink from "./HoverShrink";
 
 // Club's email with link.
-interface EmailLinkProps {
-    size: number;
-}
-
-export function EmailLink({ size }: EmailLinkProps) {
+export function EmailLink({ size } : { size: number }) {
     const [hovered, setHovered] = useState(false);
     const [imgError, setImgError] = useState(false);
 
     const imageSrc = hovered ? "/email-hovered.png" : "/email.png";
 
-    // If images don't load, use TextLink instead.
+    // If image doesn't load, use TextLink instead.
     if (imgError) {
         return (
             <TextLink
@@ -35,28 +32,19 @@ export function EmailLink({ size }: EmailLinkProps) {
             rel="noopener noreferrer"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            style={{
-                display: "inline-flex",
-                alignItems: "center",
-                textDecoration: "none",
-            }}
         >
-            <img
+            <Image
                 src={imageSrc}
                 alt="utvisualartclub@gmail.com"
+                width={size * 7.5} height={0}
                 onError={() => setImgError(true)}
-                style={{ width: size * 7.5 }}
             />
         </a>
     );
 }
 
 // Discord icon with invite link.
-interface DiscordIconProps {
-    size: number;
-}
-
-export function DiscordIcon({ size }: DiscordIconProps) {
+export function DiscordIcon({ size } : { size: number }) {
     return (
         <a
             href={DISCORD_LINK}
@@ -65,12 +53,11 @@ export function DiscordIcon({ size }: DiscordIconProps) {
             aria-label="Discord"
         >
             <HoverShrink>
-                <img
+                <Image
                     src="/discord-logo.png"
                     alt="Discord"
-                    width={size}
-                    height={size}
                     className="object-contain"
+                    width={size} height={0}
                 />
             </HoverShrink>
         </a>
@@ -78,11 +65,7 @@ export function DiscordIcon({ size }: DiscordIconProps) {
 }
 
 // Instagram icon with account link.
-interface InstagramIconProps {
-    size: number;
-}
-
-export function InstagramIcon({ size }: InstagramIconProps) {
+export function InstagramIcon({ size } : { size: number }) {
     return (
         <a
             href={INSTAGRAM_LINK}
@@ -91,12 +74,11 @@ export function InstagramIcon({ size }: InstagramIconProps) {
             aria-label="Instagram"
         >
             <HoverShrink>
-                <img
+                <Image
                     src="/instagram-logo.png"
                     alt="Instagram"
-                    width={size}
-                    height={size}
                     className="object-contain"
+                    width={size} height={0}
                 />
             </HoverShrink>
         </a>

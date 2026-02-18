@@ -2,19 +2,17 @@
 
 import { ReactNode, useState } from "react";
 
-interface HoverShrinkProps {
+export default function HoverShrink({
+    children,
+    scale = .95,
+    duration = 300,
+} : {
     children: ReactNode;
     scale?: number;
     duration?: number;
     className?: string;
     style?: React.CSSProperties;
-}
-
-export default function HoverShrink({
-    children,
-    scale = .95,
-    duration = 300,
-}: HoverShrinkProps) {
+}) {
     const [hovered, setHovered] = useState(false);
 
     return (

@@ -16,7 +16,7 @@ import { ExpandableText } from "../common/ExpandableText";
 const CAPTION_COLLAPSED_HEIGHT = 400;
 
 export default function FeaturedPost() {
-    const mobile = useIsMobile();
+    const isMobile = useIsMobile();
 
     const [images, setImages] = useState<string[] | null>(null);
     const [captionText, setCaptionText] = useState<string>("Some words? 🧐");
@@ -73,9 +73,9 @@ export default function FeaturedPost() {
             <SectionTitle>Featured Post!</SectionTitle>
 
             <div
-                className={`mt-10 grid ${mobile
-                    ? "m-10 gap-10"
-                    : "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"}`}
+                className={`mt-10 grid ${!isMobile
+                    ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
+                    : "m-10 gap-10"}`}
             >
 
                 {/* Expandable image carousel */}
@@ -125,7 +125,7 @@ export default function FeaturedPost() {
             {/* Wanna see more? */}
             <div
                 className={`mx-10 text-[1.5rem]
-                ${mobile ? "" : "mt-10"}`}
+                ${!isMobile && "mt-10"}`}
             >
                 <p>
                     Wanna see more? Visit our{" "}
