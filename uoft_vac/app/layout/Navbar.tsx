@@ -93,7 +93,7 @@ export default function Navbar() {
                 />
             )}
 
-            <div className="flex flex-col items-start fixed z-100">
+            <div className="flex flex-col items-start fixed z-105">
 
                 {/* Icon */}
                 <HoverShrink>
@@ -107,9 +107,10 @@ export default function Navbar() {
 
                 {/* Dropdown */}
                 <ul
-                    className={`pl-5 gap-5 flex flex-col
-                        ${open ? "translate-x-0" : "-translate-x-full"} ${DROPDOWN_TRANSF_DURATION}`}
-                >
+                    className={`pl-5 gap-5 top-20 flex flex-col fixed
+                        ${open ? "translate-x-0 pointer-events-auto" : "-translate-x-full pointer-events-none"}
+                        ${DROPDOWN_TRANSF_DURATION}`}
+                    >
                     {navbarItems}
                 </ul>
             </div>

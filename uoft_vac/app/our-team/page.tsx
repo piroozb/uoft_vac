@@ -11,8 +11,7 @@ export const NAME_OUTLINE_TEXT_SHADOW =
     -1px  1px 0 #000,
     1px  1px 0 #000`;
 
-const CATEGORY_CONTAINER_CLASSNAME_COMMON = "pt-[min(5rem,7cqw)]";
-const CATEGORY_TITLE_HEIGHT_MAX = "11cqw";
+const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-[5rem]";
 
 // Exec category specs:
 const EXEC_CATEGORIES_SPECS: Record<string, {
@@ -21,53 +20,53 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
     is_first_right?: boolean; // Default: false
     titleSrc?: string;
     titleHeight?: string;
-    containerClassName?: string;
+    containerClassname?: string;
 } >= {
 
     "Admin": {
         members: ["Allison", "Sy", "Jackie"],
         members_mobile: ["Sy", "Allison", "Jackie"],
         titleSrc: "admin",
-        containerClassName: "mt-5",
-        titleHeight: `min(6rem,${CATEGORY_TITLE_HEIGHT_MAX})`,
+        containerClassname: "mt-5",
+        titleHeight: `min(6rem,15cqw)`,
     },
 
     "Events": {
         members: ["Thomas", "Joyce", "Valentine"],
         titleSrc: "events",
-        containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
-        titleHeight: `min(7rem,${CATEGORY_TITLE_HEIGHT_MAX})`,
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,15cqw)`,
         is_first_right: true,
     },
 
     "Graphics": {
         members: ["BiewBiew", "Angelia", "Christina"],
         titleSrc: "graphics",
-        containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
-        titleHeight: `min(7rem,${CATEGORY_TITLE_HEIGHT_MAX})`,
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,17cqw)`,
     },
 
     "Marketing": {
         members: ["Jae", "Nabneel", "Emilio", "Kelvin"],
         titleSrc: "marketing",
-        containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
-        titleHeight: `min(7rem,${CATEGORY_TITLE_HEIGHT_MAX})`,
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,15cqw`,
         is_first_right: true,
     },
 
     "Webmaster": {
         members: ["Pirooz", "Sunny"],
         titleSrc: "webmaster",
-        containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
-        titleHeight: `min(6rem,${CATEGORY_TITLE_HEIGHT_MAX})`,
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(6rem,12.5cqw)`,
         is_first_right: true,
     },
 
     "Office Manager": {
         members: ["Lydia", "Alex"],
         titleSrc: "office-manager",
-        containerClassName: CATEGORY_CONTAINER_CLASSNAME_COMMON,
-        titleHeight: `min(7rem,${CATEGORY_TITLE_HEIGHT_MAX})`,
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,11cqw)`,
         is_first_right: true,
     },
 };
@@ -83,7 +82,7 @@ export default function OurTeam() {
                     members_mobile,
                     is_first_right,
                     titleSrc,
-                    containerClassName,
+                    containerClassname,
                     titleHeight,
                 }, ]) => {
 
@@ -91,7 +90,7 @@ export default function OurTeam() {
                     const mobileMembers = members_mobile ?? members;
 
                     return (
-                        <div className={containerClassName}>
+                        <div className={containerClassname}>
                         
                             {/* Category title */}
                             <SectionTitle

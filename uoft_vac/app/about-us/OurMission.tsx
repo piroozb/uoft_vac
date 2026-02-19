@@ -13,15 +13,14 @@ export default function OurMission() {
             <SectionTitle>Our Mission!</SectionTitle>
 
             {/* Mission container */}
-            <div className="flex items-center justify-center relative px-30 w-[60rem] aspect-[3/1.5]">
+            <div className="px-30 w-[60rem] aspect-[3/1.5] flex justify-center items-center relative">
 
                 {/* Paint */}
                 <Image
                     src="/mission-paint.png"
                     alt="Our mission"
-                    fill
                     className="object-contain z-[-1]"
-                    priority
+                    fill
                 />
 
                 {/* Mission statement */}
