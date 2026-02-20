@@ -33,18 +33,14 @@ export default function Question({
         <div
             className="p-5 cursor-pointer"
             onClick={onClick}
-            style={{
-                borderTop: index === 0
-                    ? "none"
-                    : `1px solid ${BARS_EDGES_GREEN}`,
-            }}
+            style={{ borderTop: index === 0
+                    ? "none" : `1px solid ${BARS_EDGES_GREEN}`, }}
         >
 
             {/* Question */}
-            <div className="mb-5 flex justify-between items-center">
-                <span className="text-[1.5rem] font-semibold">
-                    {question}
-                </span>
+            <div className="mb-5 text-[1.5rem] flex justify-between items-center font-semibold">
+
+                {question}
 
                 {/* Star icon */}
                 <div className="w-7.5 h-7.5 relative overflow-visible">
@@ -85,9 +81,9 @@ export default function Question({
                 transition={{ duration: .5, ease: EASE_OUT }}
                 className="overflow-hidden"
             >
-                <div className="text-[1.25rem]">
+                <p className="text-[1.25rem]">
                     {answer}
-                </div>
+                </p>
             </motion.div>
         </div>
     );

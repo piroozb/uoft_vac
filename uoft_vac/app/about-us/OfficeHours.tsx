@@ -34,12 +34,10 @@ export default function OfficeHours() {
             <div className="mt-2.5 grid grid-cols-[auto_1fr]">
 
                 {/* Video container */}
-                <div className="ml-[2cqw] mb-[2cqw] flex flex-col">
+                <div className={`ml-[2cqw] mb-[2cqw] flex flex-col ${SUBSECTIONS_TEXT_CLASSNAME}`}>
 
-                    <p className={SUBSECTIONS_TEXT_CLASSNAME}>
-                        Can't find our office?<br />
-                        Watch this video!
-                    </p>
+                    Can't find our office?<br />
+                    Watch this video!
 
                     {/* Video */}
                     <div className="mt-[1cqw]">

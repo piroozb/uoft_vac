@@ -60,56 +60,50 @@ export default function ContactUsPage() {
 
                     {/* Bullet 1 */}
                     <div
-                        className={SP_TEXT_CLASSNAME}
+                        className={`${SP_TEXT_CLASSNAME} ${SP_TEXT_T_CLASSNAME}`}
                         style={{ top: "20%", transform: "rotate(-1deg)" }}
                     >
-                        <p className={SP_TEXT_T_CLASSNAME}>
-                            • Writing us an{" "}
-                            <TextLink
-                                text="email"
-                                href={EMAIL_LINK}
-                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                                hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                            />
-                            !
-                        </p>
+                        • Writing us an{" "}
+                        <TextLink
+                            text="email"
+                            href={EMAIL_LINK}
+                            style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                            hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                        />
+                        !
                     </div>
 
                     {/* Bullet 2 */}
                     <div
-                        className={SP_TEXT_CLASSNAME}
+                        className={`${SP_TEXT_CLASSNAME} ${SP_TEXT_T_CLASSNAME}`}
                         style={{ top: "40%", transform: "rotate(1deg)" }}
                     >
-                        <p className={SP_TEXT_T_CLASSNAME}>
-                            • Sending us a message on{" "}
-                            <TextLink
-                                text="Instagram"
-                                href={INSTAGRAM_LINK}
-                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                                hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                            />
-                            !
-                        </p>
+                        • Sending us a message on{" "}
+                        <TextLink
+                            text="Instagram"
+                            href={INSTAGRAM_LINK}
+                            style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                            hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                        />
+                        !
                     </div>
 
                     {/* Bullet 3 */}
                     <div
-                        className={SP_TEXT_CLASSNAME}
+                        className={`${SP_TEXT_CLASSNAME} ${SP_TEXT_T_CLASSNAME}`}
                         style={{ top: "65%", transform: "rotate(-1deg)" }}
                     >
-                        <p className={SP_TEXT_T_CLASSNAME}>
-                            • Ping the <strong>@President</strong> or{" "}
-                            <strong>@Vice-President</strong>
-                            <br />
-                            role on{" "}
-                            <TextLink
-                                text="Discord"
-                                href={DISCORD_LINK}
-                                style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                                hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                            />
-                            !
-                        </p>
+                        • Ping the <strong>@President</strong> or{" "}
+                        <strong>@Vice-President</strong>
+                        <br />
+                        role on{" "}
+                        <TextLink
+                            text="Discord"
+                            href={DISCORD_LINK}
+                            style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                            hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                        />
+                        !
                     </div>
                 </div>
             </div>

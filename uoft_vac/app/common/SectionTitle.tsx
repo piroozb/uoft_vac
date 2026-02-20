@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const DEFAULT_TITLE_HEIGHT = "5rem";
+const DEFAULT_TITLE_HEIGHT = "min(5rem,10cqw)";
 
 export default function SectionTitle({
     children,

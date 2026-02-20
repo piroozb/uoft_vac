@@ -20,7 +20,7 @@ export function EmailLink({ size } : { size: number }) {
             <TextLink
                 text="utvisualartclub@gmail.com"
                 href={EMAIL_LINK}
-                style={{ fontSize: size * 0.5 }}
+                style={{ fontSize: size * .5 }}
             />
         );
     }

@@ -49,53 +49,47 @@ export default function JoinUsPage() {
 
           {/* Step 1 */}
           <div
-            className={SP_TEXT_CLASSNAME}
+            className={`${SP_TEXT_CLASSNAME} ${INSTRUCTIONS_T_CLASSNAME}`}
             style={{ top: "10%", transform: "rotate(-1deg)" }}
           >
-            <p className={INSTRUCTIONS_T_CLASSNAME}>
-              1. Fill out the{" "}
-              <TextLink
-                text="verification form"
-                href={MEMBERSHIP_FORM_LINK}
-                style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
-                hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
-              />
-              !
-            </p>
+            1. Fill out the{" "}
+            <TextLink
+              text="verification form"
+              href={MEMBERSHIP_FORM_LINK}
+              style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
+              hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
+            />
+            !
           </div>
 
           {/* Step 2 */}
           <div
-            className={SP_TEXT_CLASSNAME}
+            className={`${SP_TEXT_CLASSNAME} ${INSTRUCTIONS_T_CLASSNAME}`}
             style={{ top: "35%", transform: "rotate(1deg)" }}
           >
-            <p className={INSTRUCTIONS_T_CLASSNAME}>
-              2. Join our{" "}
-              <TextLink
-                text="Discord"
-                href={DISCORD_LINK}
-                style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
-                hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
-              />{" "}
-              and wait for verification!
-            </p>
+            2. Join our{" "}
+            <TextLink
+              text="Discord"
+              href={DISCORD_LINK}
+              style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
+              hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
+            />{" "}
+            and wait for verification!
           </div>
 
           {/* Step 3 */}
           <div
-            className={SP_TEXT_CLASSNAME}
+            className={`${SP_TEXT_CLASSNAME} ${INSTRUCTIONS_T_CLASSNAME}`}
             style={{ top: "60%", transform: "rotate(-1deg)" }}
           >
-            <p className={INSTRUCTIONS_T_CLASSNAME}>
-              3. Follow us on{" "}
-              <TextLink
-                text="Instagram"
-                href={INSTAGRAM_LINK}
-                style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
-                hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
-              />{" "}
-              for updates!
-            </p>
+            3. Follow us on{" "}
+            <TextLink
+              text="Instagram"
+              href={INSTAGRAM_LINK}
+              style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
+              hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
+            />{" "}
+            for updates!
           </div>
         </div>
 

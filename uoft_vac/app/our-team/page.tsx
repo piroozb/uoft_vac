@@ -124,7 +124,7 @@ export default function OurTeam() {
                                     {mobileMembers.map((name, index) => (
                                         <>
 
-                                            {/* Use list format normally */}
+                                            {/* Use list format normally. */}
                                             <div className={`block max-[700px]:hidden`}>
                                                 <ExecEntryList
                                                     key={name}
@@ -133,7 +133,7 @@ export default function OurTeam() {
                                                 />
                                             </div>
 
-                                            {/* Use grid format for less than … */}
+                                            {/* Use grid format for less than 700px. */}
                                             <div className={`hidden max-[700px]:block`}>
                                                 <ExecEntryGrid
                                                     key={name}
