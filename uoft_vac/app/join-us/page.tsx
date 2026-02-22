@@ -11,22 +11,72 @@ import {
 } from "../common/Constants";
 import {
     SP_TITLE_HEIGHT,
-    SP_TWO_HALVES_CLASSNAME,
-    SP_GRAPHIC_CONTAINER_CLASSNAME,
-    SP_GRAPHIC_CLASSNAME,
+    SP_HALVES_V_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
     SP_TEXT_CLASSNAME,
-    SP_TEXT_T_CLASSNAME,
 } from "../common/SmallPagesCommon";
+import { useIsMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
-const INSTRUCTIONS_T_CLASSNAME = `${SP_TEXT_T_CLASSNAME} font-semibold`;
+function JoinInstructions() {
+  return (
+    <div className={`mt-[5cqw] gap-[8cqw] ${SP_TEXT_CONTAINER_CLASSNAME} font-semibold`}>
+
+      {/* Step 1 */}
+      <div
+        className={SP_TEXT_CLASSNAME}
+        style={{ transform: "rotate(-1deg)" }}
+      >
+        1. Fill out the{" "}
+        <TextLink
+          text="verification form"
+          href={MEMBERSHIP_FORM_LINK}
+          style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
+          hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
+        />
+        !
+      </div>
+
+      {/* Step 2 */}
+      <div
+        className={SP_TEXT_CLASSNAME}
+        style={{ transform: "rotate(1deg)" }}
+      >
+        2. Join our{" "}
+        <TextLink
+          text="Discord"
+          href={DISCORD_LINK}
+          style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
+          hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
+        />{" "}
+        and wait for verification!
+      </div>
+
+      {/* Step 3 */}
+      <div
+        className={SP_TEXT_CLASSNAME}
+        style={{ transform: "rotate(-1deg)" }}
+      >
+        3. Follow us on{" "}
+        <TextLink
+          text="Instagram"
+          href={INSTAGRAM_LINK}
+          style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
+          hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
+        />{" "}
+        for updates!
+      </div>
+    </div>
+  );
+}
 
 export default function JoinUsPage() {
+  const isMobile = useIsMobile()
+
   return (
     <div
-      className="my-[1cqw]"
+      className="mt-5 mb-10"
       style={{ containerType: "inline-size" }}
     >
       
@@ -38,71 +88,44 @@ export default function JoinUsPage() {
         Join Us Today For Free!
       </SectionTitle>
 
-      {/* Two halves */}
-      <div className={SP_TWO_HALVES_CLASSNAME}>
+      {/* DESKTOP VIEW */}
+      {!isMobile ? (
 
-        {/* Left: instructions */}
-        <div
-          className={SP_TEXT_CONTAINER_CLASSNAME}
-          style={{ containerType: "inline-size" }}
-        >
+        // Two halves horizontal
+        <div className="grid grid-cols-[1fr_auto]">
 
-          {/* Step 1 */}
-          <div
-            className={`${SP_TEXT_CLASSNAME} ${INSTRUCTIONS_T_CLASSNAME}`}
-            style={{ top: "10%", transform: "rotate(-1deg)" }}
-          >
-            1. Fill out the{" "}
-            <TextLink
-              text="verification form"
-              href={MEMBERSHIP_FORM_LINK}
-              style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
-              hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
-            />
-            !
-          </div>
+          {/* Left: join instructions */}
+          <JoinInstructions />
 
-          {/* Step 2 */}
-          <div
-            className={`${SP_TEXT_CLASSNAME} ${INSTRUCTIONS_T_CLASSNAME}`}
-            style={{ top: "35%", transform: "rotate(1deg)" }}
-          >
-            2. Join our{" "}
-            <TextLink
-              text="Discord"
-              href={DISCORD_LINK}
-              style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
-              hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
-            />{" "}
-            and wait for verification!
-          </div>
-
-          {/* Step 3 */}
-          <div
-            className={`${SP_TEXT_CLASSNAME} ${INSTRUCTIONS_T_CLASSNAME}`}
-            style={{ top: "60%", transform: "rotate(-1deg)" }}
-          >
-            3. Follow us on{" "}
-            <TextLink
-              text="Instagram"
-              href={INSTAGRAM_LINK}
-              style={{ color: TEXT_LINK_PASSIVE_PURPLE }}
-              hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
-            />{" "}
-            for updates!
-          </div>
-        </div>
-
-        {/* Right: graphic */}
-        <div className={SP_GRAPHIC_CONTAINER_CLASSNAME}>
+          {/* Right: graphic */}
           <Image
             src="/join-us-graphic.png"
             alt="Join Us!"
-            className={SP_GRAPHIC_CLASSNAME}
-            fill
+            className="mt-5 w-[47cqw]"
+            width={1000} height={0}
+            priority
           />
         </div>
-      </div>
+
+      // MOBILE VIEW
+      ) : (
+
+        // Two halves vertical
+        <div className={SP_HALVES_V_CLASSNAME}>
+
+            {/* Top: join instructions */}
+            <JoinInstructions />
+
+            {/* Bottom: graphic */}
+            <Image
+              src="/join-us-graphic.png"
+              alt="Join Us!"
+              className="mt-10"
+              width={600} height={0}
+              priority
+            />
+        </div>
+      )}
     </div>
   );
 }

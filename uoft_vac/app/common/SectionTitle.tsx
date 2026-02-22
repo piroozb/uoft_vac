@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 
-const DEFAULT_TITLE_HEIGHT = "min(5rem,10cqw)";
-
 export default function SectionTitle({
     children,
     src,
-    height = DEFAULT_TITLE_HEIGHT,
+    height = "min(5rem,10cqw)",
 } : {
     children: React.ReactNode;
     src?: string;
@@ -29,7 +27,7 @@ export default function SectionTitle({
                         src={src}
                         alt={typeof children === "string" ? children : "Section title"}
                         className="object-contain"
-                        fill
+                        fill priority
                     />
                 </div>
             

@@ -11,20 +11,78 @@ import {
 } from "../common/Constants";
 import {
     SP_TITLE_HEIGHT,
-    SP_TWO_HALVES_CLASSNAME,
-    SP_GRAPHIC_CONTAINER_CLASSNAME,
-    SP_GRAPHIC_CLASSNAME,
+    SP_HALVES_V_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
     SP_TEXT_CLASSNAME,
-    SP_TEXT_T_CLASSNAME
 } from "../common/SmallPagesCommon";
+import { useIsMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
+function ContactInfo() {
+    return (
+        <div className={`mt-[3cqw] gap-[5cqw] ${SP_TEXT_CONTAINER_CLASSNAME}`}>
+
+            {/* First line */}
+            <p className="text-[min(2.5rem,6cqw)] font-semibold">
+                You can reach us by:
+            </p>
+
+            {/* Bullet 1 */}
+            <div
+                className={SP_TEXT_CLASSNAME}
+                style={{ transform: "rotate(-1deg)" }}
+            >
+                • Writing us an{" "}
+                <TextLink
+                    text="email"
+                    href={EMAIL_LINK}
+                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                />
+                !
+            </div>
+
+            {/* Bullet 2 */}
+            <div
+                className={SP_TEXT_CLASSNAME}
+                style={{ transform: "rotate(1deg)" }}
+            >
+                • Sending us a message on{" "}
+                <TextLink
+                    text="Instagram"
+                    href={INSTAGRAM_LINK}
+                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                />
+                !
+            </div>
+
+            {/* Bullet 3 */}
+            <div
+                className={SP_TEXT_CLASSNAME}
+                style={{ transform: "rotate(-1deg)" }}
+            >
+                • Ping the <strong>@President</strong> or{" "}
+                <strong>@Co-Vice President</strong> role on{" "}
+                <TextLink
+                    text="Discord"
+                    href={DISCORD_LINK}
+                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                />
+                !
+            </div>
+        </div>
+    )
+}
+
 export default function ContactUsPage() {
+    const isMobile = useIsMobile()
+
     return (
         <div
-            className="my-[1cqw]"
+            className="mt-5 mb-10"
             style={{ containerType: "inline-size" }}
         >
 
@@ -36,77 +94,44 @@ export default function ContactUsPage() {
                 Contact Us!
             </SectionTitle>
 
-            {/* Two halves */}
-            <div className={SP_TWO_HALVES_CLASSNAME}>
+            {/* DESKTOP VIEW */}
+            {!isMobile ? (
 
-                {/* Left: graphic */}
-                <div className={SP_GRAPHIC_CONTAINER_CLASSNAME}>
+                // Two halves horizontal
+                <div className="grid grid-cols-[auto_1fr]">
+
+                    {/* Left: graphic */}
                     <Image
                         src="/contact-us-graphic.png"
                         alt="Contact Us!"
-                        className={SP_GRAPHIC_CLASSNAME}
-                        fill
+                        className="mt-5 w-[45cqw]"
+                        width={1000} height={0}
+                        priority
+                    />
+
+                    {/* Right: contact info */}
+                    <ContactInfo />
+                </div>
+            
+            // MOBILE VIEW
+            ) : (
+
+                // Two halves vertical
+                <div className={SP_HALVES_V_CLASSNAME}>
+
+                    {/* Top: contact info */}
+                    <ContactInfo />
+
+                    {/* Buttom: graphic */}
+                    <Image
+                        src="/contact-us-graphic.png"
+                        alt="Contact Us!"
+                        className="mt-10"
+                        width={600} height={0}
+                        priority
                     />
                 </div>
-
-                {/* Right: contact info */}
-                <div
-                    className={SP_TEXT_CONTAINER_CLASSNAME}
-                    style={{ containerType: "inline-size" }}
-                >
-                    <p className="mt-[5cqw] text-[5cqw] font-semibold">
-                        You can reach us by:
-                    </p>
-
-                    {/* Bullet 1 */}
-                    <div
-                        className={`${SP_TEXT_CLASSNAME} ${SP_TEXT_T_CLASSNAME}`}
-                        style={{ top: "20%", transform: "rotate(-1deg)" }}
-                    >
-                        • Writing us an{" "}
-                        <TextLink
-                            text="email"
-                            href={EMAIL_LINK}
-                            style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                            hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                        />
-                        !
-                    </div>
-
-                    {/* Bullet 2 */}
-                    <div
-                        className={`${SP_TEXT_CLASSNAME} ${SP_TEXT_T_CLASSNAME}`}
-                        style={{ top: "40%", transform: "rotate(1deg)" }}
-                    >
-                        • Sending us a message on{" "}
-                        <TextLink
-                            text="Instagram"
-                            href={INSTAGRAM_LINK}
-                            style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                            hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                        />
-                        !
-                    </div>
-
-                    {/* Bullet 3 */}
-                    <div
-                        className={`${SP_TEXT_CLASSNAME} ${SP_TEXT_T_CLASSNAME}`}
-                        style={{ top: "65%", transform: "rotate(-1deg)" }}
-                    >
-                        • Ping the <strong>@President</strong> or{" "}
-                        <strong>@Vice-President</strong>
-                        <br />
-                        role on{" "}
-                        <TextLink
-                            text="Discord"
-                            href={DISCORD_LINK}
-                            style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                            hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                        />
-                        !
-                    </div>
-                </div>
-            </div>
+            )}
         </div>
     );
 }

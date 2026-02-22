@@ -11,7 +11,7 @@ export const NAME_OUTLINE_TEXT_SHADOW =
     -1px  1px 0 #000,
     1px  1px 0 #000`;
 
-const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-[5rem]";
+const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-20";
 
 // Exec category specs:
 const EXEC_CATEGORIES_SPECS: Record<string, {
@@ -50,7 +50,7 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
         members: ["Jae", "Nabneel", "Emilio", "Kelvin"],
         titleSrc: "marketing",
         containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
-        titleHeight: `min(7rem,15cqw`,
+        titleHeight: `min(7rem,15cqw)`,
         is_first_right: true,
     },
 
