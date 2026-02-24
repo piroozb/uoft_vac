@@ -5,10 +5,10 @@ import UpcomingEvents from "./home/UpcomingEvents";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Banner />
       <FeaturedPost />
       <UpcomingEvents />
-    </div>
+    </>
   );
 }

@@ -27,7 +27,7 @@ export default function SectionTitle({
                         src={src}
                         alt={typeof children === "string" ? children : "Section title"}
                         className="object-contain"
-                        fill priority
+                        fill
                     />
                 </div>
             

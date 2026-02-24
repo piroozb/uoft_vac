@@ -1,16 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { useState, MouseEvent } from "react";
 
 import {
     BARS_CENTRE_GREEN,
     PAGE_BUTTONS_PASSIVE_YELLOW,
 } from "../common/Constants";
+import { useIsMobile } from "../layout/IsMobile";
 import SectionTitle from "../common/SectionTitle";
 import { faqs } from "./FAQs";
 import Question from "./Question";
 
 export default function FAQSection() {
+    const isMobile = useIsMobile()
+
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleFAQ = (index: number) => {
@@ -24,39 +28,59 @@ export default function FAQSection() {
     };
 
     return (
-
-        // Green container
-        <div
-            className="my-15 mx-[5cqw] pt-5 px-10 pb-10 rounded-4xl shadow-lg"
-            style={{
-                backgroundColor: BARS_CENTRE_GREEN,
-                containerType: "inline-size",
-            }}
-        >
+        <div className="mt-5 flex flex-col items-center">
 
             {/* Section title */}
-            <SectionTitle height="min(4rem, 7.5cqw)">
+            <SectionTitle height="min(5rem,7cqw)">
                 Frequently Asked Questions
             </SectionTitle>
 
-            {/* Yellow container */}
+            {/* Container top */}
+            <div className={`${!isMobile && "mx-[5cqw]"}`}>
+                <Image
+                    src="/faq-container-top.png"
+                    alt="Frodo Head"
+                    className=" object-contain"
+                    width={2000} height={0}
+                />
+            </div>
+            
+            {/* Green container */}
             <div
-                className="mt-5 px-5 rounded-3xl shadow-lg"
-                style={{ backgroundColor: PAGE_BUTTONS_PASSIVE_YELLOW }}
+                className={`${!isMobile ? "mx-[5cqw] px-10" : "px-5"}`}
+                style={{ backgroundColor: BARS_CENTRE_GREEN }}
             >
 
-                {/* Map the data in FAQs.tsx using the Question.tsx component. */}
-                {faqs.map((faq, i) => (
-                    <Question
-                        key={i}
-                        question={faq.question}
-                        answer={faq.answer}
-                        isExpanded={openIndex === i}
-                        index={i}
-                        onClick={(e) => handleClick(e, i)}
-                    />
-                ))}
+                {/* Yellow container */}
+                <div
+                    className={`px-5 ${!isMobile ? "rounded-3xl" : "rounded-2xl"}`}
+                    style={{ backgroundColor: PAGE_BUTTONS_PASSIVE_YELLOW }}
+                >
+
+                    {/* Map the data in FAQs.tsx using the Question.tsx component. */}
+                    {faqs.map((faq, i) => (
+                        <Question
+                            key={i}
+                            question={faq.question}
+                            answer={faq.answer}
+                            isExpanded={openIndex === i}
+                            index={i}
+                            onClick={(e) => handleClick(e, i)}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            {/* Container bottom */}
+            <div className={`${!isMobile && "mx-[5cqw]"}`}>
+                <Image
+                    src="/faq-container-bot.png"
+                    alt="Frodo butt"
+                    className=" object-contain"
+                    width={2000} height={0}
+                />
             </div>
         </div>
+        
     );
 }

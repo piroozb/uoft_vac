@@ -30,6 +30,8 @@ export default function Question({
     const { ref, fullHeight } = ExpandableText<HTMLDivElement>(isExpanded, 0, [answer]);
 
     return (
+
+        // Hitbox container
         <div
             className="p-5 cursor-pointer"
             onClick={onClick}
@@ -38,7 +40,7 @@ export default function Question({
         >
 
             {/* Question */}
-            <div className="mb-5 text-[1.5rem] flex justify-between items-center font-semibold">
+            <div className="mb-5 gap-5 text-[min(1.5rem,3.5cqw)] grid grid-cols-[1fr_auto] font-semibold">
 
                 {question}
 
@@ -81,7 +83,7 @@ export default function Question({
                 transition={{ duration: .5, ease: EASE_OUT }}
                 className="overflow-hidden"
             >
-                <p className="text-[1.25rem]">
+                <p className="text-[min(1.25rem,3cqw)]">
                     {answer}
                 </p>
             </motion.div>
