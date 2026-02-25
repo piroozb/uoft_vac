@@ -1,11 +1,15 @@
+"use client";
 
 import Image from "next/image";
 
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
 const VALUES_CLASSNAME = "w-50 relative aspect-square";
 
 export default function OurMission() {
+    const isSmaller = useIsMobile(true);
+
     return (
         <section className="flex flex-col items-center">
 
@@ -13,7 +17,7 @@ export default function OurMission() {
             <SectionTitle>Our Mission!</SectionTitle>
 
             {/* Mission container */}
-            <div className="px-30 w-[60rem] aspect-[3/1.5] flex justify-center items-center relative">
+            <div className="w-250 aspect-[3/1.5] flex justify-center items-center relative">
 
                 {/* Paint */}
                 <Image
@@ -24,9 +28,9 @@ export default function OurMission() {
                 />
 
                 {/* Mission statement */}
-                <div className="max-w-[90cqw]">
-                    <p className="text-[1.6rem] z-1 text-center">
-                        The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
+                <div className="mx-30 max-w-[90cqw]">
+                    <p className="text-[min(1.6rem,4.5cqw)] z-1 text-center">
+                        The University of Toronto Visual Art Club (UTVAC) aims to build an
                         <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
                         interested in art to develop and express their passion through
                         <strong> art workshops, exhibits, and socials</strong>. We believe that
@@ -36,28 +40,38 @@ export default function OurMission() {
                 </div>
             </div>
 
-            {/* Values */}
-            <div className="w-[90cqw] gap-[10cqw] flex justify-center">
+            {/* Values container */}
+            <div className={`w-[90cqw] ${!isSmaller ?
+                "gap-[5cqw] flex justify-center"
+                : "flex flex-col items-center"}`}
+            >
+
+                {/* Create */}
                 <div className={VALUES_CLASSNAME}>
                     <Image
                         src="/values-create.png"
                         alt="Create"
+                        className={`${isSmaller && "translate-x-[-20cqw]"}`}
                         fill
                     />
                 </div>
 
+                {/* Share */}
                 <div className={VALUES_CLASSNAME}>
                     <Image
                         src="/values-share.png"
                         alt="Share"
+                        className={`${isSmaller && "translate-x-[15cqw] translate-y-[-5cqw]"}`}
                         fill
                     />
                 </div>
 
+                {/* Connect */}
                 <div className={VALUES_CLASSNAME}>
                     <Image
                         src="/values-connect.png"
                         alt="Connect"
+                        className={`${isSmaller && "translate-x-[-10cqw]"}`}
                         fill
                     />
                 </div>

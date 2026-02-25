@@ -15,7 +15,7 @@ import {
     SP_TEXT_CONTAINER_CLASSNAME,
     SP_TEXT_CLASSNAME,
 } from "../common/SmallPagesCommon";
-import { useIsMobile } from "../layout/IsMobile";
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 

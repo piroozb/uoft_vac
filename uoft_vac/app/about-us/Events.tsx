@@ -14,11 +14,11 @@ import {
     SUBSECTIONS_TITLE_HEIGHT,
     SUBSECTIONS_TEXT_CLASSNAME,
 } from "./WhatDoWeDo";
-import { useIsMobile } from "../layout/IsMobile";
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import HoverShrink from "../common/HoverShrink";
 
-const EXAMPLE_EVENT_CLASSNAME = "gap-[1cqw] text-[max(3cqw,1rem)] flex flex-col items-center font-medium text-center";
+const EXAMPLE_EVENT_CLASSNAME = "gap-[1cqw] text-[3cqw] flex flex-col items-center font-medium text-center";
 const PURP_BUTTON_CLASSNAME = "px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] block rounded-lg shadow-lg text-white";
 const PURP_BUTTON_CLASSNAME_MOBILE_ADD = "text-center";
 
@@ -60,7 +60,7 @@ export default function Events() {
                             key={idx}
                             className={EXAMPLE_EVENT_CLASSNAME}
                         >
-                            <div className="w-[max(20cqw,7rem)] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg"></div>
                             {label}
                         </div>
                     ))}
@@ -73,14 +73,14 @@ export default function Events() {
                             key={idx}
                             className={EXAMPLE_EVENT_CLASSNAME}
                         >
-                            <div className="w-[max(20cqw,7rem)] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg"></div>
                             {label}
                         </div>
                     ))}
 
                     {/* And more! */}
                     <div className="flex justify-center items-center">
-                        <div className="w-[max(15cqw,5rem)] -translate-y-[2cqw] aspect-square relative">
+                        <div className="w-[15cqw] -translate-y-[2cqw] aspect-square relative">
                             <Image
                                 src="/and-more.png"
                                 alt="AND MORE!"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useIsMobile } from "../layout/IsMobile";
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
@@ -72,7 +72,8 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
 };
 
 export default function OurTeam() {
-    const isMobile = useIsMobile()
+    const isMobile = useIsMobile();
+    const isSmaller = useIsMobile(true);
 
     return (
         <div className="mb-15">
@@ -122,25 +123,22 @@ export default function OurTeam() {
                             ) : (
                                 <div className="mt-10 gap-10 grid">
                                     {mobileMembers.map((name, index) => (
-                                        <>
 
-                                            {/* Use list format normally. */}
-                                            <div className={`block max-[700px]:hidden`}>
-                                                <ExecEntryList
-                                                    key={name}
-                                                    entryKey={name}
-                                                    isLeft={is_first_right ? ((index % 2 === 1)) : (index % 2 === 0)}
-                                                />
-                                            </div>
-
-                                            {/* Use grid format for less than 700px. */}
-                                            <div className={`hidden max-[700px]:block`}>
-                                                <ExecEntryGrid
-                                                    key={name}
-                                                    entryKey={name}
-                                                />
-                                            </div>
-                                        </>
+                                        // Use list format normally.
+                                        !isSmaller ? (
+                                            <ExecEntryList
+                                                key={name}
+                                                entryKey={name}
+                                                isLeft={is_first_right ? ((index % 2 === 1)) : (index % 2 === 0)}
+                                            />
+                                        
+                                        // Revert to grid format for small window width.
+                                        ) : (
+                                            <ExecEntryGrid
+                                                key={name}
+                                                entryKey={name}
+                                            />
+                                        )
                                     ))}
                                 </div>
                             )}

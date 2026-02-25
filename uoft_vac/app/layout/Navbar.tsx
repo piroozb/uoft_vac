@@ -9,7 +9,7 @@ import {
     BARS_EDGES_GREEN,
     BARS_STYLE_GRADIENT,
 } from "../common/Constants";
-import { useIsMobile } from "./IsMobile";
+import { useIsMobile } from "./UseIsMobile";
 import HoverShrink from "../common/HoverShrink";
 
 const DROPDOWN_TRANSF_DURATION = "duration-400";

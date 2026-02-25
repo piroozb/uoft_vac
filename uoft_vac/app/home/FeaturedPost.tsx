@@ -7,7 +7,7 @@ import {
     INSTAGRAM_LINK,
     EASE_OUT,
 } from "../common/Constants";
-import { useIsMobile } from "../layout/IsMobile";
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";

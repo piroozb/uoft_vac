@@ -6,7 +6,7 @@ import {
     SIDE_DECOR_MIN,
     SIDE_DECOR_MAX,
 } from "../common/Constants";
-import { useIsMobile } from "./IsMobile";
+import { useIsMobile } from "./UseIsMobile";
 import SideDecor from "./SideDecor";
 import { useWindowOffset } from "./WindowOffsetContext";
 

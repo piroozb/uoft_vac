@@ -5,17 +5,19 @@ import Image from "next/image";
 import {
     SUBSECTION_BLUE,
 } from "../common/Constants";
-import { useIsMobile } from "../layout/IsMobile";
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
 const FACT_CLOUD_IM_CLASSNAME = "object-contain z-[-1]";
 const FACT_TEXT_CLASSNAME = `m-[5cqw] text-[9cqw] text-center`;
 
 export default function FunFacts() {
-    const isMobile = useIsMobile()
+    const isMobile = useIsMobile();
+    const isSmaller = useIsMobile(true);
 
     const FACT_CONTAINER_CLASSNAME =
-        `${!isMobile ? "w-[24cqw]" : "w-[35cqw] max-[700px]:w-75"}
+        `${!isMobile ? "w-[24cqw]" :
+            !isSmaller ? "w-[35cqw]" : "w-75"}
         aspect-square flex items-center relative`;
 
     return (
@@ -33,13 +35,22 @@ export default function FunFacts() {
             </SectionTitle>
 
             {/* Facts container */}
-            <div className={`min-[700px]:grid ${!isMobile ? "mt-5 gap-[1cqw] grid-cols-4" : "mt-20 max-[700px]:mt-5 grid-cols-2"}`}>
+            <div
+                className={`${!isSmaller && "grid"} ${!isMobile
+                    ? "mt-5 gap-[1cqw] grid-cols-4" :
+                    !isSmaller
+                        ? "mt-20"
+                        : "mt-5"}
+                    grid-cols-2`}
+            >
 
                 {/* Fact 1 */}
                 <div
                     className={`${!isMobile
                         ? "translate-y-[0cqw]"
-                        : "min-[700px]:-translate-x-[5cqw] max-[700px]:-translate-x-[10cqw] max-[700px]:-mb-10"}
+                        : !isSmaller 
+                            ? "-translate-x-[5cqw]"
+                            : "-translate-x-[10cqw] -mb-10"}
                         ${FACT_CONTAINER_CLASSNAME}`}
                     style={{ containerType: "inline-size" }}
                 >
@@ -59,7 +70,9 @@ export default function FunFacts() {
                 <div
                     className={`${!isMobile
                         ? "translate-y-[5cqw]"
-                        : "min-[700px]:-translate-y-[5cqw] max-[700px]:translate-x-[7.5cqw] max-[700px]:-mb-15"}
+                        : !isSmaller 
+                            ? "-translate-y-[5cqw]"
+                            : "translate-x-[7.5cqw] -mb-15"}
                         ${FACT_CONTAINER_CLASSNAME}`}
                     style={{ containerType: "inline-size" }}
                 >
@@ -79,7 +92,9 @@ export default function FunFacts() {
                 <div
                     className={`${!isMobile
                         ? "translate-y-[1cqw]"
-                        : "min-[700px]:translate-y-[5cqw] max-[700px]:-translate-x-[7.5cqw] max-[700px]:-mb-20"}
+                        : !isSmaller 
+                            ? "translate-y-[5cqw]"
+                            : "-translate-x-[7.5cqw] -mb-20"}
                         ${FACT_CONTAINER_CLASSNAME}`}
                     style={{ containerType: "inline-size" }}
                 >
@@ -99,7 +114,9 @@ export default function FunFacts() {
                 <div
                     className={`${!isMobile
                         ? "translate-y-[6cqw]"
-                        : "min-[700px]:translate-x-[5cqw] max-[700px]:translate-x-[10cqw]"}
+                        : !isSmaller 
+                            ? "translate-x-[5cqw]"
+                            : "translate-x-[10cqw]"}
                         ${FACT_CONTAINER_CLASSNAME}`}
                     style={{ containerType: "inline-size" }}
                 >

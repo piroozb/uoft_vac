@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import {
     SUBSECTION_BLUE,
 } from "../common/Constants";
@@ -54,28 +56,31 @@ export default function OfficeHours() {
 
                     {/* Make Art */}
                     <div style={{ transform: "translateX(calc(10cqw))" }}>
-                        <img
+                        <Image
                             src="/office-hours-make-art.png"
                             alt="Make art"
                             className={BUBBLE_GRAPHICS_CLASSNAME}
+                            width={100} height={0}
                         />
                     </div>
 
                     {/* Study */}
                     <div style={{ transform: "translateX(calc(-10cqw)) translateY(calc(-2cqw))" }}>
-                        <img
+                        <Image
                             src="/office-hours-study.png"
                             alt="Study"
                             className={BUBBLE_GRAPHICS_CLASSNAME}
+                            width={100} height={0}
                         />
                     </div>
 
                     {/* Socialise */}
                     <div style={{ transform: "translateX(calc(5cqw))" }}>
-                        <img
+                        <Image
                             src="/office-hours-socialise.png"
                             alt="Socialise"
                             className={BUBBLE_GRAPHICS_CLASSNAME}
+                            width={100} height={0}
                         />
                     </div>
                 </div>

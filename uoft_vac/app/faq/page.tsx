@@ -7,7 +7,7 @@ import {
     BARS_CENTRE_GREEN,
     PAGE_BUTTONS_PASSIVE_YELLOW,
 } from "../common/Constants";
-import { useIsMobile } from "../layout/IsMobile";
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import { faqs } from "./FAQs";
 import Question from "./Question";
