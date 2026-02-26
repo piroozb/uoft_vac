@@ -11,7 +11,7 @@ export default function Banner() {
     return (
         <div className="w-screen flex justify-center relative z-10">
             <Image
-                src="/banner-draft.jpg"
+                src="/banner-final.png"
                 alt="Banner"
                 className="w-full object-contain"
                 style={{ transform: `translateX(-${SIDE_DECOR_WIDTH * (1 - offset)}px)` }}
