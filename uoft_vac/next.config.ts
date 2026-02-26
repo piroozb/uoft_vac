@@ -4,9 +4,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
+{
+        protocol: "https",
+        hostname: "scontent.cdninstagram.com", // Base domain
+      },
       {
         protocol: "https",
-        hostname: "scontent-*.cdninstagram.com",
+        hostname: "scontent-*.cdninstagram.com", // Wildcard subdomains
       },
     ],
   },
