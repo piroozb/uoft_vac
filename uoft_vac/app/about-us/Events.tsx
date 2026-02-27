@@ -55,12 +55,19 @@ export default function Events() {
 
                 {/* Row 1 */}
                 <div className="grid grid-cols-3">
-                    {["Themed Events", "Craft Days", "Gallery Visits"].map((label, idx) => (
+                    {[["Themed Events", "events-themed-events.png"], ["Craft Days", "events-craft-days.png"], ["Gallery Visits", ""]].map(([label, imgName], idx) => (
                         <div
                             key={idx}
                             className={EXAMPLE_EVENT_CLASSNAME}
                         >
-                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg relative">
+                                <Image
+                                src={`/${imgName}`}
+                                alt={label}
+                                className="object-contain rounded-lg shadow-lg"
+                                fill
+                            />
+                            </div>
                             {label}
                         </div>
                     ))}
@@ -68,12 +75,19 @@ export default function Events() {
 
                 {/* Row 2 */}
                 <div className="mt-[2cqw] grid grid-cols-3">
-                    {["Workshops", "Virtual Events"].map((label, idx) => (
+                    {[["Workshops", "events-workshops.png"], ["Virtual Events", ""]].map(([label, imgName], idx) => (
                         <div
                             key={idx}
                             className={EXAMPLE_EVENT_CLASSNAME}
                         >
-                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg relative">
+                                <Image
+                                src={`/${imgName}`}
+                                alt={label}
+                                className="object-contain rounded-lg shadow-lg"
+                                fill
+                            />
+                            </div>
                             {label}
                         </div>
                     ))}
