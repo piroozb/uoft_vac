@@ -12,34 +12,33 @@ export function EmailLink({ size } : { size: number }) {
     const [hovered, setHovered] = useState(false);
     const [imgError, setImgError] = useState(false);
 
-    const imageSrc = hovered ? "/email-hovered.png" : "/email.png";
-
-    // If image doesn't load, use TextLink instead.
-    if (imgError) {
+    // Return image if loaded successfully.
+    if (!imgError) {
         return (
-            <TextLink
-                text="utvisualartclub@gmail.com"
+            <a
                 href={EMAIL_LINK}
-                style={{ fontSize: size * .5 }}
-            />
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+            >
+                <Image
+                    src={hovered ? "/email-hovered.png" : "/email.png"}
+                    alt="utvisualartclub@gmail.com"
+                    width={size * 7.5} height={0}
+                    onError={() => setImgError(true)}
+                />
+            </a>
         );
     }
 
+    // If load error, use TextLink.
     return (
-        <a
+        <TextLink
+            text="utvisualartclub@gmail.com"
             href={EMAIL_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-        >
-            <Image
-                src={imageSrc}
-                alt="utvisualartclub@gmail.com"
-                width={size * 7.5} height={0}
-                onError={() => setImgError(true)}
-            />
-        </a>
+            style={{ fontSize: size * .5 }}
+        />
     );
 }
 

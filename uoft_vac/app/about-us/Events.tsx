@@ -18,7 +18,7 @@ import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import HoverShrink from "../common/HoverShrink";
 
-const EXAMPLE_EVENT_CLASSNAME = "gap-[1cqw] text-[3cqw] flex flex-col items-center font-medium text-center";
+const EXAMPLE_EVENT_CLASSNAME = "gap-[1cqw] text-[max(3cqw,.8rem)] flex flex-col items-center font-medium text-center";
 const PURP_BUTTON_CLASSNAME = "px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] block rounded-lg shadow-lg text-white";
 const PURP_BUTTON_CLASSNAME_MOBILE_ADD = "text-center";
 

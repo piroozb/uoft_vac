@@ -13,8 +13,8 @@ export const BARS_EDGES_GREEN = "rgb(0,178,25)";
 export const BARS_CENTRE_GREEN = "rgb(53,228,78)";
 export const BARS_STYLE_GRADIENT = {background: `linear-gradient(to right,
     ${BARS_EDGES_GREEN} 0%,
-    ${BARS_CENTRE_GREEN} 33.3%,
-    ${BARS_CENTRE_GREEN} 66.6%,
+    ${BARS_CENTRE_GREEN} 35%,
+    ${BARS_CENTRE_GREEN} 65%,
     ${BARS_EDGES_GREEN} 100%
 )`} as const;
 export const PAGE_BUTTONS_PASSIVE_YELLOW = "rgb(255,254,176)";
@@ -39,4 +39,4 @@ export const SIDE_DECOR_MIN = 1000;
 export const SIDE_DECOR_MAX = 1500;
 export const SIDE_DECOR_WIDTH = 150;
 
-export const EASE_OUT = [.25, 1, .5, 1] as const;
+export const COMMON_EASE_OUT = [.25, 1, .5, 1] as const;

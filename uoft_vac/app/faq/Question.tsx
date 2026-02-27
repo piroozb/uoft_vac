@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import {
     BARS_EDGES_GREEN,
-    EASE_OUT,
+    COMMON_EASE_OUT,
 } from "../common/Constants";
 import { ExpandableText } from "../common/ExpandableText";
 
 const ROTATION_MAG = 72;
 const STAR_TRANSF_CLASSNAME = "absolute inset-0";
-const STAR_TRANSF = { duration: .3, ease: EASE_OUT };
+const STAR_TRANSF = { duration: .3, ease: COMMON_EASE_OUT };
 const STAR_CLASSNAME = "object-contain";
 
 export default function Question({
@@ -33,19 +33,19 @@ export default function Question({
 
         // Hitbox container
         <div
-            className="p-5 cursor-pointer"
+            className="p-[1cqw] gap-5 flex flex-col cursor-pointer"
             onClick={onClick}
             style={{ borderTop: index === 0
                     ? "none" : `1px solid ${BARS_EDGES_GREEN}`, }}
         >
 
             {/* Question */}
-            <div className="mb-5 gap-5 text-[min(1.5rem,3.5cqw)] grid grid-cols-[1fr_auto] font-semibold">
+            <div className="gap-5 text-[min(1.5rem,3.5cqw)] grid grid-cols-[1fr_auto] font-semibold">
 
                 {question}
 
                 {/* Star icon */}
-                <div className="w-7.5 h-7.5 relative overflow-visible">
+                <div className="w-[min(2.5rem,5cqw)] aspect-square relative overflow-visible">
                     <AnimatePresence>
                         <motion.div
                             key={isExpanded ? "expanded" : "collapsed"}
@@ -80,7 +80,7 @@ export default function Question({
                     maxHeight: isExpanded ? fullHeight : 0,
                     opacity: isExpanded ? 1 : 0,
                 }}
-                transition={{ duration: .5, ease: EASE_OUT }}
+                transition={{ duration: .5, ease: COMMON_EASE_OUT }}
                 className="overflow-hidden"
             >
                 <p className="text-[min(1.25rem,3cqw)]">

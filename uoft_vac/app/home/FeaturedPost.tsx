@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import {
     INSTAGRAM_LINK,
-    EASE_OUT,
+    COMMON_EASE_OUT,
 } from "../common/Constants";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
@@ -63,6 +63,8 @@ export default function FeaturedPost() {
             timestampText = "Just now";
     }
 
+    const TEXT_MARGIN_X = !isMobile ? "" : "mx-[5cqw]";
+
     return (
         <section
             className="mt-5 flex flex-col items-center"
@@ -75,7 +77,7 @@ export default function FeaturedPost() {
             <div
                 className={`mt-10 grid ${!isMobile
                     ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
-                    : "m-10 gap-10"}`}
+                    : "gap-10"}`}
             >
 
                 {/* Expandable image carousel */}
@@ -83,23 +85,21 @@ export default function FeaturedPost() {
                     <ExpandableImageCarousel
                         images={images}
                         alt="Featured Post"
-                        normalSize="w-[clamp(0rem,25rem,70vw)]"
+                        normalSize="w-[min(25rem,100cqw)]"
                     />
                 )}
 
                 <div>
 
                     {/* Caption */}
-                    <div className="text-left text-[1.25rem]">
+                    <div className={`${TEXT_MARGIN_X} text-left text-[min(1.25rem,3cqw)]`}>
                         <motion.div
                             ref={ref}
                             className="overflow-hidden whitespace-pre-line"
-                            transition={{ duration: .5, ease: EASE_OUT }}
-                            animate={{
-                                maxHeight: captionExpanded
-                                    ? fullHeight
-                                    : CAPTION_COLLAPSED_HEIGHT
-                            }}
+                            transition={{ duration: .5, ease: COMMON_EASE_OUT }}
+                            animate={{ maxHeight: captionExpanded
+                                ? fullHeight
+                                : CAPTION_COLLAPSED_HEIGHT }}
                         >
                             {captionText}
                         </motion.div>
@@ -116,7 +116,7 @@ export default function FeaturedPost() {
                     </div>
 
                     {/* Timestamp */}
-                    <p className="mt-5 text-[1rem] text-gray-500">
+                    <p className={`mt-5 ${TEXT_MARGIN_X} text-[min(1rem,3cqw)] text-gray-500`}>
                         {timestampText}
                     </p>
                 </div>
@@ -124,7 +124,7 @@ export default function FeaturedPost() {
 
             {/* Wanna see more? */}
             <div
-                className={`mx-10 text-[1.5rem]
+                className={`m-10 mb-0 text-[min(1.5rem,4cqw)]
                 ${!isMobile && "mt-10"}`}
             >
                 <p>
