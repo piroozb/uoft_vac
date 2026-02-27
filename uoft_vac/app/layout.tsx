@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
+
 import "./globals.css";
+import type { Metadata } from "next";
 import { Fredoka } from "next/font/google";
 
 import {
-  BG_LIGHT_GREEN,
-  BARS_EDGES_DARK_GREEN,
-  BARS_CENTRE_GREEN
+  BG_GREEN,
+  BARS_STYLE_GRADIENT,
 } from "./common/Constants";
-
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import ClientSideDecor from "./layout/ClientSideDecor";
@@ -25,7 +24,7 @@ const fredoka = Fredoka({
   variable: "--font-fredoka",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children } : { children: React.ReactNode }) {
   return (
     <html lang="en" className={fredoka.variable}>
       <head>
@@ -34,50 +33,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body className="antialiased relative overflow-x-hidden">
 
-        {/* Top Navbar overscroll gradient */}
+        {/* Overscroll gradient */}
         <div
-          className="fixed top-0 left-0 w-full h-[40vh] -z-10"
-          style={{
-            background: `linear-gradient(
-              to right,
-              ${BARS_EDGES_DARK_GREEN} 0%,
-              ${BARS_CENTRE_GREEN} 33.3%,
-              ${BARS_CENTRE_GREEN} 66.6%,
-              ${BARS_EDGES_DARK_GREEN} 100%
-            )`,
-          }}
-        />
-
-        {/* Bottom Footer overscroll gradient */}
-        <div
-          className="fixed bottom-0 left-0 w-full h-[40vh] -z-10"
-          style={{
-            background: `linear-gradient(
-              to right,
-              ${BARS_EDGES_DARK_GREEN} 0%,
-              ${BARS_CENTRE_GREEN} 33.3%,
-              ${BARS_CENTRE_GREEN} 66.6%,
-              ${BARS_EDGES_DARK_GREEN} 100%
-            )`,
-          }}
+          className="w-full h-full fixed -z-10"
+          style={BARS_STYLE_GRADIENT}
         />
 
         <WindowOffsetProvider>
-          {/* Light green main background */}
+
+          {/* Background */}
           <div
             className="antialiased main-content"
-            style={{ backgroundColor: BG_LIGHT_GREEN }}
+            style={{ backgroundColor: BG_GREEN }}
           >
+
+            {/* Layout */}
             <Navbar />
 
-            {/* Content automatically expands or shrinks with side decor */}
-            <ContentPanel>
-              {children}
-            </ContentPanel>
+            <ContentPanel>{children}</ContentPanel>
 
             <Footer />
 
-            {/* Side decor now reads the same offset as ContentPanel */}
             <ClientSideDecor />
           </div>
         </WindowOffsetProvider>

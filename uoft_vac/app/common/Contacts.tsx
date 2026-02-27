@@ -1,29 +1,26 @@
 "use client";
 
-import { FaDiscord, FaInstagram } from "react-icons/fa";
-import { useState, ReactElement } from "react";
+import Image from "next/image";
+import { useState } from "react";
 
 import { EMAIL_LINK, DISCORD_LINK, INSTAGRAM_LINK } from "./Constants";
 import TextLink from "./TextLink";
+import HoverShrink from "./HoverShrink";
 
 // Club's email with link.
-interface EmailLinkProps {
-    size: number;
-}
-
-export function EmailLink({ size }: EmailLinkProps) {
+export function EmailLink({ size } : { size: number }) {
     const [hovered, setHovered] = useState(false);
     const [imgError, setImgError] = useState(false);
 
     const imageSrc = hovered ? "/email-hovered.png" : "/email.png";
 
-    // If images don't load, use TextLink instead.
+    // If image doesn't load, use TextLink instead.
     if (imgError) {
         return (
             <TextLink
                 text="utvisualartclub@gmail.com"
                 href={EMAIL_LINK}
-                style={{ fontSize: size * 0.5 }}
+                style={{ fontSize: size * .5 }}
             />
         );
     }
@@ -35,54 +32,19 @@ export function EmailLink({ size }: EmailLinkProps) {
             rel="noopener noreferrer"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            style={{
-                display: "inline-flex",
-                alignItems: "center",
-                textDecoration: "none",
-            }}
         >
-            <img
+            <Image
                 src={imageSrc}
                 alt="utvisualartclub@gmail.com"
+                width={size * 7.5} height={0}
                 onError={() => setImgError(true)}
-                style={{ width: size * 7.5 }}
             />
         </a>
     );
 }
 
-// Circle icon component (for Discord & Instagram icons).
-interface CircleIconProps {
-    icon: ReactElement;
-    bgColor: string;
-    size: number;
-}
-
-export function CircleIcon({ icon, bgColor, size }: CircleIconProps) {
-    return (
-        <div
-            className="rounded-full flex items-center justify-center"
-            style={{
-                backgroundColor: bgColor,
-                width: size,
-                height: size,
-            }}
-        >
-            {icon && (
-                <span className="text-white" style={{ fontSize: size * .7 }}>
-                    {icon}
-                </span>
-            )}
-        </div>
-    );
-}
-
 // Discord icon with invite link.
-interface DiscordIconProps {
-    size: number;
-}
-
-export function DiscordIcon({ size }: DiscordIconProps) {
+export function DiscordIcon({ size } : { size: number }) {
     return (
         <a
             href={DISCORD_LINK}
@@ -90,17 +52,20 @@ export function DiscordIcon({ size }: DiscordIconProps) {
             rel="noopener noreferrer"
             aria-label="Discord"
         >
-            <CircleIcon icon={<FaDiscord />} bgColor="#3b82f6" size={size} /> {/* Blue */}
+            <HoverShrink>
+                <Image
+                    src="/discord-logo.png"
+                    alt="Discord"
+                    className="object-contain"
+                    width={size} height={0}
+                />
+            </HoverShrink>
         </a>
     );
 }
 
 // Instagram icon with account link.
-interface InstagramIconProps {
-    size: number;
-}
-
-export function InstagramIcon({ size }: InstagramIconProps) {
+export function InstagramIcon({ size } : { size: number }) {
     return (
         <a
             href={INSTAGRAM_LINK}
@@ -108,7 +73,14 @@ export function InstagramIcon({ size }: InstagramIconProps) {
             rel="noopener noreferrer"
             aria-label="Instagram"
         >
-            <CircleIcon icon={<FaInstagram />} bgColor="#ec4899" size={size} /> {/* Pink */}
+            <HoverShrink>
+                <Image
+                    src="/instagram-logo.png"
+                    alt="Instagram"
+                    className="object-contain"
+                    width={size} height={0}
+                />
+            </HoverShrink>
         </a>
     );
 }

@@ -1,67 +1,75 @@
-"use client";
+
+import Image from "next/image";
+import { ReactNode, MouseEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
-    ReactNode,
-    MouseEvent,
-    useRef,
-    useState,
-    useLayoutEffect,
-    useEffect,
-} from "react";
-import { motion } from "framer-motion";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+    BARS_EDGES_GREEN,
+    EASE_OUT,
+} from "../common/Constants";
+import { ExpandableText } from "../common/ExpandableText";
 
-import { BARS_EDGES_DARK_GREEN } from "../common/Constants";
+const ROTATION_MAG = 72;
+const STAR_TRANSF_CLASSNAME = "absolute inset-0";
+const STAR_TRANSF = { duration: .3, ease: EASE_OUT };
+const STAR_CLASSNAME = "object-contain";
 
-interface QuestionProps {
+export default function Question({
+    question,
+    answer,
+    isExpanded,
+    onClick,
+    index,
+} : {
     question: string;
     answer: ReactNode;
-    isOpen: boolean;
+    isExpanded: boolean;
     onClick: (e: MouseEvent<HTMLDivElement>) => void;
     index: number;
-}
-
-export default function Question({ question, answer, isOpen, onClick, index }: QuestionProps) {
-    const ref = useRef<HTMLDivElement | null>(null);
-    const [height, setHeight] = useState(0);
-
-    // Additional calculated height for expanded answers.
-    const measureHeight = () => {
-        if (ref.current) {
-            setHeight(ref.current.scrollHeight);
-        }
-    };
-
-    // Measure on expand / collapse.
-    useLayoutEffect(() => {
-        measureHeight();
-    }, [answer]);
-
-    // Measure on window resize.
-    useEffect(() => {
-        if (!isOpen) return;
-
-        window.addEventListener("resize", measureHeight);
-        return () => window.removeEventListener("resize", measureHeight);
-    }, [isOpen]);
+}) {
+    const { ref, fullHeight } = ExpandableText<HTMLDivElement>(isExpanded, 0, [answer]);
 
     return (
+
+        // Hitbox container
         <div
             className="p-5 cursor-pointer"
             onClick={onClick}
-            style={{
-                borderTop: index === 0 ? "none" : `1px solid ${BARS_EDGES_DARK_GREEN}`,
-            }}
+            style={{ borderTop: index === 0
+                    ? "none" : `1px solid ${BARS_EDGES_GREEN}`, }}
         >
-            {/* Question */}
-            <div className="mb-5 flex justify-between items-center">
-                <span className="text-[1.5rem] font-semibold">{question}</span>
 
-                {isOpen ? (
-                    <FaChevronRight className="w-5 h-5" style={{ color: BARS_EDGES_DARK_GREEN }} />
-                ) : (
-                    <FaChevronDown className="w-5 h-5" style={{ color: BARS_EDGES_DARK_GREEN }} />
-                )}
+            {/* Question */}
+            <div className="mb-5 gap-5 text-[min(1.5rem,3.5cqw)] grid grid-cols-[1fr_auto] font-semibold">
+
+                {question}
+
+                {/* Star icon */}
+                <div className="w-7.5 h-7.5 relative overflow-visible">
+                    <AnimatePresence>
+                        <motion.div
+                            key={isExpanded ? "expanded" : "collapsed"}
+                            className={STAR_TRANSF_CLASSNAME}
+                            initial={{
+                                rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
+                                opacity: 0
+                            }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            exit={{
+                                rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
+                                opacity: 0
+                            }}
+                            transition={STAR_TRANSF}
+                        >
+                            <Image
+                                src={isExpanded ? "/faq-star-expanded.png" : "/faq-star-collapsed.png"}
+                                alt={isExpanded ? "Expanded" : "Collapsed"}
+                                className={STAR_CLASSNAME}
+                                fill
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
 
             {/* Expand / collapse */}
@@ -69,14 +77,15 @@ export default function Question({ question, answer, isOpen, onClick, index }: Q
                 ref={ref}
                 initial={false}
                 animate={{
-                    maxHeight: isOpen ? height : 0,
-                    opacity: isOpen ? 1 : 0,
+                    maxHeight: isExpanded ? fullHeight : 0,
+                    opacity: isExpanded ? 1 : 0,
                 }}
-                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+                transition={{ duration: .5, ease: EASE_OUT }}
                 className="overflow-hidden"
             >
-                {/* Answer */}
-                <div className="text-[1.25rem]">{answer}</div>
+                <p className="text-[min(1.25rem,3cqw)]">
+                    {answer}
+                </p>
             </motion.div>
         </div>
     );

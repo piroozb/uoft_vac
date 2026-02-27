@@ -1,33 +1,46 @@
 "use client";
 
+import Image from "next/image";
+
 import {
     INSTAGRAM_LINK,
     SUBSECTION_YELLOW,
     PURP_BUTTONS_PURPLE,
-    PURP_BUTTON_HOVER_YELLOW,
+    PAGE_BUTTONS_PASSIVE_YELLOW,
     PURP_BUTTON_HOVER_GREEN,
-    SUBSECTION_TITLE_SIZE,
 } from "../common/Constants";
+import {
+    SUBSECTIONS_CONTAINER_CLASSNAME,
+    SUBSECTIONS_TITLE_HEIGHT,
+    SUBSECTIONS_TEXT_CLASSNAME,
+} from "./WhatDoWeDo";
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
+import HoverShrink from "../common/HoverShrink";
 
-const TEXT_CLASSNAME = "text-[3.25cqw] text-center";
-const PURP_BUTTON_CLASSNAME =
-    "rounded-2xl px-[2cqw] py-[2cqw] text-[3cqw] text-white shadow-lg transform transition-all duration-300 hover:scale-95";
+const EXAMPLE_EVENT_CLASSNAME = "gap-[1cqw] text-[3cqw] flex flex-col items-center font-medium text-center";
+const PURP_BUTTON_CLASSNAME = "px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] block rounded-lg shadow-lg text-white";
+const PURP_BUTTON_CLASSNAME_MOBILE_ADD = "text-center";
 
 export default function Events() {
+    const isMobile = useIsMobile();
+
     return (
+
+        // Subsection container; coloured rectangle
         <div
-            className="rounded-md shadow-lg"
+            className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
                 backgroundColor: SUBSECTION_YELLOW,
                 containerType: "inline-size",
             }}
         >
+            
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTION_TITLE_SIZE}>Events</SectionTitle>
+            <SectionTitle height={SUBSECTIONS_TITLE_HEIGHT}>Events</SectionTitle>
 
             {/* Overview */}
-            <p className={TEXT_CLASSNAME}>
+            <p className={SUBSECTIONS_TEXT_CLASSNAME}>
                 We host a variety of events every <strong>Friday 3–6pm</strong>.
                 <br />
                 All members can come at any point to relax and hang out.
@@ -43,9 +56,12 @@ export default function Events() {
                 {/* Row 1 */}
                 <div className="grid grid-cols-3">
                     {["Themed Events", "Craft Days", "Gallery Visits"].map((label, idx) => (
-                        <div key={idx} className="flex flex-col items-center">
-                            <div className="w-[20cqw] h-[20cqw] bg-white shadow-md rounded-lg"></div>
-                            <p className="mt-[1cqw] text-[3cqw] font-medium text-center">{label}</p>
+                        <div
+                            key={idx}
+                            className={EXAMPLE_EVENT_CLASSNAME}
+                        >
+                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            {label}
                         </div>
                     ))}
                 </div>
@@ -53,46 +69,71 @@ export default function Events() {
                 {/* Row 2 */}
                 <div className="mt-[2cqw] grid grid-cols-3">
                     {["Workshops", "Virtual Events"].map((label, idx) => (
-                        <div key={idx} className="flex flex-col items-center">
-                            <div className="w-[20cqw] h-[20cqw] bg-white shadow-md rounded-lg"></div>
-                            <p className="mt-[1cqw] text-[3cqw] font-medium text-center">{label}</p>
+                        <div
+                            key={idx}
+                            className={EXAMPLE_EVENT_CLASSNAME}
+                        >
+                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg"></div>
+                            {label}
                         </div>
                     ))}
 
                     {/* And more! */}
                     <div className="flex justify-center items-center">
-                        <img
-                            src="/and-more.png"
-                            alt="AND MORE!"
-                            className="w-[15cqw] h-[15cqw]"
-                        />
+                        <div className="w-[15cqw] -translate-y-[2cqw] aspect-square relative">
+                            <Image
+                                src="/and-more.png"
+                                alt="AND MORE!"
+                                className="object-contain"
+                                fill
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Purple buttons */}
-            <div className="m-[2cqw] gap-[2cqw] grid grid-cols-2 items-center">
+            <div className={`m-[2cqw] gap-[2cqw] ${isMobile ? "flex flex-col" : "grid grid-cols-2"}`}>
 
                 {/* Instagram */}
-                <a
-                    href={INSTAGRAM_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_YELLOW}]`}
-                    style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
-                >
-                    Check out our past events on our Instagram page!
-                </a>
+                <HoverShrink>
+                    <a
+                        href={INSTAGRAM_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${PURP_BUTTON_CLASSNAME}
+                            ${isMobile && PURP_BUTTON_CLASSNAME_MOBILE_ADD}`}
+                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = PAGE_BUTTONS_PASSIVE_YELLOW)
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "")
+                        }
+                    >
+                        Check out our past events on our Instagram page!
+                    </a>
+                </HoverShrink>
+
                 {/* Join us */}
-                <a
-                    href="/join-us"
-                    className={`${PURP_BUTTON_CLASSNAME} hover:text-[${PURP_BUTTON_HOVER_GREEN}]`}
-                    style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
-                >
-                    Feeling inspired?
-                    <br />
-                    Become a member today!
-                </a>
+                <HoverShrink>
+                    <a
+                        href="/join-us"
+                        className={`${PURP_BUTTON_CLASSNAME}
+                            ${isMobile && PURP_BUTTON_CLASSNAME_MOBILE_ADD}`}
+                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                        onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = PURP_BUTTON_HOVER_GREEN)
+                        }
+                        onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "")
+                        }
+                    >
+                        Feeling inspired?{" "}
+                        {isMobile ? <></> : <br/>}
+                        Become a member today!
+                    </a>
+                </HoverShrink>
             </div>
         </div>
     )

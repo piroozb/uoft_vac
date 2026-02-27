@@ -7,17 +7,22 @@ export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6";
 // Colours:
 
 // Layout
-export const BG_LIGHT_GREEN = "rgb(198,255,206)";
+export const BG_GREEN = "rgb(198,255,206)";
 // Navbar & Footer
-export const BARS_EDGES_DARK_GREEN = "rgb(0,178,25)";
+export const BARS_EDGES_GREEN = "rgb(0,178,25)";
 export const BARS_CENTRE_GREEN = "rgb(53,228,78)";
+export const BARS_STYLE_GRADIENT = {background: `linear-gradient(to right,
+    ${BARS_EDGES_GREEN} 0%,
+    ${BARS_CENTRE_GREEN} 33.3%,
+    ${BARS_CENTRE_GREEN} 66.6%,
+    ${BARS_EDGES_GREEN} 100%
+)`} as const;
 export const PAGE_BUTTONS_PASSIVE_YELLOW = "rgb(255,254,176)";
 export const PAGE_BUTTONS_ACTIVE_YELLOW = "rgb(255,253,111)";
 // About Us
 export const SUBSECTION_YELLOW = "rgb(255,206,0)";
 export const SUBSECTION_BLUE = "rgb(0,214,255)";
 export const PURP_BUTTONS_PURPLE = "rgb(80,43,113)";
-export const PURP_BUTTON_HOVER_YELLOW = "rgb(255,254,176)";
 export const PURP_BUTTON_HOVER_GREEN = "rgb(198,255,206)";
 // Join Us
 export const TEXT_LINK_PASSIVE_PURPLE = "rgb(77,0,155)";
@@ -34,6 +39,4 @@ export const SIDE_DECOR_MIN = 1000;
 export const SIDE_DECOR_MAX = 1500;
 export const SIDE_DECOR_WIDTH = 150;
 
-export const SMALL_PAGES_TITLE_SIZE = "8cqw";
-
-export const SUBSECTION_TITLE_SIZE = "7.5cqw";
+export const EASE_OUT = [.25, 1, .5, 1] as const;

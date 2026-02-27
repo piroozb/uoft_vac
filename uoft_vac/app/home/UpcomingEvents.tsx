@@ -1,19 +1,26 @@
 "use client";
 
 import SectionTitle from "../common/SectionTitle";
-import { InstagramEmbed } from 'react-social-media-embed';
+import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
+
 export default function UpcomingEvents() {
     return (
-        <section className="w-full px-4 md:px-8 my-10">
-            {/* Title */}
-            <SectionTitle>Upcoming Events!</SectionTitle>
+        <section className="my-15 flex flex-col items-center">
+
+            {/* Section title */}
+            <SectionTitle
+                src="/title-upcoming-events.png"
+                height={`min(5rem,7cqw)`}
+            >
+                Upcoming Events!
+            </SectionTitle>
 
             {/* Graphic */}
-            <div className="mx-auto mt-8 flex justify-center">
-                <div className="w-full max-w-xs md:max-w-xl">
-                        <InstagramEmbed url="https://www.instagram.com/uoft_vac/" />
-                </div>
-            </div>
+            <ExpandableImageCarousel
+                images={["/event-schedule.png"]}
+                alt="Event Schedule"
+                normalSize="mt-10 w-[min(40rem,85vw)]"
+            />
         </section>
     );
 }

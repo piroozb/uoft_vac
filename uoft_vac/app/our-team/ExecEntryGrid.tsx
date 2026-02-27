@@ -1,20 +1,15 @@
 "use client";
 
 import { execData, ExecDataTypes } from "./ExecData";
-import ExecArtwork from "./ExecArtwork";
-
-const SCALE = 1;
-const ART_WIDTH = 225;
-
-interface ExecEntryGridProps {
-    entryKey: string;
-}
+import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
+import { NAME_OUTLINE_TEXT_SHADOW } from "./page";
 
 export default function ExecEntryGrid({
     entryKey,
-}: ExecEntryGridProps) {
+} : {
+    entryKey: string;
+}) {
     const data: ExecDataTypes = execData[entryKey];
-
     const {
         name = entryKey,
         position,
@@ -27,47 +22,46 @@ export default function ExecEntryGrid({
     return (
         <div
             className="flex flex-col items-center text-center"
-            style={{ ["--SCALE" as any]: SCALE }}
         >
+
             {/* Name */}
             <h2
-                className="
-                    mb-[calc(5px*var(--SCALE))]
-                    text-[calc(50px*var(--SCALE))]
-                    font-bold
-                "
+                className="text-[3rem] font-bold"
                 style={{
                     color: colour,
-                    textShadow: `-1px -1px 0 #000,
-                                 1px -1px 0 #000,
-                                -1px  1px 0 #000,
-                                 1px  1px 0 #000`,
+                    textShadow: NAME_OUTLINE_TEXT_SHADOW,
                 }}
             >
                 {name}
             </h2>
 
             {/* Artwork */}
-            <ExecArtwork name={entryKey} size={ART_WIDTH * SCALE} />
+            <div className="mt-5">
+                <ExpandableImageCarousel
+                    images={[`/exec-artworks/${entryKey}.jpg`]}
+                    alt={`${entryKey}'s Artwork`}
+                    normalSize="w-75"
+                />
+            </div>
 
             {/* Info container */}
             <div>
                 {position && (
-                    <h3 className="mt-[calc(5px*var(--SCALE))] text-[calc(25px*var(--SCALE))] font-bold">
+                    <p className="mt-2.5 text-[1.5rem] font-bold">
                         {position}
-                    </h3>
+                    </p>
                 )}
 
-                <p className={`mt-[calc(${position ? "" : "10"}px*var(--SCALE))] text-[calc(20px*var(--SCALE))]`}>
+                <p className={`${position ? "" : "mt-5"} text-[1.25rem]`}>
                     {study}
                 </p>
 
-                <p className="mt-[calc(5px*var(--SCALE))] text-[calc(20px*var(--SCALE))]">
+                <p className="mt-1 text-[1.25rem]">
                     Favourite medium:<br />
                     {medium}
                 </p>
 
-                <p className="text-[calc(25px*var(--SCALE))] font-bold">
+                <p className="mt-2.5 text-[1.5rem] font-bold">
                     {fact}
                 </p>
             </div>

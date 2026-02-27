@@ -1,6 +1,8 @@
 "use client";
 
-import { SIDE_DECOR_WIDTH } from "../common/Constants";
+import {
+    SIDE_DECOR_WIDTH,
+} from "../common/Constants";
 import { useWindowOffset } from "./WindowOffsetContext";
 
 export default function ContentPanel({ children }: { children: React.ReactNode }) {

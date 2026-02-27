@@ -1,14 +1,18 @@
 "use client";
 
-interface LinkProps {
+export default function TextLink({
+    text,
+    href,
+    style,
+    hoverStyle,
+    stay = false
+} : {
     text: string;
     href: string;
     style?: React.CSSProperties;
     hoverStyle?: React.CSSProperties;
     stay?: boolean;
-}
-
-export default function TextLink({ text, href, style, hoverStyle, stay = false }: LinkProps) {
+}) {
     return (
         <a
             href={href}

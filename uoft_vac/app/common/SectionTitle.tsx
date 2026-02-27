@@ -1,56 +1,44 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
-
-interface SectionTitleProps {
-    children: React.ReactNode;
-    graphic?: string;
-    size?: string;
-    margin?: string;
-}
 
 export default function SectionTitle({
     children,
-    graphic = "",
-    size = "4rem",
-    margin = "",
-}: SectionTitleProps) {
-    const hasGraphic = graphic !== "";
-    const [aspectRatio, setAspectRatio] = useState<number | null>(null);
-
-    useEffect(() => {
-        if (hasGraphic) {
-            const img = new window.Image();
-            img.src = graphic;
-            img.onload = () => {
-                setAspectRatio(img.width / img.height);
-            };
-        }
-    }, [graphic, hasGraphic]);
+    src,
+    height = "min(5rem,10cqw)",
+} : {
+    children: React.ReactNode;
+    src?: string;
+    height?: string;
+}) {
 
     return (
-        <div className={`flex flex-col items-center ${margin}`}>
-            {hasGraphic ? (
+        <div
+            className={`w-full flex flex-col items-center`}
+            style={src ? { height: height } : undefined}
+        >
+
+            {/* If src exists, display image. */}
+            {src ? (
                 <div
-                    className="relative"
-                    style={{
-                        height: size,
-                        width: aspectRatio ? `calc(${size} * ${aspectRatio})` : "auto",
-                    }}
+                    className="relative w-full h-full"
                 >
                     <Image
-                        src={graphic}
-                        alt={`${children}`}
-                        fill
+                        src={src}
+                        alt={typeof children === "string" ? children : "Section title"}
                         className="object-contain"
-                        priority
+                        fill
                     />
                 </div>
+            
+            // Otherwise, display text.
             ) : (
-                <h2 className="font-bold text-center" style={{ fontSize: size }}>
+                <h1
+                    className="font-bold text-center"
+                    style={{ fontSize: height }}
+                >
                     {children}
-                </h2>
+                </h1>
             )}
         </div>
     );

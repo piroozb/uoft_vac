@@ -1,49 +1,52 @@
 "use client";
 
+import Image from "next/image";
+
 import {
     SUBSECTION_BLUE,
-    SUBSECTION_TITLE_SIZE,
 } from "../common/Constants";
+import {
+    SUBSECTIONS_CONTAINER_CLASSNAME,
+    SUBSECTIONS_TITLE_HEIGHT,
+    SUBSECTIONS_TEXT_CLASSNAME
+} from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
-const TEXT_CLASSNAME = "text-[3.25cqw] text-center";
 const BUBBLE_GRAPHICS_CLASSNAME = "w-[25cqw] h-[25cqw]";
 
 export default function OfficeHours() {
     return (
         <div
-            className="w-full rounded-md shadow-lg flex-col"
+            className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
                 backgroundColor: SUBSECTION_BLUE,
                 containerType: "inline-size",
             }}
         >
             {/* Subsection title */}
-            <SectionTitle size={SUBSECTION_TITLE_SIZE}>Office Hours</SectionTitle>
+            <SectionTitle height={SUBSECTIONS_TITLE_HEIGHT}>Office Hours</SectionTitle>
 
             {/* Overview */}
-            <p className={TEXT_CLASSNAME}>
+            <p className={SUBSECTIONS_TEXT_CLASSNAME}>
                 We host office hours every <strong>Monday and Wednesday from 3–6pm</strong>.
                 <br />
                 Be sure to check our <strong>Discord announcements</strong> for additional office hours!
             </p>
 
-            <div className="grid grid-cols-[auto_1fr]">
+            <div className="mt-2.5 grid grid-cols-[auto_1fr]">
 
                 {/* Video container */}
-                <div className="ml-[2cqw] flex flex-col">
+                <div className={`ml-[2cqw] mb-[2cqw] flex flex-col ${SUBSECTIONS_TEXT_CLASSNAME}`}>
 
-                    <p className={TEXT_CLASSNAME}>
-                        Can't find our office?<br />
-                        Watch this video!
-                    </p>
+                    Can't find our office?<br />
+                    Watch this video!
 
                     {/* Video */}
-                    <div className="mt-[1cqw] rounded-md">
+                    <div className="mt-[1cqw]">
                         <video
                             src="/office-video.mp4"
+                            className="h-[69cqw] rounded-lg shadow-lg"
                             controls
-                            className="h-[69cqw] rounded-md shadow-lg"
                         />
                     </div>
                 </div>
@@ -53,28 +56,31 @@ export default function OfficeHours() {
 
                     {/* Make Art */}
                     <div style={{ transform: "translateX(calc(10cqw))" }}>
-                        <img
+                        <Image
                             src="/office-hours-make-art.png"
                             alt="Make art"
                             className={BUBBLE_GRAPHICS_CLASSNAME}
+                            width={100} height={0}
                         />
                     </div>
 
                     {/* Study */}
                     <div style={{ transform: "translateX(calc(-10cqw)) translateY(calc(-2cqw))" }}>
-                        <img
+                        <Image
                             src="/office-hours-study.png"
                             alt="Study"
                             className={BUBBLE_GRAPHICS_CLASSNAME}
+                            width={100} height={0}
                         />
                     </div>
 
                     {/* Socialise */}
                     <div style={{ transform: "translateX(calc(5cqw))" }}>
-                        <img
+                        <Image
                             src="/office-hours-socialise.png"
                             alt="Socialise"
                             className={BUBBLE_GRAPHICS_CLASSNAME}
+                            width={100} height={0}
                         />
                     </div>
                 </div>

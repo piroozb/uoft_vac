@@ -1,38 +1,80 @@
+"use client";
+
+import Image from "next/image";
+
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
-import { BARS_CENTRE_GREEN } from "../common/Constants";
-
-const VALUES_CLASSNAME =
-    "w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-60 lg:h-60 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full flex items-center justify-center text-white font-bold";
+const VALUES_CLASSNAME = "w-50 relative aspect-square";
 
 export default function OurMission() {
+    const isSmaller = useIsMobile(true);
+
     return (
         <section className="flex flex-col items-center">
 
             {/* Section title */}
             <SectionTitle>Our Mission!</SectionTitle>
 
-            {/* Paint splash */}
-            <div
-                className="mt-5 max-w-4xl rounded-lg"
-                style={{ backgroundColor: BARS_CENTRE_GREEN }}
-            >
+            {/* Mission container */}
+            <div className="w-250 aspect-[3/1.5] flex justify-center items-center relative">
+
+                {/* Paint */}
+                <Image
+                    src="/mission-paint.png"
+                    alt="Our mission"
+                    className="object-contain z-[-1]"
+                    fill
+                />
+
                 {/* Mission statement */}
-                <p className="m-5 text-[1.6rem] text-center">
-                    The <strong>University of Toronto Visual Art Club (UTVAC)</strong> aims to build an
-                    <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
-                    interested in art to develop and express their passion through
-                    <strong> art workshops, exhibits, and socials</strong>. We believe that
-                    <strong> anyone can enjoy art</strong>, and we hope to inspire students who may be hesitant about art
-                    to <strong>discover their creative potentials</strong>.
-                </p>
+                <div className="mx-30 max-w-[90cqw]">
+                    <p className="text-[min(1.6rem,4.5cqw)] z-1 text-center">
+                        The University of Toronto Visual Art Club (UTVAC) aims to build an
+                        <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
+                        interested in art to develop and express their passion through
+                        <strong> art workshops, exhibits, and socials</strong>. We believe that
+                        <strong> anyone can enjoy art</strong>, and we hope to inspire students who may be hesitant about art
+                        to <strong>discover their creative potentials</strong>.
+                    </p>
+                </div>
             </div>
 
-            {/* Values */}
-            <div className="flex gap-[3cqw] mt-10">
-                <div className={`${VALUES_CLASSNAME} bg-red-500`}>Create</div>
-                <div className={`${VALUES_CLASSNAME} bg-yellow-400`}>Share</div>
-                <div className={`${VALUES_CLASSNAME} bg-blue-500`}>Connect</div>
+            {/* Values container */}
+            <div className={`w-[90cqw] ${!isSmaller ?
+                "gap-[5cqw] flex justify-center"
+                : "flex flex-col items-center"}`}
+            >
+
+                {/* Create */}
+                <div className={VALUES_CLASSNAME}>
+                    <Image
+                        src="/values-create.png"
+                        alt="Create"
+                        className={`${isSmaller && "translate-x-[-20cqw]"}`}
+                        fill
+                    />
+                </div>
+
+                {/* Share */}
+                <div className={VALUES_CLASSNAME}>
+                    <Image
+                        src="/values-share.png"
+                        alt="Share"
+                        className={`${isSmaller && "translate-x-[15cqw] translate-y-[-5cqw]"}`}
+                        fill
+                    />
+                </div>
+
+                {/* Connect */}
+                <div className={VALUES_CLASSNAME}>
+                    <Image
+                        src="/values-connect.png"
+                        alt="Connect"
+                        className={`${isSmaller && "translate-x-[-10cqw]"}`}
+                        fill
+                    />
+                </div>
             </div>
         </section>
     );

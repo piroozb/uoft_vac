@@ -7,12 +7,10 @@ import {
     ReactNode,
 } from "react";
 
-type WindowOffsetContextType = {
+const WindowOffsetContext = createContext<{
     offset: number;
     setOffset: (v: number) => void;
-};
-
-const WindowOffsetContext = createContext<WindowOffsetContextType | undefined>(undefined);
+} | undefined>(undefined);
 
 export function WindowOffsetProvider({ children }: { children: ReactNode }) {
     const [offset, setOffset] = useState(0);

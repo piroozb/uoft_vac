@@ -1,111 +1,151 @@
+"use client";
+
+import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
 
-// export default function OurTeam() {
-//     return (
-//         <div className="max-w-4xl mx-auto py-10">
+export const NAME_OUTLINE_TEXT_SHADOW =
+    `-1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px  1px 0 #000,
+    1px  1px 0 #000`;
 
-//             {/* Title */}
-//             <SectionTitle>Meet the Team!</SectionTitle>
+const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-20";
 
-//             {/* Exec categories */}
-//             <div>
-//                 {Object.entries(team).map(([category, members]) => (
-//                     <div key={category}>
+// Exec category specs:
+const EXEC_CATEGORIES_SPECS: Record<string, {
+    members: string[];
+    members_mobile?: string[]; // If none, mobile will use the same order.
+    is_first_right?: boolean; // Default: false
+    titleSrc?: string;
+    titleHeight?: string;
+    containerClassname?: string;
+} >= {
 
-//                         {/* Category title */}
-//                         <SectionTitle size={categorySize} margin={categoryMargin}>
-//                             {category}
-//                         </SectionTitle>
+    "Admin": {
+        members: ["Allison", "Sy", "Jackie"],
+        members_mobile: ["Sy", "Allison", "Jackie"],
+        titleSrc: "admin",
+        containerClassname: "mt-5",
+        titleHeight: `min(6rem,15cqw)`,
+    },
 
-//                         {/* Mapped exec entries */}
-//                         {members.map((name, i) => (
-//                             <ExecEntryList
-//                                 key={name}
-//                                 entryKey={name}
+    "Events": {
+        members: ["Thomas", "Joyce", "Valentine"],
+        titleSrc: "events",
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,15cqw)`,
+        is_first_right: true,
+    },
 
-//                                 // Admin starts left, subsequent categories start right.
-//                                 right={category === "Admin" ? i % 2 === 1 : i % 2 === 0}
-//                             />
-//                         ))}
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// }
+    "Graphics": {
+        members: ["BiewBiew", "Angelia", "Christina"],
+        titleSrc: "graphics",
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,17cqw)`,
+    },
 
-// Grid format entries order (for desktop view)
-const ENTRY_ORDER_GRID = {
-    "Admin": ["Allison", "Sy", "Jackie"],
-    "Events": ["Thomas", "Joyce", "Valentine"],
-    "Graphics": ["BiewBiew", "Angelia", "Christina", "Rachel"],
-    "Marketing": ["Jae", "Nabneel", "Emilio", "Kelvin"],
-    "Webmaster": ["Pirooz", "Sunny"],
-    "Office Manager": ["Lydia", "Alex"],
-};
+    "Marketing": {
+        members: ["Jae", "Nabneel", "Emilio", "Kelvin"],
+        titleSrc: "marketing",
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,15cqw)`,
+        is_first_right: true,
+    },
 
-// Difference: switch Sy and Allison
+    "Webmaster": {
+        members: ["Pirooz", "Sunny"],
+        titleSrc: "webmaster",
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(6rem,12.5cqw)`,
+        is_first_right: true,
+    },
 
-// List format entries order (for mobile view)
-const ENTRY_ORDER_LIST = {
-    "Admin": ["Sy", "Allison", "Jackie"],
-    "Events": ["Thomas", "Joyce", "Valentine"],
-    "Graphics": ["BiewBiew", "Angelia", "Christina", "Rachel"],
-    "Marketing": ["Jae", "Nabneel", "Emilio", "Kelvin"],
-    "Webmaster": ["Pirooz", "Sunny"],
-    "Office Manager": ["Lydia", "Alex"],
-};
-
-// Explicit mapping from the number of entries in a category to the tailwind equivalent (for grid format)
-const COLS_MAP: Record<number, string> = {
-    1: "grid-cols-1",
-    2: "grid-cols-2",
-    3: "grid-cols-3",
-    4: "grid-cols-4",
+    "Office Manager": {
+        members: ["Lydia", "Alex"],
+        titleSrc: "office-manager",
+        containerClassname: CATEGORY_CONTAINER_CLASSNAME_COMMON,
+        titleHeight: `min(7rem,11cqw)`,
+        is_first_right: true,
+    },
 };
 
 export default function OurTeam() {
-    return (
-        <div className="my-5 mx-auto">
-            {/* Page title */}
-            <SectionTitle>Meet the Team!</SectionTitle>
+    const isMobile = useIsMobile();
+    const isSmaller = useIsMobile(true);
 
-            <div>
-                {Object.entries(ENTRY_ORDER_GRID).map(([category, members]) => {
+    return (
+        <div className="mb-15">
+            {Object.entries(EXEC_CATEGORIES_SPECS).map( ([
+                category, {
+                    members,
+                    members_mobile,
+                    is_first_right,
+                    titleSrc,
+                    containerClassname,
+                    titleHeight,
+                }, ]) => {
+
                     const cols = Math.min(members.length, 4);
+                    const mobileMembers = members_mobile ?? members;
 
                     return (
-                        <div key={category}>
-
+                        <div className={containerClassname}>
+                        
                             {/* Category title */}
-                            <div className="my-5">
-                                <SectionTitle size="60px">
-                                    {category}
-                                </SectionTitle>
-                            </div>
-
-                            {/* Entries */}
-                            <div
-                                className={
-                                    `mx-3 gap-10 grid ${cols === 4
-                                        ? "grid-cols-2 min-[1600px]:grid-cols-4"
-                                        : COLS_MAP[cols]
-                                    }`
-                                }
+                            <SectionTitle
+                                src={titleSrc ? `/title-execs-${titleSrc}.png` : undefined}
+                                height={titleHeight}
                             >
-                                {members.map((name) => (
-                                    <ExecEntryGrid
-                                        key={name}
-                                        entryKey={name}
-                                    />
-                                ))}
-                            </div>
+                                {category}
+                            </SectionTitle>
+                
+                            {/* Entries */}
+
+                            {/* DESKTOP VIEW */}
+                            {!isMobile ? (
+                                <div className={`mt-5 mx-3 gap-10 grid ${{
+                                    1: "grid-cols-1",
+                                    2: "grid-cols-2",
+                                    3: "grid-cols-3",
+                                    4: "grid-cols-4 max-[1600px]:grid-cols-2",
+                                }[cols]}`}>
+                                    {members.map((name) => (
+                                        <ExecEntryGrid
+                                            key={name}
+                                            entryKey={name}
+                                        />
+                                    ))}
+                                </div>
+                            
+                            // MOBILE VIEW
+                            ) : (
+                                <div className="mt-10 gap-10 grid">
+                                    {mobileMembers.map((name, index) => (
+
+                                        // Use list format normally.
+                                        !isSmaller ? (
+                                            <ExecEntryList
+                                                key={name}
+                                                entryKey={name}
+                                                isLeft={is_first_right ? ((index % 2 === 1)) : (index % 2 === 0)}
+                                            />
+                                        
+                                        // Revert to grid format for small window width.
+                                        ) : (
+                                            <ExecEntryGrid
+                                                key={name}
+                                                entryKey={name}
+                                            />
+                                        )
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                    );
-                })}
-            </div>
+                    )
+                }
+            )}
         </div>
     );
 }
