@@ -82,11 +82,19 @@ export default function FeaturedPost() {
 
                 {/* Expandable image carousel */}
                 {images && images.length > 0 && (
-                    <ExpandableImageCarousel
-                        images={images}
-                        alt="Featured Post"
-                        normalSize="w-[min(25rem,100cqw)]"
-                    />
+                    <>
+                        <ExpandableImageCarousel
+                            images={images}
+                            alt="Featured Post"
+                            normalSize="w-[min(25rem,100cqw)]"
+                        />
+                        <div className="hidden" aria-hidden="true">
+                            {images.map((src) => (
+                                <img key={src} src={src} />
+                            ))}
+                        </div>
+                    </>
+
                 )}
 
                 <div>

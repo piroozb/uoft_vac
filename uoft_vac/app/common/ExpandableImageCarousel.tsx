@@ -66,14 +66,14 @@ function ImageCarousel({
 
                 {/* Image */}
                 <div
-                    className={`${isExpanded ? "" : `${imageSize} aspect-square rounded-lg shadow-lg`} relative overflow-hidden
+                    className={`${isExpanded ? "w-[60vw] h-[90vh]" : `${imageSize} aspect-square rounded-lg shadow-lg`} relative overflow-hidden
                         ${onImageClick ? "cursor-pointer" : ""}`}
                     onClick={onImageClick}
                 >
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
                             key={index}
-                            className={`${isExpanded ? "" : "absolute"} w-full h-full`}
+                            className={`absolute w-full h-full inset-0 flex items-center justify-center`}
                             custom={direction}
                             variants={{
                                 enter: (dir: number) => ({
@@ -100,8 +100,9 @@ function ImageCarousel({
                                 <Image
                                     src={images[index]}
                                     alt={alt}
-                                    className="object-cover"
+                                    className={isExpanded ? "object-contain" : "object-cover"}
                                     fill
+                                    sizes="90vw"
                                 />
                             )}
                         </motion.div>
@@ -110,6 +111,7 @@ function ImageCarousel({
 
                 {/* Next */}
                 {multipleImages && (
+                    <>
                     <button onClick={handleNext}>
                         <Image
                             src="/carousel-arrow-r.png"
@@ -118,6 +120,7 @@ function ImageCarousel({
                             width={100} height={0}
                         />
                     </button>
+                    </>
                 )}
             </div>
 
