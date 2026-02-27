@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function SectionTitle({
     children,
@@ -11,15 +12,17 @@ export default function SectionTitle({
     src?: string;
     height?: string;
 }) {
+    const [imgError, setImgError] = useState(false);
+    const canShowImg = src && !imgError;
 
     return (
         <div
-            className={`w-full flex flex-col items-center`}
-            style={src ? { height: height } : undefined}
+            className="w-full flex flex-col items-center"
+            style={canShowImg ? { height: height } : undefined}
         >
 
-            {/* If src exists, display image. */}
-            {src ? (
+            {/* Display image if src exists and loaded successfully. */}
+            {canShowImg ? (
                 <div
                     className="relative w-full h-full"
                 >
@@ -28,6 +31,7 @@ export default function SectionTitle({
                         alt={typeof children === "string" ? children : "Section title"}
                         className="object-contain"
                         fill
+                        onError={() => setImgError(true)}
                     />
                 </div>
             

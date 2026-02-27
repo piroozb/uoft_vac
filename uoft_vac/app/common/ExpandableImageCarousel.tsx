@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { EASE_OUT } from "./Constants";
+import { COMMON_EASE_OUT } from "./Constants";
 
 const NAV_BUTTONS_IMAGE_CLASSNAME = "w-7.5 opacity-70 hover:opacity-100";
 
@@ -66,7 +66,7 @@ function ImageCarousel({
 
                 {/* Image */}
                 <div
-                    className={`${isExpanded ? "" : `${imageSize} aspect-square rounded-lg shadow-xl`} relative overflow-hidden
+                    className={`${isExpanded ? "" : `${imageSize} aspect-square rounded-lg shadow-lg`} relative overflow-hidden
                         ${onImageClick ? "cursor-pointer" : ""}`}
                     onClick={onImageClick}
                 >
@@ -87,7 +87,7 @@ function ImageCarousel({
                             initial="enter"
                             animate="center"
                             exit="exit"
-                            transition={{ duration: .25, ease: EASE_OUT }}
+                            transition={{ duration: .25, ease: COMMON_EASE_OUT }}
                         >
                             {isExpanded ? (
                                 <Image
