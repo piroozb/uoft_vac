@@ -15,16 +15,29 @@ import { ExpandableText } from "../common/ExpandableText";
 
 const CAPTION_COLLAPSED_HEIGHT = 400;
 
+const TESTING_IMAGE_CAROUSEL = false; // TOGGLE
+const TEST_IMAGES = ["bg-[rgb(255,255,0)]", "bg-[rgb(255,0,0)]", "bg-[rgb(0,0,255)]"];
+const TEST_CAPTION = "clean my bellay ".repeat(100);
+
 export default function FeaturedPost() {
     const isMobile = useIsMobile();
 
     const [images, setImages] = useState<string[] | null>(null);
-    const [captionText, setCaptionText] = useState<string>("Some words? 🧐");
+    const [captionText, setCaptionText] = useState<string>("Loading Instagram post… 🧐");
     const [timestamp, setTimestamp] = useState<string | null>(null);
     const [captionExpanded, setCaptionExpanded] = useState(false);
 
-    // Fetch data
     useEffect(() => {
+
+        // If testing image carousel, use test objects.
+        if (TESTING_IMAGE_CAROUSEL) {
+            setImages(TEST_IMAGES);
+            setCaptionText(TEST_CAPTION);
+            setTimestamp(null);
+            return;
+        }
+
+        // Otherwise, fetch data.
         fetch("/api/featured-post")
             .then(res => res.json())
             .then(data => {
@@ -44,7 +57,7 @@ export default function FeaturedPost() {
         );
 
     // Timestamp logic
-    let timestampText = "Some time ago? 🧐";
+    let timestampText = "🧐";
 
     if (timestamp) {
         const diff = Date.now() - new Date(timestamp).getTime();
@@ -74,10 +87,9 @@ export default function FeaturedPost() {
             {/* Section title */}
             <SectionTitle>Featured Post!</SectionTitle>
 
-            <div
-                className={`mt-10 grid ${!isMobile
-                    ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
-                    : "gap-10"}`}
+            <div className={`mt-[2cqw] grid ${!isMobile
+                ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
+                : "gap-10"}`}
             >
 
                 {/* Expandable image carousel */}
@@ -87,6 +99,7 @@ export default function FeaturedPost() {
                             images={images}
                             alt="Featured Post"
                             normalSize="w-[min(25rem,100cqw)]"
+                            isTest={TESTING_IMAGE_CAROUSEL}
                         />
                         <div className="hidden" aria-hidden="true">
                             {images.map((src) => (
@@ -94,7 +107,6 @@ export default function FeaturedPost() {
                             ))}
                         </div>
                     </>
-
                 )}
 
                 <div>
