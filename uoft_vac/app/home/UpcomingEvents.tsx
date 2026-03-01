@@ -16,11 +16,13 @@ export default function UpcomingEvents() {
             </SectionTitle>
 
             {/* Graphic */}
-            <ExpandableImageCarousel
-                images={["/event-schedule.png"]}
-                alt="Event Schedule"
-                normalSize="mt-10 w-[min(40rem,85vw)]"
-            />
+            <div className="mt-10">
+                <ExpandableImageCarousel
+                    images={["/event-schedule.png"]}
+                    alt="Event Schedule"
+                    normalSize="w-[min(40rem,85vw)]"
+                />
+            </div>
         </section>
     );
 }
