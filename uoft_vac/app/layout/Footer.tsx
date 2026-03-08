@@ -28,12 +28,12 @@ export default function Footer() {
       >
 
         {/* Email */}
-        <EmailLink size={CONTACTS_SIZE}/>
+        <EmailLink size={CONTACTS_SIZE} />
 
         {/* Discord & Instagram */}
         <div className="mt-5 gap-5 flex justify-center">
-          <DiscordIcon size={CONTACTS_SIZE}/>
-          <InstagramIcon size={CONTACTS_SIZE}/>
+          <DiscordIcon size={CONTACTS_SIZE} />
+          <InstagramIcon size={CONTACTS_SIZE} />
         </div>
       </div>
     </footer>

@@ -4,27 +4,49 @@ import { ReactNode, useState } from "react";
 
 export default function HoverShrink({
     children,
-    scale = .95,
-    duration = 300,
+    hoverScale = .95,
+    hoverDuration = 300,
+    clickScale = .9,
+    clickDuration = 300,
 } : {
     children: ReactNode;
-    scale?: number;
-    duration?: number;
-    className?: string;
+    hoverScale?: number;
+    hoverDuration?: number;
+    clickScale?: number;
+    clickDuration?: number;
     style?: React.CSSProperties;
 }) {
     const [hovered, setHovered] = useState(false);
+    const [pressed, setPressed] = useState(false);
+
+    const scale = pressed
+        ? clickScale
+        : hovered
+            ? hoverScale
+            : 1;
+
+    const duration = pressed
+        ? clickDuration
+        : hoverDuration;
 
     return (
         <div
-            style={{
-                transition: `transform ${duration}ms ease`,
-                transform: hovered ? `scale(${scale})` : "scale(1)",
-            }}
             onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            onMouseLeave={() => {
+                setHovered(false);
+                setPressed(false);
+            }}
+            onMouseDown={() => setPressed(true)}
+            onMouseUp={() => setPressed(false)}
         >
-            {children}
+            <div
+                style={{
+                    transition: `transform ${duration}ms ease`,
+                    transform: `scale(${scale})`,
+                }}
+            >
+                {children}
+            </div>
         </div>
     );
 }

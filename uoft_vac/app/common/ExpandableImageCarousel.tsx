@@ -95,7 +95,7 @@ function ImageCarousel({
                             
                             // Otherwise, use images as usual.
 
-                            // Normal view
+                            // NORMAL VIEW
                             ) : !isExpanded ? (
                                 <Image
                                     src={images[index]}
@@ -104,7 +104,7 @@ function ImageCarousel({
                                     fill
                                 />
                             
-                            // Expanded view
+                            // EXPANDED VIEW
                             ) : (
                                 <Image
                                     src={images[index]}
@@ -194,7 +194,7 @@ export default function ExpandableImageCarousel({
     return (
         <>
 
-            {/* Normal view */}
+            {/* NORMAL VIEW */}
             <ImageCarousel
                 images={images}
                 alt={alt}
@@ -207,11 +207,11 @@ export default function ExpandableImageCarousel({
                 isTest={isTest}
             />
 
-            {/* Expanded view */}
+            {/* EXPANDED VIEW */}
             <AnimatePresence>
                 {expanded && (
                     <motion.div
-                        className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-[101]"
+                        className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-200"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}

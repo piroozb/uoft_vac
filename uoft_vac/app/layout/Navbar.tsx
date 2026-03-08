@@ -9,16 +9,22 @@ import {
     BARS_EDGES_GREEN,
     BARS_STYLE_GRADIENT,
 } from "../common/Constants";
+import {
+    EmailLink,
+    DiscordIcon,
+    InstagramIcon,
+} from "../common/Contacts";
 import { useIsMobile } from "./UseIsMobile";
 import HoverShrink from "../common/HoverShrink";
 
 const DROPDOWN_TRANSF_DURATION = "duration-400";
+const CONTACTS_SIZE = 30;
 
 export default function Navbar() {
-    const mobile = useIsMobile();
+    const isMobile = useIsMobile();
 
     const pathname = usePathname();
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     // Pages
     const links = [
@@ -38,22 +44,22 @@ export default function Navbar() {
             <li key={link.id} className="relative">
 
                 {/* (Mobile) green shroud background */}
-                {mobile && (
+                {isMobile && (
                     <div
-                        className={`absolute inset-0 rounded-4xl blur-2xl
-                            ${open ? "opacity-100" : "opacity-0"} ${DROPDOWN_TRANSF_DURATION}`}
+                        className={`w-40 rounded-4xl blur-2xl absolute inset-0
+                            ${isOpen ? "opacity-100" : "opacity-0"} ${DROPDOWN_TRANSF_DURATION}`}
                         style={{ backgroundColor: BARS_EDGES_GREEN }}
                     />
                 )}
 
                 {/* Buttons */}
                 <HoverShrink>
-                    <Link href={link.href} onClick={() => setOpen(false)}>
+                    <Link href={link.href} onClick={() => setIsOpen(false)}>
                         <Image
                             src={link.img}
                             alt={link.title}
-                            className={`h-25 w-auto object-contain
-                                ${isActive ? "saturate-150" : ""}`}
+                            className={`h-[min(6rem,11cqh)] w-auto object-contain
+                                ${isActive && "saturate-150"}`}
                             height={0}
                             width={100}
                         />
@@ -64,20 +70,31 @@ export default function Navbar() {
     });
 
     // DESKTOP VIEW
-    if (!mobile) {
+    if (!isMobile) {
         return (
+            <div className="grid relative z-100">
 
-            // Bar
-            <nav
-                className="p-1 flex justify-center relative z-100"
-                style={BARS_STYLE_GRADIENT}
-            >
+                {/* Bar */}
+                <nav
+                    className="p-1 flex justify-center"
+                    style={BARS_STYLE_GRADIENT}
+                >
 
-                {/* Buttons row */}
-                <ul className="flex">
-                    {navbarItems}
-                </ul>
-            </nav>
+                    {/* Buttons row */}
+                    <ul className="flex">
+                        {navbarItems}
+                    </ul>
+                </nav>
+
+                {/* Contacts */}
+                <div className="translate-y-[115%] mr-1 gap-2 grid absolute bottom-0 right-0">
+                    <EmailLink size={CONTACTS_SIZE} />
+                    <div className="mr-2 gap-3 flex justify-end">
+                        <DiscordIcon size={CONTACTS_SIZE} />
+                        <InstagramIcon size={CONTACTS_SIZE} />
+                    </div>
+                </div>
+            </div>
         );
     }
 
@@ -86,31 +103,43 @@ export default function Navbar() {
         <>
 
             {/* Clickable zone (whole screen) to hide dropdown */}
-            {open && (
+            {isOpen && (
                 <div
                     className="fixed inset-0 pointer-events-auto z-90"
-                    onClick={() => setOpen(false)}
+                    onClick={() => setIsOpen(false)}
                 />
             )}
 
-            <div className="flex flex-col items-start fixed z-105">
+            <div className="grid fixed z-105">
 
-                {/* Icon */}
-                <HoverShrink>
-                    <button
-                        className="m-5 text-4xl"
-                        onClick={() => setOpen(!open)}
-                    >
-                        ☰
-                    </button>
-                </HoverShrink>
+                <div className="flex">
 
-                {/* Dropdown */}
-                <ul
-                    className={`pl-5 gap-5 top-20 flex flex-col fixed
-                        ${open ? "translate-x-0 pointer-events-auto" : "-translate-x-full pointer-events-none"}
-                        ${DROPDOWN_TRANSF_DURATION}`}
-                    >
+                    {/* Dropdown button */}
+                    <HoverShrink>
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            <Image
+                                src="/navbar-dropdown-button.png"
+                                alt="Dropdown"
+                                className="m-5 object-contain cursor-pointer z-110"
+                                width={50} height={0}
+                            />
+                        </button>
+                    </HoverShrink>
+
+                    {/* Contacts */}
+                    <div className={`pt-5 ml-[5cqw] grid ${!isOpen && "-translate-y-full"} ${DROPDOWN_TRANSF_DURATION} z-110`}>
+                        <EmailLink size={CONTACTS_SIZE} />
+                        <div className="gap-5 flex">
+                            <DiscordIcon size={CONTACTS_SIZE} />
+                            <InstagramIcon size={CONTACTS_SIZE} />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Page buttons column */}
+                <ul className={`pl-5 gap-5 grid ${!isOpen && "-translate-x-full"} ${DROPDOWN_TRANSF_DURATION}`}>
                     {navbarItems}
                 </ul>
             </div>
