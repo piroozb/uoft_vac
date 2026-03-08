@@ -129,7 +129,11 @@ export default function Navbar() {
                     </HoverShrink>
 
                     {/* Contacts */}
-                    <div className={`pt-5 ml-[5cqw] grid ${!isOpen && "-translate-y-full"} ${DROPDOWN_TRANSF_DURATION} z-110`}>
+                    <div className={`pt-5 ml-[max(5rem,15cqw)] grid fixed
+                        ${!isOpen && "-translate-y-full"}
+                        ${DROPDOWN_TRANSF_DURATION}
+                        z-110`}
+                    >
                         <EmailLink size={CONTACTS_SIZE} />
                         <div className="gap-5 flex">
                             <DiscordIcon size={CONTACTS_SIZE} />
@@ -139,7 +143,10 @@ export default function Navbar() {
                 </div>
 
                 {/* Page buttons column */}
-                <ul className={`pl-5 gap-5 grid ${!isOpen && "-translate-x-full"} ${DROPDOWN_TRANSF_DURATION}`}>
+                <ul className={`mt-20 pl-5 gap-5 grid fixed
+                    ${!isOpen && "-translate-x-full"}
+                    ${DROPDOWN_TRANSF_DURATION}`}
+                >
                     {navbarItems}
                 </ul>
             </div>

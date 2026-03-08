@@ -109,7 +109,7 @@ function ImageCarousel({
                                 <Image
                                     src={images[index]}
                                     alt={alt}
-                                    className={`${multipleImages ? "w-auto h-auto" : "w-full h-full"} object-contain`}
+                                    className="w-full h-full object-contain"
                                     width={1000} height={0}
                                 />
                             )}
