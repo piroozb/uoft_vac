@@ -178,7 +178,7 @@ function ImageCarousel({
 
 export default function ExpandableImageCarousel({
     images,
-    alt = "An image… 🧐",
+    alt = "Loading image(s)… 🧐",
     normalSize,
     isTest = false,
 } : {

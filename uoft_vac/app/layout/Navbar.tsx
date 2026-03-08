@@ -24,7 +24,7 @@ export default function Navbar() {
     const isMobile = useIsMobile();
 
     const pathname = usePathname();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     // Pages
     const links = [
@@ -47,14 +47,14 @@ export default function Navbar() {
                 {isMobile && (
                     <div
                         className={`w-40 rounded-4xl blur-2xl absolute inset-0
-                            ${isOpen ? "opacity-100" : "opacity-0"} ${DROPDOWN_TRANSF_DURATION}`}
+                            ${isDropdownOpen ? "opacity-100" : "opacity-0"} ${DROPDOWN_TRANSF_DURATION}`}
                         style={{ backgroundColor: BARS_EDGES_GREEN }}
                     />
                 )}
 
                 {/* Buttons */}
                 <HoverShrink>
-                    <Link href={link.href} onClick={() => setIsOpen(false)}>
+                    <Link href={link.href} onClick={() => setIsDropdownOpen(false)}>
                         <Image
                             src={link.img}
                             alt={link.title}
@@ -103,10 +103,10 @@ export default function Navbar() {
         <>
 
             {/* Clickable zone (whole screen) to hide dropdown */}
-            {isOpen && (
+            {isDropdownOpen && (
                 <div
-                    className="fixed inset-0 pointer-events-auto z-90"
-                    onClick={() => setIsOpen(false)}
+                    className="fixed inset-0 z-90"
+                    onClick={() => setIsDropdownOpen(false)}
                 />
             )}
 
@@ -117,7 +117,7 @@ export default function Navbar() {
                     {/* Dropdown button */}
                     <HoverShrink>
                         <button
-                            onClick={() => setIsOpen(!isOpen)}
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         >
                             <Image
                                 src="/navbar-dropdown-button.png"
@@ -129,13 +129,13 @@ export default function Navbar() {
                     </HoverShrink>
 
                     {/* Contacts */}
-                    <div className={`pt-5 ml-[max(5rem,15cqw)] grid fixed
-                        ${!isOpen && "-translate-y-full"}
+                    <div className={`pt-5 ml-[max(5rem,15cqw)] gap-2 grid fixed
+                        ${!isDropdownOpen && "-translate-y-full"}
                         ${DROPDOWN_TRANSF_DURATION}
                         z-110`}
                     >
                         <EmailLink size={CONTACTS_SIZE} />
-                        <div className="gap-5 flex">
+                        <div className="ml-2 gap-3 flex">
                             <DiscordIcon size={CONTACTS_SIZE} />
                             <InstagramIcon size={CONTACTS_SIZE} />
                         </div>
@@ -143,8 +143,8 @@ export default function Navbar() {
                 </div>
 
                 {/* Page buttons column */}
-                <ul className={`mt-20 pl-5 gap-5 grid fixed
-                    ${!isOpen && "-translate-x-full"}
+                <ul className={`mt-20 pl-5 gap-[min(1rem,2cqh)] grid fixed
+                    ${!isDropdownOpen && "-translate-x-full"}
                     ${DROPDOWN_TRANSF_DURATION}`}
                 >
                     {navbarItems}
