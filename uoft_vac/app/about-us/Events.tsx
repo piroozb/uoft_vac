@@ -16,9 +16,10 @@ import {
 } from "./WhatDoWeDo";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
-import HoverShrink from "../common/HoverShrink";
+import DynamicButton from "../common/DynamicButton";
 
-const EXAMPLE_EVENT_CLASSNAME = "gap-[1cqw] text-[max(3cqw,.8rem)] flex flex-col items-center font-medium text-center";
+const EXAMPLE_EVENT_ROW_CLASSNAME = "gap-[1cqw] text-[max(3cqw,.8rem)] flex flex-col items-center font-medium text-center";
+const EXAMPLE_EVENT_IMG_CLASSNAME = "w-[20cqw] aspect-square rounded-lg shadow-lg relative";
 const PURP_BUTTON_CLASSNAME = "px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] block rounded-lg shadow-lg text-white";
 const PURP_BUTTON_CLASSNAME_MOBILE_ADD = "text-center";
 
@@ -55,19 +56,21 @@ export default function Events() {
 
                 {/* Row 1 */}
                 <div className="grid grid-cols-3">
-                    {[["Themed Events", "events-themed-events.png"], ["Craft Days", "events-craft-days.png"], ["Gallery Visits", ""]].map(([label, imgName], idx) => (
+                    {[
+                        ["Themed Events", "/events-themed-events.png"],
+                        ["Craft Days", "/events-craft-days.png"],
+                        ["Gallery Visits", "/events-gallery-visits.png"]
+                    ].map(([label, src], idx) => (
                         <div
                             key={idx}
-                            className={EXAMPLE_EVENT_CLASSNAME}
+                            className={EXAMPLE_EVENT_ROW_CLASSNAME}
                         >
-                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg relative">
-                                <Image
-                                src={`/${imgName}`}
+                            <Image
+                                src={src}
                                 alt={label}
-                                className="object-contain rounded-lg shadow-lg"
-                                fill
+                                className={EXAMPLE_EVENT_IMG_CLASSNAME}
+                                width={100} height={0}
                             />
-                            </div>
                             {label}
                         </div>
                     ))}
@@ -75,19 +78,20 @@ export default function Events() {
 
                 {/* Row 2 */}
                 <div className="mt-[2cqw] grid grid-cols-3">
-                    {[["Workshops", "events-workshops.png"], ["Virtual Events", ""]].map(([label, imgName], idx) => (
+                    {[
+                        ["Workshops", "/events-workshops.png"],
+                        ["Virtual Events", "/events-virtual-events.png"]]
+                        .map(([label, src], idx) => (
                         <div
                             key={idx}
-                            className={EXAMPLE_EVENT_CLASSNAME}
+                            className={EXAMPLE_EVENT_ROW_CLASSNAME}
                         >
-                            <div className="w-[20cqw] aspect-square bg-white rounded-lg shadow-lg relative">
-                                <Image
-                                src={`/${imgName}`}
+                            <Image
+                                src={src}
                                 alt={label}
-                                className="object-contain rounded-lg shadow-lg"
-                                fill
+                                className={EXAMPLE_EVENT_IMG_CLASSNAME}
+                                width={100} height={0}
                             />
-                            </div>
                             {label}
                         </div>
                     ))}
@@ -110,7 +114,7 @@ export default function Events() {
             <div className={`m-[2cqw] gap-[2cqw] ${isMobile ? "flex flex-col" : "grid grid-cols-2"}`}>
 
                 {/* Instagram */}
-                <HoverShrink>
+                <DynamicButton>
                     <a
                         href={INSTAGRAM_LINK}
                         target="_blank"
@@ -127,10 +131,10 @@ export default function Events() {
                     >
                         Check out our past events on our Instagram page!
                     </a>
-                </HoverShrink>
+                </DynamicButton>
 
                 {/* Join us */}
-                <HoverShrink>
+                <DynamicButton>
                     <a
                         href="/join-us"
                         className={`${PURP_BUTTON_CLASSNAME}
@@ -147,7 +151,7 @@ export default function Events() {
                         {isMobile ? <></> : <br/>}
                         Become a member today!
                     </a>
-                </HoverShrink>
+                </DynamicButton>
             </div>
         </div>
     )

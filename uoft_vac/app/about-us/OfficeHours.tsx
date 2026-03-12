@@ -55,17 +55,17 @@ export default function OfficeHours() {
                 <div className="flex flex-col items-center">
 
                     {/* Make Art */}
-                    <div style={{ transform: "translateX(calc(10cqw))" }}>
+                    <div className="translate-x-[10cqw]">
                         <Image
                             src="/office-hours-make-art.png"
-                            alt="Make art"
+                            alt="Make Art"
                             className={BUBBLE_GRAPHICS_CLASSNAME}
                             width={100} height={0}
                         />
                     </div>
 
                     {/* Study */}
-                    <div style={{ transform: "translateX(calc(-10cqw)) translateY(calc(-2cqw))" }}>
+                    <div className="translate-x-[-10cqw] translate-y-[-2cqw]">
                         <Image
                             src="/office-hours-study.png"
                             alt="Study"
@@ -75,7 +75,7 @@ export default function OfficeHours() {
                     </div>
 
                     {/* Socialise */}
-                    <div style={{ transform: "translateX(calc(5cqw))" }}>
+                    <div className="translate-x-[5cqw]">
                         <Image
                             src="/office-hours-socialise.png"
                             alt="Socialise"

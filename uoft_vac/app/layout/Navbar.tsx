@@ -15,7 +15,7 @@ import {
     InstagramIcon,
 } from "../common/Contacts";
 import { useIsMobile } from "./UseIsMobile";
-import HoverShrink from "../common/HoverShrink";
+import DynamicButton from "../common/DynamicButton";
 
 const DROPDOWN_TRANSF_DURATION = "duration-400";
 const CONTACTS_SIZE = 30;
@@ -53,7 +53,7 @@ export default function Navbar() {
                 )}
 
                 {/* Buttons */}
-                <HoverShrink>
+                <DynamicButton>
                     <Link href={link.href} onClick={() => setIsDropdownOpen(false)}>
                         <Image
                             src={link.img}
@@ -64,7 +64,7 @@ export default function Navbar() {
                             width={100}
                         />
                     </Link>
-                </HoverShrink>
+                </DynamicButton>
             </li>
         );
     });
@@ -115,7 +115,7 @@ export default function Navbar() {
                 <div className="flex">
 
                     {/* Dropdown button */}
-                    <HoverShrink>
+                    <DynamicButton>
                         <button
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         >
@@ -126,7 +126,7 @@ export default function Navbar() {
                                 width={50} height={0}
                             />
                         </button>
-                    </HoverShrink>
+                    </DynamicButton>
 
                     {/* Contacts */}
                     <div className={`pt-5 ml-[max(5rem,15cqw)] gap-2 grid fixed

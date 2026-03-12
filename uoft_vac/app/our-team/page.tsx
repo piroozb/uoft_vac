@@ -5,12 +5,6 @@ import SectionTitle from "../common/SectionTitle";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
 
-export const NAME_OUTLINE_TEXT_SHADOW =
-    `-1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px  1px 0 #000,
-    1px  1px 0 #000`;
-
 const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-20";
 
 // Exec category specs:
@@ -70,6 +64,12 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
         is_first_right: true,
     },
 };
+
+export const NAME_OUTLINE_TEXT_SHADOW =
+    `-1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px  1px 0 #000,
+    1px  1px 0 #000`;
 
 export default function OurTeam() {
     const isMobile = useIsMobile();

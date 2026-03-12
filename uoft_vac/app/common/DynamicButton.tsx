@@ -2,7 +2,7 @@
 
 import { ReactNode, useState } from "react";
 
-export default function HoverShrink({
+export default function DynamicButton({
     children,
     hoverScale = .95,
     hoverDuration = 300,

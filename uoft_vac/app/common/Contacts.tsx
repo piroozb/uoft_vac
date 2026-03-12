@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { EMAIL_LINK, DISCORD_LINK, INSTAGRAM_LINK } from "./Constants";
 import TextLink from "./TextLink";
-import HoverShrink from "./HoverShrink";
+import DynamicButton from "./DynamicButton";
 
 // Club's email with link.
 export function EmailLink({ size } : { size: number }) {
@@ -51,14 +51,14 @@ export function DiscordIcon({ size } : { size: number }) {
             rel="noopener noreferrer"
             aria-label="Discord"
         >
-            <HoverShrink>
+            <DynamicButton>
                 <Image
                     src="/discord-logo.png"
                     alt="Discord"
                     className="object-contain"
                     width={size} height={0}
                 />
-            </HoverShrink>
+            </DynamicButton>
         </a>
     );
 }
@@ -72,14 +72,14 @@ export function InstagramIcon({ size } : { size: number }) {
             rel="noopener noreferrer"
             aria-label="Instagram"
         >
-            <HoverShrink>
+            <DynamicButton>
                 <Image
                     src="/instagram-logo.png"
                     alt="Instagram"
                     className="object-contain"
                     width={size} height={0}
                 />
-            </HoverShrink>
+            </DynamicButton>
         </a>
     );
 }

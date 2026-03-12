@@ -85,7 +85,12 @@ export default function FeaturedPost() {
         >
 
             {/* Section title */}
-            <SectionTitle>Featured Post!</SectionTitle>
+            <SectionTitle
+                src="/title-featured-post.png"
+                height="20rem"
+            >
+                Featured Post!
+            </SectionTitle>
 
             <div className={`mt-[2cqw] grid ${!isMobile
                 ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
@@ -101,6 +106,8 @@ export default function FeaturedPost() {
                             normalSize="w-[min(25rem,100cqw)]"
                             isTest={TESTING_IMAGE_CAROUSEL}
                         />
+
+                        {/* Preload images. */}
                         <div className="hidden" aria-hidden="true">
                             {images.map((src) => (
                                 <img key={src} src={src} />

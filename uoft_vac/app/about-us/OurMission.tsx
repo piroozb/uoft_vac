@@ -5,8 +5,6 @@ import Image from "next/image";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
-const VALUES_CLASSNAME = "w-50 relative aspect-square";
-
 export default function OurMission() {
     const isSmaller = useIsMobile(true);
 
@@ -38,43 +36,53 @@ export default function OurMission() {
                         to <strong>discover their creative potentials</strong>.
                     </p>
                 </div>
+
+                {/* Frodo left */}
+                <Image
+                    src="/frodo-abstract1.png"
+                    alt="Frodo Abstract 1"
+                    className="absolute left-[-2%] top-1/2"
+                    width={140} height={0}
+                />
+
+                {/* Frodo right */}
+                <Image
+                    src="/frodo-abstract2.png"
+                    alt="Frodo Abstract 2"
+                    className="translate-x-10 absolute right-0 bottom-1/2"
+                    width={160} height={0}
+                />
             </div>
 
             {/* Values container */}
-            <div className={`w-[90cqw] ${!isSmaller ?
+            <div className={`${!isSmaller ?
                 "gap-[5cqw] flex justify-center"
                 : "flex flex-col items-center"}`}
             >
 
                 {/* Create */}
-                <div className={VALUES_CLASSNAME}>
-                    <Image
-                        src="/values-create.png"
-                        alt="Create"
-                        className={`${isSmaller && "translate-x-[-20cqw]"}`}
-                        fill
-                    />
-                </div>
+                <Image
+                    src="/values-create.png"
+                    alt="Create"
+                    className={isSmaller ? "translate-x-[-20cqw]" : undefined}
+                    width={200} height={0}
+                />
 
                 {/* Share */}
-                <div className={VALUES_CLASSNAME}>
-                    <Image
-                        src="/values-share.png"
-                        alt="Share"
-                        className={`${isSmaller && "translate-x-[15cqw] translate-y-[-5cqw]"}`}
-                        fill
-                    />
-                </div>
+                <Image
+                    src="/values-share.png"
+                    alt="Share"
+                    className={isSmaller ? "translate-x-[15cqw] translate-y-[-5cqw]" : undefined}
+                    width={200} height={0}
+                />
 
                 {/* Connect */}
-                <div className={VALUES_CLASSNAME}>
-                    <Image
-                        src="/values-connect.png"
-                        alt="Connect"
-                        className={`${isSmaller && "translate-x-[-10cqw]"}`}
-                        fill
-                    />
-                </div>
+                <Image
+                    src="/values-connect.png"
+                    alt="Connect"
+                    className={isSmaller ? "translate-x-[-10cqw]" : undefined}
+                    width={200} height={0}
+                />
             </div>
         </section>
     );
