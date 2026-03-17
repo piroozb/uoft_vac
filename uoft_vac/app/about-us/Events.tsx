@@ -18,8 +18,8 @@ import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import DynamicButton from "../common/DynamicButton";
 
-const EXAMPLE_EVENT_ROW_CLASSNAME = "gap-[1cqw] text-[max(3cqw,.8rem)] flex flex-col items-center font-medium text-center";
-const EXAMPLE_EVENT_IMG_CLASSNAME = "w-[20cqw] aspect-square rounded-lg shadow-lg relative";
+const EVENT_GRAPHICS_ROW_CLASSNAME = "gap-[1cqw] text-[max(3cqw,.8rem)] flex flex-col items-center font-medium text-center";
+const EVENT_GRAPHICS_DIV_CLASSNAME = "w-[20cqw] aspect-square border-2 rounded-lg shadow-lg relative overflow-hidden";
 const PURP_BUTTON_CLASSNAME = "px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] block rounded-lg shadow-lg text-white";
 const PURP_BUTTON_CLASSNAME_MOBILE_ADD = "text-center";
 
@@ -63,14 +63,15 @@ export default function Events() {
                     ].map(([label, src], idx) => (
                         <div
                             key={idx}
-                            className={EXAMPLE_EVENT_ROW_CLASSNAME}
+                            className={EVENT_GRAPHICS_ROW_CLASSNAME}
                         >
-                            <Image
-                                src={src}
-                                alt={label}
-                                className={EXAMPLE_EVENT_IMG_CLASSNAME}
-                                width={100} height={0}
-                            />
+                            <div className={EVENT_GRAPHICS_DIV_CLASSNAME}>
+                                <Image
+                                    src={src}
+                                    alt={label}
+                                    fill
+                                />
+                            </div>
                             {label}
                         </div>
                     ))}
@@ -84,14 +85,15 @@ export default function Events() {
                         .map(([label, src], idx) => (
                         <div
                             key={idx}
-                            className={EXAMPLE_EVENT_ROW_CLASSNAME}
+                            className={EVENT_GRAPHICS_ROW_CLASSNAME}
                         >
-                            <Image
-                                src={src}
-                                alt={label}
-                                className={EXAMPLE_EVENT_IMG_CLASSNAME}
-                                width={100} height={0}
-                            />
+                            <div className={EVENT_GRAPHICS_DIV_CLASSNAME}>
+                                <Image
+                                    src={src}
+                                    alt={label}
+                                    fill
+                                />
+                            </div>
                             {label}
                         </div>
                     ))}

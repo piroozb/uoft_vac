@@ -80,19 +80,19 @@ export default function FeaturedPost() {
 
     return (
         <section
-            className="mt-5 flex flex-col items-center"
+            className="mt-10 flex flex-col items-center"
             style={{ containerType: "inline-size" }}
         >
 
             {/* Section title */}
             <SectionTitle
                 src="/title-featured-post.png"
-                height="20rem"
+                height="min(10rem,30cqw)"
             >
                 Featured Post!
             </SectionTitle>
 
-            <div className={`mt-[2cqw] grid ${!isMobile
+            <div className={`mt-10 grid ${!isMobile
                 ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
                 : "gap-10"}`}
             >

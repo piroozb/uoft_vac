@@ -66,7 +66,7 @@ function ImageCarousel({
 
                 {/* Image */}
                 <div
-                    className={`w-full h-full ${!isExpanded && "rounded-lg shadow-lg"} relative overflow-hidden
+                    className={`w-full h-full ${!isExpanded && "border-2 rounded-lg shadow-lg"} relative overflow-hidden
                         ${onImageClick ? "cursor-pointer" : ""}`}
                     onClick={onImageClick}
                 >

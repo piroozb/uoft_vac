@@ -12,7 +12,7 @@ import {
 } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
-const BUBBLE_GRAPHICS_CLASSNAME = "w-[25cqw] h-[25cqw]";
+const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-2 rounded-full";
 
 export default function OfficeHours() {
     return (
@@ -55,32 +55,29 @@ export default function OfficeHours() {
                 <div className="flex flex-col items-center">
 
                     {/* Make Art */}
-                    <div className="translate-x-[10cqw]">
+                    <div className={`translate-x-[10cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
                         <Image
                             src="/office-hours-make-art.png"
                             alt="Make Art"
-                            className={BUBBLE_GRAPHICS_CLASSNAME}
-                            width={100} height={0}
+                            fill
                         />
                     </div>
 
                     {/* Study */}
-                    <div className="translate-x-[-10cqw] translate-y-[-2cqw]">
+                    <div className={`translate-x-[-10cqw] translate-y-[-2cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
                         <Image
                             src="/office-hours-study.png"
                             alt="Study"
-                            className={BUBBLE_GRAPHICS_CLASSNAME}
-                            width={100} height={0}
+                            fill
                         />
                     </div>
 
                     {/* Socialise */}
-                    <div className="translate-x-[5cqw]">
+                    <div className={`translate-x-[5cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
                         <Image
                             src="/office-hours-socialise.png"
                             alt="Socialise"
-                            className={BUBBLE_GRAPHICS_CLASSNAME}
-                            width={100} height={0}
+                            fill
                         />
                     </div>
                 </div>
