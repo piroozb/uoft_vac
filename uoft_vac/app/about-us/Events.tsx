@@ -19,17 +19,18 @@ import SectionTitle from "../common/SectionTitle";
 import DynamicButton from "../common/DynamicButton";
 
 const EVENT_GRAPHICS_ROW_CLASSNAME = "gap-[1cqw] text-[max(3cqw,.8rem)] flex flex-col items-center font-medium text-center";
-const EVENT_GRAPHICS_DIV_CLASSNAME = "w-[20cqw] aspect-square border-2 rounded-lg shadow-lg relative overflow-hidden";
-const PURP_BUTTON_CLASSNAME = "px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] block rounded-lg shadow-lg text-white";
-const PURP_BUTTON_CLASSNAME_MOBILE_ADD = "text-center";
+const EVENT_GRAPHICS_DIV_CLASSNAME = "w-[20cqw] aspect-square border-4 rounded-lg shadow-lg relative overflow-hidden";
 
 export default function Events() {
     const isMobile = useIsMobile();
 
+    const PURP_BUTTON_CLASSNAME = `px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] border-2 block rounded-lg shadow-lg text-white
+        ${isMobile && "text-center"}`;
+
     return (
 
         // Subsection container; coloured rectangle
-        <div
+        <section
             className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
                 backgroundColor: SUBSECTION_YELLOW,
@@ -121,8 +122,7 @@ export default function Events() {
                         href={INSTAGRAM_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${PURP_BUTTON_CLASSNAME}
-                            ${isMobile && PURP_BUTTON_CLASSNAME_MOBILE_ADD}`}
+                        className={PURP_BUTTON_CLASSNAME}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                         onMouseEnter={(e) =>
                             (e.currentTarget.style.color = PAGE_BUTTONS_PASSIVE_YELLOW)
@@ -139,8 +139,7 @@ export default function Events() {
                 <DynamicButton>
                     <a
                         href="/join-us"
-                        className={`${PURP_BUTTON_CLASSNAME}
-                            ${isMobile && PURP_BUTTON_CLASSNAME_MOBILE_ADD}`}
+                        className={PURP_BUTTON_CLASSNAME}
                         style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
                         onMouseEnter={(e) =>
                             (e.currentTarget.style.color = PURP_BUTTON_HOVER_GREEN)
@@ -155,6 +154,6 @@ export default function Events() {
                     </a>
                 </DynamicButton>
             </div>
-        </div>
+        </section>
     )
 }

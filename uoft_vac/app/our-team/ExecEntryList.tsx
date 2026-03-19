@@ -22,49 +22,45 @@ export default function ExecEntryList({
     } = data;
 
     return (
-        <>
-            <div
-                className={`mx-10 gap-5 flex ${isLeft ? "" : "flex-row-reverse"}`}
-            >
+        <li className={`mx-10 gap-5 flex ${isLeft ? "" : "flex-row-reverse"}`}>
 
-                {/* Artwork */}
-                <ExpandableImageCarousel
-                    images={[`/exec-artworks/${entryKey}.jpg`]}
-                    alt={`${entryKey}'s Artwork`}
-                    normalSize="w-75"
-                />
+            {/* Artwork */}
+            <ExpandableImageCarousel
+                images={[`/exec-artworks/${entryKey}.jpg`]}
+                alt={`${entryKey}'s Artwork`}
+                normalSize="w-75"
+            />
 
-                {/* Info container */}
-                <div className={`flex flex-col ${isLeft ? "text-left" : "text-right"}`}>
+            {/* Info container */}
+            <div className={`flex flex-col ${isLeft ? "text-left" : "text-right"}`}>
 
-                    {/* Position */}
-                    <p className="text-[2rem] font-bold">{position}</p>
+                {/* Position */}
+                <p className="text-[2rem] font-bold">{position}</p>
 
-                    {/* Name */}
-                    <h2
-                        className="text-[3rem] font-bold"
-                        style={{
-                            color: colour,
-                            textShadow: NAME_OUTLINE_TEXT_SHADOW,
-                        }}
-                    >
-                        {name}
-                    </h2>
+                {/* Name */}
+                <h2
+                    className="text-[3rem] font-bold"
+                    style={{
+                        color: colour,
+                        textShadow: NAME_OUTLINE_TEXT_SHADOW,
+                    }}
+                >
+                    {name}
+                </h2>
 
-                    {/* Small infos */}
-                    <p className={`mt-2.5 text-[1.25rem]`}>
-                        {study}
-                    </p>
+                {/* Small infos */}
+                <p className={`mt-2.5 text-[1.25rem]`}>
+                    {study}
+                </p>
 
-                    <p className="mt-2.5 text-[1.25rem]">
-                        Favourite medium: {medium}
-                    </p>
+                <p className="mt-2.5 text-[1.25rem]">
+                    Favourite medium: {medium}
+                </p>
 
-                    <p className="mt-2.5 text-[1.5rem] font-bold">
-                        {fact}
-                    </p>
-                </div>
+                <p className="mt-2.5 text-[1.5rem] font-bold">
+                    {fact}
+                </p>
             </div>
-        </>
+        </li>
     );
 }

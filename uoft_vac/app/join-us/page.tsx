@@ -3,17 +3,16 @@
 import Image from "next/image";
 
 import {
-  MEMBERSHIP_FORM_LINK,
-  DISCORD_LINK,
-  INSTAGRAM_LINK,
-  TEXT_LINK_PASSIVE_PURPLE,
-  TEXT_LINK_HOVER_PURPLE,
+    MEMBERSHIP_FORM_LINK,
+    DISCORD_LINK,
+    INSTAGRAM_LINK,
+    TEXT_LINK_PASSIVE_PURPLE,
+    TEXT_LINK_HOVER_PURPLE,
 } from "../common/Constants";
 import {
     SP_TITLE_HEIGHT,
     SP_HALVES_V_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
-    SP_TEXT_CLASSNAME,
 } from "../common/SmallPagesCommon";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
@@ -21,13 +20,10 @@ import TextLink from "../common/TextLink";
 
 function JoinInstructions() {
   return (
-    <div className={`mt-[5cqw] gap-[8cqw] ${SP_TEXT_CONTAINER_CLASSNAME} font-semibold`}>
+    <ol className={`mt-[5cqw] gap-[8cqw] ${SP_TEXT_CONTAINER_CLASSNAME} font-semibold`}>
 
       {/* Step 1 */}
-      <div
-        className={SP_TEXT_CLASSNAME}
-        style={{ transform: "rotate(-1deg)" }}
-      >
+      <p style={{ transform: "rotate(-1deg)" }}>
         1. Fill out the{" "}
         <TextLink
           text="verification form"
@@ -36,13 +32,10 @@ function JoinInstructions() {
           hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
         />
         !
-      </div>
+      </p>
 
       {/* Step 2 */}
-      <div
-        className={SP_TEXT_CLASSNAME}
-        style={{ transform: "rotate(1deg)" }}
-      >
+      <p style={{ transform: "rotate(1deg)" }}>
         2. Join our{" "}
         <TextLink
           text="Discord"
@@ -51,13 +44,10 @@ function JoinInstructions() {
           hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
         />{" "}
         and wait for verification!
-      </div>
+      </p>
 
       {/* Step 3 */}
-      <div
-        className={SP_TEXT_CLASSNAME}
-        style={{ transform: "rotate(-1deg)" }}
-      >
+      <p style={{ transform: "rotate(-1deg)" }}>
         3. Follow us on{" "}
         <TextLink
           text="Instagram"
@@ -66,8 +56,8 @@ function JoinInstructions() {
           hoverStyle={{ color: TEXT_LINK_HOVER_PURPLE }}
         />{" "}
         for updates!
-      </div>
-    </div>
+      </p>
+    </ol>
   );
 }
 
@@ -75,7 +65,7 @@ export default function JoinUsPage() {
   const isMobile = useIsMobile()
 
   return (
-    <div
+    <main
       className="mt-5 mb-10"
       style={{ containerType: "inline-size" }}
     >
@@ -95,7 +85,7 @@ export default function JoinUsPage() {
         <div className="grid grid-cols-[1fr_auto]">
 
           {/* Left: join instructions */}
-          <JoinInstructions />
+          <JoinInstructions/>
 
           {/* Right: graphic */}
           <Image
@@ -103,7 +93,6 @@ export default function JoinUsPage() {
             alt="Join Us!"
             className="mt-5 w-[47cqw]"
             width={1000} height={0}
-            priority
           />
         </div>
 
@@ -114,7 +103,7 @@ export default function JoinUsPage() {
         <div className={SP_HALVES_V_CLASSNAME}>
 
             {/* Top: join instructions */}
-            <JoinInstructions />
+            <JoinInstructions/>
 
             {/* Bottom: graphic */}
             <Image
@@ -122,10 +111,9 @@ export default function JoinUsPage() {
               alt="Join Us!"
               className="mt-10"
               width={600} height={0}
-              priority
             />
         </div>
       )}
-    </div>
+    </main>
   );
 }

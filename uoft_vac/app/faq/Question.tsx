@@ -10,9 +10,6 @@ import {
 import { ExpandableText } from "../common/ExpandableText";
 
 const ROTATION_MAG = 72;
-const STAR_TRANSF_CLASSNAME = "absolute inset-0";
-const STAR_TRANSF = { duration: .3, ease: COMMON_EASE_OUT };
-const STAR_CLASSNAME = "object-contain";
 
 export default function Question({
     question,
@@ -40,7 +37,7 @@ export default function Question({
         >
 
             {/* Question */}
-            <div className="gap-5 text-[min(1.5rem,3.5cqw)] grid grid-cols-[1fr_auto] font-semibold">
+            <p className="gap-5 text-[min(1.5rem,3.5cqw)] grid grid-cols-[1fr_auto] font-semibold">
 
                 {question}
 
@@ -49,7 +46,7 @@ export default function Question({
                     <AnimatePresence>
                         <motion.div
                             key={isExpanded ? "expanded" : "collapsed"}
-                            className={STAR_TRANSF_CLASSNAME}
+                            className="absolute inset-0"
                             initial={{
                                 rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
                                 opacity: 0
@@ -59,18 +56,18 @@ export default function Question({
                                 rotate: isExpanded ? -ROTATION_MAG : ROTATION_MAG,
                                 opacity: 0
                             }}
-                            transition={STAR_TRANSF}
+                            transition={{ ease: COMMON_EASE_OUT, duration: .3 }}
                         >
                             <Image
                                 src={isExpanded ? "/faq-star-expanded.png" : "/faq-star-collapsed.png"}
                                 alt={isExpanded ? "Expanded" : "Collapsed"}
-                                className={STAR_CLASSNAME}
+                                className="object-contain"
                                 fill
                             />
                         </motion.div>
                     </AnimatePresence>
                 </div>
-            </div>
+            </p>
 
             {/* Expand / collapse */}
             <motion.div
@@ -80,7 +77,7 @@ export default function Question({
                     maxHeight: isExpanded ? fullHeight : 0,
                     opacity: isExpanded ? 1 : 0,
                 }}
-                transition={{ duration: .5, ease: COMMON_EASE_OUT }}
+                transition={{ ease: COMMON_EASE_OUT, duration: .5 }}
                 className="overflow-hidden"
             >
                 <p className="text-[min(1.25rem,3cqw)]">

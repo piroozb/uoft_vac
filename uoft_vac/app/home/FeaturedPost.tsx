@@ -10,8 +10,8 @@ import {
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
-import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 import { ExpandableText } from "../common/ExpandableText";
+import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
 const CAPTION_COLLAPSED_HEIGHT = 400;
 
@@ -87,7 +87,7 @@ export default function FeaturedPost() {
             {/* Section title */}
             <SectionTitle
                 src="/title-featured-post.png"
-                height="min(10rem,30cqw)"
+                height="min(10rem,20cqw)"
             >
                 Featured Post!
             </SectionTitle>
@@ -110,7 +110,7 @@ export default function FeaturedPost() {
                         {/* Preload images. */}
                         <div className="hidden" aria-hidden="true">
                             {images.map((src) => (
-                                <img key={src} src={src} />
+                                <img key={src} src={src}/>
                             ))}
                         </div>
                     </>
@@ -119,11 +119,11 @@ export default function FeaturedPost() {
                 <div>
 
                     {/* Caption */}
-                    <div className={`${TEXT_MARGIN_X} text-left text-[min(1.25rem,3cqw)]`}>
+                    <p className={`${TEXT_MARGIN_X} text-left text-[min(1.25rem,3cqw)]`}>
                         <motion.div
                             ref={ref}
                             className="overflow-hidden whitespace-pre-line"
-                            transition={{ duration: .5, ease: COMMON_EASE_OUT }}
+                            transition={{ ease: COMMON_EASE_OUT, duration: .5 }}
                             animate={{ maxHeight: captionExpanded
                                 ? fullHeight
                                 : CAPTION_COLLAPSED_HEIGHT }}
@@ -140,7 +140,7 @@ export default function FeaturedPost() {
                                 {captionExpanded ? "Show less" : "... more"}
                             </button>
                         )}
-                    </div>
+                    </p>
 
                     {/* Timestamp */}
                     <p className={`mt-5 ${TEXT_MARGIN_X} text-[min(1rem,3cqw)] text-gray-500`}>

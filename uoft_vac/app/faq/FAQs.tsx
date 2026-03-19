@@ -1,3 +1,4 @@
+
 import { ReactNode } from "react";
 
 import {
@@ -13,7 +14,8 @@ export const faqs: {
     question: string;
     answer: ReactNode;
 }[] = [
-    {
+    
+    { // 1
         question: "How do I join VAC?",
         answer: <>
             Simply follow the instructions{" "}
@@ -28,7 +30,7 @@ export const faqs: {
         </>,
     },
 
-    {
+    { // 2
         question: "Is this club active?",
         answer: <>
             Yes! VAC is active for both Fall and Winter semesters of the new school year. Please check{" "}
@@ -50,7 +52,7 @@ export const faqs: {
         </>,
     },
 
-    {
+    { // 3
         question: "Are there any fees to pay as a club member?",
         answer: <>
             Joining VAC is totally free! Most of our events are also free, with the exception of some{" "}
@@ -59,14 +61,14 @@ export const faqs: {
         </>,
     },
 
-    {
+    { // 4
         question: "What is the required skill level to join VAC?",
         answer: <>
             We welcome artists of all skill levels here! Our events are also planned with this in mind : )
         </>,
     },
 
-    {
+    { // 5
         question: "Which art media and/or art styles are promoted at VAC?",
         answer: <>
             VAC welcomes all artists, regardless of their preferred art medium and art style. Our{" "}
@@ -74,14 +76,14 @@ export const faqs: {
         </>,
     },
 
-    {
+    { // 6
         question: "Do I have to bring my own art supplies to VAC events?",
         answer: <>
             We always provide art supplies to our events, but you are free to also bring your own.
         </>,
     },
 
-    {
+    { // 7
         question: "Can UTM and UTSC students join VAC?",
         answer: <>
             Yes! You are free to join VAC even if you are not from UTSG. Please note that our weekly{" "}
@@ -90,7 +92,7 @@ export const faqs: {
         </>,
     },
 
-    {
+    { // 8
         question: "Can alumni students join VAC?",
         answer: <>
             Yes! While our in-person events are usually made for current students, you are free to{" "}
@@ -107,7 +109,7 @@ export const faqs: {
         </>,
     },
     
-    {
+    { // 9
         question: "I can’t access the Discord server. Why is this happening?",
         answer: <>
             You need to fill out our{" "}

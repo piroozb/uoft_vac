@@ -12,11 +12,11 @@ import {
 } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
-const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-2 rounded-full";
+const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-4 rounded-full";
 
 export default function OfficeHours() {
     return (
-        <div
+        <section
             className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
                 backgroundColor: SUBSECTION_BLUE,
@@ -82,6 +82,6 @@ export default function OfficeHours() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

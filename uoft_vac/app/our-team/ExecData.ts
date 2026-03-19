@@ -9,6 +9,7 @@ export interface ExecDataTypes {
 }
 
 export const execData: Record<string, ExecDataTypes> = {
+    
     // Admin:
     Sy: {
         position: "President",

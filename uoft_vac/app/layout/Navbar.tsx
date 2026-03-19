@@ -72,7 +72,7 @@ export default function Navbar() {
     // DESKTOP VIEW
     if (!isMobile) {
         return (
-            <div className="grid relative z-100">
+            <header className="grid relative z-100">
 
                 {/* Bar */}
                 <nav
@@ -81,26 +81,26 @@ export default function Navbar() {
                 >
 
                     {/* Buttons row */}
-                    <ul className="flex">
+                    <ol className="flex">
                         {navbarItems}
-                    </ul>
+                    </ol>
                 </nav>
 
                 {/* Contacts */}
                 <div className="translate-y-[115%] mr-1 gap-2 grid absolute bottom-0 right-0">
-                    <EmailLink size={CONTACTS_SIZE} />
+                    <EmailLink size={CONTACTS_SIZE}/>
                     <div className="mr-2 gap-3 flex justify-end">
-                        <DiscordIcon size={CONTACTS_SIZE} />
-                        <InstagramIcon size={CONTACTS_SIZE} />
+                        <DiscordIcon size={CONTACTS_SIZE}/>
+                        <InstagramIcon size={CONTACTS_SIZE}/>
                     </div>
                 </div>
-            </div>
+            </header>
         );
     }
 
     // MOBILE VIEW
     return (
-        <>
+        <header>
 
             {/* Clickable zone (whole screen) to hide dropdown */}
             {isDropdownOpen && (
@@ -111,7 +111,6 @@ export default function Navbar() {
             )}
 
             <div className="grid fixed z-105">
-
                 <div className="flex">
 
                     {/* Dropdown button */}
@@ -134,22 +133,22 @@ export default function Navbar() {
                         ${DROPDOWN_TRANSF_DURATION}
                         z-110`}
                     >
-                        <EmailLink size={CONTACTS_SIZE} />
+                        <EmailLink size={CONTACTS_SIZE}/>
                         <div className="ml-2 gap-3 flex">
-                            <DiscordIcon size={CONTACTS_SIZE} />
-                            <InstagramIcon size={CONTACTS_SIZE} />
+                            <DiscordIcon size={CONTACTS_SIZE}/>
+                            <InstagramIcon size={CONTACTS_SIZE}/>
                         </div>
                     </div>
                 </div>
 
                 {/* Page buttons column */}
-                <ul className={`mt-20 pl-5 gap-[min(1rem,2cqh)] grid fixed
+                <ol className={`mt-20 pl-5 gap-[min(1rem,2cqh)] grid fixed
                     ${!isDropdownOpen && "-translate-x-full"}
                     ${DROPDOWN_TRANSF_DURATION}`}
                 >
                     {navbarItems}
-                </ul>
+                </ol>
             </div>
-        </>
+        </header>
     );
 }

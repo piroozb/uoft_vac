@@ -28,7 +28,7 @@ export default function FAQSection() {
     };
 
     return (
-        <div className="mt-5 flex flex-col items-center">
+        <main className="mt-5 flex flex-col items-center">
 
             {/* Section title */}
             <SectionTitle height="min(5rem,7cqw)">
@@ -52,7 +52,7 @@ export default function FAQSection() {
             >
 
                 {/* Yellow container */}
-                <div
+                <ol
                     className={`px-5 ${!isMobile ? "rounded-3xl" : "rounded-2xl"}`}
                     style={{ backgroundColor: PAGE_BUTTONS_PASSIVE_YELLOW }}
                 >
@@ -68,7 +68,7 @@ export default function FAQSection() {
                             onClick={(e) => handleClick(e, i)}
                         />
                     ))}
-                </div>
+                </ol>
             </div>
 
             {/* Container bottom */}
@@ -80,7 +80,7 @@ export default function FAQSection() {
                     width={2000} height={0}
                 />
             </div>
-        </div>
+        </main>
         
     );
 }

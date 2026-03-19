@@ -19,23 +19,15 @@ export default function DynamicButton({
     const [hovered, setHovered] = useState(false);
     const [pressed, setPressed] = useState(false);
 
-    const scale = pressed
-        ? clickScale
-        : hovered
-            ? hoverScale
-            : 1;
+    const scale = pressed ? clickScale
+        : hovered ? hoverScale : 1;
 
-    const duration = pressed
-        ? clickDuration
-        : hoverDuration;
+    const duration = pressed ? clickDuration : hoverDuration;
 
     return (
-        <div
+        <button
             onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => {
-                setHovered(false);
-                setPressed(false);
-            }}
+            onMouseLeave={() => { setHovered(false); setPressed(false); }}
             onMouseDown={() => setPressed(true)}
             onMouseUp={() => setPressed(false)}
         >
@@ -47,6 +39,6 @@ export default function DynamicButton({
             >
                 {children}
             </div>
-        </div>
+        </button>
     );
 }

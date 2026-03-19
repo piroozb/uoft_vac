@@ -76,7 +76,7 @@ export default function OurTeam() {
     const isSmaller = useIsMobile(true);
 
     return (
-        <div className="mb-15">
+        <main className="mb-15">
             {Object.entries(EXEC_CATEGORIES_SPECS).map( ([
                 category, {
                     members,
@@ -91,7 +91,7 @@ export default function OurTeam() {
                     const mobileMembers = members_mobile ?? members;
 
                     return (
-                        <div className={containerClassname}>
+                        <section className={containerClassname}>
                         
                             {/* Category title */}
                             <SectionTitle
@@ -121,7 +121,7 @@ export default function OurTeam() {
                             
                             // MOBILE VIEW
                             ) : (
-                                <div className="mt-10 gap-10 grid">
+                                <ol className="mt-10 gap-10 grid">
                                     {mobileMembers.map((name, index) => (
 
                                         // Use list format normally.
@@ -140,12 +140,12 @@ export default function OurTeam() {
                                             />
                                         )
                                     ))}
-                                </div>
+                                </ol>
                             )}
-                        </div>
+                        </section>
                     )
                 }
             )}
-        </div>
+        </main>
     );
 }

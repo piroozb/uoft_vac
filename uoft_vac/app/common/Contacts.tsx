@@ -3,7 +3,11 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { EMAIL_LINK, DISCORD_LINK, INSTAGRAM_LINK } from "./Constants";
+import {
+    EMAIL_LINK,
+    DISCORD_LINK,
+    INSTAGRAM_LINK
+} from "./Constants";
 import TextLink from "./TextLink";
 import DynamicButton from "./DynamicButton";
 

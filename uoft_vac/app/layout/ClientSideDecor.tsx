@@ -11,8 +11,9 @@ import SideDecor from "./SideDecor";
 import { useWindowOffset } from "./WindowOffsetContext";
 
 export default function ClientSideDecor() {
-    const { offset, setOffset } = useWindowOffset();
     const isMobile = useIsMobile();
+
+    const { offset, setOffset } = useWindowOffset();
 
     useEffect(() => {
         if (isMobile) {
@@ -41,5 +42,5 @@ export default function ClientSideDecor() {
         return () => window.removeEventListener("resize", handleResize);
     }, [isMobile, setOffset]);
 
-    return <SideDecor offset={offset} />;
+    return <SideDecor offset={offset}/>;
 }

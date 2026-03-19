@@ -23,7 +23,7 @@ export default function SectionTitle({
 
             {/* Display image if src exists and loaded successfully. */}
             {canShowImg ? (
-                <div
+                <h1
                     className="relative w-full h-full"
                 >
                     <Image
@@ -33,7 +33,7 @@ export default function SectionTitle({
                         fill
                         onError={() => setImgError(true)}
                     />
-                </div>
+                </h1>
             
             // Otherwise, display text.
             ) : (

@@ -66,7 +66,7 @@ function ImageCarousel({
 
                 {/* Image */}
                 <div
-                    className={`w-full h-full ${!isExpanded && "border-2 rounded-lg shadow-lg"} relative overflow-hidden
+                    className={`w-full h-full ${!isExpanded && "border-4 rounded-lg shadow-lg"} relative overflow-hidden
                         ${onImageClick ? "cursor-pointer" : ""}`}
                     onClick={onImageClick}
                 >
@@ -76,18 +76,14 @@ function ImageCarousel({
                             className="absolute inset-0"
                             custom={direction}
                             variants={{
-                                enter: (dir: number) => ({
-                                    x: dir > 0 ? "100%" : "-100%",
-                                }),
+                                enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
                                 center: { x: "0%" },
-                                exit: (dir: number) => ({
-                                    x: dir > 0 ? "-100%" : "100%",
-                                }),
+                                exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%" }),
                             }}
                             initial="enter"
                             animate="center"
                             exit="exit"
-                            transition={{ duration: .25, ease: COMMON_EASE_OUT }}
+                            transition={{ ease: COMMON_EASE_OUT, duration: .25 }}
                         >
 
                             {/* If testing, use square divs with given classNames. */}
@@ -154,7 +150,7 @@ function ImageCarousel({
                             {/* Dots */}
                             <div className="gap-2.5 flex absolute bottom-0 cursor-pointer z-1">
                                 {images.map((_, idx) => (
-                                    <img
+                                    <Image
                                         key={idx}
                                         src="/carousel-dot.png"
                                         alt={`Go to image ${idx + 1}`}
@@ -166,6 +162,7 @@ function ImageCarousel({
                                             setDirection(idx > index ? 1 : -1);
                                             setIndex(idx);
                                         }}
+                                        width={100} height={0}
                                     />
                                 ))}
                             </div>

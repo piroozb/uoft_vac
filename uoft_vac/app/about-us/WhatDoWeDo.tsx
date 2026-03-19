@@ -19,8 +19,8 @@ export default function WhatDoWeDo() {
 
             {/* Subsections */}
             <div className={`mt-5 ${isMobile ? "mx-[5cqw] gap-[5cqw] flex flex-col" : "mx-[1cqw] gap-[1cqw] grid grid-cols-2"}`}>
-                <Events />
-                <OfficeHours />
+                <Events/>
+                <OfficeHours/>
             </div>
         </section>
     );

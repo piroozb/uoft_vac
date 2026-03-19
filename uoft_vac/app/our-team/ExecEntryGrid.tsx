@@ -20,9 +20,7 @@ export default function ExecEntryGrid({
     } = data;
 
     return (
-        <div
-            className="flex flex-col items-center text-center"
-        >
+        <li className="flex flex-col items-center text-center">
 
             {/* Name */}
             <h2
@@ -65,6 +63,6 @@ export default function ExecEntryGrid({
                     {fact}
                 </p>
             </div>
-        </div>
+        </li>
     );
 }
