@@ -3,12 +3,15 @@
 import Image from "next/image";
 
 import {
-    SUBSECTION_BLUE,
+    SUBSECTION_BASE_BLUE,
+    SUBSECTION_EDGES_BLUE,
 } from "../common/Constants";
 import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,
-    SUBSECTIONS_TEXT_CLASSNAME
+    SUBSECTIONS_TEXT_CLASSNAME,
+    subsectionGradientStyleComponent,
+    SubsectionEars,
 } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
@@ -19,10 +22,14 @@ export default function OfficeHours() {
         <section
             className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
-                backgroundColor: SUBSECTION_BLUE,
+                background: subsectionGradientStyleComponent(SUBSECTION_BASE_BLUE, SUBSECTION_EDGES_BLUE),
                 containerType: "inline-size",
             }}
         >
+
+            {/* Ears */}
+            <SubsectionEars colour={SUBSECTION_EDGES_BLUE}/>
+
             {/* Subsection title */}
             <SectionTitle height={SUBSECTIONS_TITLE_HEIGHT}>Office Hours</SectionTitle>
 
@@ -42,13 +49,11 @@ export default function OfficeHours() {
                     Watch this video!
 
                     {/* Video */}
-                    <div className="mt-[1cqw]">
-                        <video
-                            src="/office-video.mp4"
-                            className="h-[69cqw] rounded-lg shadow-lg"
-                            controls
-                        />
-                    </div>
+                    <video
+                        src="/office-video.mp4"
+                        className="mt-[1cqw] h-[69cqw] border-4 rounded-lg shadow-lg"
+                        controls
+                    />
                 </div>
 
                 {/* Bubble graphics container */}

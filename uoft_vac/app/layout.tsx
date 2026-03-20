@@ -5,7 +5,7 @@ import { Fredoka } from "next/font/google";
 
 import {
     BG_GREEN,
-    BARS_STYLE_GRADIENT,
+    BARS_GRADIENT_STYLE,
 } from "./common/Constants";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
@@ -36,7 +36,7 @@ export default function RootLayout({ children } : { children: React.ReactNode })
             {/* Overscroll gradient */}
             <div
             className="w-full h-full fixed -z-10"
-            style={BARS_STYLE_GRADIENT}
+            style={BARS_GRADIENT_STYLE}
             />
 
             <WindowOffsetProvider>

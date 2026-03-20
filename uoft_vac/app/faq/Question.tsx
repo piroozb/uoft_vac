@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import { ReactNode, MouseEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
     BARS_EDGES_GREEN,

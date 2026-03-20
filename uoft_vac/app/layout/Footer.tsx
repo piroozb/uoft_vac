@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import {
-    BARS_STYLE_GRADIENT,
+    BARS_GRADIENT_STYLE,
 } from "../common/Constants";
 import {
     EmailLink,
@@ -26,7 +26,7 @@ export default function Footer() {
         {/* Bar */}
         <div
             className="w-full p-5 grid justify-center relative z-100"
-            style={BARS_STYLE_GRADIENT}
+            style={BARS_GRADIENT_STYLE}
         >
 
             {/* Email */}

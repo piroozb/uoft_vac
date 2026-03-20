@@ -1,9 +1,9 @@
 "use client";
 
 import { useIsMobile } from "../layout/UseIsMobile";
-import SectionTitle from "../common/SectionTitle";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
+import SectionTitle from "../common/SectionTitle";
 
 const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-20";
 

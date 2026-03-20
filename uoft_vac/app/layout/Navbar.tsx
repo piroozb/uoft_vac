@@ -7,7 +7,7 @@ import { useState } from "react"
 
 import {
     BARS_EDGES_GREEN,
-    BARS_STYLE_GRADIENT,
+    BARS_GRADIENT_STYLE,
 } from "../common/Constants";
 import {
     EmailLink,
@@ -77,7 +77,7 @@ export default function Navbar() {
                 {/* Bar */}
                 <nav
                     className="p-1 flex justify-center"
-                    style={BARS_STYLE_GRADIENT}
+                    style={BARS_GRADIENT_STYLE}
                 >
 
                     {/* Buttons row */}

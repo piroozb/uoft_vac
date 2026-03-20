@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import {
-    useEffect,
-    useRef,
     useState,
+    useRef,
+    useEffect,
 } from "react";
 
 import {

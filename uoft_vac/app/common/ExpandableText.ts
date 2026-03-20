@@ -1,10 +1,10 @@
 "use client";
 
 import {
-    useEffect,
-    useLayoutEffect,
     useRef,
     useState,
+    useLayoutEffect,
+    useEffect,
 } from "react";
 
 export function ExpandableText<T extends HTMLElement>(

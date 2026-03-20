@@ -4,15 +4,19 @@ import Image from "next/image";
 
 import {
     INSTAGRAM_LINK,
-    SUBSECTION_YELLOW,
-    PURP_BUTTONS_PURPLE,
+    SUBSECTION_BASE_YELLOW,
+    SUBSECTION_EDGES_YELLOW,
+    PURP_BUTTONS_BASE_PURPLE,
+    PURP_BUTTONS_EDGES_PURPLE,
     PAGE_BUTTONS_PASSIVE_YELLOW,
-    PURP_BUTTON_HOVER_GREEN,
+    BG_GREEN,
 } from "../common/Constants";
 import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,
     SUBSECTIONS_TEXT_CLASSNAME,
+    subsectionGradientStyleComponent,
+    SubsectionEars,
 } from "./WhatDoWeDo";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
@@ -24,7 +28,7 @@ const EVENT_GRAPHICS_DIV_CLASSNAME = "w-[20cqw] aspect-square border-4 rounded-l
 export default function Events() {
     const isMobile = useIsMobile();
 
-    const PURP_BUTTON_CLASSNAME = `px-[2cqw] py-[2cqw] text-[max(3cqw,1.1rem)] border-2 block rounded-lg shadow-lg text-white
+    const PURP_BUTTON_CLASSNAME = `p-[2cqw] text-[max(3cqw,1.1rem)] border-4 block rounded-lg shadow-lg text-white
         ${isMobile && "text-center"}`;
 
     return (
@@ -33,10 +37,13 @@ export default function Events() {
         <section
             className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
-                backgroundColor: SUBSECTION_YELLOW,
+                background: subsectionGradientStyleComponent(SUBSECTION_BASE_YELLOW, SUBSECTION_EDGES_YELLOW),
                 containerType: "inline-size",
             }}
         >
+
+            {/* Ears */}
+            <SubsectionEars colour={SUBSECTION_EDGES_YELLOW}/>
             
             {/* Subsection title */}
             <SectionTitle height={SUBSECTIONS_TITLE_HEIGHT}>Events</SectionTitle>
@@ -123,7 +130,7 @@ export default function Events() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={PURP_BUTTON_CLASSNAME}
-                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                        style={{ background: subsectionGradientStyleComponent(PURP_BUTTONS_BASE_PURPLE, PURP_BUTTONS_EDGES_PURPLE, 25) }}
                         onMouseEnter={(e) =>
                             (e.currentTarget.style.color = PAGE_BUTTONS_PASSIVE_YELLOW)
                         }
@@ -140,9 +147,9 @@ export default function Events() {
                     <a
                         href="/join-us"
                         className={PURP_BUTTON_CLASSNAME}
-                        style={{ backgroundColor: PURP_BUTTONS_PURPLE }}
+                        style={{ background: subsectionGradientStyleComponent(PURP_BUTTONS_BASE_PURPLE, PURP_BUTTONS_EDGES_PURPLE, 25) }}
                         onMouseEnter={(e) =>
-                            (e.currentTarget.style.color = PURP_BUTTON_HOVER_GREEN)
+                            (e.currentTarget.style.color = BG_GREEN)
                         }
                         onMouseLeave={(e) =>
                             (e.currentTarget.style.color = "")
