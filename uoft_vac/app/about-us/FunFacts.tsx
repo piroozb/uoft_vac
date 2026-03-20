@@ -3,12 +3,12 @@
 import Image from "next/image";
 
 import {
-    SUBSECTION_BLUE,
+    SUBSECTION_BASE_BLUE,
 } from "../common/Constants";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
-const FACT_CLOUD_IM_CLASSNAME = "object-contain z-[-1]";
+const FACT_CLOUD_IMG_CLASSNAME = "object-contain z-[-1]";
 const FACT_TEXT_CLASSNAME = `m-[5cqw] text-[9cqw] text-center`;
 
 export default function FunFacts() {
@@ -57,7 +57,7 @@ export default function FunFacts() {
                     <Image
                         src="/fact-cloud1.png"
                         alt="Fact 1"
-                        className={FACT_CLOUD_IM_CLASSNAME}
+                        className={FACT_CLOUD_IMG_CLASSNAME}
                         fill
                     />
 
@@ -79,7 +79,7 @@ export default function FunFacts() {
                     <Image
                         src="/fact-cloud2.png"
                         alt="Fact 2"
-                        className={FACT_CLOUD_IM_CLASSNAME}
+                        className={FACT_CLOUD_IMG_CLASSNAME}
                         fill
                     />
 
@@ -101,7 +101,7 @@ export default function FunFacts() {
                     <Image
                         src="/fact-cloud3.png"
                         alt="Fact 3"
-                        className={FACT_CLOUD_IM_CLASSNAME}
+                        className={FACT_CLOUD_IMG_CLASSNAME}
                         fill
                     />
 
@@ -123,7 +123,7 @@ export default function FunFacts() {
                     <Image
                         src="/fact-cloud4.png"
                         alt="Fact 4"
-                        className={FACT_CLOUD_IM_CLASSNAME}
+                        className={FACT_CLOUD_IMG_CLASSNAME}
                         fill
                     />
 
@@ -151,13 +151,13 @@ export default function FunFacts() {
                 </div>
 
                 {/* Text */}
-                <div
+                <p
                     className="ml-[-50] pl-15 pr-[min(2rem,4cqw)] h-[min(4rem,10cqw)] text-[1.5rem]
                         font-semibold rounded-r-full flex items-center z-[-1]"
-                    style={{ backgroundColor: SUBSECTION_BLUE }}
+                    style={{ backgroundColor: SUBSECTION_BASE_BLUE }}
                 >
                     Hi I'm Frodo, the club mascot!
-                </div>
+                </p>
             </div>
         </section>
     );

@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { SIDE_DECOR_MIN } from "../common/Constants";
+import { useState, useEffect } from "react";
+
+import {
+    SIDE_DECOR_MIN,
+} from "../common/Constants";
 
 const SMALLER_BREAKPOINT = 700;
 

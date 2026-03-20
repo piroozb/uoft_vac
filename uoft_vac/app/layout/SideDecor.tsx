@@ -1,7 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import {
+    useState,
+    useRef,
+    useEffect,
+} from "react";
 
 import {
     SIDE_DECOR_WIDTH,
@@ -57,53 +61,52 @@ export default function SideDecor({ offset }: { offset: number }) {
 
     const translateX = offset * SIDE_DECOR_WIDTH;
 
-    return (
-        <>
-            {/* Left stripe */}
-            <div
-                className="fixed top-0"
-                style={{
-                    transform: `translateX(-${translateX}px)`,
-                    width: SIDE_DECOR_WIDTH,
-                    height: "100%",
-                }}
-            >
-                {leftStripes.map((stripe) => (
-                    <Image
-                        key={stripe.y}
-                        src="/side-decor-l.png"
-                        alt="Side decor"
-                        style={{
-                            position: "absolute",
-                            top: stripe.y,
-                        }}
-                        width={SIDE_DECOR_WIDTH} height={0}
-                    />
-                ))}
-            </div>
+    return (<>
 
-            {/* Right stripe */}
-            <div
-                className="fixed right-0 top-0"
-                style={{
-                    transform: `translateX(${translateX}px)`,
-                    width: SIDE_DECOR_WIDTH,
-                    height: "100%",
-                }}
-            >
-                {rightStripes.map((stripe) => (
-                    <Image
-                        key={stripe.y}
-                        src="/side-decor-r.png"
-                        alt="Side decor"
-                        style={{
-                            position: "absolute",
-                            top: stripe.y,
-                        }}
-                        width={SIDE_DECOR_WIDTH} height={0}
-                    />
-                ))}
-            </div>
-        </>
+        {/* Left stripe */}
+        <div
+            className="fixed top-0"
+            style={{
+                transform: `translateX(-${translateX}px)`,
+                width: SIDE_DECOR_WIDTH,
+                height: "100%",
+            }}
+        >
+            {leftStripes.map((stripe) => (
+                <Image
+                    key={stripe.y}
+                    src="/side-decor-l.png"
+                    alt="Side decor"
+                    style={{
+                        position: "absolute",
+                        top: stripe.y,
+                    }}
+                    width={SIDE_DECOR_WIDTH} height={0}
+                />
+            ))}
+        </div>
+
+        {/* Right stripe */}
+        <div
+            className="fixed right-0 top-0"
+            style={{
+                transform: `translateX(${translateX}px)`,
+                width: SIDE_DECOR_WIDTH,
+                height: "100%",
+            }}
+        >
+            {rightStripes.map((stripe) => (
+                <Image
+                    key={stripe.y}
+                    src="/side-decor-r.png"
+                    alt="Side decor"
+                    style={{
+                        position: "absolute",
+                        top: stripe.y,
+                    }}
+                    width={SIDE_DECOR_WIDTH} height={0}
+                />
+            ))}
+        </div></>
     );
 }

@@ -13,7 +13,6 @@ import {
     SP_TITLE_HEIGHT,
     SP_HALVES_V_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
-    SP_TEXT_CLASSNAME,
 } from "../common/SmallPagesCommon";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
@@ -21,7 +20,7 @@ import TextLink from "../common/TextLink";
 
 function ContactInfo() {
     return (
-        <div className={`mt-[3cqw] gap-[5cqw] ${SP_TEXT_CONTAINER_CLASSNAME}`}>
+        <ol className={`mt-[3cqw] gap-[5cqw] ${SP_TEXT_CONTAINER_CLASSNAME}`}>
 
             {/* First line */}
             <p className="text-[min(2.5rem,6cqw)] font-semibold">
@@ -29,10 +28,7 @@ function ContactInfo() {
             </p>
 
             {/* Bullet 1 */}
-            <div
-                className={SP_TEXT_CLASSNAME}
-                style={{ transform: "rotate(-1deg)" }}
-            >
+            <p style={{ transform: "rotate(-1deg)" }}>
                 • Writing us an{" "}
                 <TextLink
                     text="email"
@@ -41,13 +37,10 @@ function ContactInfo() {
                     hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                 />
                 !
-            </div>
+            </p>
 
             {/* Bullet 2 */}
-            <div
-                className={SP_TEXT_CLASSNAME}
-                style={{ transform: "rotate(1deg)" }}
-            >
+            <p style={{ transform: "rotate(1deg)" }}>
                 • Sending us a message on{" "}
                 <TextLink
                     text="Instagram"
@@ -56,13 +49,10 @@ function ContactInfo() {
                     hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                 />
                 !
-            </div>
+            </p>
 
             {/* Bullet 3 */}
-            <div
-                className={SP_TEXT_CLASSNAME}
-                style={{ transform: "rotate(-1deg)" }}
-            >
+            <p style={{ transform: "rotate(-1deg)" }}>
                 • Ping the <strong>@President</strong> or{" "}
                 <strong>@Co-Vice President</strong> role on{" "}
                 <TextLink
@@ -72,8 +62,8 @@ function ContactInfo() {
                     hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
                 />
                 !
-            </div>
-        </div>
+            </p>
+        </ol>
     )
 }
 
@@ -81,7 +71,7 @@ export default function ContactUsPage() {
     const isMobile = useIsMobile()
 
     return (
-        <div
+        <main
             className="mt-5 mb-10"
             style={{ containerType: "inline-size" }}
         >
@@ -106,11 +96,10 @@ export default function ContactUsPage() {
                         alt="Contact Us!"
                         className="mt-5 w-[45cqw]"
                         width={1000} height={0}
-                        priority
                     />
 
                     {/* Right: contact info */}
-                    <ContactInfo />
+                    <ContactInfo/>
                 </div>
             
             // MOBILE VIEW
@@ -120,7 +109,7 @@ export default function ContactUsPage() {
                 <div className={SP_HALVES_V_CLASSNAME}>
 
                     {/* Top: contact info */}
-                    <ContactInfo />
+                    <ContactInfo/>
 
                     {/* Buttom: graphic */}
                     <Image
@@ -128,10 +117,9 @@ export default function ContactUsPage() {
                         alt="Contact Us!"
                         className="mt-10"
                         width={600} height={0}
-                        priority
                     />
                 </div>
             )}
-        </div>
+        </main>
     );
 }

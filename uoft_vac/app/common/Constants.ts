@@ -2,7 +2,7 @@
 export const EMAIL_LINK = "mailto:utvisualartclub@gmail.com";
 export const DISCORD_LINK = "https://discord.gg/ThMhbPpMyU";
 export const INSTAGRAM_LINK = "https://instagram.com/uoft_vac/";
-export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6";
+export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6"; // Update for 2025–2026
 
 // Colours:
 
@@ -11,7 +11,7 @@ export const BG_GREEN = "rgb(198,255,206)";
 // Navbar & Footer
 export const BARS_EDGES_GREEN = "rgb(0,178,25)";
 export const BARS_CENTRE_GREEN = "rgb(53,228,78)";
-export const BARS_STYLE_GRADIENT = {background: `linear-gradient(to right,
+export const BARS_GRADIENT_STYLE = {background: `linear-gradient(to right,
     ${BARS_EDGES_GREEN} 0%,
     ${BARS_CENTRE_GREEN} 35%,
     ${BARS_CENTRE_GREEN} 65%,
@@ -20,10 +20,12 @@ export const BARS_STYLE_GRADIENT = {background: `linear-gradient(to right,
 export const PAGE_BUTTONS_PASSIVE_YELLOW = "rgb(255,254,176)";
 export const PAGE_BUTTONS_ACTIVE_YELLOW = "rgb(255,253,111)";
 // About Us
-export const SUBSECTION_YELLOW = "rgb(255,206,0)";
-export const SUBSECTION_BLUE = "rgb(0,214,255)";
-export const PURP_BUTTONS_PURPLE = "rgb(80,43,113)";
-export const PURP_BUTTON_HOVER_GREEN = "rgb(198,255,206)";
+export const SUBSECTION_BASE_YELLOW = "rgb(255,206,0)";
+export const SUBSECTION_EDGES_YELLOW = "rgb(255,187,0)";
+export const SUBSECTION_BASE_BLUE = "rgb(0,214,255)";
+export const SUBSECTION_EDGES_BLUE = "rgb(0,192,255)";
+export const PURP_BUTTONS_BASE_PURPLE = "rgb(80,43,113)";
+export const PURP_BUTTONS_EDGES_PURPLE = "rgb(72,25,104)";
 // Join Us
 export const TEXT_LINK_PASSIVE_PURPLE = "rgb(77,0,155)";
 export const TEXT_LINK_HOVER_PURPLE = "rgb(132,0,255)";

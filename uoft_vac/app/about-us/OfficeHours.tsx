@@ -3,26 +3,33 @@
 import Image from "next/image";
 
 import {
-    SUBSECTION_BLUE,
+    SUBSECTION_BASE_BLUE,
+    SUBSECTION_EDGES_BLUE,
 } from "../common/Constants";
 import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,
-    SUBSECTIONS_TEXT_CLASSNAME
+    SUBSECTIONS_TEXT_CLASSNAME,
+    subsectionGradientStyleComponent,
+    SubsectionEars,
 } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
 
-const BUBBLE_GRAPHICS_CLASSNAME = "w-[25cqw] h-[25cqw]";
+const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-4 rounded-full";
 
 export default function OfficeHours() {
     return (
-        <div
+        <section
             className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
-                backgroundColor: SUBSECTION_BLUE,
+                background: subsectionGradientStyleComponent(SUBSECTION_BASE_BLUE, SUBSECTION_EDGES_BLUE),
                 containerType: "inline-size",
             }}
         >
+
+            {/* Ears */}
+            <SubsectionEars colour={SUBSECTION_EDGES_BLUE}/>
+
             {/* Subsection title */}
             <SectionTitle height={SUBSECTIONS_TITLE_HEIGHT}>Office Hours</SectionTitle>
 
@@ -42,49 +49,44 @@ export default function OfficeHours() {
                     Watch this video!
 
                     {/* Video */}
-                    <div className="mt-[1cqw]">
-                        <video
-                            src="/office-video.mp4"
-                            className="h-[69cqw] rounded-lg shadow-lg"
-                            controls
-                        />
-                    </div>
+                    <video
+                        src="/office-video.mp4"
+                        className="mt-[1cqw] h-[69cqw] border-4 rounded-lg shadow-lg"
+                        controls
+                    />
                 </div>
 
                 {/* Bubble graphics container */}
                 <div className="flex flex-col items-center">
 
                     {/* Make Art */}
-                    <div style={{ transform: "translateX(calc(10cqw))" }}>
+                    <div className={`translate-x-[10cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
                         <Image
                             src="/office-hours-make-art.png"
-                            alt="Make art"
-                            className={BUBBLE_GRAPHICS_CLASSNAME}
-                            width={100} height={0}
+                            alt="Make Art"
+                            fill
                         />
                     </div>
 
                     {/* Study */}
-                    <div style={{ transform: "translateX(calc(-10cqw)) translateY(calc(-2cqw))" }}>
+                    <div className={`translate-x-[-10cqw] translate-y-[-2cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
                         <Image
                             src="/office-hours-study.png"
                             alt="Study"
-                            className={BUBBLE_GRAPHICS_CLASSNAME}
-                            width={100} height={0}
+                            fill
                         />
                     </div>
 
                     {/* Socialise */}
-                    <div style={{ transform: "translateX(calc(5cqw))" }}>
+                    <div className={`translate-x-[5cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
                         <Image
                             src="/office-hours-socialise.png"
                             alt="Socialise"
-                            className={BUBBLE_GRAPHICS_CLASSNAME}
-                            width={100} height={0}
+                            fill
                         />
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

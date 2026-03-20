@@ -1,15 +1,9 @@
 "use client";
 
 import { useIsMobile } from "../layout/UseIsMobile";
-import SectionTitle from "../common/SectionTitle";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
-
-export const NAME_OUTLINE_TEXT_SHADOW =
-    `-1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px  1px 0 #000,
-    1px  1px 0 #000`;
+import SectionTitle from "../common/SectionTitle";
 
 const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-20";
 
@@ -71,12 +65,18 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
     },
 };
 
+export const NAME_OUTLINE_TEXT_SHADOW =
+    `-1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px  1px 0 #000,
+    1px  1px 0 #000`;
+
 export default function OurTeam() {
     const isMobile = useIsMobile();
     const isSmaller = useIsMobile(true);
 
     return (
-        <div className="mb-15">
+        <main className="mb-15">
             {Object.entries(EXEC_CATEGORIES_SPECS).map( ([
                 category, {
                     members,
@@ -91,7 +91,7 @@ export default function OurTeam() {
                     const mobileMembers = members_mobile ?? members;
 
                     return (
-                        <div className={containerClassname}>
+                        <section className={containerClassname}>
                         
                             {/* Category title */}
                             <SectionTitle
@@ -121,7 +121,7 @@ export default function OurTeam() {
                             
                             // MOBILE VIEW
                             ) : (
-                                <div className="mt-10 gap-10 grid">
+                                <ol className="mt-10 gap-10 grid">
                                     {mobileMembers.map((name, index) => (
 
                                         // Use list format normally.
@@ -140,12 +140,12 @@ export default function OurTeam() {
                                             />
                                         )
                                     ))}
-                                </div>
+                                </ol>
                             )}
-                        </div>
+                        </section>
                     )
                 }
             )}
-        </div>
+        </main>
     );
 }
