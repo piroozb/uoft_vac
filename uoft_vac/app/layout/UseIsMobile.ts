@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {
+    useState,
+    useEffect,
+} from "react";
 
 import {
     SIDE_DECOR_MIN,

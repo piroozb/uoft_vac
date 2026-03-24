@@ -6,9 +6,9 @@ import FunFacts from "./FunFacts";
 export default function About() {
     return (
         <main>
-        <OurMission/>
-        <WhatDoWeDo/>
-        <FunFacts/>
+            <OurMission/>
+            <WhatDoWeDo/>
+            <FunFacts/>
         </main>
     )
 }

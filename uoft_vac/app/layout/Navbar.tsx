@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react"
+import {
+    useState,
+} from "react"
 
 import {
     BARS_EDGES_GREEN,
@@ -48,7 +50,7 @@ export default function Navbar() {
                     <div
                         className={`w-40 rounded-4xl blur-2xl absolute inset-0
                             ${isDropdownOpen ? "opacity-100" : "opacity-0"} ${DROPDOWN_TRANSF_DURATION}`}
-                        style={{ backgroundColor: BARS_EDGES_GREEN }}
+                        style={{ background: BARS_EDGES_GREEN }}
                     />
                 )}
 

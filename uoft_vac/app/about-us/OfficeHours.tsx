@@ -10,19 +10,22 @@ import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,
     SUBSECTIONS_TEXT_CLASSNAME,
-    subsectionGradientStyleComponent,
     SubsectionEars,
 } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
+import { divGradientStyleBackground } from "../common/DivGradientStyleBackground";
 
-const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-4 rounded-full";
+const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-3 rounded-full";
 
 export default function OfficeHours() {
     return (
         <section
             className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{
-                background: subsectionGradientStyleComponent(SUBSECTION_BASE_BLUE, SUBSECTION_EDGES_BLUE),
+                background: divGradientStyleBackground(
+                    SUBSECTION_BASE_BLUE,
+                    SUBSECTION_EDGES_BLUE,
+                ),
                 containerType: "inline-size",
             }}
         >
@@ -51,7 +54,7 @@ export default function OfficeHours() {
                     {/* Video */}
                     <video
                         src="/office-video.mp4"
-                        className="mt-[1cqw] h-[69cqw] border-4 rounded-lg shadow-lg"
+                        className="mt-[1cqw] h-[69cqw] border-3 rounded-lg shadow-lg"
                         controls
                     />
                 </div>
