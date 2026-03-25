@@ -2,7 +2,7 @@
 
 import { execData, ExecDataTypes } from "./ExecData";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
-import { NAME_OUTLINE_TEXT_SHADOW } from "./page";
+import { NAME_OUTLINE_TEXT_SHADOW } from "./OurTeamPageClient";
 
 export default function ExecEntryGrid({
     entryKey,

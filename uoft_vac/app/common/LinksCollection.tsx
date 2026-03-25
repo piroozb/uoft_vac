@@ -56,7 +56,7 @@ export default function LinksCollection({
             )}
 
             {/* Icons row */}
-            <div
+            <ol
                 className={`flex ${justify}`}
                 style={{
                     marginTop: size * .5,
@@ -116,7 +116,7 @@ export default function LinksCollection({
                         />
                     </DynamicButton>
                 </a>
-            </div>
+            </ol>
         </div>
     )
 }

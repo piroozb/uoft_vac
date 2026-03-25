@@ -6,8 +6,6 @@ import {
 } from "../common/Constants";
 import LinksCollection from "../common/LinksCollection";
 
-const CONTACTS_SIZE = 50;
-
 export default function Footer() {
     return (
         <footer className="flex flex-col items-center">
