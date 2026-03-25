@@ -97,6 +97,7 @@ export default function FeaturedPost() {
                 Featured Post!
             </SectionTitle>
 
+            {/* Featured post container */}
             <div className={`mt-10 grid ${!isMobile
                 ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
                 : "gap-10"}`}

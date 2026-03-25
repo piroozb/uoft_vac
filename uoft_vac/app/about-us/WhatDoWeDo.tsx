@@ -50,13 +50,18 @@ export default function WhatDoWeDo() {
     const isSmaller = useIsMobile(true);
 
     return (
-        <section className="mt-5">
+        <section className="mt-15">
             
             {/* Section title */}
-            <SectionTitle>What do we do?</SectionTitle>
+            <SectionTitle
+                src="/title-what-do-we-do.png"
+                height="min(5rem,8cqw)"
+            >
+                What do we do?
+            </SectionTitle>
 
             {/* Subsections */}
-            <div className={`mt-10 ${!isMobile
+            <div className={`mt-15 ${!isMobile
                 ? "mx-[1cqw] gap-[1cqw] grid grid-cols-2"
                 : `${!isSmaller && "mx-[5cqw]"} gap-[10cqw] flex flex-col`}`}
             >

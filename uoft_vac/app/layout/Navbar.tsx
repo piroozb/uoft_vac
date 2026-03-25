@@ -11,11 +11,7 @@ import {
     BARS_EDGES_GREEN,
     BARS_GRADIENT_STYLE,
 } from "../common/Constants";
-import {
-    EmailLink,
-    DiscordIcon,
-    InstagramIcon,
-} from "../common/Contacts";
+import LinksCollection from "../common/LinksCollection";
 import { useIsMobile } from "./UseIsMobile";
 import DynamicButton from "../common/DynamicButton";
 
@@ -88,13 +84,12 @@ export default function Navbar() {
                     </ol>
                 </nav>
 
-                {/* Contacts */}
+                {/* Important links */}
                 <div className="translate-y-[115%] mr-1 gap-2 grid absolute bottom-0 right-0">
-                    <EmailLink size={CONTACTS_SIZE}/>
-                    <div className="mr-2 gap-3 flex justify-end">
-                        <DiscordIcon size={CONTACTS_SIZE}/>
-                        <InstagramIcon size={CONTACTS_SIZE}/>
-                    </div>
+                    <LinksCollection
+                        size={CONTACTS_SIZE}
+                        justify="justify-end"
+                    />
                 </div>
             </header>
         );
@@ -135,11 +130,12 @@ export default function Navbar() {
                         ${DROPDOWN_TRANSF_DURATION}
                         z-110`}
                     >
-                        <EmailLink size={CONTACTS_SIZE}/>
-                        <div className="ml-2 gap-3 flex">
-                            <DiscordIcon size={CONTACTS_SIZE}/>
-                            <InstagramIcon size={CONTACTS_SIZE}/>
-                        </div>
+                        
+                        {/* Important links */}
+                        <LinksCollection
+                            size={CONTACTS_SIZE}
+                            justify=""
+                        />
                     </div>
                 </div>
 

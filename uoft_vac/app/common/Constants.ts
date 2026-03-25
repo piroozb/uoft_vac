@@ -1,8 +1,10 @@
+
 // Links:
 export const EMAIL_LINK = "mailto:utvisualartclub@gmail.com";
 export const DISCORD_LINK = "https://discord.gg/ThMhbPpMyU";
 export const INSTAGRAM_LINK = "https://instagram.com/uoft_vac/";
 export const LINKTREE_LINK = "https://linktr.ee/uoftvac?utm_source=linktree_profile_share&ltsid=96be1482-a471-4bbc-98c4-c703c6d56b4e";
+
 export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6"; // 2025–2026 version
 
 // Colours:

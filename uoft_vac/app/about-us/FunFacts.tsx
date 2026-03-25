@@ -37,10 +37,10 @@ export default function FunFacts() {
             {/* Facts container */}
             <div
                 className={`${!isSmaller && "grid"} ${!isMobile
-                    ? "mt-5 gap-[1cqw] grid-cols-4" :
+                    ? "mt-10 gap-[1cqw] grid-cols-4" :
                     !isSmaller
                         ? "mt-20"
-                        : "mt-5"}
+                        : "mt-10"}
                     grid-cols-2`}
             >
 

@@ -4,11 +4,7 @@ import Image from "next/image";
 import {
     BARS_GRADIENT_STYLE,
 } from "../common/Constants";
-import {
-    EmailLink,
-    DiscordIcon,
-    InstagramIcon
-} from "../common/Contacts";
+import LinksCollection from "../common/LinksCollection";
 
 const CONTACTS_SIZE = 50;
 
@@ -16,28 +12,22 @@ export default function Footer() {
     return (
         <footer className="flex flex-col items-center">
 
-        {/* Frodo */}
-        <Image
-            src="/frodo-footer.png"
-            alt="Frodo"
-            width={50} height={0}
-        />
+            {/* Frodo */}
+            <Image
+                src="/frodo-footer.png"
+                alt="Frodo"
+                width={50} height={0}
+            />
 
-        {/* Bar */}
-        <div
-            className="w-full p-5 grid justify-center relative z-100"
-            style={BARS_GRADIENT_STYLE}
-        >
+            {/* Bar */}
+            <div
+                className="w-full p-5 grid justify-center relative z-100"
+                style={BARS_GRADIENT_STYLE}
+            >
 
-            {/* Email */}
-            <EmailLink size={CONTACTS_SIZE}/>
-
-            {/* Discord & Instagram */}
-            <div className="mt-5 gap-5 flex justify-center">
-            <DiscordIcon size={CONTACTS_SIZE}/>
-            <InstagramIcon size={CONTACTS_SIZE}/>
+                {/* Important links */}
+                <LinksCollection/>
             </div>
-        </div>
         </footer>
     );
 }

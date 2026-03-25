@@ -33,15 +33,18 @@ export default function FAQSection() {
     };
 
     return (
-        <main className="mt-5 flex flex-col items-center">
+        <main className="mt-5 mb-15 flex flex-col items-center">
 
             {/* Section title */}
-            <SectionTitle height="min(5rem,7cqw)">
+            <SectionTitle
+                src="/title-faq.png"
+                height="min(3.5rem,4cqw)"
+            >
                 Frequently Asked Questions
             </SectionTitle>
 
             {/* Container top graphic (Frodo face) */}
-            <div className={`${!isMobile && "mx-[5cqw]"}`}>
+            <div className={`mt-10 ${!isMobile && "mx-[5cqw]"}`}>
                 <Image
                     src="/faq-container-top.png"
                     alt="Frodo Head"
