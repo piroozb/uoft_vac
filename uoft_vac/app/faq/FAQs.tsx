@@ -1,5 +1,7 @@
 
-import { ReactNode } from "react";
+import {
+    ReactNode,
+} from "react";
 
 import {
     MEMBERSHIP_FORM_LINK,

@@ -37,10 +37,10 @@ export default function FunFacts() {
             {/* Facts container */}
             <div
                 className={`${!isSmaller && "grid"} ${!isMobile
-                    ? "mt-5 gap-[1cqw] grid-cols-4" :
+                    ? "mt-10 gap-[1cqw] grid-cols-4" :
                     !isSmaller
                         ? "mt-20"
-                        : "mt-5"}
+                        : "mt-10"}
                     grid-cols-2`}
             >
 
@@ -152,9 +152,9 @@ export default function FunFacts() {
 
                 {/* Text */}
                 <p
-                    className="ml-[-50] pl-15 pr-[min(2rem,4cqw)] h-[min(4rem,10cqw)] text-[1.5rem]
+                    className="-ml-[min(2rem,5cqw)] pl-[min(3rem,6cqw)] pr-[min(2rem,4cqw)] h-[min(4rem,10cqw)] text-[min(1.5rem,5cqw)]
                         font-semibold rounded-r-full flex items-center z-[-1]"
-                    style={{ backgroundColor: SUBSECTION_BASE_BLUE }}
+                    style={{ background: SUBSECTION_BASE_BLUE }}
                 >
                     Hi I'm Frodo, the club mascot!
                 </p>

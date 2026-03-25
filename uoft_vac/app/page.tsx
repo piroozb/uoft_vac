@@ -6,9 +6,9 @@ import UpcomingEvents from "./home/UpcomingEvents";
 export default function Home() {
     return (
         <main>
-        <Banner/>
-        <FeaturedPost/>
-        <UpcomingEvents/>
+            <Banner/>
+            <FeaturedPost/>
+            <UpcomingEvents/>
         </main>
     );
 }

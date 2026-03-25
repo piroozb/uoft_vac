@@ -1,16 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useState, MouseEvent } from "react";
+import {
+    useState,
+    MouseEvent,
+} from "react";
 
 import {
     BARS_CENTRE_GREEN,
     PAGE_BUTTONS_PASSIVE_YELLOW,
+    FAQ_EDGES_YELLOW,
 } from "../common/Constants";
 import { faqs } from "./FAQs";
 import Question from "./Question";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
+import { divGradientStyleBackground } from "../common/DivGradientStyleBackground";
 
 export default function FAQSection() {
     const isMobile = useIsMobile()
@@ -28,15 +33,18 @@ export default function FAQSection() {
     };
 
     return (
-        <main className="mt-5 flex flex-col items-center">
+        <main className="mt-5 mb-15 flex flex-col items-center">
 
             {/* Section title */}
-            <SectionTitle height="min(5rem,7cqw)">
+            <SectionTitle
+                src="/title-faq.png"
+                height="min(3.5rem,4cqw)"
+            >
                 Frequently Asked Questions
             </SectionTitle>
 
-            {/* Container top */}
-            <div className={`${!isMobile && "mx-[5cqw]"}`}>
+            {/* Container top graphic (Frodo face) */}
+            <div className={`mt-10 ${!isMobile && "mx-[5cqw]"}`}>
                 <Image
                     src="/faq-container-top.png"
                     alt="Frodo Head"
@@ -47,14 +55,19 @@ export default function FAQSection() {
             
             {/* Green container */}
             <div
-                className={`${!isMobile ? "mx-[5cqw] px-10" : "px-5"}`}
-                style={{ backgroundColor: BARS_CENTRE_GREEN }}
+                className={`${!isMobile ? "mx-[5cqw] px-10 pb-5" : "px-5 pb-3"}`}
+                style={{ background: BARS_CENTRE_GREEN }}
             >
 
                 {/* Yellow container */}
-                <ol
-                    className={`px-5 ${!isMobile ? "rounded-3xl" : "rounded-2xl"}`}
-                    style={{ backgroundColor: PAGE_BUTTONS_PASSIVE_YELLOW }}
+                <div
+                    className={`px-5 rounded-2xl ${!isMobile ? "shadow-lg" : "shadow-md"}`}
+                    style={{background: divGradientStyleBackground(
+                        PAGE_BUTTONS_PASSIVE_YELLOW,
+                        FAQ_EDGES_YELLOW,
+                        3,
+                        3,
+                    ) }}
                 >
 
                     {/* Map the data in FAQs.tsx using the Question.tsx component. */}
@@ -68,10 +81,10 @@ export default function FAQSection() {
                             onClick={(e) => handleClick(e, i)}
                         />
                     ))}
-                </ol>
+                </div>
             </div>
 
-            {/* Container bottom */}
+            {/* Container bottom graphic (Frodo butt) */}
             <div className={`${!isMobile && "mx-[5cqw]"}`}>
                 <Image
                     src="/faq-container-bot.png"

@@ -9,13 +9,18 @@ export default function OurMission() {
     const isSmaller = useIsMobile(true);
 
     return (
-        <section className="flex flex-col items-center">
+        <section className="mt-5 flex flex-col items-center">
 
             {/* Section title */}
-            <SectionTitle>Our Mission!</SectionTitle>
+            <SectionTitle
+                src="/title-our-mission.png"
+                height="min(5rem,9cqw)"
+            >
+                Our Mission!
+            </SectionTitle>
 
             {/* Mission container */}
-            <div className="w-250 aspect-[3/1.5] flex justify-center items-center relative">
+            <div className="mt-5 w-250 aspect-[3/1.5] flex justify-center items-center relative">
 
                 {/* Paint */}
                 <Image

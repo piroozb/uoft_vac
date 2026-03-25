@@ -1,6 +1,9 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import {
+    ReactNode,
+    useState,
+} from "react";
 
 export default function DynamicButton({
     children,

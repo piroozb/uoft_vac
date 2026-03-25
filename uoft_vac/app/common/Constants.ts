@@ -1,8 +1,11 @@
+
 // Links:
 export const EMAIL_LINK = "mailto:utvisualartclub@gmail.com";
 export const DISCORD_LINK = "https://discord.gg/ThMhbPpMyU";
 export const INSTAGRAM_LINK = "https://instagram.com/uoft_vac/";
-export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6"; // Update for 2025–2026
+export const LINKTREE_LINK = "https://linktr.ee/uoftvac?utm_source=linktree_profile_share&ltsid=96be1482-a471-4bbc-98c4-c703c6d56b4e";
+
+export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6"; // 2025–2026 version
 
 // Colours:
 
@@ -33,10 +36,11 @@ export const TEXT_LINK_HOVER_PURPLE = "rgb(132,0,255)";
 export const TEXT_LINK_PASSIVE_ORANGE = "rgb(165,32,0)";
 export const TEXT_LINK_HOVER_ORANGE = "rgb(255,51,0)";
 // FAQ
+export const FAQ_EDGES_YELLOW = "rgb(255,242,146)";
 export const FAQ_LINK_PASSIVE_BLUE = "rgb(0,0,179)";
 export const FAQ_LINK_HOVER_BLUE = "rgb(0,0,255)";
 
-// Styles:
+// Other values:
 export const SIDE_DECOR_MIN = 1000;
 export const SIDE_DECOR_MAX = 1500;
 export const SIDE_DECOR_WIDTH = 150;

@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+    useState,
+} from "react";
+import {
+    AnimatePresence,
+    motion,
+} from "framer-motion";
 
 import {
     COMMON_EASE_OUT,
@@ -66,7 +71,7 @@ function ImageCarousel({
 
                 {/* Image */}
                 <div
-                    className={`w-full h-full ${!isExpanded && "border-4 rounded-lg shadow-lg"} relative overflow-hidden
+                    className={`w-full h-full ${!isExpanded && "border-3 rounded-lg shadow-lg"} relative overflow-hidden
                         ${onImageClick ? "cursor-pointer" : ""}`}
                     onClick={onImageClick}
                 >

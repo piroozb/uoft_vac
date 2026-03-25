@@ -44,7 +44,7 @@ export default function RootLayout({ children } : { children: React.ReactNode })
             {/* Background */}
             <div
                 className="antialiased main-content"
-                style={{ backgroundColor: BG_GREEN }}
+                style={{ background: BG_GREEN }}
             >
 
                 {/* Layout */}

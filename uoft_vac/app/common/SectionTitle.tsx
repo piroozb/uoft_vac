@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import {
+    useState,
+} from "react";
 
 export default function SectionTitle({
     children,
