@@ -9,12 +9,12 @@ export default function OurMission() {
     const isSmaller = useIsMobile(true);
 
     return (
-        <section className="mt-5 flex flex-col items-center">
+        <section className="mt-10 flex flex-col items-center">
 
             {/* Section title */}
             <SectionTitle
                 src="/title-our-mission.png"
-                height="min(5rem,9cqw)"
+                height="min(5rem,7cqw)"
             >
                 Our Mission!
             </SectionTitle>

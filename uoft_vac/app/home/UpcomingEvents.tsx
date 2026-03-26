@@ -4,17 +4,25 @@ import Image from "next/image";
 import {
     useState,
 } from "react";
+import {
+    motion,
+} from "framer-motion";
 
+import { COMMON_EASE_OUT } from "../common/Constants";
 import { useIsMobile } from "../layout/UseIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
+const LAST_UPDATED = "March 25, 2026";
+
 export default function UpcomingEvents() {
-    const isMobile = useIsMobile()
+    const isMobile = useIsMobile();
+
     const [hoverFrodoo, setHoverFrodoo] = useState(false);
+    const [hoverGraphic, setHoverGraphic] = useState(false);
 
     return (
-        <section className="my-15 flex flex-col items-center">
+        <section className="mt-15 mb-20 flex flex-col items-center">
 
             {/* Section title */}
             <SectionTitle
@@ -39,12 +47,33 @@ export default function UpcomingEvents() {
                     </div>
                 }
 
-                {/* Graphic */}
-                <ExpandableImageCarousel
-                    images={["/event-schedule.png"]}
-                    alt="Event Schedule"
-                    normalSize="w-[min(40rem,85cqw)]"
-                />
+                {/* Graphic container */}
+                <div
+                    className="relative flex flex-col items-center"
+                    onMouseEnter={() => setHoverGraphic(true)}
+                    onMouseLeave={() => setHoverGraphic(false)}
+                >
+
+                    {/* Graphic */}
+                    <ExpandableImageCarousel
+                        images={["/event-schedule.png"]}
+                        alt="Event Schedule"
+                        normalSize="w-[min(40rem,85cqw)]"
+                    />
+
+                    {/* Last updated */}
+                    <motion.div
+                        initial={false}
+                        className="text-[min(1.3rem,4cqw)] bottom-0 absolute z-[-1]"
+                        animate={{
+                            y: !hoverGraphic ? "-10%" : "110%",
+                            opacity: 1,
+                        }}
+                        transition={{ ease: COMMON_EASE_OUT, duration: .4 }}
+                    >
+                        Last updated: {LAST_UPDATED}
+                    </motion.div>
+                </div>
 
                 {/* Frodo right */}
                 {!isMobile &&

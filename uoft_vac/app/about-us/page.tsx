@@ -1,14 +1,11 @@
 
-import OurMission from "./OurMission";
-import WhatDoWeDo from "./WhatDoWeDo";
-import FunFacts from "./FunFacts";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+    title: "About Us",
+};
 
-export default function About() {
-    return (
-        <main>
-            <OurMission/>
-            <WhatDoWeDo/>
-            <FunFacts/>
-        </main>
-    )
+import AboutUsPageClient from "./AboutUsPageClient";
+
+export default function AboutUsPage() {
+    return (<AboutUsPageClient/>)
 }

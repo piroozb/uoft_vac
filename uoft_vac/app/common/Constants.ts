@@ -5,7 +5,7 @@ export const DISCORD_LINK = "https://discord.gg/ThMhbPpMyU";
 export const INSTAGRAM_LINK = "https://instagram.com/uoft_vac/";
 export const LINKTREE_LINK = "https://linktr.ee/uoftvac?utm_source=linktree_profile_share&ltsid=96be1482-a471-4bbc-98c4-c703c6d56b4e";
 
-export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6"; // 2025–2026 version
+export const MEMBERSHIP_FORM_LINK = "https://forms.gle/B7He7a6nNKTp6LSd6"; // Version 2025–2026
 
 // Colours:
 
@@ -20,8 +20,6 @@ export const BARS_GRADIENT_STYLE = {background: `linear-gradient(to right,
     ${BARS_CENTRE_GREEN} 65%,
     ${BARS_EDGES_GREEN} 100%
 )`} as const;
-export const PAGE_BUTTONS_PASSIVE_YELLOW = "rgb(255,254,176)";
-export const PAGE_BUTTONS_ACTIVE_YELLOW = "rgb(255,253,111)";
 // About Us
 export const SUBSECTION_BASE_YELLOW = "rgb(255,206,0)";
 export const SUBSECTION_EDGES_YELLOW = "rgb(255,187,0)";
@@ -36,6 +34,7 @@ export const TEXT_LINK_HOVER_PURPLE = "rgb(132,0,255)";
 export const TEXT_LINK_PASSIVE_ORANGE = "rgb(165,32,0)";
 export const TEXT_LINK_HOVER_ORANGE = "rgb(255,51,0)";
 // FAQ
+export const FAQ_CENTRE_YELLOW = "rgb(255,254,176)";
 export const FAQ_EDGES_YELLOW = "rgb(255,242,146)";
 export const FAQ_LINK_PASSIVE_BLUE = "rgb(0,0,179)";
 export const FAQ_LINK_HOVER_BLUE = "rgb(0,0,255)";

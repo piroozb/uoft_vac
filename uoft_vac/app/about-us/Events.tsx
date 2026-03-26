@@ -8,8 +8,8 @@ import {
     SUBSECTION_EDGES_YELLOW,
     PURP_BUTTONS_BASE_PURPLE,
     PURP_BUTTONS_EDGES_PURPLE,
-    PAGE_BUTTONS_PASSIVE_YELLOW,
     BG_GREEN,
+    FAQ_CENTRE_YELLOW,
 } from "../common/Constants";
 import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
@@ -140,7 +140,7 @@ export default function Events() {
                         className={PURP_BUTTON_CLASSNAME}
                         style={{ background: PURP_BUTTON_GRADIENT_STYLE_COMPONENT }}
                         onMouseEnter={(e) =>
-                            (e.currentTarget.style.color = PAGE_BUTTONS_PASSIVE_YELLOW)
+                            (e.currentTarget.style.color = FAQ_CENTRE_YELLOW)
                         }
                         onMouseLeave={(e) =>
                             (e.currentTarget.style.color = "")
