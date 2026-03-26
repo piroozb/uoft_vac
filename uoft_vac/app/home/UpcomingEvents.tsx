@@ -22,7 +22,7 @@ export default function UpcomingEvents() {
     const [hoverGraphic, setHoverGraphic] = useState(false);
 
     return (
-        <section className="my-15 flex flex-col items-center">
+        <section className="mt-15 mb-20 flex flex-col items-center">
 
             {/* Section title */}
             <SectionTitle
@@ -64,7 +64,7 @@ export default function UpcomingEvents() {
                     {/* Last updated */}
                     <motion.div
                         initial={false}
-                        className="text-[min(1.5rem,4cqw)] bottom-0 absolute z-[-1]"
+                        className="text-[min(1.3rem,4cqw)] bottom-0 absolute z-[-1]"
                         animate={{
                             y: !hoverGraphic ? "-10%" : "110%",
                             opacity: 1,

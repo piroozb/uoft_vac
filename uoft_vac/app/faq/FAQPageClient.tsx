@@ -8,7 +8,7 @@ import {
 
 import {
     BARS_CENTRE_GREEN,
-    PAGE_BUTTONS_PASSIVE_YELLOW,
+    FAQ_CENTRE_YELLOW,
     FAQ_EDGES_YELLOW,
 } from "../common/Constants";
 import { faqs } from "./FAQs";
@@ -33,12 +33,12 @@ export default function FAQPageClient() {
     };
 
     return (
-        <main className="mt-5 mb-15 flex flex-col items-center">
+        <main className="mt-10 mb-15 flex flex-col items-center">
 
             {/* Section title */}
             <SectionTitle
                 src="/title-faq.png"
-                height="min(3.5rem,4cqw)"
+                height="min(5rem,6cqw)"
             >
                 Frequently Asked Questions
             </SectionTitle>
@@ -63,7 +63,7 @@ export default function FAQPageClient() {
                 <div
                     className={`px-5 rounded-2xl ${!isMobile ? "shadow-lg" : "shadow-md"}`}
                     style={{background: divGradientStyleBackground(
-                        PAGE_BUTTONS_PASSIVE_YELLOW,
+                        FAQ_CENTRE_YELLOW,
                         FAQ_EDGES_YELLOW,
                         3,
                         3,
