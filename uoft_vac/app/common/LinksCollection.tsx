@@ -10,7 +10,7 @@ import {
     DISCORD_LINK,
     INSTAGRAM_LINK,
     LINKTREE_LINK,
-} from "./Constants";
+} from "./constants";
 import TextLink from "./TextLink";
 import DynamicButton from "./DynamicButton";
 

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { SIDE_DECOR_WIDTH } from "../common/Constants";
+import { SIDE_DECOR_WIDTH } from "../common/constants";
 import { useWindowOffset } from "../layout/WindowOffsetContext";
 
 export default function Banner() {

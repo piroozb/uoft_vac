@@ -10,9 +10,9 @@ import {
 import {
     BARS_EDGES_GREEN,
     BARS_GRADIENT_STYLE,
-} from "../common/Constants";
+} from "../common/constants";
 import LinksCollection from "../common/LinksCollection";
-import { useIsMobile } from "./UseIsMobile";
+import { useIsMobile } from "./useIsMobile";
 import DynamicButton from "../common/DynamicButton";
 
 const DROPDOWN_TRANSF_DURATION = "duration-400";

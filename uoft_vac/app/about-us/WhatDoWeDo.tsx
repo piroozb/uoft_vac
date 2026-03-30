@@ -1,6 +1,6 @@
 "use client";
 
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import Events from "./Events";
 import OfficeHours from "./OfficeHours";

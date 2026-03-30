@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
     SUBSECTION_BASE_BLUE,
     SUBSECTION_EDGES_BLUE,
-} from "../common/Constants";
+} from "../common/constants";
 import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,
@@ -13,7 +13,7 @@ import {
     SubsectionEars,
 } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
-import { divGradientStyleBackground } from "../common/DivGradientStyleBackground";
+import { divGradientStyleBackground } from "../common/divGradientStyleBackground";
 
 const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-3 rounded-full";
 

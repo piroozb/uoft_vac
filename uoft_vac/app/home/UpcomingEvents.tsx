@@ -8,8 +8,8 @@ import {
     motion,
 } from "framer-motion";
 
-import { COMMON_EASE_OUT } from "../common/Constants";
-import { useIsMobile } from "../layout/UseIsMobile";
+import { COMMON_EASE_OUT } from "../common/constants";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
@@ -58,15 +58,18 @@ export default function UpcomingEvents() {
                     <ExpandableImageCarousel
                         images={["/event-schedule.png"]}
                         alt="Event Schedule"
-                        normalSize="w-[min(40rem,85cqw)]"
+                        normalSize="w-[min(40rem,100cqw)]"
                     />
 
                     {/* Last updated */}
                     <motion.div
                         initial={false}
-                        className="text-[min(1.3rem,4cqw)] bottom-0 absolute z-[-1]"
-                        animate={{
-                            y: !hoverGraphic ? "-10%" : "110%",
+                        className="text-[min(1.3rem,4cqw)] translate-y-[min(2rem,7cqw)] bottom-0 absolute z-[-1]"
+                        animate={!isMobile ? {
+                            y: !hoverGraphic ? "-150%" : "0%",
+                            opacity: 1,
+                        } : {
+                            y: "0%",
                             opacity: 1,
                         }}
                         transition={{ ease: COMMON_EASE_OUT, duration: .4 }}

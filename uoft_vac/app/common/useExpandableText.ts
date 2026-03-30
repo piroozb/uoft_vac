@@ -7,7 +7,7 @@ import {
     useEffect,
 } from "react";
 
-export function ExpandableText<T extends HTMLElement>(
+export function useExpandableText<T extends HTMLElement>(
     isExpanded: boolean,
     collapsedHeight: number = 0,
     deps: any[] = []
