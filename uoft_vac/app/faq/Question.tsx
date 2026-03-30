@@ -43,7 +43,7 @@ export default function Question({
         >
 
             {/* Question */}
-            <p className="gap-5 text-[min(1.5rem,3.5cqw)] grid grid-cols-[1fr_auto] font-semibold">
+            <p className="gap-5 text-[min(1.5rem,4cqw)] grid grid-cols-[1fr_auto] font-semibold">
 
                 {question}
 
@@ -86,7 +86,9 @@ export default function Question({
                 transition={{ ease: COMMON_EASE_OUT, duration: .5 }}
                 className="overflow-hidden"
             >
-                <p className="text-[min(1.25rem,3cqw)]">
+
+                {/* Answer */}
+                <p className="text-[min(1.25rem,3.5cqw)]">
                     {answer}
                 </p>
             </motion.div>

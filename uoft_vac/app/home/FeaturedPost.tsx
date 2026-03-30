@@ -28,6 +28,7 @@ export default function FeaturedPost() {
     const isMobile = useIsMobile();
 
     const [images, setImages] = useState<string[] | null>(null);
+    const [isReel, setIsReel] = useState(false);
     const [captionText, setCaptionText] = useState<string>("Loading Instagram post… 🧐");
     const [timestamp, setTimestamp] = useState<string | null>(null);
     const [captionExpanded, setCaptionExpanded] = useState(false);
@@ -47,6 +48,7 @@ export default function FeaturedPost() {
             .then(res => res.json())
             .then(data => {
                 setImages(data.images);
+                setIsReel(data.isReel);
                 setCaptionText(data.caption);
                 setTimestamp(data.timestamp);
             })
@@ -83,6 +85,8 @@ export default function FeaturedPost() {
 
     const TEXT_MARGIN_X = !isMobile ? "" : "mx-[5cqw]";
 
+    const [hoverCarousel, setHoverCarousel] = useState(false);
+
     return (
         <section
             className="mt-10 flex flex-col items-center"
@@ -97,35 +101,62 @@ export default function FeaturedPost() {
                 Featured Post!
             </SectionTitle>
 
-            {/* Featured post container */}
+            {/* Images & caption halves container */}
             <div className={`mt-10 grid ${!isMobile
                 ? "mx-[5cqw] gap-20 grid-cols-[auto_1fr]"
                 : "gap-10"}`}
             >
 
-                {/* Expandable image carousel */}
-                {images && images.length > 0 && (
-                    <>
-                        <ExpandableImageCarousel
-                            images={images}
-                            alt="Featured Post"
-                            normalSize="w-[min(25rem,100cqw)]"
-                            isTest={TESTING_IMAGE_CAROUSEL}
-                        />
+                {/* Images container */}
+                <div className="relative flex justify-center">
 
-                        {/* Preload images. */}
-                        <div className="hidden" aria-hidden="true">
-                            {images.map((src) => (
-                                <img key={src} src={src}/>
-                            ))}
+                    {/* Expandable image carousel */}
+                    {images && images.length > 0 && (
+                        <div
+                            className="flex-col items-center justify-center"
+                            onMouseEnter={() => setHoverCarousel(true)}
+                            onMouseLeave={() => setHoverCarousel(false)}
+                        >
+                            <ExpandableImageCarousel
+                                images={images}
+                                alt="Featured Post"
+                                normalSize="w-[min(25rem,100cqw)]"
+                                isTest={TESTING_IMAGE_CAROUSEL}
+                            />
+
+                            {/* Preload images. */}
+                            <div className="hidden" aria-hidden="true">
+                                {images.map((src) => (
+                                    <img key={src} src={src}/>
+                                ))}
+                            </div>
                         </div>
-                    </>
-                )}
+                    )}
 
+                    {/* Is Reel */}
+                    {isReel && (
+                        <motion.div
+                            initial={false}
+                            className="text-[min(1.1rem,3cqw)] translate-y-8 bottom-0 text-center absolute z-[-1]"
+                            animate={!isMobile ? {
+                                y: !hoverCarousel ? "-150%" : "0%",
+                                opacity: 1,
+                            } : {
+                                y: "0%",
+                                opacity: 1,
+                            }}
+                            transition={{ ease: COMMON_EASE_OUT, duration: .4 }}
+                        >
+                            This post is a reel. Watch it on Instagram!
+                        </motion.div>
+                    )}
+                </div>
+
+                {/* Caption half container */}
                 <div>
 
                     {/* Caption */}
-                    <p className={`${TEXT_MARGIN_X} text-left text-[min(1.25rem,3cqw)]`}>
+                    <p className={`text-[min(1.3rem,4cqw)] ${isMobile && "mt-5"} ${TEXT_MARGIN_X} text-left`}>
                         <motion.div
                             ref={ref}
                             className="overflow-hidden whitespace-pre-line"
@@ -141,7 +172,7 @@ export default function FeaturedPost() {
                         {needsExpand && (
                             <button
                                 onClick={() => setCaptionExpanded(prev => !prev)}
-                                className="mt-2.5 text-blue-600 underline hover:opacity-80"
+                                className="mt-3 text-blue-600 underline hover:opacity-80"
                             >
                                 {captionExpanded ? "Show less" : "... more"}
                             </button>
@@ -149,7 +180,7 @@ export default function FeaturedPost() {
                     </p>
 
                     {/* Timestamp */}
-                    <p className={`mt-5 ${TEXT_MARGIN_X} text-[min(1rem,3cqw)] text-gray-500`}>
+                    <p className={`mt-3 ${TEXT_MARGIN_X} text-[min(1.1rem,3cqw)] text-gray-500`}>
                         {timestampText}
                     </p>
                 </div>
@@ -157,8 +188,7 @@ export default function FeaturedPost() {
 
             {/* Wanna see more? */}
             <div
-                className={`m-10 mb-0 text-[min(1.5rem,4cqw)]
-                ${!isMobile && "mt-10"}`}
+                className={`${!isMobile ? "mt-15" : "mt-10"} mx-10 text-[min(1.5rem,4cqw)]`}
             >
                 <p>
                     Wanna see more? Visit our{" "}

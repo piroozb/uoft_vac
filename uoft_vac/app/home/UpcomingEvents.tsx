@@ -64,9 +64,12 @@ export default function UpcomingEvents() {
                     {/* Last updated */}
                     <motion.div
                         initial={false}
-                        className="text-[min(1.3rem,4cqw)] bottom-0 absolute z-[-1]"
-                        animate={{
-                            y: !hoverGraphic ? "-10%" : "110%",
+                        className="text-[min(1.3rem,4cqw)] translate-y-8 bottom-0 absolute z-[-1]"
+                        animate={!isMobile ? {
+                            y: !hoverGraphic ? "-150%" : "0%",
+                            opacity: 1,
+                        } : {
+                            y: "0%",
                             opacity: 1,
                         }}
                         transition={{ ease: COMMON_EASE_OUT, duration: .4 }}
