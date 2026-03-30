@@ -58,13 +58,13 @@ export default function UpcomingEvents() {
                     <ExpandableImageCarousel
                         images={["/event-schedule.png"]}
                         alt="Event Schedule"
-                        normalSize="w-[min(40rem,85cqw)]"
+                        normalSize="w-[min(40rem,100cqw)]"
                     />
 
                     {/* Last updated */}
                     <motion.div
                         initial={false}
-                        className="text-[min(1.3rem,4cqw)] translate-y-8 bottom-0 absolute z-[-1]"
+                        className="text-[min(1.3rem,4cqw)] translate-y-[min(2rem,7cqw)] bottom-0 absolute z-[-1]"
                         animate={!isMobile ? {
                             y: !hoverGraphic ? "-150%" : "0%",
                             opacity: 1,
