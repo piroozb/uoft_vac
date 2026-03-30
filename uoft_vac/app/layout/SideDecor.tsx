@@ -9,7 +9,7 @@ import {
 
 import {
     SIDE_DECOR_WIDTH,
-} from "../common/Constants";
+} from "../common/constants";
 
 const SCROLL_VEL = .1;
 

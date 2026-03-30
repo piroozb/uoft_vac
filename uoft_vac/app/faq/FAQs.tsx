@@ -9,7 +9,7 @@ import {
     INSTAGRAM_LINK,
     FAQ_LINK_PASSIVE_BLUE,
     FAQ_LINK_HOVER_BLUE,
-} from "../common/Constants";
+} from "../common/constants";
 import TextLink from "../common/TextLink";
 
 export const faqs: {

@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
     SUBSECTION_BASE_BLUE,
     SUBSECTION_EDGES_BLUE,
-} from "../common/Constants";
+} from "../common/constants";
 import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,

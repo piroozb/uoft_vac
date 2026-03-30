@@ -10,7 +10,7 @@ import {
     BARS_CENTRE_GREEN,
     FAQ_CENTRE_YELLOW,
     FAQ_EDGES_YELLOW,
-} from "../common/Constants";
+} from "../common/constants";
 import { faqs } from "./FAQs";
 import Question from "./Question";
 import { useIsMobile } from "../layout/useIsMobile";

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import {
     SUBSECTION_BASE_BLUE,
-} from "../common/Constants";
+} from "../common/constants";
 import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 

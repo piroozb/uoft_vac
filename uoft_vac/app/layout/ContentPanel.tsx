@@ -2,7 +2,7 @@
 
 import {
     SIDE_DECOR_WIDTH,
-} from "../common/Constants";
+} from "../common/constants";
 import { useWindowOffset } from "./WindowOffsetContext";
 
 export default function ContentPanel({ children }: { children: React.ReactNode }) {

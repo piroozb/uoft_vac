@@ -12,7 +12,7 @@ import {
 import {
     BARS_EDGES_GREEN,
     COMMON_EASE_OUT,
-} from "../common/Constants";
+} from "../common/constants";
 import { useExpandableText } from "../common/useExpandableText";
 
 const ROTATION_MAG = 72;

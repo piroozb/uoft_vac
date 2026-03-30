@@ -8,7 +8,7 @@ import {
     INSTAGRAM_LINK,
     TEXT_LINK_PASSIVE_PURPLE,
     TEXT_LINK_HOVER_PURPLE,
-} from "../common/Constants";
+} from "../common/constants";
 import {
     SP_TITLE_HEIGHT,
     SP_HALVES_V_CLASSNAME,

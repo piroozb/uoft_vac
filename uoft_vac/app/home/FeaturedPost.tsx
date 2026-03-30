@@ -15,7 +15,7 @@ import {
 import {
     INSTAGRAM_LINK,
     COMMON_EASE_OUT,
-} from "../common/Constants";
+} from "../common/constants";
 import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";

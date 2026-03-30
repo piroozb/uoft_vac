@@ -10,7 +10,7 @@ import {
     PURP_BUTTONS_EDGES_PURPLE,
     BG_GREEN,
     FAQ_CENTRE_YELLOW,
-} from "../common/Constants";
+} from "../common/constants";
 import {
     SUBSECTIONS_CONTAINER_CLASSNAME,
     SUBSECTIONS_TITLE_HEIGHT,

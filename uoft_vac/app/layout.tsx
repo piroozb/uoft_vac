@@ -11,7 +11,7 @@ import { Fredoka } from "next/font/google";
 import {
     BG_GREEN,
     BARS_GRADIENT_STYLE,
-} from "./common/Constants";
+} from "./common/constants";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import ClientSideDecor from "./layout/ClientSideDecor";

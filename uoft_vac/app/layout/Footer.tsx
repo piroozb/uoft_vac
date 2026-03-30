@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import {
     BARS_GRADIENT_STYLE,
-} from "../common/Constants";
+} from "../common/constants";
 import LinksCollection from "../common/LinksCollection";
 
 export default function Footer() {
