@@ -1,6 +1,6 @@
 "use client";
 
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import ExecEntryGrid from "./ExecEntryGrid";
 import ExecEntryList from "./ExecEntryList";
 import SectionTitle from "../common/SectionTitle";

@@ -13,7 +13,7 @@ import {
     BARS_EDGES_GREEN,
     COMMON_EASE_OUT,
 } from "../common/Constants";
-import { ExpandableText } from "../common/ExpandableText";
+import { useExpandableText } from "../common/useExpandableText";
 
 const ROTATION_MAG = 72;
 
@@ -30,7 +30,7 @@ export default function Question({
     onClick: (e: MouseEvent<HTMLDivElement>) => void;
     index: number;
 }) {
-    const { ref, fullHeight } = ExpandableText<HTMLDivElement>(isExpanded, 0, [answer]);
+    const { ref, fullHeight } = useExpandableText<HTMLDivElement>(isExpanded, 0, [answer]);
 
     return (
 

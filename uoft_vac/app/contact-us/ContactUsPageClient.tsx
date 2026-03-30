@@ -13,8 +13,8 @@ import {
     SP_TITLE_HEIGHT,
     SP_HALVES_V_CLASSNAME,
     SP_TEXT_CONTAINER_CLASSNAME,
-} from "../common/SmallPagesCommon";
-import { useIsMobile } from "../layout/UseIsMobile";
+} from "../common/smallPagesCommon";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 

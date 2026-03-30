@@ -13,7 +13,7 @@ import {
     SubsectionEars,
 } from "./WhatDoWeDo";
 import SectionTitle from "../common/SectionTitle";
-import { divGradientStyleBackground } from "../common/DivGradientStyleBackground";
+import { divGradientStyleBackground } from "../common/divGradientStyleBackground";
 
 const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-3 rounded-full";
 

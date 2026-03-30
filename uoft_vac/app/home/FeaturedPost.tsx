@@ -16,10 +16,10 @@ import {
     INSTAGRAM_LINK,
     COMMON_EASE_OUT,
 } from "../common/Constants";
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
-import { ExpandableText } from "../common/ExpandableText";
+import { useExpandableText } from "../common/useExpandableText";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
 const CAPTION_COLLAPSED_HEIGHT = 400;
@@ -57,7 +57,7 @@ export default function FeaturedPost() {
 
     // ExpandableText hook
     const { ref, fullHeight, needsExpand } =
-        ExpandableText<HTMLDivElement>(
+        useExpandableText<HTMLDivElement>(
             captionExpanded,
             CAPTION_COLLAPSED_HEIGHT,
             [captionText, CAPTION_COLLAPSED_HEIGHT]

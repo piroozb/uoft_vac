@@ -1,6 +1,6 @@
 "use client";
 
-import { execData, ExecDataTypes } from "./ExecData";
+import { execData, ExecDataTypes } from "./execData";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 import { NAME_OUTLINE_TEXT_SHADOW } from "./OurTeamPageClient";
 

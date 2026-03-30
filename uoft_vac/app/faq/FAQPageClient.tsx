@@ -13,9 +13,9 @@ import {
 } from "../common/Constants";
 import { faqs } from "./FAQs";
 import Question from "./Question";
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
-import { divGradientStyleBackground } from "../common/DivGradientStyleBackground";
+import { divGradientStyleBackground } from "../common/divGradientStyleBackground";
 
 export default function FAQPageClient() {
     const isMobile = useIsMobile()

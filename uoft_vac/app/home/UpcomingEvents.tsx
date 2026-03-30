@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 
 import { COMMON_EASE_OUT } from "../common/Constants";
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 

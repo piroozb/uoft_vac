@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
     SUBSECTION_BASE_BLUE,
 } from "../common/Constants";
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
 const FACT_CLOUD_IMG_CLASSNAME = "object-contain z-[-1]";

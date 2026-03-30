@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
 export default function OurMission() {

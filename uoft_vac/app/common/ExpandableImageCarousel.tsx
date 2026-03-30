@@ -13,7 +13,7 @@ import {
 import {
     COMMON_EASE_OUT,
 } from "./Constants";
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 
 const SWIPE_THRESHOLD = 50;
 

@@ -12,7 +12,7 @@ import {
     BARS_GRADIENT_STYLE,
 } from "../common/Constants";
 import LinksCollection from "../common/LinksCollection";
-import { useIsMobile } from "./UseIsMobile";
+import { useIsMobile } from "./useIsMobile";
 import DynamicButton from "../common/DynamicButton";
 
 const DROPDOWN_TRANSF_DURATION = "duration-400";
