@@ -9,7 +9,7 @@ export default function Banner() {
     const { offset } = useWindowOffset();
 
     return (
-        <section className="w-screen flex justify-center relative z-10">
+        <section className="z-10 w-screen flex justify-center relative">
             <Image
                 src="/banner-final-resized.png"
                 alt="Banner"

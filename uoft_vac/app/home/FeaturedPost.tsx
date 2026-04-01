@@ -4,6 +4,7 @@ const TESTING_IMAGE_CAROUSEL = false; // TOGGLE
 const TEST_IMAGES = ["bg-[rgb(255,255,0)]", "bg-[rgb(255,0,0)]", "bg-[rgb(0,0,255)]"];
 const TEST_CAPTION = "clean my bellay ".repeat(100);
 
+
 import {
     useState,
     useEffect,
@@ -23,6 +24,7 @@ import { useExpandableText } from "../common/useExpandableText";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
 const CAPTION_COLLAPSED_HEIGHT = 400;
+
 
 export default function FeaturedPost() {
     const isMobile = useIsMobile();
@@ -137,7 +139,7 @@ export default function FeaturedPost() {
                     {isReel && (
                         <motion.div
                             initial={false}
-                            className="text-[min(1.1rem,3cqw)] translate-y-[min(2rem,7cqw)] bottom-0 text-center absolute z-[-1]"
+                            className="z-[-10] text-[min(1.1rem,3cqw)] translate-y-[min(2rem,7cqw)] bottom-0 text-center absolute"
                             animate={!isMobile ? {
                                 y: !hoverCarousel ? "-150%" : "0%",
                                 opacity: 1,

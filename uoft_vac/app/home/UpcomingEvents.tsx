@@ -1,5 +1,8 @@
 "use client";
 
+const LAST_UPDATED = "March 25, 2026";
+
+
 import Image from "next/image";
 import {
     useState,
@@ -8,12 +11,13 @@ import {
     motion,
 } from "framer-motion";
 
-import { COMMON_EASE_OUT } from "../common/constants";
+import {
+    COMMON_EASE_OUT,
+} from "../common/constants";
 import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import ExpandableImageCarousel from "../common/ExpandableImageCarousel";
 
-const LAST_UPDATED = "March 25, 2026";
 
 export default function UpcomingEvents() {
     const isMobile = useIsMobile();
@@ -64,7 +68,7 @@ export default function UpcomingEvents() {
                     {/* Last updated */}
                     <motion.div
                         initial={false}
-                        className="text-[min(1.3rem,4cqw)] translate-y-[min(2rem,7cqw)] bottom-0 absolute z-[-1]"
+                        className="z-[-10] text-[min(1.3rem,4cqw)] translate-y-[min(2rem,7cqw)] bottom-0 absolute"
                         animate={!isMobile ? {
                             y: !hoverGraphic ? "-150%" : "0%",
                             opacity: 1,

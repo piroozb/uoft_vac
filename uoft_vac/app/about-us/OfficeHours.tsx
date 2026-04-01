@@ -17,6 +17,7 @@ import { divGradientStyleBackground } from "../common/divGradientStyleBackground
 
 const BUBBLE_GRAPHICS_DIV_CLASSNAME = "w-[25cqw] aspect-square border-3 rounded-full";
 
+
 export default function OfficeHours() {
     return (
         <section
@@ -46,7 +47,7 @@ export default function OfficeHours() {
             <div className="mt-2.5 grid grid-cols-[auto_1fr]">
 
                 {/* Video container */}
-                <div className={`ml-[2cqw] mb-[2cqw] text-[max(3.25cqw,1rem)] flex flex-col items-center text-center`}>
+                <div className="ml-[2cqw] mb-[2cqw] text-[max(3.25cqw,1rem)] flex flex-col items-center text-center">
 
                     Can't find our office?<br />
                     Watch this video!
@@ -63,7 +64,9 @@ export default function OfficeHours() {
                 <div className="flex flex-col items-center">
 
                     {/* Make Art */}
-                    <div className={`translate-x-[10cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
+                    <div className={`translate-x-[10cqw]
+                        ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}
+                    >
                         <Image
                             src="/office-hours-make-art.png"
                             alt="Make Art"
@@ -72,7 +75,9 @@ export default function OfficeHours() {
                     </div>
 
                     {/* Study */}
-                    <div className={`translate-x-[-10cqw] translate-y-[-2cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
+                    <div className={`translate-x-[-10cqw] translate-y-[-2cqw]
+                        ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}
+                    >
                         <Image
                             src="/office-hours-study.png"
                             alt="Study"
@@ -81,7 +86,9 @@ export default function OfficeHours() {
                     </div>
 
                     {/* Socialise */}
-                    <div className={`translate-x-[5cqw] ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}>
+                    <div className={`translate-x-[5cqw]
+                        ${BUBBLE_GRAPHICS_DIV_CLASSNAME}`}
+                    >
                         <Image
                             src="/office-hours-socialise.png"
                             alt="Socialise"

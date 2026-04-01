@@ -14,6 +14,7 @@ import {
 import TextLink from "./TextLink";
 import DynamicButton from "./DynamicButton";
 
+
 export default function LinksCollection({
     size = 50,
     justify = "justify-center",

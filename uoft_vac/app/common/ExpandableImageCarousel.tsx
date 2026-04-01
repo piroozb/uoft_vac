@@ -16,10 +16,78 @@ import {
 import { useIsMobile } from "../layout/useIsMobile";
 
 const SWIPE_THRESHOLD = 50;
-
 const NAV_BUTTONS_IMAGE_CLASSNAME = "w-[min(2rem,8cqw)] opacity-70 hover:opacity-100";
 
-// Image Carousel
+
+export default function ExpandableImageCarousel({
+    images,
+    alt = "Loading image(s)… 🧐",
+    normalSize,
+    isTest = false,
+} : {
+    images: string[];
+    alt?: string;
+    normalSize: string;
+    isTest?: boolean;
+}) {
+    const [index, setIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
+    const [expanded, setExpanded] = useState(false);
+
+    return (<>
+
+        {/* NORMAL VIEW */}
+        <ImageCarousel
+            images={images}
+            alt={alt}
+            imageSize={normalSize}
+            index={index}
+            direction={direction}
+            setIndex={setIndex}
+            setDirection={setDirection}
+            onImageClick={() => setExpanded(true)}
+            isTest={isTest}
+        />
+
+        {/* EXPANDED VIEW */}
+        <AnimatePresence>
+            {expanded && (
+                <motion.div
+                    className="z-200 fixed inset-0 bg-gray-900/60 flex items-center justify-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                    onClick={() => setExpanded(false)}
+                >
+                    <motion.div
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                        }}
+                    >
+                        <ImageCarousel
+                            images={images}
+                            alt={`${alt} (Full)`}
+                            index={index}
+                            direction={direction}
+                            isExpanded
+                            setIndex={setIndex}
+                            setDirection={setDirection}
+                            isTest={isTest}
+                        />
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    </>);
+}
+
+
 function ImageCarousel({
     images, // If testing, will be a list of classNames for square divs.
     alt,
@@ -119,7 +187,7 @@ function ImageCarousel({
                     <AnimatePresence initial={false} custom={direction}>
                         <motion.div
                             key={index}
-                            className="absolute inset-0"
+                            className="inset-0 absolute"
                             custom={direction}
 
                             // Swipe
@@ -168,129 +236,61 @@ function ImageCarousel({
                 </div>
 
                 {/* Carousel interactors */}
-                    {multipleImages && (
-                        <div className="flex justify-center">
+                {multipleImages && (
+                    <div className="flex justify-center">
 
-                            {/* Arrow buttons */}
+                        {/* Arrow buttons */}
 
-                            {/* Previous */}
-                            <button
-                                onClick={handlePrev}
-                                className="absolute left-0 top-1/2 -translate-y-1/2 cursor-pointer z-1"
-                            >
+                        {/* Previous */}
+                        <button
+                            onClick={handlePrev}
+                            className="z-10 -translate-y-1/2 left-0 top-1/2 absolute cursor-pointer"
+                        >
+                            <Image
+                                src="/carousel-arrow-l.png"
+                                alt="Previous"
+                                className={`${!isSmaller ? "-translate-x-3/2" : "translate-x-1/2"}
+                                    ${NAV_BUTTONS_IMAGE_CLASSNAME}`}
+                                width={100} height={0}
+                            />
+                        </button>
+
+                        {/* Next */}
+                        <button
+                            onClick={handleNext}
+                            className="z-10 -translate-y-1/2 right-0 top-1/2 absolute cursor-pointer"
+                        >
+                            <Image
+                                src="/carousel-arrow-r.png"
+                                alt="Next"
+                                className={`${!isSmaller ? "translate-x-3/2" : "-translate-x-1/2"}
+                                    ${NAV_BUTTONS_IMAGE_CLASSNAME}`}
+                                width={100} height={0}
+                            />
+                        </button>
+
+                        {/* Dots */}
+                        <div className="z-10 gap-2.5 bottom-0 flex absolute cursor-pointer">
+                            {images.map((_, idx) => (
                                 <Image
-                                    src="/carousel-arrow-l.png"
-                                    alt="Previous"
-                                    className={`${!isSmaller ? "-translate-x-3/2" : "translate-x-1/2"}
-                                        ${NAV_BUTTONS_IMAGE_CLASSNAME}`}
+                                    key={idx}
+                                    src="/carousel-dot.png"
+                                    alt={`Go to image ${idx + 1}`}
+                                    className={`w-[min(.7rem,3cqw)]
+                                        ${!isSmaller ? "translate-y-2/1" : "-translate-y-1/1"}
+                                        ${index === idx ? "opacity-100" : "opacity-50 hover:opacity-100"}`}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setDirection(idx > index ? 1 : -1);
+                                        setIndex(idx);
+                                    }}
                                     width={100} height={0}
                                 />
-                            </button>
-
-                            {/* Next */}
-                            <button
-                                onClick={handleNext}
-                                className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer z-1"
-                            >
-                                <Image
-                                    src="/carousel-arrow-r.png"
-                                    alt="Next"
-                                    className={`${!isSmaller ? "translate-x-3/2" : "-translate-x-1/2"}
-                                        ${NAV_BUTTONS_IMAGE_CLASSNAME}`}
-                                    width={100} height={0}
-                                />
-                            </button>
-
-                            {/* Dots */}
-                            <div className="gap-2.5 flex absolute bottom-0 cursor-pointer z-1">
-                                {images.map((_, idx) => (
-                                    <Image
-                                        key={idx}
-                                        src="/carousel-dot.png"
-                                        alt={`Go to image ${idx + 1}`}
-                                        className={`w-[min(.7rem,3cqw)]
-                                            ${!isSmaller ? "translate-y-2/1" : "-translate-y-1/1"}
-                                            ${index === idx ? "opacity-100" : "opacity-50 hover:opacity-100"}`}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setDirection(idx > index ? 1 : -1);
-                                            setIndex(idx);
-                                        }}
-                                        width={100} height={0}
-                                    />
-                                ))}
-                            </div>
+                            ))}
                         </div>
-                    )}
+                    </div>
+                )}
             </div>
         </div>
     );
-}
-
-export default function ExpandableImageCarousel({
-    images,
-    alt = "Loading image(s)… 🧐",
-    normalSize,
-    isTest = false,
-} : {
-    images: string[];
-    alt?: string;
-    normalSize: string;
-    isTest?: boolean;
-}) {
-    const [index, setIndex] = useState(0);
-    const [direction, setDirection] = useState(0);
-    const [expanded, setExpanded] = useState(false);
-
-    return (<>
-
-        {/* NORMAL VIEW */}
-        <ImageCarousel
-            images={images}
-            alt={alt}
-            imageSize={normalSize}
-            index={index}
-            direction={direction}
-            setIndex={setIndex}
-            setDirection={setDirection}
-            onImageClick={() => setExpanded(true)}
-            isTest={isTest}
-        />
-
-        {/* EXPANDED VIEW */}
-        <AnimatePresence>
-            {expanded && (
-                <motion.div
-                    className="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-200"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                    onClick={() => setExpanded(false)}
-                >
-                    <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 20,
-                        }}
-                    >
-                        <ImageCarousel
-                            images={images}
-                            alt={`${alt} (Full)`}
-                            index={index}
-                            direction={direction}
-                            isExpanded
-                            setIndex={setIndex}
-                            setDirection={setDirection}
-                            isTest={isTest}
-                        />
-                    </motion.div>
-                </motion.div>
-            )}
-        </AnimatePresence>
-    </>);
 }

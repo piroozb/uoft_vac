@@ -1,10 +1,5 @@
 "use client";
 
-import { useIsMobile } from "../layout/useIsMobile";
-import ExecEntryGrid from "./ExecEntryGrid";
-import ExecEntryList from "./ExecEntryList";
-import SectionTitle from "../common/SectionTitle";
-
 const CATEGORY_CONTAINER_CLASSNAME_COMMON = "mt-20";
 
 // Exec category specs:
@@ -65,11 +60,18 @@ const EXEC_CATEGORIES_SPECS: Record<string, {
     },
 };
 
+
+import { useIsMobile } from "../layout/useIsMobile";
+import ExecEntryGrid from "./ExecEntryGrid";
+import ExecEntryList from "./ExecEntryList";
+import SectionTitle from "../common/SectionTitle";
+
 export const NAME_OUTLINE_TEXT_SHADOW =
     `-1px -1px 0 #000,
     1px -1px 0 #000,
     -1px  1px 0 #000,
     1px  1px 0 #000`;
+
 
 export default function OurTeamPageClient() {
     const isMobile = useIsMobile();

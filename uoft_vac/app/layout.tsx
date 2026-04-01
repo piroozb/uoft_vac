@@ -5,6 +5,7 @@ export const metadata: Metadata = {
     description: "Official website for the Visual Art Club at UofT St. George.",
 };
 
+
 import "./globals.css";
 import { Fredoka } from "next/font/google";
 
@@ -24,6 +25,7 @@ const fredoka = Fredoka({
     variable: "--font-fredoka",
 });
 
+
 export default function RootLayout({ children } : { children: React.ReactNode }) {
     return (
         <html lang="en" className={fredoka.variable}>
@@ -35,7 +37,7 @@ export default function RootLayout({ children } : { children: React.ReactNode })
 
                 {/* Overscroll gradient */}
                 <div
-                    className="w-full h-full fixed -z-10"
+                    className="z-[-10] w-full h-full fixed"
                     style={BARS_GRADIENT_STYLE}
                 />
                 
