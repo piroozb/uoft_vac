@@ -57,7 +57,7 @@ export default function Navbar() {
         : NAVBAR_HEIGHT_MOBILE;
 
     return (
-        <div className="relative z-100">
+        <div className="z-100 relative">
 
             {/* Hitbox to collapse expanded mobile navbar (whole screen). */}
             {isMobile && isMobileExpanded && (

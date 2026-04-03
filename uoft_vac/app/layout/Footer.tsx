@@ -9,7 +9,7 @@ import LinksCollection from "../common/LinksCollection";
 
 export default function Footer() {
     return (
-        <footer className="z-100 flex flex-col items-center">
+        <footer className="z-100 flex flex-col items-center relative">
 
             {/* Frodo */}
             <Image
@@ -20,7 +20,7 @@ export default function Footer() {
 
             {/* Bar */}
             <div
-                className="w-full p-5 grid justify-center relative"
+                className="w-full p-5 grid justify-center"
                 style={BARS_GRADIENT_STYLE}
             >
                 {/* Important links */}
