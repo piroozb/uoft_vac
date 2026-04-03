@@ -5,23 +5,30 @@ import {
     useEffect,
 } from "react";
 
-export function useScrollDirection() {
+const SCROLL_THRESHOLD = 85;
 
-    const [scrollY, setScrollY] = useState(0);
-    const [direction, setDirection] = useState<"up" | "down">("up");
+// -1 = up
+// 1 = down
+export function useScrollDirection() {
+    const [direction, setDirection] = useState<-1 | 0 | 1>(0);
 
     useEffect(() => {
         let lastScrollY = window.scrollY;
 
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
+            const diff = currentScrollY - lastScrollY;
 
-            setScrollY(currentScrollY);
+            // Threshold to disregard infinitesimal oscillations from the web.
+            if (Math.abs(diff) < SCROLL_THRESHOLD) return;
 
-            if (currentScrollY > lastScrollY) {
-                setDirection("down");
-            } else if (currentScrollY < lastScrollY) {
-                setDirection("up");
+            if (diff > 0) {
+                setDirection(-1);
+            } else if (diff < 0) {
+                setDirection(1);
+            }
+            else {
+                setDirection(0);
             }
 
             lastScrollY = currentScrollY;
@@ -34,5 +41,5 @@ export function useScrollDirection() {
         };
     });
 
-    return { scrollY, direction };
+    return { direction };
 }

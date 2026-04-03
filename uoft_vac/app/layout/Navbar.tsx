@@ -37,25 +37,35 @@ export default function Navbar() {
     const { direction } = useScrollDirection();
 
     const pathname = usePathname();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const [isMobileExpanded, setIsMobileExpanded] = useState(false);
+    const [isBarHovered, setIsBarHovered] = useState(false);
 
     // Get page buttons mapping
     const pageButtonsMapping = PageButtonsMapping(
         pathname,
         isMobile,
-        isDropdownOpen,
-        setIsDropdownOpen,
+        isMobileExpanded,
+        setIsMobileExpanded,
     );
 
-    // Desktop scroll collapse/expand condition
-    const isShrunk = !isMobile && direction === "down";
+    // Desktop collapse logic
+    const isBarCollapsed = !isBarHovered && direction === -1;
 
-    const navbarHeight = !isMobile && !isShrunk
+    const navbarHeight = !isMobile && !isBarCollapsed
         ? NAVBAR_HEIGHT_DESKTOP
         : NAVBAR_HEIGHT_MOBILE;
 
     return (
         <div className="relative z-100">
+
+            {/* Hitbox to collapse expanded mobile navbar (whole screen). */}
+            {isMobile && isMobileExpanded && (
+                <div
+                    className="z-10 inset-0 fixed"
+                    onClick={() => setIsMobileExpanded(false)}
+                />
+            )}
 
             {/* Navbar spacer */}
             <div
@@ -66,70 +76,62 @@ export default function Navbar() {
             {/* Fixed components container */}
             <header className="z-100 w-full top-0 fixed">
 
-                {/* DESKTOP VIEW */}
-                {!isMobile ? (<>
+                {/* Bar */}
+                <nav
+                    className={`${navbarHeight} ${TRANSF_DURATIONS} flex justify-center items-center`}
+                    style={BARS_GRADIENT_STYLE}
+                    onMouseEnter={() => setIsBarHovered(true)}
+                    onMouseLeave={() => setIsBarHovered(false)}
+                    onClick={() => setIsMobileExpanded(!isMobileExpanded)}
+                >
 
-                    {/* Bar */}
-                    <nav
-                        className={`${navbarHeight} ${TRANSF_DURATIONS} flex justify-center items-center`}
-                        style={BARS_GRADIENT_STYLE}
-                    >
-
-                        {/* Page buttons row */}
-                        <div  className={`${isShrunk ? "max-h-0" : "max-h-full"} ${TRANSF_DURATIONS} overflow-hidden`}>
-                            <ol className="flex">
-                                {pageButtonsMapping}
-                            </ol>
-                        </div>
-                    </nav>
-
-                    {/* Links */}
-                    <div className={`translate-y-[115%] mr-1 bottom-0 right-0 grid absolute ${TRANSF_DURATIONS}`}>
-                        <LinksCollection
-                            size={CONTACTS_SIZE}
-                            justify="justify-end"
+                    {/* Dropdown icon */}
+                        <Image
+                            src="/navbar-dropdown.png"
+                            alt="Navbar"
+                            className={`${isMobile || isBarCollapsed
+                                ? "max-h-full opacity-full"
+                                : "max-h-0 opacity-0"}
+                                ${TRANSF_DURATIONS} overflow-hidden absolute`}
+                            width={20} height={0}
                         />
-                    </div>
-                
-                {/* MOBILE VIEW */}
-                </>) : (<>
-                    {isDropdownOpen && (
-                        <div
-                            className="z-10 inset-0 fixed"
-                            onClick={() => setIsDropdownOpen(false)}
-                        />
-                    )}
 
-                    {/* Bar */}
+                    {/* Desktop page buttons row */}
                     <div
-                        className={`${NAVBAR_HEIGHT_MOBILE} text-[1.5rem] w-full flex justify-center cursor-pointer`}
-                        style={BARS_GRADIENT_STYLE}
-                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className={`${!isMobile && !isBarCollapsed
+                            ? "max-h-full opacity-full"
+                            : "max-h-0 opacity-0"}
+                            ${TRANSF_DURATIONS} overflow-hidden`}
                     >
-                        ☰
+                        <ol className="flex">
+                            {pageButtonsMapping}
+                        </ol>
                     </div>
+                </nav>
 
-                    {/* Page buttons */}
+                {/* Mobile page buttons column */}
+                {isMobile && (
                     <ol
-                        className={`z-20 mt-2 pl-5 gap-[min(1rem,2cqh)] grid fixed
-                        ${!isDropdownOpen && "-translate-x-full"}
+                        className={`mt-[5cqh] pl-5 gap-[min(1rem,2cqh)] grid fixed
+                        ${!isMobileExpanded && "-translate-x-full"}
                         ${TRANSF_DURATIONS}`}
                     >
                         {pageButtonsMapping}
                     </ol>
+                )}
 
-                    {/* Links */}
-                    <div
-                        className={`z-30 mt-2 mr-1 right-0 grid absolute
-                        ${!isDropdownOpen && "translate-x-60"}
-                        ${TRANSF_DURATIONS}`}
-                    >
-                        <LinksCollection
-                            size={CONTACTS_SIZE}
-                            justify="justify-end"
-                        />
-                    </div>
-                </>)}
+                {/* Links collection */}
+                <div
+                    className={`mr-1 right-0 ${!isMobile
+                        ? "translate-y-[115%] bottom-0"
+                        : `z-30 mt-2 ${!isMobileExpanded && "translate-x-60"}`}
+                        ${TRANSF_DURATIONS} grid absolute`}
+                >
+                    <LinksCollection
+                        size={CONTACTS_SIZE}
+                        justify="justify-end"
+                    />
+                </div>
             </header>
         </div>
     );
