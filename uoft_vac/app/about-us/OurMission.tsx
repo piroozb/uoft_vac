@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
+
 export default function OurMission() {
     const isSmaller = useIsMobile(true);
 
@@ -26,13 +27,13 @@ export default function OurMission() {
                 <Image
                     src="/mission-paint.png"
                     alt="Our mission"
-                    className="object-contain z-[-1]"
+                    className="z-[-10] object-contain"
                     fill
                 />
 
                 {/* Mission statement */}
                 <div className="mx-30 max-w-[90cqw]">
-                    <p className="text-[min(1.6rem,4.9cqw)] z-1 text-center">
+                    <p className="text-[min(1.6rem,4.9cqw)] text-center">
                         The University of Toronto Visual Art Club (UTVAC) aims to build an
                         <strong> encouraging, artistic community</strong> and a <strong>positive platform</strong> for students
                         interested in art to develop and express their passion through

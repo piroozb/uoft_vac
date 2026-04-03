@@ -48,4 +48,5 @@ export function useExpandableText<T extends HTMLElement>(
         fullHeight,
         needsExpand,
     };
+    
 }

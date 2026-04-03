@@ -30,11 +30,13 @@ export async function GET() {
                 (c: any) => c.media_url ?? c.thumbnail_url
             );
         }
+
+        // Reel
         else if (post.media_type === "VIDEO") {
-            // Treat as reel
             images = [post.thumbnail_url];
             isReel = true;
         }
+
         else {
             images = [post.media_url];
         }

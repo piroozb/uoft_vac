@@ -18,54 +18,6 @@ import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 import TextLink from "../common/TextLink";
 
-function ContactInfo() {
-    return (
-        <ol className={`mt-[3cqw] gap-[5cqw] ${SP_TEXT_CONTAINER_CLASSNAME}`}>
-
-            {/* First line */}
-            <p className="text-[min(2.5rem,6cqw)] font-semibold">
-                You can reach us by:
-            </p>
-
-            {/* Bullet 1 */}
-            <p style={{ transform: "rotate(-1deg)" }}>
-                • Writing us an{" "}
-                <TextLink
-                    text="email"
-                    href={EMAIL_LINK}
-                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                />
-                !
-            </p>
-
-            {/* Bullet 2 */}
-            <p style={{ transform: "rotate(1deg)" }}>
-                • Sending us a message on{" "}
-                <TextLink
-                    text="Instagram"
-                    href={INSTAGRAM_LINK}
-                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                />
-                !
-            </p>
-
-            {/* Bullet 3 */}
-            <p style={{ transform: "rotate(-1deg)" }}>
-                • Ping the <strong>@President</strong> or{" "}
-                <strong>@Co-Vice President</strong> role on{" "}
-                <TextLink
-                    text="Discord"
-                    href={DISCORD_LINK}
-                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
-                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
-                />
-                !
-            </p>
-        </ol>
-    )
-}
 
 export default function ContactUsPageClient() {
     const isMobile = useIsMobile()
@@ -122,4 +74,54 @@ export default function ContactUsPageClient() {
             )}
         </main>
     );
+}
+
+
+function ContactInfo() {
+    return (
+        <ol className={`mt-[3cqw] gap-[5cqw] ${SP_TEXT_CONTAINER_CLASSNAME}`}>
+
+            {/* First line */}
+            <p className="text-[min(2.5rem,6cqw)] font-semibold">
+                You can reach us by:
+            </p>
+
+            {/* Bullet 1 */}
+            <p style={{ transform: "rotate(-1deg)" }}>
+                • Writing us an{" "}
+                <TextLink
+                    text="email"
+                    href={EMAIL_LINK}
+                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                />
+                !
+            </p>
+
+            {/* Bullet 2 */}
+            <p style={{ transform: "rotate(1deg)" }}>
+                • Sending us a message on{" "}
+                <TextLink
+                    text="Instagram"
+                    href={INSTAGRAM_LINK}
+                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                />
+                !
+            </p>
+
+            {/* Bullet 3 */}
+            <p style={{ transform: "rotate(-1deg)" }}>
+                • Ping the <strong>@President</strong> or{" "}
+                <strong>@Co-Vice President</strong> role on{" "}
+                <TextLink
+                    text="Discord"
+                    href={DISCORD_LINK}
+                    style={{ color: TEXT_LINK_PASSIVE_ORANGE }}
+                    hoverStyle={{ color: TEXT_LINK_HOVER_ORANGE }}
+                />
+                !
+            </p>
+        </ol>
+    )
 }

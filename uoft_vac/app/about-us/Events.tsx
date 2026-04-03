@@ -30,6 +30,7 @@ const PURP_BUTTON_GRADIENT_STYLE_COMPONENT = divGradientStyleBackground(
     25,
 );
 
+
 export default function Events() {
     const isMobile = useIsMobile();
 
@@ -38,7 +39,7 @@ export default function Events() {
 
     return (
 
-        // Subsection container; coloured rectangle
+        // Subsection container: coloured rectangle
         <section
             className={SUBSECTIONS_CONTAINER_CLASSNAME}
             style={{

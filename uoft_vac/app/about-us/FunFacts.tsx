@@ -8,8 +8,9 @@ import {
 import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
 
-const FACT_CLOUD_IMG_CLASSNAME = "object-contain z-[-1]";
+const FACT_CLOUD_IMG_CLASSNAME = "z-[-1] object-contain";
 const FACT_TEXT_CLASSNAME = `m-[5cqw] text-[9cqw] text-center`;
+
 
 export default function FunFacts() {
     const isMobile = useIsMobile();
@@ -35,13 +36,10 @@ export default function FunFacts() {
             </SectionTitle>
 
             {/* Facts container */}
-            <div
-                className={`${!isSmaller && "grid"} ${!isMobile
-                    ? "mt-10 gap-[1cqw] grid-cols-4" :
-                    !isSmaller
-                        ? "mt-20"
-                        : "mt-10"}
-                    grid-cols-2`}
+            <div className={`${!isSmaller && "grid"} ${!isMobile
+                ? "mt-10 gap-[1cqw] grid-cols-4"
+                : !isSmaller ? "mt-20" : "mt-10"}
+                grid-cols-2`}
             >
 
                 {/* Fact 1 */}
@@ -152,8 +150,8 @@ export default function FunFacts() {
 
                 {/* Text */}
                 <p
-                    className="-ml-[min(2rem,5cqw)] pl-[min(3rem,6cqw)] pr-[min(2rem,4cqw)] h-[min(4rem,10cqw)] text-[min(1.5rem,5cqw)]
-                        font-semibold rounded-r-full flex items-center z-[-1]"
+                    className="z-[-1] -ml-[min(2rem,5cqw)] pl-[min(3rem,6cqw)] pr-[min(2rem,4cqw)] h-[min(4rem,10cqw)] text-[min(1.5rem,5cqw)]
+                        font-semibold rounded-r-full flex items-center"
                     style={{ background: SUBSECTION_BASE_BLUE }}
                 >
                     Hi I'm Frodo, the club mascot!

@@ -1,11 +1,20 @@
 "use client";
 
+// Pages
+const PAGES = [
+    { title: "Home", href: "/", img: "/navbar-home.png" },
+    { title: "About Us", href: "/about-us", img: "/navbar-about-us.png" },
+    { title: "Our Team", href: "/our-team", img: "/navbar-our-team.png" },
+    { title: "Join Us", href: "/join-us", img: "/navbar-join-us.png" },
+    { title: "Contact Us", href: "/contact-us", img: "/navbar-contact-us.png" },
+    { title: "FAQ", href: "/faq", img: "/navbar-faq.png" },
+];
+
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-    useState,
-} from "react"
+import { useState } from "react";
 
 import {
     BARS_EDGES_GREEN,
@@ -13,140 +22,160 @@ import {
 } from "../common/constants";
 import LinksCollection from "../common/LinksCollection";
 import { useIsMobile } from "./useIsMobile";
+import { useScrollDirection } from "./useScrollDirection";
 import DynamicButton from "../common/DynamicButton";
 
-const DROPDOWN_TRANSF_DURATION = "duration-400";
 const CONTACTS_SIZE = 30;
+const NAVBAR_HEIGHT_DESKTOP = "h-30";
+const NAVBAR_HEIGHT_MOBILE = "h-10";
+const TRANSF_DURATIONS = "duration-400";
+
 
 export default function Navbar() {
+
     const isMobile = useIsMobile();
+    const { direction } = useScrollDirection();
 
     const pathname = usePathname();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    // Pages
-    const links = [
-        { id: 1, title: "Home", href: "/", img: "/navbar-home.png" }, // Home
-        { id: 2, title: "About Us", href: "/about-us", img: "/navbar-about-us.png" }, // About Us
-        { id: 3, title: "Our Team", href: "/our-team", img: "/navbar-our-team.png" }, // Our Team
-        { id: 4, title: "Join Us", href: "/join-us", img: "/navbar-join-us.png" }, // Join Us
-        { id: 5, title: "Contact Us", href: "/contact-us", img: "/navbar-contact-us.png" }, // Contact Us
-        { id: 6, title: "FAQ", href: "/faq", img: "/navbar-faq.png" }, // FAQ
-    ];
+    const [isMobileExpanded, setIsMobileExpanded] = useState(false);
+    const [isBarHovered, setIsBarHovered] = useState(false);
 
-    // Buttons mapping
-    const navbarItems = links.map((link) => {
-        const isActive = pathname === link.href;
+    // Get page buttons mapping
+    const pageButtonsMapping = PageButtonsMapping(
+        pathname,
+        isMobile,
+        isMobileExpanded,
+        setIsMobileExpanded,
+    );
 
-        return (
-            <li key={link.id} className="relative">
+    // Desktop collapse logic
+    const isBarCollapsed = !isBarHovered && direction === -1;
 
-                {/* (Mobile) green shroud background */}
-                {isMobile && (
-                    <div
-                        className={`w-40 rounded-4xl blur-2xl absolute inset-0
-                            ${isDropdownOpen ? "opacity-100" : "opacity-0"} ${DROPDOWN_TRANSF_DURATION}`}
-                        style={{ background: BARS_EDGES_GREEN }}
-                    />
-                )}
+    const navbarHeight = !isMobile && !isBarCollapsed
+        ? NAVBAR_HEIGHT_DESKTOP
+        : NAVBAR_HEIGHT_MOBILE;
 
-                {/* Buttons */}
-                <DynamicButton>
-                    <Link href={link.href} onClick={() => setIsDropdownOpen(false)}>
-                        <Image
-                            src={link.img}
-                            alt={link.title}
-                            className={`h-[min(6rem,11cqh)] w-auto object-contain
-                                ${isActive && "saturate-150"}`}
-                            height={0}
-                            width={100}
-                        />
-                    </Link>
-                </DynamicButton>
-            </li>
-        );
-    });
+    return (
+        <div className="relative z-100">
 
-    // DESKTOP VIEW
-    if (!isMobile) {
-        return (
-            <header className="grid relative z-100">
+            {/* Hitbox to collapse expanded mobile navbar (whole screen). */}
+            {isMobile && isMobileExpanded && (
+                <div
+                    className="z-10 inset-0 fixed"
+                    onClick={() => setIsMobileExpanded(false)}
+                />
+            )}
+
+            {/* Navbar spacer */}
+            <div
+                className={`${navbarHeight} ${TRANSF_DURATIONS}`}
+                style={BARS_GRADIENT_STYLE}
+            />
+
+            {/* Fixed components container */}
+            <header className="z-100 w-full top-0 fixed">
 
                 {/* Bar */}
                 <nav
-                    className="p-1 flex justify-center"
+                    className={`${navbarHeight} ${TRANSF_DURATIONS} flex justify-center items-center`}
                     style={BARS_GRADIENT_STYLE}
+                    onMouseEnter={() => setIsBarHovered(true)}
+                    onMouseLeave={() => setIsBarHovered(false)}
+                    onClick={() => setIsMobileExpanded(!isMobileExpanded)}
                 >
 
-                    {/* Buttons row */}
-                    <ol className="flex">
-                        {navbarItems}
-                    </ol>
+                    {/* Dropdown icon */}
+                        <Image
+                            src="/navbar-dropdown.png"
+                            alt="Navbar"
+                            className={`${isMobile || isBarCollapsed
+                                ? "max-h-full opacity-full"
+                                : "max-h-0 opacity-0"}
+                                ${TRANSF_DURATIONS} overflow-hidden absolute`}
+                            width={20} height={0}
+                        />
+
+                    {/* Desktop page buttons row */}
+                    <div
+                        className={`${!isMobile && !isBarCollapsed
+                            ? "max-h-full opacity-full"
+                            : "max-h-0 opacity-0"}
+                            ${TRANSF_DURATIONS} overflow-hidden`}
+                    >
+                        <ol className="flex">
+                            {pageButtonsMapping}
+                        </ol>
+                    </div>
                 </nav>
 
-                {/* Important links */}
-                <div className="translate-y-[115%] mr-1 gap-2 grid absolute bottom-0 right-0">
+                {/* Mobile page buttons column */}
+                {isMobile && (
+                    <ol
+                        className={`mt-[5cqh] pl-5 gap-[min(1rem,2cqh)] grid fixed
+                        ${!isMobileExpanded && "-translate-x-full"}
+                        ${TRANSF_DURATIONS}`}
+                    >
+                        {pageButtonsMapping}
+                    </ol>
+                )}
+
+                {/* Links collection */}
+                <div
+                    className={`mr-1 right-0 ${!isMobile
+                        ? "translate-y-[115%] bottom-0"
+                        : `z-30 mt-2 ${!isMobileExpanded && "translate-x-60"}`}
+                        ${TRANSF_DURATIONS} grid absolute`}
+                >
                     <LinksCollection
                         size={CONTACTS_SIZE}
                         justify="justify-end"
                     />
                 </div>
             </header>
-        );
-    }
-
-    // MOBILE VIEW
-    return (
-        <header>
-
-            {/* Clickable zone (whole screen) to hide dropdown */}
-            {isDropdownOpen && (
-                <div
-                    className="fixed inset-0 z-90"
-                    onClick={() => setIsDropdownOpen(false)}
-                />
-            )}
-
-            <div className="grid fixed z-105">
-                <div className="flex">
-
-                    {/* Dropdown button */}
-                    <DynamicButton>
-                        <button
-                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        >
-                            <Image
-                                src="/navbar-dropdown-button.png"
-                                alt="Dropdown"
-                                className="m-5 object-contain cursor-pointer z-110"
-                                width={50} height={0}
-                            />
-                        </button>
-                    </DynamicButton>
-
-                    {/* Contacts */}
-                    <div className={`pt-5 ml-[max(5rem,15cqw)] gap-2 grid fixed
-                        ${!isDropdownOpen && "-translate-y-full"}
-                        ${DROPDOWN_TRANSF_DURATION}
-                        z-110`}
-                    >
-                        
-                        {/* Important links */}
-                        <LinksCollection
-                            size={CONTACTS_SIZE}
-                            justify=""
-                        />
-                    </div>
-                </div>
-
-                {/* Page buttons column */}
-                <ol className={`mt-20 pl-5 gap-[min(1rem,2cqh)] grid fixed
-                    ${!isDropdownOpen && "-translate-x-full"}
-                    ${DROPDOWN_TRANSF_DURATION}`}
-                >
-                    {navbarItems}
-                </ol>
-            </div>
-        </header>
+        </div>
     );
+}
+
+
+function PageButtonsMapping(
+    pathname: string,
+    isMobile: boolean,
+    isDropdownOpen: boolean,
+    setIsDropdownOpen: (value: boolean) => void
+) {
+    return PAGES.map((link) => {
+
+        const isActive = pathname === link.href;
+
+        return (
+            <li key={link.href} className="relative">
+
+                {/* Mobile green shroud */}
+                {isMobile && (
+                    <div
+                        className={`w-40 rounded-4xl blur-2xl inset-0 absolute
+                        ${isDropdownOpen ? "opacity-100" : "opacity-0"} ${TRANSF_DURATIONS}`}
+                        style={{ background: BARS_EDGES_GREEN }}
+                    />
+                )}
+
+                {/* Page buttons */}
+                <DynamicButton>
+                    <Link
+                        href={link.href}
+                        onClick={() => setIsDropdownOpen(false)}
+                    >
+                        <Image
+                            src={link.img}
+                            alt={link.title}
+                            className={`h-[min(6rem,11cqh)] w-auto
+                            ${isActive && "saturate-150"}`}
+                            width={100} height={0}
+                        />
+                    </Link>
+                </DynamicButton>
+            </li>
+        );
+    });
 }

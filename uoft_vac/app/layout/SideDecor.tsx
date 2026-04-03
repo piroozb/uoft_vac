@@ -15,7 +15,9 @@ const SCROLL_VEL = .1;
 
 type Stripe = { y: number };
 
+
 export default function SideDecor({ offset }: { offset: number }) {
+
     const [leftStripes, setLeftStripes] = useState<Stripe[]>([{ y: 0 }]);
     const [rightStripes, setRightStripes] = useState<Stripe[]>([{ y: 0 }]);
     const [barHeight, setBarHeight] = useState<number | null>(null);
@@ -57,6 +59,7 @@ export default function SideDecor({ offset }: { offset: number }) {
 
         animationRef.current = requestAnimationFrame(animate);
         return () => cancelAnimationFrame(animationRef.current!);
+
     }, [barHeight]);
 
     const translateX = offset * SIDE_DECOR_WIDTH;
@@ -107,6 +110,6 @@ export default function SideDecor({ offset }: { offset: number }) {
                     width={SIDE_DECOR_WIDTH} height={0}
                 />
             ))}
-        </div></>
-    );
+        </div>
+    </>);
 }

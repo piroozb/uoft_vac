@@ -12,6 +12,7 @@ import {
 } from "../common/constants";
 import TextLink from "../common/TextLink";
 
+
 export const faqs: {
     question: string;
     answer: ReactNode;

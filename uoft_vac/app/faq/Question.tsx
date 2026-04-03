@@ -17,6 +17,7 @@ import { useExpandableText } from "../common/useExpandableText";
 
 const ROTATION_MAG = 72;
 
+
 export default function Question({
     question,
     answer,
@@ -86,7 +87,6 @@ export default function Question({
                 transition={{ ease: COMMON_EASE_OUT, duration: .5 }}
                 className="overflow-hidden"
             >
-
                 {/* Answer */}
                 <p className="text-[min(1.25rem,3.5cqw)]">
                     {answer}
