@@ -25,7 +25,6 @@ import { useIsMobile } from "./useIsMobile";
 import { useScrollDirection } from "./useScrollDirection";
 import DynamicButton from "../common/DynamicButton";
 
-const CONTACTS_SIZE = 30;
 const NAVBAR_HEIGHT_DESKTOP = "h-30";
 const NAVBAR_HEIGHT_MOBILE = "h-10";
 const TRANSF_DURATIONS = "duration-400";
@@ -128,7 +127,6 @@ export default function Navbar() {
                         ${TRANSF_DURATIONS} grid absolute`}
                 >
                     <LinksCollection
-                        size={CONTACTS_SIZE}
                         justify="justify-end"
                     />
                 </div>
