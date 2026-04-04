@@ -1,8 +1,8 @@
 
 export default function Page() {
     return (
-        <main className="w-full bg-black text-white">
-            test
+        <main>
+            
         </main>
     );
 }
