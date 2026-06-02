@@ -1,6 +1,6 @@
 # uoft_vac
-Website for UofT Visual Arts Club done in React.js and Next.js
+Official website for the UofT Visual Arts Club at St. George campus! \
+Written in React.js and Next.js.
 
-Start date: Jun 18, 2025
-
-WORK IN PROGRESS
+Started: Jun 18, 2025. \
+Published: Apr 16, 2026.
