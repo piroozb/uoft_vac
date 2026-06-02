@@ -5,7 +5,6 @@ export const metadata: Metadata = {
 };
 
 import FAQPageClient from "./FAQPageClient";
-
 export default function FAQPage() {
     return (<FAQPageClient/>)
 }

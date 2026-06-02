@@ -5,7 +5,6 @@ export const metadata: Metadata = {
 };
 
 import AboutUsPageClient from "./AboutUsPageClient";
-
 export default function AboutUsPage() {
     return (<AboutUsPageClient/>)
 }

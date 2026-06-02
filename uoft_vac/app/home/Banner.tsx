@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 
-import { SIDE_DECOR_WIDTH } from "../common/Constants";
+import { SIDE_DECOR_WIDTH } from "../common/constants";
 import { useWindowOffset } from "../layout/WindowOffsetContext";
 
 export default function Banner() {
     const { offset } = useWindowOffset();
 
     return (
-        <section className="w-screen flex justify-center relative z-10">
+        <section className="z-10 w-screen flex justify-center relative">
             <Image
                 src="/banner-final-resized.png"
                 alt="Banner"

@@ -10,12 +10,13 @@ import {
     DISCORD_LINK,
     INSTAGRAM_LINK,
     LINKTREE_LINK,
-} from "./Constants";
+} from "./constants";
 import TextLink from "./TextLink";
 import DynamicButton from "./DynamicButton";
 
+
 export default function LinksCollection({
-    size = 50,
+    size = 30,
     justify = "justify-center",
 } : {
     size?: number;

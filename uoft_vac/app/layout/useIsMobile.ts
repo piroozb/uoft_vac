@@ -7,7 +7,7 @@ import {
 
 import {
     SIDE_DECOR_MIN,
-} from "../common/Constants";
+} from "../common/constants";
 
 const SMALLER_BREAKPOINT = 700;
 

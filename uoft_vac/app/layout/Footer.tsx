@@ -1,14 +1,19 @@
+"use client";
 
 import Image from "next/image";
 
 import {
     BARS_GRADIENT_STYLE,
-} from "../common/Constants";
+} from "../common/constants";
+import { useIsMobile } from "./useIsMobile";
 import LinksCollection from "../common/LinksCollection";
 
+
 export default function Footer() {
+    const isMobile = useIsMobile();
+
     return (
-        <footer className="flex flex-col items-center">
+        <footer className="z-100 flex flex-col items-center relative">
 
             {/* Frodo */}
             <Image
@@ -19,12 +24,13 @@ export default function Footer() {
 
             {/* Bar */}
             <div
-                className="w-full p-5 grid justify-center relative z-100"
+                className="w-full p-5 grid justify-center"
                 style={BARS_GRADIENT_STYLE}
             >
-
-                {/* Important links */}
-                <LinksCollection/>
+                {/* Links collection */}
+                <LinksCollection
+                size={!isMobile ? 50 : 30}
+                />
             </div>
         </footer>
     );

@@ -10,12 +10,13 @@ import {
     BARS_CENTRE_GREEN,
     FAQ_CENTRE_YELLOW,
     FAQ_EDGES_YELLOW,
-} from "../common/Constants";
+} from "../common/constants";
 import { faqs } from "./FAQs";
 import Question from "./Question";
-import { useIsMobile } from "../layout/UseIsMobile";
+import { useIsMobile } from "../layout/useIsMobile";
 import SectionTitle from "../common/SectionTitle";
-import { divGradientStyleBackground } from "../common/DivGradientStyleBackground";
+import { divGradientStyleBackground } from "../common/divGradientStyleBackground";
+
 
 export default function FAQPageClient() {
     const isMobile = useIsMobile()
@@ -58,18 +59,16 @@ export default function FAQPageClient() {
                 className={`${!isMobile ? "mx-[5cqw] px-10 pb-5" : "px-5 pb-3"}`}
                 style={{ background: BARS_CENTRE_GREEN }}
             >
-
                 {/* Yellow container */}
                 <div
                     className={`px-5 rounded-2xl ${!isMobile ? "shadow-lg" : "shadow-md"}`}
-                    style={{background: divGradientStyleBackground(
+                    style={{ background: divGradientStyleBackground(
                         FAQ_CENTRE_YELLOW,
                         FAQ_EDGES_YELLOW,
                         3,
                         3,
                     ) }}
                 >
-
                     {/* Map the data in FAQs.tsx using the Question.tsx component. */}
                     {faqs.map((faq, i) => (
                         <Question
@@ -94,6 +93,5 @@ export default function FAQPageClient() {
                 />
             </div>
         </main>
-        
     );
 }

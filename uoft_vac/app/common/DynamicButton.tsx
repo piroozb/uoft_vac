@@ -22,8 +22,7 @@ export default function DynamicButton({
     const [hovered, setHovered] = useState(false);
     const [pressed, setPressed] = useState(false);
 
-    const scale = pressed ? clickScale
-        : hovered ? hoverScale : 1;
+    const scale = pressed ? clickScale : hovered ? hoverScale : 1;
 
     const duration = pressed ? clickDuration : hoverDuration;
 

@@ -5,7 +5,6 @@ export const metadata: Metadata = {
 };
 
 import OurTeamPageClient from "./OurTeamPageClient";
-
 export default function OurTeamPage() {
     return (<OurTeamPageClient/>)
 }

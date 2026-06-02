@@ -5,7 +5,6 @@ export const metadata: Metadata = {
 };
 
 import JoinUsPageClient from "./JoinUsPageClient";
-
 export default function JoinUsPage() {
     return (<JoinUsPageClient/>)
 }
